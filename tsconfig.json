@@ -1,0 +1,13 @@
+{
+  "extends": "./node_modules/@polkadot/dev/config/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@polkadot/monitor-rpc/*": [ "packages/monitor-rpc/src/*" ]
+    },
+    "typeRoots": [
+      "./node_modules/@polkadot/ts",
+      "./node_modules/@types"
+    ]
+  }
+}

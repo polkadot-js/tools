@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "^10.13.0",
+    "yarn": "^1.10.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge.0",
+    "typescript": "^3.1.3"
+  },
+  "scripts": {
+    "build": "polkadot-dev-build-ts",
+    "check": "tslint --project . && tsc --version && tsc --noEmit",
+    "clean": "polkadot-dev-clean-build",
+    "monitor-rpc": "./packages/monitor-rpc/src/index.js",
+    "postinstall": "polkadot-dev-yarn-only",
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@polkadot/dev": "^0.21.3",
+    "@polkadot/ts": "^0.1.34"
+  }
+}
