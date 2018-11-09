@@ -20,7 +20,9 @@ function checkDelay () {
   const elapsed = Date.now() - currentTimestamp.getTime();
 
   if (elapsed > MAX_ELAPSED) {
-    console.error(`ERROR: #${currentBlockNumber} received at ${currentTimestamp}, ${(elapsed/1000).toFixed(2)}s ago`);
+    const secs = (elapsed / 1000).toFixed(2);
+
+    console.error(`ERROR: #${currentBlockNumber} received at ${currentTimestamp}, ${secs}s ago`);
   }
 }
 
@@ -47,13 +49,17 @@ async function main (): Promise<void> {
   const provider = new WsProvider(url);
   const api = await ApiPromise.create(provider);
 
-  api.rpc.chain.subscribeNewHead(updateCurrent);
+  await api.rpc.chain.subscribeNewHead(updateCurrent);
 
   setInterval(checkDelay, 1000);
 }
 
-main().catch((error) => {
-  console.error('ERROR:', error);
+main()
+  .then(() => {
+    // ignore
+  })
+  .catch((error) => {
+    console.error('ERROR:', error);
 
-  process.exit(1);
-});
+    process.exit(1);
+  });
