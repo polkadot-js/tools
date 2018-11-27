@@ -18,11 +18,12 @@
     "clean": "polkadot-dev-clean-build",
     "monitor-rpc": "./packages/monitor-rpc/src/index.js",
     "postinstall": "polkadot-dev-yarn-only",
+    "start": "node ./packages/monitor-rpc/src/index.js",
     "test": "jest --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
-    "@polkadot/dev": "^0.21.3",
-    "@polkadot/ts": "^0.1.34"
+    "@polkadot/dev": "^0.22.1",
+    "@polkadot/ts": "^0.1.39"
   }
 }
