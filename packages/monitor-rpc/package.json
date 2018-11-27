@@ -35,10 +35,14 @@
     "@babel/core": "^7.1.2",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.1.2",
-    "@polkadot/api": "^0.31.105",
-    "@polkadot/rpc-provider": "^0.31.105",
+    "@polkadot/api": "^0.32.5",
+    "@polkadot/rpc-provider": "^0.32.5",
+    "@types/koa": "^2.0.46",
+    "@types/koa-route": "^3.2.4",
     "@types/yargs": "^12.0.1",
     "babel-plugin-module-resolver": "^3.1.1",
+    "koa": "^2.6.1",
+    "koa-route": "^3.2.0",
     "yargs": "^12.0.2"
   }
 }
