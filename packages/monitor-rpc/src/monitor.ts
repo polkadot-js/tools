@@ -5,8 +5,7 @@
 import Koa, { Context } from 'koa';
 import koaRoute from 'koa-route';
 import yargs from 'yargs';
-import { ApiPromise } from '@polkadot/api';
-import { WsProvider } from '@polkadot/rpc-provider';
+import { ApiPromise, WsProvider } from '@polkadot/api';
 import { BlockNumber, Header } from '@polkadot/types';
 
 const MAX_ELAPSED = 60000;
@@ -51,11 +50,11 @@ async function main (): Promise<void> {
     port: {
       description: 'The HTTP port to listen on',
       type: 'number',
-      default: 8080,
+      default: 9099,
       required: true
     },
     url: {
-      description: 'The endpoint to connect to, e.g. wss://poc-2.polkadot.io',
+      description: 'The endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
       type: 'string',
       required: true
     }
@@ -67,7 +66,7 @@ async function main (): Promise<void> {
   app.listen(port);
 
   const provider = new WsProvider(url);
-  const api = await ApiPromise.create(provider);
+  const api = await ApiPromise.create({ provider });
 
   await api.rpc.chain.subscribeNewHead(updateCurrent);
 
