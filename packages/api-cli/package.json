@@ -1,10 +1,10 @@
 {
-  "name": "@polkadot/monitor-rpc",
+  "name": "@polkadot/api-cli",
   "version": "0.1.3",
-  "description": "A simple monitor via RPC",
+  "description": "A commandline API inmterface for interacting with a chain",
   "main": "index.js",
   "bin": {
-    "monitor-rpc": "./index.js"
+    "api-cli": "./index.js"
   },
   "keywords": [
     "Polkadot",
@@ -25,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/polkadot-js/tools.git"
+    "url": "git+https://github.com/polkadot-js/monitor.git"
   },
   "bugs": {
-    "url": "https://github.com/polkadot-js/tools/issues"
+    "url": "https://github.com/polkadot-js/monitor/issues"
   },
-  "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/monitor-rpc#readme",
+  "homepage": "https://github.com/polkadot-js/monitor/tree/master/packages/monitor#readme",
   "dependencies": {
     "@babel/core": "^7.3.3",
     "@babel/register": "^7.0.0",
@@ -39,6 +39,7 @@
     "@types/koa": "^2.0.47",
     "@types/koa-route": "^3.2.4",
     "@types/yargs": "^12.0.9",
+    "babel-plugin-module-resolver": "^3.2.0",
     "koa": "^2.7.0",
     "koa-route": "^3.2.0",
     "yargs": "^13.2.1"

@@ -46,26 +46,29 @@ function httpStatus (ctx: Context) {
 }
 
 async function main (): Promise<void> {
-  const { port, url } = yargs.options({
-    port: {
-      description: 'The HTTP port to listen on',
-      type: 'number',
-      default: 9099,
-      required: true
-    },
-    url: {
-      description: 'The endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
-      type: 'string',
-      required: true
-    }
-  }).argv;
+  const { port, ws } = yargs
+    .strict()
+    .options({
+      port: {
+        description: 'The HTTP port to listen on',
+        type: 'number',
+        default: 9099,
+        required: true
+      },
+      ws: {
+        description: 'The endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
+        type: 'string',
+        required: true
+      }
+    })
+    .argv;
 
   const app = new Koa();
 
   app.use(koaRoute.all('/', httpStatus));
   app.listen(port);
 
-  const provider = new WsProvider(url);
+  const provider = new WsProvider(ws);
   const api = await ApiPromise.create({ provider });
 
   await api.rpc.chain.subscribeNewHead(updateCurrent);

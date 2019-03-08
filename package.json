@@ -17,12 +17,15 @@
     "check": "tslint --project . && tsc --version && tsc --noEmit",
     "clean": "polkadot-dev-clean-build",
     "postinstall": "polkadot-dev-yarn-only",
-    "start": "./packages/monitor-rpc/src/index.js",
+    "start:cli": "./packages/api-cli/src/index.js",
+    "start:monitor": "./packages/monitor-rpc/src/index.js",
     "test": "echo \"no tests\""
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
-    "@polkadot/dev": "^0.25.4",
-    "@polkadot/ts": "^0.1.53"
+    "@babel/runtime": "^7.3.4",
+    "@polkadot/dev": "^0.25.13",
+    "@polkadot/ts": "^0.1.56",
+    "babel-plugin-module-resolver": "^3.2.0"
   }
 }
