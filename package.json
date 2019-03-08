@@ -17,8 +17,8 @@
     "check": "tslint --project . && tsc --version && tsc --noEmit",
     "clean": "polkadot-dev-clean-build",
     "postinstall": "polkadot-dev-yarn-only",
-    "start:cli": "./packages/api-cli/src/index.js",
-    "start:monitor": "./packages/monitor-rpc/src/index.js",
+    "run:api": "./packages/api-cli/src/index.js",
+    "run:monitor": "./packages/monitor-rpc/src/index.js",
     "test": "echo \"no tests\""
   },
   "devDependencies": {
