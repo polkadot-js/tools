@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/api-cli",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "A commandline API inmterface for interacting with a chain",
   "main": "index.js",
   "bin": {
@@ -25,23 +25,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/polkadot-js/monitor.git"
+    "url": "git+https://github.com/polkadot-js/tools.git"
   },
   "bugs": {
-    "url": "https://github.com/polkadot-js/monitor/issues"
+    "url": "https://github.com/polkadot-js/tools/issues"
   },
-  "homepage": "https://github.com/polkadot-js/monitor/tree/master/packages/monitor#readme",
+  "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/api-cli#readme",
   "dependencies": {
-    "@babel/core": "^7.3.3",
-    "@babel/register": "^7.0.0",
+    "@babel/core": "^7.3.4",
     "@babel/runtime": "^7.3.4",
     "@polkadot/api": "^0.46.9",
-    "@types/koa": "^2.0.47",
-    "@types/koa-route": "^3.2.4",
     "@types/yargs": "^12.0.9",
-    "babel-plugin-module-resolver": "^3.2.0",
     "koa": "^2.7.0",
     "koa-route": "^3.2.0",
-    "yargs": "^13.2.1"
+    "yargs": "^13.2.2"
   }
 }
