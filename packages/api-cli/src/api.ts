@@ -44,10 +44,8 @@ async function main (): Promise<void> {
   const provider = new WsProvider(ws);
   const api = await ApiPromise.create({ provider });
   const [type, section, method] = endpoint.split('.');
-  const isTx = type === 'tx';
 
   assert(['derive', 'query', 'rpc', 'tx'].includes(type), `Expected one of derive, query, rpc, tx, found ${type}`);
-  assert(info || !isTx || seed, 'You need to specify an account seed with tx.*');
   assert((api as any)[type][section], `Cannot find ${type}.${section}`);
   assert((api as any)[type][section][method], `Cannot find ${type}.${section}.${method}`);
 
@@ -69,12 +67,14 @@ async function main (): Promise<void> {
     process.exit(0);
   }
 
-  if (isTx && seed) {
+  if (type === 'tx') {
+    assert(seed, 'You need to specify an account seed with tx.*');
+
     const keyring = new Keyring();
     const account = keyring.addFromSeed(
       isHex(seed)
         ? hexToU8a(seed)
-        : stringToU8a((seed as string).padEnd(32))
+        : stringToU8a((seed as any).padEnd(32))
     );
 
     return fn(...params).signAndSend(account, (result: SubmittableResult) => {
