@@ -11,8 +11,17 @@ async function main (): Promise<void> {
   const log = (result: any) =>
     console.log(JSON.stringify({ [method]: result }));
 
-  const { _: [endpoint, ...params], seed, sub, ws } = yargs
+  const { _: [endpoint, ...params], info, seed, sub, ws } = yargs
+    .usage('Usage: [options] <endpoint> <...params>')
+    .usage('Example: query.balances.freeBalance 5GoKvZWG5ZPYL1WUovuHW3zJBWBP5eT8CbqjdRY4Q6iMaDtZ')
+    .usage('Example: query.substrate.code --info')
+    .usage('Example: --seed Alice tx.balances.transfer F7Gh 10000')
+    .wrap(120)
     .options({
+      info: {
+        description: 'Shows the meta information for the call',
+        type: 'boolean'
+      },
       seed: {
         description: 'The account seed to use (for tx.* only)',
         type: 'string'
@@ -38,11 +47,27 @@ async function main (): Promise<void> {
   const isTx = type === 'tx';
 
   assert(['derive', 'query', 'rpc', 'tx'].includes(type), `Expected one of derive, query, rpc, tx, found ${type}`);
-  assert(!isTx || seed, 'You need to specify an account seed with tx.*');
+  assert(info || !isTx || seed, 'You need to specify an account seed with tx.*');
   assert((api as any)[type][section], `Cannot find ${type}.${section}`);
   assert((api as any)[type][section][method], `Cannot find ${type}.${section}.${method}`);
 
   const fn = (api as any)[type][section][method];
+
+  if (info) {
+    console.log(`# ${section}.${method}\n`);
+
+    if (fn.description) {
+      console.log(fn.description);
+    } else if (fn.meta) {
+      fn.meta.documentation.forEach((doc: String) => console.log(doc.toString()));
+    } else {
+      console.log('No documentation available');
+    }
+
+    console.log();
+
+    process.exit(0);
+  }
 
   if (isTx && seed) {
     const keyring = new Keyring();
