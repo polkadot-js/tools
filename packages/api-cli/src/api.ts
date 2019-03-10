@@ -39,7 +39,7 @@ async function main (): Promise<void> {
     })
     .argv;
 
-  assert(endpoint && endpoint.indexOf('.') !== -1, `You need to specify the command to execure, e.g. query.balances.freeBalance`);
+  assert(endpoint && endpoint.indexOf('.') !== -1, `You need to specify the command to execute, e.g. query.balances.freeBalance`);
 
   const provider = new WsProvider(ws);
   const api = await ApiPromise.create({ provider });
