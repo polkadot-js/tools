@@ -1,4 +1,4 @@
-// Copyright 2018 @polkadot/monitor-rpc authors & contributors
+// Copyright 2018-2019 @polkadot/monitor-rpc authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
@@ -76,12 +76,8 @@ async function main (): Promise<void> {
   setInterval(checkDelay, 1000);
 }
 
-main()
-  .then(() => {
-    // ignore
-  })
-  .catch((error) => {
-    console.error('ERROR:', error);
+main().catch((error) => {
+  console.error('ERROR:', error);
 
-    process.exit(1);
-  });
+  process.exit(1);
+});

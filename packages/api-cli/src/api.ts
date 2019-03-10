@@ -1,4 +1,4 @@
-// Copyright 2018 @polkadot/api-cli authors & contributors
+// Copyright 2019 @polkadot/api-cli authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
@@ -93,12 +93,8 @@ async function main (): Promise<void> {
     });
 }
 
-main()
-  .then(() => {
-    // do nothing
-  })
-  .catch((error) => {
-    console.error('ERROR:', error.message);
+main().catch((error) => {
+  console.error('ERROR:', error.message);
 
-    process.exit(1);
-  });
+  process.exit(1);
+});

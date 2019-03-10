@@ -15,7 +15,7 @@ This is a collection of cli tools to use on Polkadot and Substrate chains.
 The repo is split up into a number of internal packages -
 
 - [@polkadot/api-cli](packages/api-cli/) A cli tool to allow you to make API calls to any running node
-- [@polkadot/monitor-rpc](packages/monitor-rpc/) A simple monitoring interface that checks the healt of a remove node via RPC
+- [@polkadot/monitor-rpc](packages/monitor-rpc/) A simple monitoring interface that checks the health of a remote node via RPC
 
 ## development
 
