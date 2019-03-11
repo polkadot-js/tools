@@ -1,4 +1,4 @@
-// Copyright 2018 @polkadot/monitor-rpc authors & contributors
+// Copyright 2018-2019 @polkadot/monitor-rpc authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
@@ -46,26 +46,29 @@ function httpStatus (ctx: Context) {
 }
 
 async function main (): Promise<void> {
-  const { port, url } = yargs.options({
-    port: {
-      description: 'The HTTP port to listen on',
-      type: 'number',
-      default: 9099,
-      required: true
-    },
-    url: {
-      description: 'The endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
-      type: 'string',
-      required: true
-    }
-  }).argv;
+  const { port, ws } = yargs
+    .strict()
+    .options({
+      port: {
+        description: 'The HTTP port to listen on',
+        type: 'number',
+        default: 9099,
+        required: true
+      },
+      ws: {
+        description: 'The endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
+        type: 'string',
+        required: true
+      }
+    })
+    .argv;
 
   const app = new Koa();
 
   app.use(koaRoute.all('/', httpStatus));
   app.listen(port);
 
-  const provider = new WsProvider(url);
+  const provider = new WsProvider(ws);
   const api = await ApiPromise.create({ provider });
 
   await api.rpc.chain.subscribeNewHead(updateCurrent);
@@ -73,12 +76,8 @@ async function main (): Promise<void> {
   setInterval(checkDelay, 1000);
 }
 
-main()
-  .then(() => {
-    // ignore
-  })
-  .catch((error) => {
-    console.error('ERROR:', error);
+main().catch((error) => {
+  console.error('ERROR:', error);
 
-    process.exit(1);
-  });
+  process.exit(1);
+});

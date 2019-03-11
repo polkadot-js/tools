@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@polkadot/api-cli/*": [ "packages/api-cli/src/*" ],
       "@polkadot/monitor-rpc/*": [ "packages/monitor-rpc/src/*" ]
     },
     "typeRoots": [

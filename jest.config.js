@@ -2,6 +2,7 @@ const config = require('@polkadot/dev/config/jest');
 
 module.exports = Object.assign({}, config, {
   moduleNameMapper: {
-    '@polkadot/monitor-(rpc)(.*)$': '<rootDir>/packages/monitor-$1/src/$2'
+    '@polkadot/api-cli(.*)$': '<rootDir>/packages/api-cli/src/$1',
+    '@polkadot/monitor-rpc(.*)$': '<rootDir>/packages/monitor-rpc/src/$1'
   }
 });

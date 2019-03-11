@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // @ts-check
-// Copyright 2018-2019 @polkadot/monitor-rpc authors & contributors
+// Copyright 2019 @polkadot/api-cli authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 const fs = require('fs');
 const path = require('path');
 
-const [compiled] = ['./monitor.js']
+const [compiled] = ['./api.js']
   .map((file) => path.join(__dirname, file))
   .filter((file) => fs.existsSync(file));
 
@@ -23,5 +23,5 @@ if (compiled) {
       }]
     ]
   });
-  require('./monitor');
+  require('./api');
 }
