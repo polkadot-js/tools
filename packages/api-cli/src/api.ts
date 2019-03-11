@@ -62,6 +62,7 @@ async function main (): Promise<void> {
       console.log('No documentation available');
     }
 
+    // EMpty line at the end to make it pretty
     console.log();
 
     process.exit(0);
