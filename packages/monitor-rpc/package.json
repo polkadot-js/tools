@@ -34,7 +34,7 @@
   "dependencies": {
     "@babel/core": "^7.3.4",
     "@babel/runtime": "^7.3.4",
-    "@polkadot/api": "^0.46.9",
+    "@polkadot/api": "^0.46.11",
     "@types/koa": "^2.0.47",
     "@types/koa-route": "^3.2.4",
     "@types/yargs": "^12.0.9",
