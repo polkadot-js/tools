@@ -2,7 +2,7 @@
 
 - Support sr25519 crypto
 - Add docker image (and publish to https://cloud.docker.com/u/jacogr/repository/docker/jacogr/polkadot-js-tools)
-- Bump upstream dependencies
+- Bump upstream dependencies, including v2 & v3 metadata support via api
 
 # 0.2.1
 
