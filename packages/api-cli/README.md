@@ -30,6 +30,13 @@ To make a transfer from Alice to Bob, the following can be used -
 yarn run:api tx.balances.transfer 5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM696e4 12345 --seed "//Alice"
 ```
 
+If you are installing it globally -
+
+```
+$ yarn add global @polkadot/api-cli
+$ polkadot-js-api ...
+```
+
 ## Other options
 
 The `--ws` param can be used to connect to other Webscoket endpoints, when submitting transactions, you can use the `--seed <seed>` to specify an account seed. To read documentation on a call, use the `--info` command.
