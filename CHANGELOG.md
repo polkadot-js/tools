@@ -1,5 +1,6 @@
 # 0.3.1
 
+- Support sr25519 crypto
 - Bump upstream dependencies
 
 # 0.2.1

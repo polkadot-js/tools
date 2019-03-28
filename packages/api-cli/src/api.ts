@@ -5,17 +5,16 @@
 import yargs from 'yargs';
 import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
-import { assert, hexToU8a, isHex, stringToU8a } from '@polkadot/util';
+import { assert } from '@polkadot/util';
+
+const CRYPTO = ['ed25519', 'sr25519'];
 
 async function main (): Promise<void> {
-  const log = (result: any) =>
-    console.log(JSON.stringify({ [method]: result }));
-
-  const { _: [endpoint, ...params], info, seed, sub, ws } = yargs
+  const { _: [endpoint, ...params], info, seed, sign, sub, ws } = yargs
     .usage('Usage: [options] <endpoint> <...params>')
-    .usage('Example: query.balances.freeBalance 5GoKvZWG5ZPYL1WUovuHW3zJBWBP5eT8CbqjdRY4Q6iMaDtZ')
+    .usage('Example: query.balances.freeBalance 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB')
     .usage('Example: query.substrate.code --info')
-    .usage('Example: --seed Alice tx.balances.transfer F7Gh 10000')
+    .usage('Example: --seed "//Alice" tx.balances.transfer F7Gh 10000')
     .wrap(120)
     .options({
       info: {
@@ -23,7 +22,13 @@ async function main (): Promise<void> {
         type: 'boolean'
       },
       seed: {
-        description: 'The account seed to use (for tx.* only)',
+        description: 'The account seed to use (required for tx.* only)',
+        type: 'string'
+      },
+      sign: {
+        choices: CRYPTO,
+        default: 'sr25519',
+        description: 'The account crypto signature to use (required fo tx.* only)',
         type: 'string'
       },
       sub: {
@@ -37,6 +42,7 @@ async function main (): Promise<void> {
         required: true
       }
     })
+    .strict()
     .argv;
 
   assert(endpoint && endpoint.indexOf('.') !== -1, `You need to specify the command to execute, e.g. query.balances.freeBalance`);
@@ -50,6 +56,8 @@ async function main (): Promise<void> {
   assert((api as any)[type][section][method], `Cannot find ${type}.${section}.${method}`);
 
   const fn = (api as any)[type][section][method];
+  const log = (result: any) =>
+    console.log(JSON.stringify({ [method]: result }, null, 2));
 
   if (info) {
     console.log(`# ${section}.${method}\n`);
@@ -70,18 +78,15 @@ async function main (): Promise<void> {
 
   if (type === 'tx') {
     assert(seed, 'You need to specify an account seed with tx.*');
+    assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
     const keyring = new Keyring();
-    const account = keyring.addFromSeed(
-      isHex(seed)
-        ? hexToU8a(seed)
-        : stringToU8a((seed as any).padEnd(32))
-    );
+    const account = keyring.createFromUri(seed as string, {}, sign as any);
 
     return fn(...params).signAndSend(account, (result: SubmittableResult) => {
       log(result);
 
-      if (result.type === 'finalised') {
+      if (result.type === 'Finalised') {
         process.exit(0);
       }
     });
