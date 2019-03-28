@@ -14,7 +14,7 @@ async function main (): Promise<void> {
     .usage('Usage: [options] <endpoint> <...params>')
     .usage('Example: query.balances.freeBalance 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB')
     .usage('Example: query.substrate.code --info')
-    .usage('Example: --seed Alice tx.balances.transfer F7Gh 10000')
+    .usage('Example: --seed "//Alice" tx.balances.transfer F7Gh 10000')
     .wrap(120)
     .options({
       info: {
