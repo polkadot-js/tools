@@ -4,7 +4,7 @@
   "description": "A simple monitor via RPC",
   "main": "index.js",
   "bin": {
-    "monitor-rpc": "./index.js"
+    "polkadot-js-monitor": "./index.js"
   },
   "keywords": [
     "Polkadot",
@@ -35,11 +35,13 @@
     "@babel/core": "^7.4.0",
     "@babel/runtime": "^7.4.2",
     "@polkadot/api": "^0.52.0-beta.4",
-    "@types/koa": "^2.0.47",
-    "@types/koa-route": "^3.2.4",
-    "@types/yargs": "^12.0.10",
     "koa": "^2.7.0",
     "koa-route": "^3.2.0",
     "yargs": "^13.2.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.47",
+    "@types/koa-route": "^3.2.4",
+    "@types/yargs": "^12.0.10"
   }
 }
