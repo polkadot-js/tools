@@ -17,7 +17,8 @@
   "contributors": [],
   "license": "Apache-2.0",
   "engines": {
-    "node": "^10.13.0"
+    "node": "^10.13.0",
+    "yarn": "^1.10.1"
   },
   "publishConfig": {
     "access": "public",
