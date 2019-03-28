@@ -1,3 +1,7 @@
+# 0.3.1
+
+- Bump upstream dependencies
+
 # 0.2.1
 
 - added api-cli for API queries via the command-line
