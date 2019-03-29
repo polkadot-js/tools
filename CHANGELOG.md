@@ -1,3 +1,7 @@
+# 0.4.1
+
+- @polkadot/util & @polkadot/api 0.75.1
+
 # 0.3.1
 
 - Support sr25519 crypto
