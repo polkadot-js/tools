@@ -86,7 +86,7 @@ async function main (): Promise<void> {
     return fn(...params).signAndSend(account, (result: SubmittableResult) => {
       log(result);
 
-      if (result.type === 'Finalised') {
+      if (result.status.isFinalized) {
         process.exit(0);
       }
     });
