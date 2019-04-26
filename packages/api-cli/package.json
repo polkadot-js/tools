@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/api-cli",
-  "version": "0.5.0-beta.0",
+  "version": "0.5.0",
   "description": "A commandline API interface for interacting with a chain",
   "main": "index.js",
   "bin": {
@@ -34,7 +34,7 @@
   "dependencies": {
     "@babel/core": "^7.4.0",
     "@babel/runtime": "^7.4.2",
-    "@polkadot/api": "^0.76.0-beta.1",
+    "@polkadot/api": "^0.77.1",
     "yargs": "^13.2.2"
   },
   "devDependencies": {
