@@ -1,3 +1,9 @@
+# 0.5.1
+
+- @polkadot/api 0.77.1
+- Bump upstream dependencies to support v4 metadata to prepare for Substrate 1.0 release
+- Updated api-sli examples to use sr25519 keys
+
 # 0.4.1
 
 - @polkadot/util & @polkadot/api 0.75.1
