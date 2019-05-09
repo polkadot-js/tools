@@ -10,7 +10,7 @@
   ],
   "resolutions": {
     "babel-core": "^7.0.0-bridge.0",
-    "typescript": "^3.4.1"
+    "typescript": "^3.4.5"
   },
   "scripts": {
     "build": "polkadot-dev-build-ts",
@@ -23,10 +23,10 @@
     "test": "echo \"no tests\""
   },
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/register": "^7.4.0",
-    "@babel/runtime": "^7.4.2",
-    "@polkadot/dev": "^0.29.0-beta.1",
+    "@babel/core": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "@babel/runtime": "^7.4.4",
+    "@polkadot/dev": "^0.30.0-beta.4",
     "@polkadot/ts": "^0.1.56",
     "babel-plugin-module-resolver": "^3.2.0"
   }
