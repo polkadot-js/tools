@@ -2,7 +2,6 @@
   "version": "0.5.0-beta.2",
   "private": true,
   "engines": {
-    "node": "^10.13.0",
     "yarn": "^1.10.1"
   },
   "workspaces": [
@@ -26,8 +25,8 @@
     "@babel/core": "^7.4.4",
     "@babel/register": "^7.4.4",
     "@babel/runtime": "^7.4.4",
-    "@polkadot/dev": "^0.30.0-beta.4",
-    "@polkadot/ts": "^0.1.56",
+    "@polkadot/dev": "^0.30.0-beta.8",
+    "@polkadot/ts": "^0.1.58",
     "babel-plugin-module-resolver": "^3.2.0"
   }
 }
