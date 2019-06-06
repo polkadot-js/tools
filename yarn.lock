@@ -1695,7 +1695,7 @@
     "@types/memoizee" "^0.4.2"
     memoizee "^0.4.14"
 
-"@polkadot/api@^0.80.0-beta.15", "@polkadot/api@^0.80.1":
+"@polkadot/api@^0.80.1":
   version "0.80.1"
   resolved "https://registry.yarnpkg.com/@polkadot/api/-/api-0.80.1.tgz#23970877b690667d7fed3424d638f4afdbfd9574"
   integrity sha512-ipeB85jczdy7ka89plcUqElu4qqKmQ1Aoeu0O+Yzlpp4A42E8cv9dv5DKSkVdsd0Ack8aLXDFakcMJpo8o7MOQ==
@@ -1709,7 +1709,7 @@
     "@polkadot/types" "^0.80.1"
     "@polkadot/util-crypto" "^0.92.1"
 
-"@polkadot/dev@^0.30.0-beta.8":
+"@polkadot/dev@^0.30.0-beta.9":
   version "0.30.0-beta.9"
   resolved "https://registry.yarnpkg.com/@polkadot/dev/-/dev-0.30.0-beta.9.tgz#ab2cc4df2ed044d9f5a5ed3ad86adf3b3655698f"
   integrity sha512-jLBLWZQLzQv0OVocWUMxHQi6N899zStCrNrmeKuyi++bicjtO8yVKcYt91pzZutBvnrM2ZBFvcQ+wCogmiOUtw==
