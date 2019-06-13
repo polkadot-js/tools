@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/monitor-rpc",
-  "version": "0.5.0-beta.5",
+  "version": "0.5.0-beta.6",
   "description": "A simple monitor via RPC",
   "main": "index.js",
   "bin": {
