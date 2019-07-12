@@ -9,12 +9,12 @@
   ],
   "resolutions": {
     "babel-core": "^7.0.0-bridge.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.3"
   },
   "scripts": {
     "build": "polkadot-dev-build-ts",
     "check": "yarn lint",
-    "lint": "tslint --project . && tsc --version && tsc --noEmit",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx . && tsc --version && tsc --noEmit",
     "clean": "polkadot-dev-clean-build",
     "postinstall": "polkadot-dev-yarn-only",
     "run:api": "./packages/api-cli/src/index.js",
@@ -22,11 +22,11 @@
     "test": "echo \"no tests\""
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/core": "^7.5.4",
     "@babel/register": "^7.4.4",
     "@babel/runtime": "^7.4.4",
-    "@polkadot/dev": "^0.30.0-beta.13",
-    "@polkadot/ts": "^0.1.60",
+    "@polkadot/dev": "^0.30.0-beta.21",
+    "@polkadot/ts": "^0.1.62",
     "babel-plugin-module-resolver": "^3.2.0"
   }
 }
