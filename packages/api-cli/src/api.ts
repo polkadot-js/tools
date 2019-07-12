@@ -52,11 +52,14 @@ async function main (): Promise<void> {
   const [type, section, method] = endpoint.split('.');
 
   assert(['derive', 'query', 'rpc', 'tx'].includes(type), `Expected one of derive, query, rpc, tx, found ${type}`);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   assert((api as any)[type][section], `Cannot find ${type}.${section}`);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   assert((api as any)[type][section][method], `Cannot find ${type}.${section}.${method}`);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const fn = (api as any)[type][section][method];
-  const log = (result: any) =>
+  const log = (result: SubmittableResult): void =>
     console.log(JSON.stringify({ [method]: result }, null, 2));
 
   if (info) {
@@ -65,7 +68,7 @@ async function main (): Promise<void> {
     if (fn.description) {
       console.log(fn.description);
     } else if (fn.meta) {
-      fn.meta.documentation.forEach((doc: String) => console.log(doc.toString()));
+      fn.meta.documentation.forEach((doc: string): void => console.log(doc.toString()));
     } else {
       console.log('No documentation available');
     }
@@ -81,9 +84,10 @@ async function main (): Promise<void> {
     assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
     const keyring = new Keyring();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const account = keyring.createFromUri(seed as string, {}, sign as any);
 
-    return fn(...params).signAndSend(account, (result: SubmittableResult) => {
+    return fn(...params).signAndSend(account, (result: SubmittableResult): void => {
       log(result);
 
       if (result.status.isFinalized) {
@@ -94,12 +98,12 @@ async function main (): Promise<void> {
 
   return sub
     ? fn(...params, log)
-    : fn(...params).then(log).then(() => {
+    : fn(...params).then(log).then((): void => {
       process.exit(0);
     });
 }
 
-main().catch((error) => {
+main().catch((error): void => {
   console.error('ERROR:', error.message);
 
   process.exit(1);

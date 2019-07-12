@@ -13,7 +13,7 @@ const MAX_ELAPSED = 60000;
 let currentBlockNumber: BlockNumber = new BlockNumber(0);
 let currentTimestamp: Date = new Date();
 
-function checkDelay () {
+function checkDelay (): void {
   const elapsed = Date.now() - currentTimestamp.getTime();
 
   if (elapsed >= MAX_ELAPSED) {
@@ -23,7 +23,7 @@ function checkDelay () {
   }
 }
 
-function updateCurrent (header: Header) {
+function updateCurrent (header: Header): void {
   if (currentBlockNumber && header.blockNumber.eq(currentBlockNumber.toBn())) {
     return;
   }
@@ -34,7 +34,7 @@ function updateCurrent (header: Header) {
   console.log(`#${currentBlockNumber} received at ${currentTimestamp}`);
 }
 
-function httpStatus (ctx: Context) {
+function httpStatus (ctx: Context): void {
   const elapsed = Date.now() - currentTimestamp.getTime();
 
   ctx.body = {
@@ -76,7 +76,7 @@ async function main (): Promise<void> {
   setInterval(checkDelay, 1000);
 }
 
-main().catch((error) => {
+main().catch((error): void => {
   console.error('ERROR:', error);
 
   process.exit(1);
