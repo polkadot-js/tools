@@ -29,11 +29,11 @@
   },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/api-cli#readme",
   "dependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/runtime": "^7.5.4",
-    "@polkadot/api": "^0.82.0-beta.53",
-    "@polkadot/keyring": "^0.94.0-beta.9",
-    "yargs": "^13.2.2"
+    "@babel/core": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@polkadot/api": "^0.82.0-beta.77",
+    "@polkadot/keyring": "^0.94.1",
+    "yargs": "^13.3.0"
   },
   "devDependencies": {
     "@types/yargs": "^13.0.0"
