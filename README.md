@@ -1,10 +1,12 @@
-[![polkadotjs](https://img.shields.io/badge/polkadot-js-orange.svg?style=flat-square)](https://polkadot.js.org)
-![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)
-[![style](https://img.shields.io/badge/code%20style-semistandard-lightgrey.svg?style=flat-square)](https://github.com/Flet/semistandard)
-[![travis](https://img.shields.io/travis/polkadot-js/tools.svg?style=flat-square)](https://travis-ci.com/polkadot-js/tools)
-[![maintainability](https://img.shields.io/codeclimate/maintainability/polkadot-js/tools.svg?style=flat-square)](https://codeclimate.com/github/polkadot-js/tools/maintainability)
-[![coverage](https://img.shields.io/coveralls/polkadot-js/tools.svg?style=flat-square)](https://coveralls.io/github/polkadot-js/tools?branch=master)
-[![greenkeeper](https://img.shields.io/badge/greenkeeper-enabled-brightgreen.svg?style=flat-square)](https://greenkeeper.io/)
+[![polkadotjs](https://img.shields.io/badge/polkadot-js-orange?label=&style=for-the-badge)](https://polkadot.js.org)
+![license](https://img.shields.io/badge/License-Apache%202.0-blue?label=&logo=apache&style=for-the-badge)
+[![npm](https://img.shields.io/npm/v/@polkadot/api-cli?label=&logo=npm&style=for-the-badge)](https://www.npmjs.com/package/@polkadot/api-cli)
+[![beta](https://img.shields.io/npm/v/@polkadot/api-cli/beta?label=&logo=npm&style=for-the-badge)](https://www.npmjs.com/package/@polkadot/api-cli)
+[![travisci](https://img.shields.io/travis/com/polkadot-js/tools?label=&logo=travis&style=for-the-badge)](https://travis-ci.com/polkadot-js/tools)
+[![circleci](https://img.shields.io/circleci/build/github/polkadot-js/tools/master?label=&logo=circleci&style=for-the-badge)](https://circleci.com/gh/polkadot-js/tools)
+[![maintainability](https://img.shields.io/codeclimate/maintainability/polkadot-js/tools?label=&logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/polkadot-js/tools/maintainability)
+[![coverage](https://img.shields.io/coveralls/polkadot-js/tools?label=&logo=code-climate&style=for-the-badge)](https://coveralls.io/github/polkadot-js/tools?branch=master)
+[![greenkeeper](https://img.shields.io/badge/greenkeeper-enabled-brightgreen?label=&logo=greenkeeper&style=for-the-badge)](https://greenkeeper.io/)
 
 # @polkadot/tools
 
