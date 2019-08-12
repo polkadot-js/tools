@@ -45,6 +45,15 @@ interface ApiExt {
   tx: ApiExtSection;
 }
 
+// the infor extracted from nthe actual params provided
+interface CallInfo {
+  fn: ApiCallFn;
+  log: LogFn;
+  method: string;
+  section: string;
+  type: string
+};
+
 const CRYPTO = ['ed25519', 'sr25519'];
 
 // retrieve and parse arguments - we do this globally, since this is a single command
@@ -84,7 +93,7 @@ const { _: [endpoint, ...params], info, seed, sign, sub, ws } = yargs
   .argv;
 
 // parse the arguments and retrieve the details of what we want to do
-async function getCall (): Promise<{ fn: ApiCallFn; log: LogFn; method: string; section: string; type: string }> {
+async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.indexOf('.') !== -1, `You need to specify the command to execute, e.g. query.balances.freeBalance`);
 
   const provider = new WsProvider(ws);
@@ -108,20 +117,22 @@ async function getCall (): Promise<{ fn: ApiCallFn; log: LogFn; method: string; 
 }
 
 // retrieve consts
-function logConst (fn: ApiCallFn, log: LogFn): void {
+function logConst ({ fn, log }: CallInfo): void {
   log(fn);
 
   process.exit(0);
 }
 
 // log the details of a specific endpoint
-function logDetails (fn: ApiCallFn, section: string, method: string): void {
+function logDetails ({ fn: { description, meta }, method, section }: CallInfo): void {
   console.log(`# ${section}.${method}\n`);
 
-  if (fn.description) {
-    console.log(fn.description);
-  } else if (fn.meta) {
-    fn.meta.documentation.forEach((doc: string): void => console.log(doc.toString()));
+  if (description) {
+    console.log(description);
+  } else if (meta) {
+    meta.documentation.forEach((doc: string): void =>
+      console.log(doc.toString())
+    );
   } else {
     console.log('No documentation available');
   }
@@ -133,7 +144,7 @@ function logDetails (fn: ApiCallFn, section: string, method: string): void {
 }
 
 // send a transaction
-async function makeTx (fn: ApiCallFn, log: LogFn): Promise<void> {
+async function makeTx ({ fn, log }: CallInfo): Promise<void> {
   assert(seed, 'You need to specify an account seed with tx.*');
   assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
@@ -149,18 +160,8 @@ async function makeTx (fn: ApiCallFn, log: LogFn): Promise<void> {
   });
 }
 
-// our main entry point - from here we call out
-async function main (): Promise<void> {
-  const { fn, log, method, section, type } = await getCall();
-
-  if (info) {
-    return logDetails(fn, section, method);
-  } else if (type === 'consts') {
-    return logConst(fn, log);
-  } else if (type === 'tx') {
-    return makeTx(fn, log);
-  }
-
+// make a derive, query or rpc call
+async function makeCall ({ fn, log, method, type }: CallInfo): Promise<void> {
   const isRpcSub = (type === 'rpc') && (method.indexOf('subscribe') === 0);
 
   return sub || isRpcSub
@@ -170,6 +171,21 @@ async function main (): Promise<void> {
     : fn(...params).then(log).then((): void => {
       process.exit(0);
     });
+}
+
+// our main entry point - from here we call out
+async function main (): Promise<void> {
+  const callInfo = await getCallInfo();
+
+  if (info) {
+    return logDetails(callInfo);
+  } else if (callInfo.type === 'consts') {
+    return logConst(callInfo);
+  } else if (callInfo.type === 'tx') {
+    return makeTx(callInfo);
+  }
+
+  return makeCall(callInfo);
 }
 
 main().catch((error): void => {
