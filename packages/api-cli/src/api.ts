@@ -51,8 +51,8 @@ interface CallInfo {
   log: LogFn;
   method: string;
   section: string;
-  type: string
-};
+  type: string;
+}
 
 const CRYPTO = ['ed25519', 'sr25519'];
 
