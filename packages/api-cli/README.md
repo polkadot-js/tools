@@ -10,7 +10,7 @@ Commands are of the form,
 yarn run:api [options] <type> <...params>
 ```
 
-Where type is the type of query to be made, this takes the form of `<type>.<section>.<method>` where `type` is one of `derive`, `query`, `rpc` `tx` (mapping to the API) and the `section` and `method` are available calls.
+Where type is the type of query to be made, this takes the form of `<type>.<section>.<method>` where `type` is one of `consts`, `derive`, `query`, `rpc` `tx` (mapping to the API) and the `section` and `method` are available calls.
 
 For instance to make a query to retrieve Alice's balances, you can do
 

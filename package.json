@@ -13,7 +13,6 @@
   },
   "scripts": {
     "build": "polkadot-dev-build-ts",
-    "check": "yarn lint",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx . && tsc --version && tsc --noEmit",
     "clean": "polkadot-dev-clean-build",
     "postinstall": "polkadot-dev-yarn-only",
@@ -25,8 +24,8 @@
     "@babel/core": "^7.5.5",
     "@babel/register": "^7.5.5",
     "@babel/runtime": "^7.5.5",
-    "@polkadot/dev": "^0.30.0-beta.23",
-    "@polkadot/ts": "^0.1.62",
+    "@polkadot/dev": "^0.31.0-beta.1",
+    "@polkadot/ts": "^0.1.64",
     "babel-plugin-module-resolver": "^3.2.0"
   }
 }

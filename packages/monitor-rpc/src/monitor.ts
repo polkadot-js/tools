@@ -2,15 +2,34 @@
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
+import { BlockNumber, Header } from '@polkadot/types/interfaces';
+
 import Koa, { Context } from 'koa';
 import koaRoute from 'koa-route';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { BlockNumber, Header } from '@polkadot/types';
+import { createType } from '@polkadot/types';
 
 const MAX_ELAPSED = 60000;
 
-let currentBlockNumber: BlockNumber = new BlockNumber(0);
+const { port, ws } = yargs
+  .strict()
+  .options({
+    port: {
+      description: 'The HTTP port to listen on',
+      type: 'number',
+      default: 9099,
+      required: true
+    },
+    ws: {
+      description: 'The endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
+      type: 'string',
+      required: true
+    }
+  })
+  .argv;
+
+let currentBlockNumber: BlockNumber = createType('BlockNumber');
 let currentTimestamp: Date = new Date();
 
 function checkDelay (): void {
@@ -24,11 +43,11 @@ function checkDelay (): void {
 }
 
 function updateCurrent (header: Header): void {
-  if (currentBlockNumber && header.blockNumber.eq(currentBlockNumber.toBn())) {
+  if (currentBlockNumber && header.number.eq(currentBlockNumber.toBn())) {
     return;
   }
 
-  currentBlockNumber = header.blockNumber;
+  currentBlockNumber = header.number.unwrap();
   currentTimestamp = new Date();
 
   console.log(`#${currentBlockNumber} received at ${currentTimestamp}`);
@@ -46,23 +65,6 @@ function httpStatus (ctx: Context): void {
 }
 
 async function main (): Promise<void> {
-  const { port, ws } = yargs
-    .strict()
-    .options({
-      port: {
-        description: 'The HTTP port to listen on',
-        type: 'number',
-        default: 9099,
-        required: true
-      },
-      ws: {
-        description: 'The endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
-        type: 'string',
-        required: true
-      }
-    })
-    .argv;
-
   const app = new Koa();
 
   app.use(koaRoute.all('/', httpStatus));
