@@ -16,13 +16,7 @@ if (compiled) {
   require(compiled);
 } else {
   require('@babel/register')({
-    extensions: ['.js', '.ts'],
-    plugins: [
-      ['module-resolver', {
-        alias: {
-        }
-      }]
-    ]
+    extensions: ['.js', '.ts']
   });
   require('./api');
 }
