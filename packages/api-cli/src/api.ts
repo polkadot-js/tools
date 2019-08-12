@@ -45,7 +45,7 @@ interface ApiExt {
   tx: ApiExtSection;
 }
 
-// the infor extracted from nthe actual params provided
+// the info extracted from the actual params provided
 interface CallInfo {
   fn: ApiCallFn;
   log: LogFn;
