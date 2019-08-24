@@ -73,7 +73,7 @@ async function main (): Promise<void> {
   const provider = new WsProvider(ws);
   const api = await ApiPromise.create({ provider });
 
-  await api.rpc.chain.subscribeNewHead(updateCurrent);
+  await api.rpc.chain.subscribeNewHeads(updateCurrent);
 
   setInterval(checkDelay, 1000);
 }
