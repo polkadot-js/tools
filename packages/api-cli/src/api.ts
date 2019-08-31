@@ -94,7 +94,7 @@ const { _: [endpoint, ...params], info, seed, sign, sub, ws } = yargs
 
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
-  assert(endpoint && endpoint.indexOf('.') !== -1, 'You need to specify the command to execute, e.g. query.balances.freeBalance');
+  assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.balances.freeBalance');
 
   const provider = new WsProvider(ws);
   const api = (await ApiPromise.create({ provider })) as unknown as ApiExt;
@@ -162,7 +162,7 @@ async function makeTx ({ fn, log }: CallInfo): Promise<void> {
 
 // make a derive, query or rpc call
 async function makeCall ({ fn, log, method, type }: CallInfo): Promise<void> {
-  const isRpcSub = (type === 'rpc') && (method.indexOf('subscribe') === 0);
+  const isRpcSub = (type === 'rpc') && method.startsWith('subscribe');
 
   return sub || isRpcSub
     ? fn(...params, log).then((): void => {
