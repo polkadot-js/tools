@@ -79,7 +79,7 @@ async function main (): Promise<void> {
 }
 
 main().catch((error): void => {
-  console.error('ERROR:', error);
+  console.error(error);
 
   process.exit(1);
 });
