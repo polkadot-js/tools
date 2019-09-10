@@ -17,7 +17,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs
 
 # env variable works around gyp install (secp256k1) with root permissions
-RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@VERSION @polkadot/monitor-rpc@VERSION
+RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@VERSION @polkadot/monitor-rpc@VERSION @polkadot/signer-cli@VERSION
 
 # copy the cli wrapper to this container
 COPY docker-cli.sh .

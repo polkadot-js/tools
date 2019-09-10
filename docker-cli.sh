@@ -20,15 +20,20 @@ case $CMD in
     polkadot-js-monitor $*
     exit 0
     ;;
+  signer)
+    polkadot-js-signer $*
+    exit 0
+    ;;
 esac
 
 echo "This executes polkadot-js cli commands."
 echo ""
-echo "Usage: <api|monitor> [...options]"
+echo "Usage: <api|monitor|signer> [...options]"
 echo ""
 echo "Commands:"
 echo "  api: Runs a cli interface to the api, use 'api --help' for options"
 echo "  monitor: Runs a simple node monitor, use 'monitor --help' for options"
+echo "  signer: Runs a simple offline signer, use 'signer --help' for options"
 echo ""
 
 exit 1

@@ -18,6 +18,7 @@
     "postinstall": "polkadot-dev-yarn-only",
     "run:api": "./packages/api-cli/src/index.js",
     "run:monitor": "./packages/monitor-rpc/src/index.js",
+    "run:signer": "./packages/signer-cli/src/index.js",
     "test": "echo \"no tests\""
   },
   "devDependencies": {
