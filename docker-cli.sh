@@ -13,15 +13,15 @@ shift
 # execute the command specified
 case $CMD in
   api)
-    polkadot-js-api $*
+    polkadot-js-api "$@"
     exit 0
     ;;
   monitor)
-    polkadot-js-monitor $*
+    polkadot-js-monitor "$@"
     exit 0
     ;;
   signer)
-    polkadot-js-signer $*
+    polkadot-js-signer "$@"
     exit 0
     ;;
 esac
