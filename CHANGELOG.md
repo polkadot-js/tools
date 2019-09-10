@@ -1,3 +1,8 @@
+# 0.6.1
+
+- @polkadot/api 0.91.1
+- Add @polkadot/signer-cli tool
+
 # 0.5.1
 
 - @polkadot/api 0.90.1
