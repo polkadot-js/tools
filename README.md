@@ -14,6 +14,7 @@ The repo is split up into a number of internal packages -
 
 - [@polkadot/api-cli](packages/api-cli/) A cli tool to allow you to make API calls to any running node
 - [@polkadot/monitor-rpc](packages/monitor-rpc/) A simple monitoring interface that checks the health of a remote node via RPC
+- [@polkadot/signer-cli](packages/signer-cli/) A cli tool that allows you to generate transactions in one terminal and sign them in another terminal (or computer)
 
 ## Installation
 
@@ -29,7 +30,7 @@ And then you can execute it via `polkadot-js-api [...options]` or `polkadot-js-m
 Alternatively a docker image is provided as well (or you can build your own from this repo). Usage is as follow -
 
 ```
-docker run jacogr/polkadot-js-tools <api|monitor> [...options]
+docker run jacogr/polkadot-js-tools <api|monitor|signer> [...options]
 ```
 
 With docker, if you are connecting to a local node for the API or monitor, and use the (default) `127.0.0.1` host, you would need to pass `--network=host` as a flag, i.e. `docker run --network=host ...` and pass the appropriate flags to the node to allow connections for docker.

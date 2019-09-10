@@ -4,7 +4,7 @@
   "description": "A commandline signer for offline signature generataion",
   "main": "index.js",
   "bin": {
-    "polkadot-js-api": "./index.js"
+    "polkadot-js-signer": "./index.js"
   },
   "keywords": [
     "Polkadot",
