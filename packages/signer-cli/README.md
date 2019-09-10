@@ -1,6 +1,6 @@
 # @polkadot/signer-cli
 
-A simple cli interface foir offline siging
+A simple cli interface for offline siging
 
 ## Create transactions to sign
 
@@ -19,7 +19,7 @@ Payload: 0x040300ff4a83f1...a8239139ff3ff7c3f6
 Signature>
 ```
 
-The `Payload` is the hex that needs to be signed. Pastign  the hex signature (followed by `Enter`) submit it to the chain.
+The `Payload` is the hex that needs to be signed. Pasting the hex signature (followed by `Enter`) submits it to the chain.
 
 ## Sign transactions
 
