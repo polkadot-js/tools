@@ -4,7 +4,7 @@ A simple cli interface for offline siging
 
 ## Create transactions to sign
 
-In a terminal run the `submit` command with the following form -
+In a terminal, run the `submit` command with the following form -
 
 `yarn run:signer submit --account <ss58> --ws <endpoint> <module.method> [param1] [...] [paramX]`
 
@@ -37,4 +37,4 @@ On executing, it will respond with -
 Signature: 0xe6facf194a8e...413ce3155c2d1240b
 ```
 
-Paste this signature into the  submission in the first terminal, and off we go.
+Paste this signature into the submission in the first terminal, and off we go.
