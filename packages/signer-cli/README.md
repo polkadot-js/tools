@@ -25,7 +25,7 @@ The `Payload` is the hex that needs to be signed. Pasting the hex signature (fol
 
 In a terminal, run the `sign` command with the following form -
 
-`yarn run:signer sign --account <ss58> --seed <suri> --type <ed25519|sr25519> <hex signature>`
+`yarn run:signer sign --account <ss58> --seed <suri> --type <ed25519|sr25519> <hex payload>`
 
 For instance to sign the transfer made above, we run -
 
