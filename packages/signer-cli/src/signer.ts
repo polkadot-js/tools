@@ -10,9 +10,8 @@ import cmdSubmit from './cmdSubmit';
 // retrieve and parse arguments - we do this globally, since this is a single command
 const { _: [command, ...params], account, seed, type, ws } = yargs
   .usage('Usage: [options] <endpoint> <...params>')
-  .usage('Example: submit balances.transfer F7Gh 10000 --account D3AhD...wrx --ws wss://...')
-  .usage('Example: sign 0x123...789 --seed "..." --account D3AhD...wrx --crypto ed25519')
-  .usage('Example: --seed "//Alice" balances.transfer F7Gh 10000')
+  .usage('Example: submit --account D3AhD...wrx --ws wss://... balances.transfer F7Gh 10000 ')
+  .usage('Example: sign --seed "..." --account D3AhD...wrx --crypto ed25519 0x123...789')
   .wrap(120)
   .options({
     account: {
