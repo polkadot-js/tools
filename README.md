@@ -25,15 +25,15 @@ You can install the packages globally via npm, i.e.
 npm install -g @polkadot/api-cli
 ```
 
-And then you can execute it via `polkadot-js-api [...options]` or `polkadot-js-monitor [...options]
+And then you can execute it via `polkadot-js-api [...options]` or `polkadot-js-monitor [...options]`
 
 Alternatively a docker image is provided as well (or you can build your own from this repo). Usage is as follow -
 
 ```
-docker run jacogr/polkadot-js-tools <api|monitor|signer> [...options]
+docker run jacogr/polkadot-js-tools <api|monitor|signer> [...options | --help]
 ```
 
-With docker, if you are connecting to a local node for the API or monitor, and use the (default) `127.0.0.1` host, you would need to pass `--network=host` as a flag, i.e. `docker run --network=host ...` and pass the appropriate flags to the node to allow connections for docker.
+With docker, if you are connecting to a local node for the API or monitor (or signer where the transaction is generated, i.e. the sign process is offline), and use the (default) `127.0.0.1` host, you would need to pass `--network=host` as a flag, i.e. `docker run --network=host ...` and pass the appropriate flags to the node to allow connections for docker.
 
 ## Development
 
