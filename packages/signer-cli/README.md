@@ -1,10 +1,10 @@
 # @polkadot/signer-cli
 
-A simple cli interface for offline siging
+A simple cli interface for offline signing. This can also be executed via the [docker image](../../README.md#docker)
 
-## Create transactions to sign
+## Create a transactions
 
-In a terminal, run the `submit` command with the following form -
+To create a transaction, you do need to use the API to connect to a achain, enabling the creation of a trsnaction using . metadata. In a terminal, run the `submit` command with the following form -
 
 `yarn run:signer submit --account <ss58> --ws <endpoint> <module.method> [param1] [...] [paramX]`
 
@@ -21,9 +21,9 @@ Signature>
 
 The `Payload` is the hex that needs to be signed. Pasting the hex signature (followed by `Enter`) submits it to the chain.
 
-## Sign transactions
+## Sign a transaction
 
-In a terminal, run the `sign` command with the following form -
+To sign, you do not need a network connection at all and this command does not use the API to make connections to a chain. In a terminal, run the `sign` command with the following form -
 
 `yarn run:signer sign --account <ss58> --seed <suri> --type <ed25519|sr25519> <hex payload>`
 
