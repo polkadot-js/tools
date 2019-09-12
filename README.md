@@ -27,6 +27,8 @@ npm install -g @polkadot/api-cli
 
 And then you can execute it via `polkadot-js-api [...options]` or `polkadot-js-monitor [...options]`
 
+## Docker
+
 Alternatively a docker image is provided as well (or you can build your own from this repo). Usage is as follow -
 
 ```
