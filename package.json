@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "resolutions": {
-    "@polkadot/api": "^0.95.0-beta.13",
+    "@polkadot/api": "^0.95.0-beta.16",
     "@polkadot/keyring": "^1.5.1",
     "@polkadot/util": "^1.5.1",
     "@polkadot/util-crypto": "^1.5.1",
@@ -29,8 +29,8 @@
     "@babel/core": "^7.6.4",
     "@babel/register": "^7.6.2",
     "@babel/runtime": "^7.6.3",
-    "@polkadot/dev": "^0.32.0-beta.8",
-    "@polkadot/ts": "^0.1.80",
+    "@polkadot/dev": "^0.32.0-beta.10",
+    "@polkadot/ts": "^0.1.81",
     "babel-plugin-module-resolver": "^3.2.0"
   }
 }
