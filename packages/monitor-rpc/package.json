@@ -31,13 +31,13 @@
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@babel/runtime": "^7.6.3",
-    "@polkadot/api": "^0.95.0-beta.16",
+    "@polkadot/api": "^0.95.0-beta.30",
     "koa": "^2.10.0",
     "koa-route": "^3.2.0",
     "yargs": "^14.2.0"
   },
   "devDependencies": {
-    "@types/koa": "^2.0.50",
+    "@types/koa": "^2.0.51",
     "@types/koa-route": "^3.2.4",
     "@types/yargs": "^13.0.3"
   }
