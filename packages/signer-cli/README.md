@@ -31,7 +31,7 @@ For instance, to sign the transfer made above, we run:
 
 `yarn run:signer sign --account 5HNHXTw65dTNVGRdYkxFUpKcvmUYQMZHcDHmSKpuC8pvVEaN --seed "leaf ... rude" --type sr25519 0x040300ff4a83f1...a8239139ff3ff7c3f6`
 
-On executiion, it will respond with:
+On execution, it will respond with:
 
 ```
 Signature: 0xe6facf194a8e...413ce3155c2d1240b
@@ -39,4 +39,4 @@ Signature: 0xe6facf194a8e...413ce3155c2d1240b
 
 Paste this signature into the submission in the first terminal, and off we go.
 
-By default, `submit` will create a mortal extrinsic with a lifetime of 50 blocks. Assuming a six second block time, you will have five minutes to go offline, sign the transaction, paste the signature, and submit the signed transaction.
+By default, `submit` will create a mortal extrinsic with a lifetime of 50 blocks. Assuming a six-second block time, you will have five minutes to go offline, sign the transaction, paste the signature, and submit the signed transaction.
