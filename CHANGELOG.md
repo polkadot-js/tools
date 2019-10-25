@@ -1,3 +1,8 @@
+# 0.7.1
+
+- @polkadot/api 0.95.1
+- Support for Extrinsic v4 (i.e. as per Kusama)
+
 # 0.6.1
 
 - @polkadot/api 0.91.1

@@ -1781,37 +1781,37 @@
     once "^1.4.0"
     universal-user-agent "^4.0.0"
 
-"@polkadot/api-derive@^0.95.0-beta.36":
-  version "0.95.0-beta.36"
-  resolved "https://registry.yarnpkg.com/@polkadot/api-derive/-/api-derive-0.95.0-beta.36.tgz#36f4e11766786cbc23bee9ae9d74ce3842816504"
-  integrity sha512-QjR4ZmAjrQexi2nRutPTx44azVLzD39WemY/tj2k3pgeKf+7e6DCAh1O6XCevwTw0g1WmFPUdAIcoVhMP08Mog==
+"@polkadot/api-derive@^0.95.1":
+  version "0.95.1"
+  resolved "https://registry.yarnpkg.com/@polkadot/api-derive/-/api-derive-0.95.1.tgz#84c1633952f2b43ae13ca98a0fbb31391750f065"
+  integrity sha512-a5LPa19E0eNXS9BAi9eix+/99v5rPXXJ7IQmYVV++14VwWPS4FvmC/yhr8XpPyT80FuGnybNkr2XunqZ1NZPZA==
   dependencies:
     "@babel/runtime" "^7.6.3"
-    "@polkadot/api" "^0.95.0-beta.36"
-    "@polkadot/types" "^0.95.0-beta.36"
+    "@polkadot/api" "^0.95.1"
+    "@polkadot/types" "^0.95.1"
 
-"@polkadot/api-metadata@^0.95.0-beta.36":
-  version "0.95.0-beta.36"
-  resolved "https://registry.yarnpkg.com/@polkadot/api-metadata/-/api-metadata-0.95.0-beta.36.tgz#ef8924312feaab0c523bf62c7b948dcf76dd26c4"
-  integrity sha512-w5XhOKAsqZTpMs1N3JK4pnBpBmf6VWKELZeF1TMxENlkw1X151bXjgB0hxQKVchxRKjI23iVT3xDo1kfNcBKeQ==
+"@polkadot/api-metadata@^0.95.1":
+  version "0.95.1"
+  resolved "https://registry.yarnpkg.com/@polkadot/api-metadata/-/api-metadata-0.95.1.tgz#f012466f8d806a8500502ae0bb49a1c6c82294c1"
+  integrity sha512-xlegiC4DKZcXY563xHDcK4x0FdX4ZvAue0MqzsZfUeQryAoAqfwxtQKCH4fPTHeomyI1Zb3AUYpLQNdnQFM0rQ==
   dependencies:
     "@babel/runtime" "^7.6.3"
-    "@polkadot/types" "^0.95.0-beta.36"
+    "@polkadot/types" "^0.95.1"
     "@polkadot/util" "^1.6.1"
     "@polkadot/util-crypto" "^1.6.1"
 
-"@polkadot/api@^0.95.0-beta.36":
-  version "0.95.0-beta.36"
-  resolved "https://registry.yarnpkg.com/@polkadot/api/-/api-0.95.0-beta.36.tgz#a80dc6bb8b695ac2c466f2b5807117ac756b13fe"
-  integrity sha512-E4+WgEiEw+MMBTBa12OjlnnfaCmacCLQEqkQVrBkAQP++esW1CwTu+PC0Da/lnyasBhqyP7DqDdHpQE42VCy9w==
+"@polkadot/api@^0.95.1":
+  version "0.95.1"
+  resolved "https://registry.yarnpkg.com/@polkadot/api/-/api-0.95.1.tgz#b52a81032017cd3459e10f787072f6faaa8b3f19"
+  integrity sha512-OqqNbAFUwIjakc1op7pJcAdTSid28/sXAB67Dpg08L65DAPNm5dG2TREfj2SQiA6QJCEpfIkenJK1jm0toYBoA==
   dependencies:
     "@babel/runtime" "^7.6.3"
-    "@polkadot/api-derive" "^0.95.0-beta.36"
-    "@polkadot/api-metadata" "^0.95.0-beta.36"
+    "@polkadot/api-derive" "^0.95.1"
+    "@polkadot/api-metadata" "^0.95.1"
     "@polkadot/keyring" "^1.6.1"
-    "@polkadot/rpc-core" "^0.95.0-beta.36"
-    "@polkadot/rpc-provider" "^0.95.0-beta.36"
-    "@polkadot/types" "^0.95.0-beta.36"
+    "@polkadot/rpc-core" "^0.95.1"
+    "@polkadot/rpc-provider" "^0.95.1"
+    "@polkadot/types" "^0.95.1"
     "@polkadot/util-crypto" "^1.6.1"
 
 "@polkadot/dev@^0.32.0-beta.11":
@@ -1860,10 +1860,10 @@
     typescript "^3.6.4"
     vuepress "^1.2.0"
 
-"@polkadot/jsonrpc@^0.95.0-beta.36":
-  version "0.95.0-beta.36"
-  resolved "https://registry.yarnpkg.com/@polkadot/jsonrpc/-/jsonrpc-0.95.0-beta.36.tgz#2faade9b6c6158f98d3314b63b072bb4f280a753"
-  integrity sha512-Wk1u5J4Pv0cejuhuTQNU1dTW+Tc42xCVYIwjJ7egnO73fyZNbsXubl/TdDISgS6uC0ml58qVPyvDWnXfGNNWCw==
+"@polkadot/jsonrpc@^0.95.1":
+  version "0.95.1"
+  resolved "https://registry.yarnpkg.com/@polkadot/jsonrpc/-/jsonrpc-0.95.1.tgz#c78d24d38b0828f26fe79b4c3739a3477d80446f"
+  integrity sha512-iMm2RiVmpJYNFjmwApYM5GOvEuN10b6x7Sa2WWrPtQqbHlwFunFmZe5x0Sbwk/dX0fqAw8DHpIEPaBubL3Cemg==
   dependencies:
     "@babel/runtime" "^7.6.3"
 
@@ -1876,25 +1876,25 @@
     "@polkadot/util" "^1.6.1"
     "@polkadot/util-crypto" "^1.6.1"
 
-"@polkadot/rpc-core@^0.95.0-beta.36":
-  version "0.95.0-beta.36"
-  resolved "https://registry.yarnpkg.com/@polkadot/rpc-core/-/rpc-core-0.95.0-beta.36.tgz#f21af3314f067fed3c47db5963643c053ae0025d"
-  integrity sha512-oQuPnxYVZVodc0cAR2sHQ38TZeQpoaNAfmB4U+JxQuO9iC357GVJlCzZfsSHlyEG4p9dk5UkE0sEg/UGzlbcJA==
+"@polkadot/rpc-core@^0.95.1":
+  version "0.95.1"
+  resolved "https://registry.yarnpkg.com/@polkadot/rpc-core/-/rpc-core-0.95.1.tgz#b452e402a654f7f4d09ca3f0d23132313876feed"
+  integrity sha512-lnpxqDSY67KD51efZV9j/PofR5rObfAFhRBb987AsqecM8NdMpHZD17adbOu67tng2wAnIwDqsMRSxA6qsQ3NQ==
   dependencies:
     "@babel/runtime" "^7.6.3"
-    "@polkadot/jsonrpc" "^0.95.0-beta.36"
-    "@polkadot/rpc-provider" "^0.95.0-beta.36"
-    "@polkadot/types" "^0.95.0-beta.36"
+    "@polkadot/jsonrpc" "^0.95.1"
+    "@polkadot/rpc-provider" "^0.95.1"
+    "@polkadot/types" "^0.95.1"
     "@polkadot/util" "^1.6.1"
     rxjs "^6.5.3"
 
-"@polkadot/rpc-provider@^0.95.0-beta.36":
-  version "0.95.0-beta.36"
-  resolved "https://registry.yarnpkg.com/@polkadot/rpc-provider/-/rpc-provider-0.95.0-beta.36.tgz#0b1e91c6a0e8dc6b54de2d575ca1117fa6bc3b77"
-  integrity sha512-nLhcFWTPt47vs1kd0rXjTVuVqPJ3FLf09JaxqFmodltlayMapbJ9AIVn8ahPm+CYvQewssgkyLhp1iCzTOav5A==
+"@polkadot/rpc-provider@^0.95.1":
+  version "0.95.1"
+  resolved "https://registry.yarnpkg.com/@polkadot/rpc-provider/-/rpc-provider-0.95.1.tgz#c4bc8dd55841dfa3e2301dd528a0ce74895f816d"
+  integrity sha512-dcXS6tw24OA55d3+lTNmqz9AYWFIC2AbilRyyjBHefin2ygoLCWV8Rd7RdmKIsPjI6aQ0Yq3sOEgnuitiM9gsA==
   dependencies:
     "@babel/runtime" "^7.6.3"
-    "@polkadot/api-metadata" "^0.95.0-beta.36"
+    "@polkadot/api-metadata" "^0.95.1"
     "@polkadot/util" "^1.6.1"
     "@polkadot/util-crypto" "^1.6.1"
     "@types/nock" "^11.1.0"
@@ -1909,10 +1909,10 @@
   dependencies:
     "@types/chrome" "^0.0.91"
 
-"@polkadot/types@^0.95.0-beta.36":
-  version "0.95.0-beta.36"
-  resolved "https://registry.yarnpkg.com/@polkadot/types/-/types-0.95.0-beta.36.tgz#2b380a2e4fdf9df784023c49d803ee8dfffd7293"
-  integrity sha512-sdYSYq5WUREBg2XjxBPII4ovN+6W30+P+eht92tqjHGO+uPX8Pndpx13g5y4hOJ8OYcfXT5KiKoumEr2pV/VIg==
+"@polkadot/types@^0.95.1":
+  version "0.95.1"
+  resolved "https://registry.yarnpkg.com/@polkadot/types/-/types-0.95.1.tgz#15869606391a3489a142662a4fb9de4bb4111993"
+  integrity sha512-Jh6qOrbGn36xd801DnUmk51q2j+9C4hIOCwRS2XUqgP5OjYmg+sIde+5SkbwXv7H0W0W1qELmlmmvgDs7sCksA==
   dependencies:
     "@babel/runtime" "^7.6.3"
     "@polkadot/util" "^1.6.1"

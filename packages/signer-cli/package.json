@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/signer-cli",
-  "version": "0.7.0-beta.17",
+  "version": "0.7.0",
   "description": "A commandline signer for offline signature generataion",
   "main": "index.js",
   "bin": {
@@ -31,7 +31,7 @@
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@babel/runtime": "^7.6.3",
-    "@polkadot/api": "^0.95.0-beta.36",
+    "@polkadot/api": "^0.95.1",
     "@polkadot/keyring": "^1.6.1",
     "yargs": "^14.2.0"
   },
