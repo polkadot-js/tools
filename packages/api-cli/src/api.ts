@@ -56,12 +56,24 @@ interface CallInfo {
 
 const CRYPTO = ['ed25519', 'sr25519'];
 
+const usage = `Usage: [options] <endpoint> <...params>
+Example: query.balances.freeBalance 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB
+Example: query.substrate.code --info
+Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
+
 // retrieve and parse arguments - we do this globally, since this is a single command
 const { _: [endpoint, ...params], info, seed, sign, sub, ws } = yargs
-  .usage('Usage: [options] <endpoint> <...params>')
-  .usage('Example: query.balances.freeBalance 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB')
-  .usage('Example: query.substrate.code --info')
-  .usage('Example: --seed "//Alice" tx.balances.transfer F7Gh 10000')
+  .command('$0', usage)
+  .middleware((argv) => {
+    argv._ = argv._.map((param) => {
+      try {
+        return JSON.parse(param);
+      } catch (err) {
+        return param;
+      }
+    });
+    return argv;
+  })
   .wrap(120)
   .options({
     info: {
