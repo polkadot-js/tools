@@ -65,7 +65,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
 const { _: [endpoint, ...params], info, seed, sign, sub, ws } = yargs
   .command('$0', usage)
   .middleware((argv) => {
-    argv['_'] = argv['_'].map((param: any, index: number) => {
+    argv['_'] = argv['_'].map((param: any) => {
       try {
         return JSON.parse(param);
       } catch (err) {
