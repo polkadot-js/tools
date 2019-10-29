@@ -3,17 +3,26 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { Keyring } from '@polkadot/keyring';
-import { hexToU8a, u8aToHex } from '@polkadot/util';
+import { hexToU8a, u8aToHex, u8aConcat } from '@polkadot/util';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 
-export default async function cmdSign (account: string, seed: string, type: 'ed25519' | 'sr25519', [payload]: string[]): Promise<void> {
+type Curves = 'ed25519' | 'sr25519';
+
+const curvePrefixes: {[key in Curves]: [number] } = {
+  ed25519: [0],
+  sr25519: [1]
+};
+
+export default async function cmdSign (account: string, seed: string, type: Curves, [payload]: string[]): Promise<void> {
   await cryptoWaitReady();
 
   const keyring = new Keyring({ type });
   const pair = keyring.createFromUri(seed);
   const signature = pair.sign(hexToU8a(payload));
 
-  console.log(`Signature: ${u8aToHex(signature)}`);
+  const prefix = new Uint8Array(curvePrefixes[type]);
+
+  console.log(`Signature: ${u8aToHex(u8aConcat(prefix, signature))}`);
 
   process.exit(0);
 }
