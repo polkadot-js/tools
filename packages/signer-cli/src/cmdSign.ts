@@ -6,12 +6,12 @@ import { Keyring } from '@polkadot/keyring';
 import { hexToU8a, u8aToHex, u8aConcat } from '@polkadot/util';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 
-type Curves = 'ed25519' | 'sr25519'
+type Curves = 'ed25519' | 'sr25519';
 
 const curvePrefixes: {[key in Curves]: [number] } = {
-  'ed25519': [0],
-  'sr25519': [1],
-}
+  ed25519: [0],
+  sr25519: [1]
+};
 
 export default async function cmdSign (account: string, seed: string, type: Curves, [payload]: string[]): Promise<void> {
   await cryptoWaitReady();
@@ -20,7 +20,7 @@ export default async function cmdSign (account: string, seed: string, type: Curv
   const pair = keyring.createFromUri(seed);
   const signature = pair.sign(hexToU8a(payload));
 
-  const prefix = new Uint8Array(curvePrefixes[type])
+  const prefix = new Uint8Array(curvePrefixes[type]);
 
   console.log(`Signature: ${u8aToHex(u8aConcat(prefix, signature))}`);
 
