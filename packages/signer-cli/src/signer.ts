@@ -7,8 +7,10 @@ import yargs from 'yargs';
 import cmdSign from './cmdSign';
 import cmdSubmit from './cmdSubmit';
 
-// retrieve and parse arguments - we do this globally, since this is a single command
-const { _: [command, ...params], account, seed, type, ws } = yargs
+const BLOCKTIME = 6;
+const ONE_MINUTE = 60 / BLOCKTIME;
+
+const { _: [command, ...params], account, blocks, minutes, seed, type, ws } = yargs
   .usage('Usage: [options] <endpoint> <...params>')
   .usage('Example: submit --account D3AhD...wrx --ws wss://... balances.transfer F7Gh 10000 ')
   .usage('Example: sign --seed "..." --account D3AhD...wrx --crypto ed25519 0x123...789')
@@ -29,6 +31,16 @@ const { _: [command, ...params], account, seed, type, ws } = yargs
       description: 'The account crypto signature to use (sign only)',
       type: 'string'
     },
+    minutes: {
+      description: 'Approximate time for a transction to be signed and submitted before becoming invalid (mortality in minutes)',
+      default: undefined as number | undefined,
+      type: 'number'
+    },
+    blocks: {
+      description: 'Exact number of blocks for a transction to be signed and submitted before becoming invalid (mortality in blocks). Set to 0 for an immortal transaction (not recomended)',
+      default: undefined as number | undefined,
+      type: 'number'
+    },
     ws: {
       description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io (submit only)',
       type: 'string'
@@ -43,7 +55,8 @@ async function main (): Promise<void> {
   if (command === 'sign') {
     return cmdSign(account, seed || '', type as 'ed25519', params);
   } else if (command === 'submit') {
-    return cmdSubmit(account, ws || '', params);
+    const mortality = minutes != null ? minutes * ONE_MINUTE : blocks;
+    return cmdSubmit(account, mortality, ws || '', params);
   }
 
   throw new Error(`Unknown command '${command}' found, expected one of 'sign' or 'submit'`);
