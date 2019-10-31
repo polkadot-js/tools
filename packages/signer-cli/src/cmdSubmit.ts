@@ -36,7 +36,9 @@ export default async function cmdSubmit (account: string, blocks: number | undef
   assert(api.tx[section] && api.tx[section][method], `Unable to find method ${section}.${method}`);
 
   const options: Partial<SignerOptions> = {};
-  if (blocks != null) {
+  if (blocks === 0) {
+    options.era = 0;
+  } else if (blocks != null) {
     // Get current block if we want to modify the number of blocks we have to sign
     const signedBlock = await api.rpc.chain.getBlock();
     options.blockHash = signedBlock.block.header.hash;
