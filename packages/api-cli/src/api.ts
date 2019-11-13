@@ -161,7 +161,7 @@ async function makeTx ({ fn, log }: CallInfo): Promise<void> {
   assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
   const keyring = new Keyring();
-  const account = keyring.createFromUri(seed as string, {}, sign as 'ed25519');
+  const account = keyring.createFromUri(seed, {}, sign as 'ed25519');
 
   return fn(...params).signAndSend(account, (result: SubmittableResult): void => {
     log(result);
