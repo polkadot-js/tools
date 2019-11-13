@@ -8,10 +8,10 @@
     "packages/*"
   ],
   "resolutions": {
-    "@polkadot/api": "^0.97.0-beta.3",
-    "@polkadot/keyring": "^1.7.0-beta.6",
-    "@polkadot/util": "^1.7.0-beta.6",
-    "@polkadot/util-crypto": "^1.7.0-beta.6",
+    "@polkadot/api": "^0.97.0-beta.4",
+    "@polkadot/keyring": "^1.7.0-beta.7",
+    "@polkadot/util": "^1.7.0-beta.7",
+    "@polkadot/util-crypto": "^1.7.0-beta.7",
     "babel-core": "^7.0.0-bridge.0",
     "typescript": "^3.7.2"
   },
@@ -26,11 +26,11 @@
     "test": "echo \"no tests\""
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/register": "^7.6.2",
-    "@babel/runtime": "^7.6.3",
-    "@polkadot/dev": "^0.32.0-beta.13",
-    "@polkadot/ts": "^0.1.84",
+    "@babel/core": "^7.7.2",
+    "@babel/register": "^7.7.0",
+    "@babel/runtime": "^7.7.2",
+    "@polkadot/dev": "^0.32.0-beta.14",
+    "@polkadot/ts": "^0.1.85",
     "babel-plugin-module-resolver": "^3.2.0"
   }
 }
