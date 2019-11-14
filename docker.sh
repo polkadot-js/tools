@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Copyright 2019 @polkadot/tools authors & contributors
 # This software may be modified and distributed under the terms
 # of the Apache-2.0 license. See the LICENSE file for details.
@@ -50,7 +50,7 @@ function usage () {
   echo ""
   echo "Usage: docker.sh <build|publish>"
   echo "Commands:"
-  echo "  build: builds a `$NAME` docker image"
+  echo "  build: builds a $NAME docker image"
   echo "  publish: publishes a built image to dockerhub"
   echo ""
 
