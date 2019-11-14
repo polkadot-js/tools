@@ -34,6 +34,10 @@ function build () {
 
 # helper function for the publishing logic
 function publish () {
+  if [ -n "$DOCKER_PASS" ]; then
+    docker login -u $REPO -p $DOCKER_PASS
+  fi
+
   echo "*** Tagging $REPO/$NAME"
   docker tag $NAME $REPO/$NAME
 
