@@ -8,7 +8,6 @@ import Koa, { Context } from 'koa';
 import koaRoute from 'koa-route';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { createType } from '@polkadot/types';
 
 const MAX_ELAPSED = 60000;
 
@@ -29,7 +28,7 @@ const { port, ws } = yargs
   })
   .argv;
 
-let currentBlockNumber: BlockNumber = createType('BlockNumber');
+let currentBlockNumber: BlockNumber | undefined;
 let currentTimestamp: Date = new Date();
 
 function checkDelay (): void {
@@ -57,8 +56,8 @@ function httpStatus (ctx: Context): void {
   const elapsed = Date.now() - currentTimestamp.getTime();
 
   ctx.body = {
-    blockNumber: currentBlockNumber.toNumber(),
-    blockTimestamp: currentTimestamp ? currentTimestamp.toISOString() : '',
+    blockNumber: currentBlockNumber?.toNumber(),
+    blockTimestamp: currentTimestamp.toISOString(),
     elapsed: elapsed / 1000,
     ok: elapsed < MAX_ELAPSED
   };
