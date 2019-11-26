@@ -3,13 +3,12 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { Signer, SignerResult } from '@polkadot/api/types';
+import { SignerOptions } from '@polkadot/api/submittable/types';
 import { SignerPayloadRaw } from '@polkadot/types/types';
 
 import readline from 'readline';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { SignerOptions } from '@polkadot/api/submittable/types';
 import { assert } from '@polkadot/util';
-import { createType } from '@polkadot/types';
 
 class RawSigner implements Signer {
   public async signRaw ({ data }: SignerPayloadRaw): Promise<SignerResult> {
@@ -41,8 +40,9 @@ export default async function cmdSubmit (account: string, blocks: number | undef
   } else if (blocks != null) {
     // Get current block if we want to modify the number of blocks we have to sign
     const signedBlock = await api.rpc.chain.getBlock();
+
     options.blockHash = signedBlock.block.header.hash;
-    options.era = createType('ExtrinsicEra', {
+    options.era = api.createType('ExtrinsicEra', {
       current: signedBlock.block.header.number,
       period: blocks
     });
