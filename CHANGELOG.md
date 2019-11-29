@@ -1,3 +1,10 @@
+# 0.8.1
+
+- Add option to specific longevity on cli-signer (Thanks to @bison-brandon)
+- Allow cli-api to submit objects for complex transactions (Thanks to @benfen)
+- @polkadot/api 0.97.1
+- Support for Kusama CC3
+
 # 0.7.1
 
 - @polkadot/api 0.95.1
