@@ -4,6 +4,7 @@
 - Allow cli-api to submit objects for complex transactions (Thanks to @benfen)
 - @polkadot/api 0.97.1
 - Support for Kusama CC3
+- Publish docker images directly from CI
 
 # 0.7.1
 
