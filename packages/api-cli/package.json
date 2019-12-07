@@ -29,9 +29,9 @@
   },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/api-cli#readme",
   "dependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/runtime": "^7.7.4",
-    "@polkadot/api": "^0.97.1",
+    "@babel/core": "^7.7.5",
+    "@babel/runtime": "^7.7.5",
+    "@polkadot/api": "^0.99.0-beta.4",
     "@polkadot/keyring": "^1.7.1",
     "yargs": "^15.0.2"
   },
