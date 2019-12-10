@@ -6,7 +6,7 @@ import { Signer, SignerResult } from '@polkadot/api/types';
 import { SignerOptions } from '@polkadot/api/submittable/types';
 import { SignerPayloadRaw } from '@polkadot/types/types';
 
-import readline from 'readline';
+import * as readline from 'readline';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { assert } from '@polkadot/util';
 
