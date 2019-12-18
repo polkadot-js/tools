@@ -21,7 +21,7 @@ const { port, ws } = yargs
       required: true
     },
     ws: {
-      description: 'The endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
+      description: 'The endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io',
       type: 'string',
       required: true
     }
