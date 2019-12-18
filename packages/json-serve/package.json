@@ -1,0 +1,44 @@
+{
+  "name": "@polkadot/json-serve",
+  "version": "0.9.0-beta.2",
+  "description": "A JSON API endpoint server",
+  "main": "index.js",
+  "bin": {
+    "polkadot-js-json-serve": "./index.js"
+  },
+  "keywords": [
+    "Polkadot",
+    "JsonRPC"
+  ],
+  "author": "Jaco Greeff <jacogr@gmail.com>",
+  "maintainers": [
+    "Jaco Greeff <jacogr@gmail.com>"
+  ],
+  "contributors": [],
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polkadot-js/tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/polkadot-js/tools/issues"
+  },
+  "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/api-json-serve#readme",
+  "dependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/runtime": "^7.7.5",
+    "@polkadot/api": "^0.100.0-beta.7",
+    "koa": "^2.11.0",
+    "koa-route": "^3.2.0",
+    "yargs": "^15.0.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.52",
+    "@types/koa-route": "^3.2.4",
+    "@types/yargs": "^13.0.3"
+  }
+}
