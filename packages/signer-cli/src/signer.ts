@@ -6,6 +6,7 @@ import yargs from 'yargs';
 
 import cmdSign from './cmdSign';
 import cmdSubmit from './cmdSubmit';
+import cmdSendOffline from './cmdSendOffline';
 
 const BLOCKTIME = 6;
 const ONE_MINUTE = 60 / BLOCKTIME;
@@ -57,6 +58,9 @@ async function main (): Promise<void> {
   } else if (command === 'submit') {
     const mortality = minutes != null ? minutes * ONE_MINUTE : blocks;
     return cmdSubmit(account, mortality, ws || '', params);
+  } else if (command === 'sendOffline') {
+    const mortality = minutes != null ? minutes * ONE_MINUTE : blocks;
+    return cmdSendOffline(account, mortality, ws || '', params);
   }
 
   throw new Error(`Unknown command '${command}' found, expected one of 'sign' or 'submit'`);
