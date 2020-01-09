@@ -36,9 +36,13 @@ export default async function cmdSendOffline (
 
   assert(api.tx[section] && api.tx[section][method], `Unable to find method ${section}.${method}`);
 
-  let options: SignerOptions | object = {};
+  if (nonce == null) {
+    nonce = await api.query.system.accountNonce(account);
+  }
+  let options: SignerOptions | object = {
+    nonce
+  };
   let blockNumber: Compact<BlockNumber> | number | null = null;
-  nonce = nonce || await api.query.system.accountNonce(account);
 
   if (blocks === 0) {
     options = {
