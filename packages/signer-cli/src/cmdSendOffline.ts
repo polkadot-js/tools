@@ -52,6 +52,7 @@ export default async function cmdSendOffline(
   }
 
   const transaction: any = api.tx[section][method](...params);
+  const nonce: any = await api.query.system.accountNonce(account);
 
   const payload: any = api.createType("SignerPayload", {
     version: api.extrinsicVersion,
@@ -60,7 +61,8 @@ export default async function cmdSendOffline(
     ...options,
     address: account,
     method: transaction.method,
-    blockNumber
+    blockNumber,
+    nonce
   });
 
   const signature = await getSignature(payload.toRaw().data);
