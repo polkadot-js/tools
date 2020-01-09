@@ -14,7 +14,8 @@ const ONE_MINUTE = 60 / BLOCKTIME;
 const { _: [command, ...params], account, blocks, minutes, seed, type, ws } = yargs
   .usage('Usage: [options] <endpoint> <...params>')
   .usage('Example: submit --account D3AhD...wrx --ws wss://... balances.transfer F7Gh 10000 ')
-  .usage('Example: sign --seed "..." --account D3AhD...wrx --crypto ed25519 0x123...789')
+  .usage('Example: sign --seed "..." --account D3AhD...wrx --type ed25519 0x123...789')
+  .usage('Example: sendOffline --seed "..." --account D3AhD...wrx --type ed25519 0x123...789')
   .wrap(120)
   .options({
     account: {
@@ -33,12 +34,17 @@ const { _: [command, ...params], account, blocks, minutes, seed, type, ws } = ya
       type: 'string'
     },
     minutes: {
-      description: 'Approximate time for a transction to be signed and submitted before becoming invalid (mortality in minutes)',
+      description: 'Approximate time for a transaction to be signed and submitted before becoming invalid (mortality in minutes)',
       default: undefined as number | undefined,
       type: 'number'
     },
     blocks: {
-      description: 'Exact number of blocks for a transction to be signed and submitted before becoming invalid (mortality in blocks). Set to 0 for an immortal transaction (not recomended)',
+      description: 'Exact number of blocks for a transaction to be signed and submitted before becoming invalid (mortality in blocks). Set to 0 for an immortal transaction (not recomended, but useful for \'sendOffline\' command to ensure the transaction does not expire)',
+      default: undefined as number | undefined,
+      type: 'number'
+    },
+    nonce: {
+      description: 'Transaction nonce (sendOffline only)',
       default: undefined as number | undefined,
       type: 'number'
     },
@@ -63,7 +69,7 @@ async function main (): Promise<void> {
     return cmdSendOffline(account, mortality, ws || '', params);
   }
 
-  throw new Error(`Unknown command '${command}' found, expected one of 'sign' or 'submit'`);
+  throw new Error(`Unknown command '${command}' found, expected one of 'sign', 'submit' or 'sendOffline'`);
 }
 
 main().catch((error): void => {
