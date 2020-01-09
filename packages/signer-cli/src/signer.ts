@@ -11,7 +11,7 @@ import cmdSendOffline from './cmdSendOffline';
 const BLOCKTIME = 6;
 const ONE_MINUTE = 60 / BLOCKTIME;
 
-const { _: [command, ...params], account, blocks, minutes, seed, type, ws } = yargs
+const { _: [command, ...params], account, blocks, nonce, minutes, seed, type, ws } = yargs
   .usage('Usage: [options] <endpoint> <...params>')
   .usage('Example: submit --account D3AhD...wrx --ws wss://... balances.transfer F7Gh 10000 ')
   .usage('Example: sign --seed "..." --account D3AhD...wrx --type ed25519 0x123...789')
@@ -66,7 +66,7 @@ async function main (): Promise<void> {
     return cmdSubmit(account, mortality, ws || '', params);
   } else if (command === 'sendOffline') {
     const mortality = minutes != null ? minutes * ONE_MINUTE : blocks;
-    return cmdSendOffline(account, mortality, ws || '', params);
+    return cmdSendOffline(account, mortality, ws || '', nonce, params);
   }
 
   throw new Error(`Unknown command '${command}' found, expected one of 'sign', 'submit' or 'sendOffline'`);
