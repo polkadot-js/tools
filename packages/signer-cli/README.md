@@ -40,3 +40,17 @@ Signature: 0xe6facf194a8e...413ce3155c2d1240b
 Paste this signature into the submission in the first terminal, and off we go.
 
 By default, `submit` will create a mortal extrinsic with a lifetime of 50 blocks. Assuming a six-second block time, you will have five minutes to go offline, sign the transaction, paste the signature, and submit the signed transaction.
+
+## Send offline
+
+This functionality lets you generate signed transaction for execution at a later date. It is intended to resemble MyEtherWallet's [`Send offline`](https://kb.myetherwallet.com/en/offline/offline_transaction/) feature.
+
+The flow is similar to the `submit` command. First, run the `sendOffline` command on a computer with a network connection:
+
+`yarn run:signer sendOffline --account 5HNHXTw65dTNVGRdYkxFUpKcvmUYQMZHcDHmSKpuC8pvVEaN --ws wss://poc3-rpc.polkadot.io/ balances.transfer 5DkQbYAExs3M2sZgT1Ec3mKfZnAQCL4Dt9beTCknkCUn5jzo 123`
+
+This will give you a payload to sign. Use the `sign` command as per instructions above.
+
+Once you've pasted the signature into the `sendOffline` terminal (and hit `Enter`), it will print the signed transaction that can be stored and submitted later.
+
+Run `yarn run:signer --help` to learn about optional parameters.
