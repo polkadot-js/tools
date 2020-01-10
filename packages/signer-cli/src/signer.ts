@@ -39,7 +39,7 @@ const { _: [command, ...params], account, blocks, nonce, minutes, seed, type, ws
       type: 'number'
     },
     blocks: {
-      description: 'Exact number of blocks for a transaction to be signed and submitted before becoming invalid (mortality in blocks). Set to 0 for an immortal transaction (not recomended, but useful for \'sendOffline\' command to ensure the transaction does not expire)',
+      description: 'Exact number of blocks for a transaction to be signed and submitted before becoming invalid (mortality in blocks). Set to 0 for an immortal transaction (not recomended)',
       default: undefined as number | undefined,
       type: 'number'
     },
@@ -49,7 +49,7 @@ const { _: [command, ...params], account, blocks, nonce, minutes, seed, type, ws
       type: 'number'
     },
     ws: {
-      description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io (submit only)',
+      description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io (submit and sendOffline only)',
       type: 'string'
     }
   })
