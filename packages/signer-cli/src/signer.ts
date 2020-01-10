@@ -11,7 +11,7 @@ import cmdSendOffline from './cmdSendOffline';
 const BLOCKTIME = 6;
 const ONE_MINUTE = 60 / BLOCKTIME;
 
-const { _: [command, ...params], account, blocks, nonce, minutes, seed, type, ws } = yargs
+const { _: [command, ...params], account, blocks, minutes, nonce, seed, type, ws, tx } = yargs
   .usage('Usage: [options] <endpoint> <...params>')
   .usage('Example: submit --account D3AhD...wrx --ws wss://... balances.transfer F7Gh 10000 ')
   .usage('Example: sign --seed "..." --account D3AhD...wrx --type ed25519 0x123...789')
@@ -20,8 +20,7 @@ const { _: [command, ...params], account, blocks, nonce, minutes, seed, type, ws
   .options({
     account: {
       description: 'The actual address for the signer',
-      type: 'string',
-      required: true
+      type: 'string'
     },
     seed: {
       description: 'The account seed to use (sign only)',
@@ -51,6 +50,10 @@ const { _: [command, ...params], account, blocks, nonce, minutes, seed, type, ws
     ws: {
       description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io (submit and sendOffline only)',
       type: 'string'
+    },
+    tx: {
+      description: 'Pre-signed transaction generated using e.g. the sendOffline command. If provided, only --ws is required as well (submit only)',
+      type: 'string'
     }
   })
   .strict()
@@ -60,13 +63,13 @@ const { _: [command, ...params], account, blocks, nonce, minutes, seed, type, ws
 // eslint-disable-next-line @typescript-eslint/require-await
 async function main (): Promise<void> {
   if (command === 'sign') {
-    return cmdSign(account, seed || '', type as 'ed25519', params);
+    return cmdSign(account as string, seed || '', type as 'ed25519', params);
   } else if (command === 'submit') {
     const mortality = minutes != null ? minutes * ONE_MINUTE : blocks;
-    return cmdSubmit(account, mortality, ws || '', params);
+    return cmdSubmit(account as string, mortality, ws || '', tx, params);
   } else if (command === 'sendOffline') {
     const mortality = minutes != null ? minutes * ONE_MINUTE : blocks;
-    return cmdSendOffline(account, mortality, ws || '', nonce, params);
+    return cmdSendOffline(account as string, mortality, ws || '', nonce, params);
   }
 
   throw new Error(`Unknown command '${command}' found, expected one of 'sign', 'submit' or 'sendOffline'`);

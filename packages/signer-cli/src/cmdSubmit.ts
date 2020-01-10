@@ -26,11 +26,28 @@ class RawSigner implements Signer {
   }
 }
 
-export default async function cmdSubmit (account: string, blocks: number | undefined, endpoint: string, [tx, ...params]: string[]): Promise<void> {
+function submitPreSignedTx (api: ApiPromise, tx: string): void {
+  const extrinsic = api.createType('Extrinsic', tx);
+
+  api.rpc.author.submitAndWatchExtrinsic(extrinsic, result => {
+    console.log(JSON.stringify(result));
+
+    if (result.isFinalized) {
+      process.exit(0);
+    }
+  });
+}
+
+export default async function cmdSubmit (account: string, blocks: number | undefined, endpoint: string, tx: string | undefined, [txName, ...params]: string[]): Promise<void> {
   const signer = new RawSigner();
   const provider = new WsProvider(endpoint);
   const api = await ApiPromise.create({ provider, signer });
-  const [section, method] = tx.split('.');
+
+  if (tx) {
+    return submitPreSignedTx(api, tx);
+  }
+
+  const [section, method] = txName.split('.');
 
   assert(api.tx[section] && api.tx[section][method], `Unable to find method ${section}.${method}`);
 
