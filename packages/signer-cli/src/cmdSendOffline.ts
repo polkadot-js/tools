@@ -36,6 +36,9 @@ export default async function cmdSendOffline (
 
   assert(api.tx[section] && api.tx[section][method], `Unable to find method ${section}.${method}`);
 
+  if (blocks == null) {
+    blocks = 50;
+  }
   if (nonce == null) {
     nonce = await api.query.system.accountNonce(account);
   }
@@ -47,11 +50,10 @@ export default async function cmdSendOffline (
   if (blocks === 0) {
     options = {
       era: 0,
-      blockHash: api.genesisHash,
-      nonce
+      blockHash: api.genesisHash
     };
     blockNumber = 0;
-  } else if (blocks != null) {
+  } else {
     // Get current block if we want to modify the number of blocks we have to sign
     const signedBlock = await api.rpc.chain.getBlock();
     options = {
@@ -59,8 +61,7 @@ export default async function cmdSendOffline (
       era: api.createType('ExtrinsicEra', {
         current: signedBlock.block.header.number,
         period: blocks
-      }),
-      nonce
+      })
     };
     blockNumber = signedBlock.block.header.number;
   }
