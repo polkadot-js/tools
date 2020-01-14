@@ -42,15 +42,14 @@ export default async function cmdSendOffline (
   if (nonce == null) {
     nonce = await api.query.system.accountNonce(account);
   }
-  let options: SignerOptions | object = {
-    nonce
-  };
+  let options: SignerOptions;
   let blockNumber: Compact<BlockNumber> | number | null = null;
 
   if (blocks === 0) {
     options = {
       era: 0,
-      blockHash: api.genesisHash
+      blockHash: api.genesisHash,
+      nonce
     };
     blockNumber = 0;
   } else {
@@ -61,7 +60,8 @@ export default async function cmdSendOffline (
       era: api.createType('ExtrinsicEra', {
         current: signedBlock.block.header.number,
         period: blocks
-      })
+      }),
+      nonce
     };
     blockNumber = signedBlock.block.header.number;
   }
