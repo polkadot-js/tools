@@ -31,8 +31,8 @@
   "dependencies": {
     "@babel/core": "^7.7.7",
     "@babel/runtime": "^7.7.7",
-    "@polkadot/api": "^0.100.0-beta.27",
-    "@polkadot/keyring": "^1.8.1",
+    "@polkadot/api": "^1.0.0-beta.8",
+    "@polkadot/keyring": "^2.0.0-beta.4",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
