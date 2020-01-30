@@ -1,7 +1,14 @@
+# 0.9.1
+
+- Allow for offline sending (Thanks to https://github.com/mzolkiewski)
+- Fix readline imports (Thanks to https://github.com/joepetrowski)
+- @polkadot/api 1.0
+- Add simple RPC query server
+
 # 0.8.1
 
-- Add option to specific longevity on cli-signer (Thanks to @bison-brandon)
-- Allow cli-api to submit objects for complex transactions (Thanks to @benfen)
+- Add option to specific longevity on cli-signer (Thanks to https://github.com/bison-brandon)
+- Allow cli-api to submit objects for complex transactions (Thanks to https://github.com/benfen)
 - @polkadot/api 0.97.1
 - Support for Kusama CC3
 - Publish docker images directly from CI
