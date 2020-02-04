@@ -1,10 +1,12 @@
 // Copyright 2018-2020 @polkadot/api-cli authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { KeyringPair } from '@polkadot/keyring/types';
 import { Codec } from '@polkadot/types/types';
 
+import fs from 'fs';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
@@ -62,7 +64,7 @@ Example: query.substrate.code --info
 Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
 
 // retrieve and parse arguments - we do this globally, since this is a single command
-const { _: [endpoint, ...params], info, seed, sign, sub, ws } = yargs
+const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, ws } = yargs
   .command('$0', usage)
   .middleware((argv) => {
     argv._ = argv._.map((param) => {
@@ -94,6 +96,10 @@ const { _: [endpoint, ...params], info, seed, sign, sub, ws } = yargs
       description: 'With this flag set, perform subscription, running until exited with ^C',
       type: 'boolean'
     },
+    params: {
+      description: 'Location of file containing space-separated transaction parameters (optional)',
+      type: 'string'
+    },
     ws: {
       default: 'ws://127.0.0.1:9944',
       description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
@@ -103,6 +109,21 @@ const { _: [endpoint, ...params], info, seed, sign, sub, ws } = yargs
   })
   .strict()
   .argv;
+
+let params: any[];
+if (paramsFile) {
+  assert(fs.existsSync(paramsFile), 'Cannot find supplied transaction parameters file');
+
+  try {
+    const contents = fs.readFileSync(paramsFile, 'utf8');
+
+    params = contents.split(' ');
+  } catch (e) {
+    assert(false, 'Error loading supplied transaction parameters file');
+  }
+} else {
+  params = paramsInline;
+}
 
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
