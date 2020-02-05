@@ -1,7 +1,6 @@
 // Copyright 2018-2020 @polkadot/signer-cli authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import fs from 'fs';
 import yargs from 'yargs';
@@ -66,7 +65,7 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
   .strict()
   .argv;
 
-let params: any[];
+let params: string[];
 if (paramsFile) {
   assert(fs.existsSync(paramsFile), 'Cannot find supplied transaction parameters file');
 
