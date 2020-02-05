@@ -13,7 +13,7 @@ const curvePrefixes: {[key in Curves]: [number] } = {
   sr25519: [1]
 };
 
-export default async function cmdSign (account: string, seed: string, type: Curves, [payload]: string[]): Promise<void> {
+export default async function cmdSign (_: string, seed: string, type: Curves, [payload]: string[]): Promise<void> {
   await cryptoWaitReady();
 
   const keyring = new Keyring({ type });
