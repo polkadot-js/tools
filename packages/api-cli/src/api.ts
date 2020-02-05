@@ -1,7 +1,6 @@
 // Copyright 2018-2020 @polkadot/api-cli authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { KeyringPair } from '@polkadot/keyring/types';
 import { Codec } from '@polkadot/types/types';
@@ -110,7 +109,7 @@ const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, su
   .strict()
   .argv;
 
-let params: any[];
+let params: string[];
 if (paramsFile) {
   assert(fs.existsSync(paramsFile), 'Cannot find supplied transaction parameters file');
 
