@@ -8,16 +8,16 @@
     "packages/*"
   ],
   "resolutions": {
-    "@polkadot/api": "^1.2.0-beta.6",
-    "@polkadot/keyring": "^2.2.1",
-    "@polkadot/util": "^2.2.1",
-    "@polkadot/util-crypto": "^2.2.1",
+    "@polkadot/api": "^1.2.0-beta.12",
+    "@polkadot/keyring": "^2.3.0-beta.1",
+    "@polkadot/util": "^2.3.0-beta.1",
+    "@polkadot/util-crypto": "^2.3.0-beta.1",
     "babel-core": "^7.0.0-bridge.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
     "build": "polkadot-dev-build-ts",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx . && tsc --version && tsc --noEmit",
+    "lint": "polkadot-dev-run-lint",
     "clean": "polkadot-dev-clean-build",
     "postinstall": "polkadot-dev-yarn-only",
     "run:api": "./packages/api-cli/src/index.js",
@@ -27,10 +27,10 @@
     "test": "echo \"no tests\""
   },
   "devDependencies": {
-    "@babel/core": "^7.8.3",
+    "@babel/core": "^7.8.4",
     "@babel/register": "^7.8.3",
-    "@babel/runtime": "^7.8.3",
-    "@polkadot/dev": "^0.33.3",
-    "@polkadot/ts": "^0.2.1"
+    "@babel/runtime": "^7.8.4",
+    "@polkadot/dev": "^0.40.3",
+    "@polkadot/ts": "^0.2.3"
   }
 }
