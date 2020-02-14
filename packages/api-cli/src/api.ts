@@ -58,7 +58,7 @@ interface CallInfo {
 const CRYPTO = ['ed25519', 'sr25519'];
 
 const usage = `Usage: [options] <endpoint> <...params>
-Example: query.balances.freeBalance 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB
+Example: query.system.account 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB
 Example: query.substrate.code --info
 Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
 
@@ -126,7 +126,7 @@ if (paramsFile) {
 
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
-  assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.balances.freeBalance');
+  assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
   const provider = new WsProvider(ws);
   const api = (await ApiPromise.create({ provider })) as unknown as ApiExt;
@@ -186,7 +186,7 @@ async function makeTx ({ fn, log }: CallInfo): Promise<void> {
   return fn(...params).signAndSend(account, (result: SubmittableResult): void => {
     log(result);
 
-    if (result.isFinalized) {
+    if (result.isInBlock || result.isFinalized) {
       process.exit(0);
     }
   });

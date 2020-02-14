@@ -40,7 +40,7 @@ export default async function cmdSendOffline (
     blocks = 50;
   }
   if (nonce == null) {
-    nonce = await api.query.system.accountNonce(account);
+    nonce = (await api.derive.balances.account(account)).accountNonce;
   }
   let options: SignerOptions;
   let blockNumber: Compact<BlockNumber> | number | null = null;
