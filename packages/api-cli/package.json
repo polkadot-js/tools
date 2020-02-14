@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/api-cli",
-  "version": "0.10.0-beta.2",
+  "version": "0.10.0-beta.3",
   "description": "A commandline API interface for interacting with a chain",
   "main": "index.js",
   "bin": {
