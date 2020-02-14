@@ -32,7 +32,7 @@ function submitPreSignedTx (api: ApiPromise, tx: string): void {
   api.rpc.author.submitAndWatchExtrinsic(extrinsic, result => {
     console.log(JSON.stringify(result));
 
-    if (result.isFinalized) {
+    if (result.isInBlock || result.isFinalized) {
       process.exit(0);
     }
   });
@@ -68,7 +68,7 @@ export default async function cmdSubmit (account: string, blocks: number | undef
   await api.tx[section][method](...params).signAndSend(account, options, (result): void => {
     console.log(JSON.stringify(result));
 
-    if (result.isFinalized) {
+    if (result.isInBlock || result.isFinalized) {
       process.exit(0);
     }
   });

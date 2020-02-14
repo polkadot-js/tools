@@ -15,13 +15,13 @@ Where type is the type of query to be made, this takes the form of `<type>.<sect
 For instance to make a query to retrieve Alice's balances, you can do
 
 ```
-yarn run:api query.balances.freeBalance 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
+yarn run:api query.system.account 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
 ```
 
 To do the same, running as a subscription and streaming results
 
 ```
-yarn run:api query.balances.freeBalance 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY --sub
+yarn run:api query.system.account 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY --sub
 ```
 
 To make a transfer from Alice to Bob, the following can be used -
