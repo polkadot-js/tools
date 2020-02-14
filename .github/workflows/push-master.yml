@@ -28,7 +28,7 @@ jobs:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: |
         yarn install --frozen-lockfile
-        yarn polkadot-dev-ghact-build
+        yarn polkadot-ci-ghact-build
 
   build_docker:
     name: Build Docker
