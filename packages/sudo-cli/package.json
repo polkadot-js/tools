@@ -1,0 +1,41 @@
+{
+  "name": "@polkadot/sudo-cli",
+  "version": "0.10.0-beta.8",
+  "description": "A commandline API interface for performing on-chain superuser actions",
+  "main": "index.js",
+  "bin": {
+    "polkadot-js-api": "./index.js"
+  },
+  "keywords": [
+    "Polkadot",
+    "JsonRPC"
+  ],
+  "author": "Peter Goodspeed-Niklaus <peter.r.goodspeedniklaus@gmail.com>",
+  "maintainers": [
+    "Peter Goodspeed-Niklaus <peter.r.goodspeedniklaus@gmail.com>"
+  ],
+  "contributors": [],
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polkadot-js/tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/polkadot-js/tools/issues"
+  },
+  "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/sudo-cli#readme",
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@polkadot/api": "^1.2.1",
+    "@polkadot/keyring": "^2.3.1",
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {
+    "@types/yargs": "^15.0.2"
+  }
+}
