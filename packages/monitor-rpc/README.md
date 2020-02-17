@@ -17,6 +17,6 @@ Then just doing a get on `localhost:8181` should return something like
 If you are installing it globally -
 
 ```
-$ yarn add global @polkadot/monitor-rpc
+$ yarn global add @polkadot/monitor-rpc
 $ polkadot-js-monitor ...
 ```
