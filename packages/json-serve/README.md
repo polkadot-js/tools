@@ -23,6 +23,6 @@ When passing a correctly formatted query, e.g. `http://localhost:8181?q=totalcoi
 If you are installing it globally -
 
 ```
-$ yarn add global @polkadot/json-serve
+$ yarn global add @polkadot/json-serve
 $ polkadot-js-json-serve ...
 ```

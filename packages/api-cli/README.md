@@ -33,7 +33,7 @@ yarn run:api tx.balances.transfer 5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694
 If you are installing it globally -
 
 ```
-$ yarn add global @polkadot/api-cli
+$ yarn global add @polkadot/api-cli
 $ polkadot-js-api ...
 ```
 
