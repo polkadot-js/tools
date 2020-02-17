@@ -1,5 +1,6 @@
 # 0.10.0-beta.x
 
+- Cleanup global install docs with correct argument order (Thanks to https://github.com/coriolinus)
 - Allow passing signer tx params in file (Thanks to https://github.com/kwingram25)
 - Bump api & util (supprt for composite accounts)
 - Update documentation for composite account support
