@@ -116,7 +116,7 @@ const {
       required: true
     },
     sudo: {
-      description: 'Run this tx as superuser. Uses dev keyring.',
+      description: 'Run this tx as a wrapped sudo.sudo call',
       type: 'boolean'
     }
   })
