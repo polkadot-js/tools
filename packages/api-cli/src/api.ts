@@ -3,6 +3,7 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { KeyringPair } from '@polkadot/keyring/types';
+import { Proposal } from '@polkadot/types/interfaces/democracy';
 import { Codec } from '@polkadot/types/types';
 
 import fs from 'fs';
@@ -53,6 +54,7 @@ interface CallInfo {
   method: string;
   section: string;
   type: string;
+  api: ApiPromise;
 }
 
 const CRYPTO = ['ed25519', 'sr25519'];
@@ -63,7 +65,16 @@ Example: query.substrate.code --info
 Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
 
 // retrieve and parse arguments - we do this globally, since this is a single command
-const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, ws } = yargs
+const {
+  _: [endpoint, ...paramsInline],
+  info,
+  params: paramsFile,
+  seed,
+  sign,
+  sub,
+  ws,
+  sudo
+} = yargs
   .command('$0', usage)
   .middleware((argv) => {
     argv._ = argv._.map((param) => {
@@ -104,6 +115,10 @@ const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, su
       description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
       type: 'string',
       required: true
+    },
+    sudo: {
+      description: 'Run this tx as a wrapped sudo.sudo call',
+      type: 'boolean'
     }
   })
   .strict()
@@ -129,7 +144,8 @@ async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
   const provider = new WsProvider(ws);
-  const api = (await ApiPromise.create({ provider })) as unknown as ApiExt;
+  const apiRaw = await ApiPromise.create({ provider });
+  const api = apiRaw as unknown as ApiExt;
   const [type, section, method] = endpoint.split('.') as [keyof ApiExt, string, string];
 
   assert(['consts', 'derive', 'query', 'rpc', 'tx'].includes(type), `Expected one of consts, derive, query, rpc, tx, found ${type}`);
@@ -150,7 +166,8 @@ async function getCallInfo (): Promise<CallInfo> {
     ),
     method,
     section,
-    type
+    type,
+    api: apiRaw
   };
 }
 
@@ -182,20 +199,30 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
 }
 
 // send a transaction
-async function makeTx ({ fn, log }: CallInfo): Promise<void> {
+async function makeTx ({ fn, log, api }: CallInfo): Promise<void> {
   assert(seed, 'You need to specify an account seed with tx.*');
   assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
   const keyring = new Keyring();
-  const account = keyring.createFromUri(seed, {}, sign as 'ed25519');
+  const auth = keyring.createFromUri(seed, {}, sign as 'ed25519');
 
-  return fn(...params).signAndSend(account, (result: SubmittableResult): void => {
+  let signable;
+  if (sudo) {
+    const adminId = await api.query.sudo.key();
+    assert(adminId.eq(auth.address), 'Supplied seed does not match on-chain sudo key');
+
+    signable = api.tx.sudo.sudo((fn(...params) as unknown) as Proposal);
+  } else {
+    signable = fn(...params);
+  }
+
+  return signable.signAndSend(auth, (result: SubmittableResult): void => {
     log(result);
 
     if (result.isInBlock || result.isFinalized) {
       process.exit(0);
     }
-  });
+  }) as Promise<void>;
 }
 
 // make a derive, query or rpc call
