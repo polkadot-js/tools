@@ -18,7 +18,7 @@ type LogFn = (result: SubmittableResult | Codec | ApiCallFn) => void;
 // Assume that we know what we are doing where we use this - create a signature
 // that combines the Extrinsic and normal calls into one as a result
 interface ApiCallResult extends Promise<Codec> {
-  signAndSend (addr: KeyringPair, cb: (result: SubmittableResult) => void): Promise<void>;
+  signAndSend (addr: KeyringPair, cb: (result: SubmittableResult) => void): Promise<() => void>;
 }
 
 // As above, combine the normal calls (meta) with stuff exposed on extrinsics (description)
@@ -65,7 +65,16 @@ Example: query.substrate.code --info
 Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
 
 // retrieve and parse arguments - we do this globally, since this is a single command
-const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, ws } = yargs
+const {
+  _: [endpoint, ...paramsInline],
+  info,
+  params: paramsFile,
+  seed,
+  sign,
+  sub,
+  ws,
+  sudo
+} = yargs
   .command('$0', usage)
   .middleware((argv) => {
     argv._ = argv._.map((param) => {
@@ -106,6 +115,10 @@ const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, su
       description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
       type: 'string',
       required: true
+    },
+    sudo: {
+      description: 'Run this tx as a wrapped sudo.sudo call',
+      type: 'boolean'
     }
   })
   .strict()
@@ -186,14 +199,25 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
 }
 
 // send a transaction
-async function makeTx ({ fn, log }: CallInfo): Promise<void> {
+async function makeTx ({ fn, log, api }: CallInfo): Promise<() => void> {
   assert(seed, 'You need to specify an account seed with tx.*');
   assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
   const keyring = new Keyring();
-  const account = keyring.createFromUri(seed, {}, sign as 'ed25519');
+  const auth = keyring.createFromUri(seed, {}, sign as 'ed25519');
+  let signable;
 
-  return fn(...params).signAndSend(account, (result: SubmittableResult): void => {
+  if (sudo) {
+    const adminId = await api.query.sudo.key();
+
+    assert(adminId.eq(auth.address), 'Supplied seed does not match on-chain sudo key');
+
+    signable = api.tx.sudo.sudo(fn(...params));
+  } else {
+    signable = fn(...params);
+  }
+
+  return signable.signAndSend(auth, (result: SubmittableResult): void => {
     log(result);
 
     if (result.isInBlock || result.isFinalized) {
@@ -216,7 +240,7 @@ async function makeCall ({ fn, log, method, type }: CallInfo): Promise<void> {
 }
 
 // our main entry point - from here we call out
-async function main (): Promise<void> {
+async function main (): Promise<void | (() => void)> {
   const callInfo = await getCallInfo();
 
   if (info) {
