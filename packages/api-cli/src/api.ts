@@ -54,6 +54,7 @@ interface CallInfo {
   method: string;
   section: string;
   type: string;
+  api: ApiPromise;
 }
 
 const CRYPTO = ['ed25519', 'sr25519'];
@@ -143,7 +144,8 @@ async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
   const provider = new WsProvider(ws);
-  const api = (await ApiPromise.create({ provider })) as unknown as ApiExt;
+  const apiRaw = await ApiPromise.create({ provider });
+  const api = apiRaw as unknown as ApiExt;
   const [type, section, method] = endpoint.split('.') as [keyof ApiExt, string, string];
 
   assert(['consts', 'derive', 'query', 'rpc', 'tx'].includes(type), `Expected one of consts, derive, query, rpc, tx, found ${type}`);
@@ -164,7 +166,8 @@ async function getCallInfo (): Promise<CallInfo> {
     ),
     method,
     section,
-    type
+    type,
+    api: apiRaw
   };
 }
 
@@ -196,23 +199,18 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
 }
 
 // send a transaction
-async function makeTx ({ fn, log }: CallInfo): Promise<void> {
+async function makeTx ({ fn, log, api }: CallInfo): Promise<void> {
   assert(seed, 'You need to specify an account seed with tx.*');
   assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
   const keyring = new Keyring();
-  let auth = keyring.createFromUri(seed, {}, sign as 'ed25519');
+  const auth = keyring.createFromUri(seed, {}, sign as 'ed25519');
 
   let signable;
   if (sudo) {
-    const provider = new WsProvider(ws);
-    const api = await ApiPromise.create({ provider });
     const adminId = await api.query.sudo.key();
-    // attempt to get the admin key. This should only be in the keyring if the user
-    // has provided the superuser's seed. We still attempt to fetch the admin ID's
-    // keypair; if that fetch fails, then we can fail immediately instead of waiting
-    // for the tx to be rejected.
-    auth = keyring.getPair(adminId.toString());
+    assert(adminId.eq(auth.address), 'Supplied seed does not match on-chain sudo key');
+
     signable = api.tx.sudo.sudo((fn(...params) as unknown) as Proposal);
   } else {
     signable = fn(...params);
