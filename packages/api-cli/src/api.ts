@@ -3,12 +3,13 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { KeyringPair } from '@polkadot/keyring/types';
-import { Codec } from '@polkadot/types/types';
+import { CallFunction, Codec } from '@polkadot/types/types';
 
 import fs from 'fs';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
+import { Text } from '@polkadot/types';
 import { assert, isFunction } from '@polkadot/util';
 
 // the function signature for our catch-any result logger
@@ -22,10 +23,10 @@ interface ApiCallResult extends Promise<Codec> {
 
 // As above, combine the normal calls (meta) with stuff exposed on extrinsics (description)
 interface ApiCallFn {
-  (...args: (string | LogFn)[]): ApiCallResult;
+  (...args: (string | LogFn)[]): CallFunction & ApiCallResult;
   description?: string;
   meta?: {
-    documentation: string[];
+    documentation: Text[];
   };
 }
 
@@ -48,6 +49,7 @@ interface ApiExt {
 
 // the info extracted from the actual params provided
 interface CallInfo {
+  api: ApiPromise;
   fn: ApiCallFn;
   log: LogFn;
   method: string;
@@ -129,16 +131,18 @@ async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
   const provider = new WsProvider(ws);
-  const api = (await ApiPromise.create({ provider })) as unknown as ApiExt;
+  const api = await ApiPromise.create({ provider });
+  const apiExt = api as unknown as ApiExt;
   const [type, section, method] = endpoint.split('.') as [keyof ApiExt, string, string];
 
   assert(['consts', 'derive', 'query', 'rpc', 'tx'].includes(type), `Expected one of consts, derive, query, rpc, tx, found ${type}`);
-  assert(api[type][section], `Cannot find ${type}.${section}`);
-  assert(api[type][section][method], `Cannot find ${type}.${section}.${method}`);
+  assert(apiExt[type][section], `Cannot find ${type}.${section}`);
+  assert(apiExt[type][section][method], `Cannot find ${type}.${section}.${method}`);
 
-  const fn = api[type][section][method];
+  const fn = apiExt[type][section][method];
 
   return {
+    api,
     fn,
     log: (result: SubmittableResult | Codec | ApiCallFn): void => console.log(
       JSON.stringify({
@@ -168,7 +172,7 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
   if (description) {
     console.log(description);
   } else if (meta) {
-    meta.documentation.forEach((doc: string): void =>
+    meta.documentation.forEach((doc: Text): void =>
       console.log(doc.toString())
     );
   } else {
