@@ -216,7 +216,7 @@ async function makeTx ({ fn, log }: CallInfo): Promise<void> {
     if (result.isInBlock || result.isFinalized) {
       process.exit(0);
     }
-  });
+  }) as Promise<void>;
 }
 
 // make a derive, query or rpc call
