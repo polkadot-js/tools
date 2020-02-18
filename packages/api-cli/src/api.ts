@@ -61,20 +61,12 @@ const CRYPTO = ['ed25519', 'sr25519'];
 
 const usage = `Usage: [options] <endpoint> <...params>
 Example: query.system.account 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB
-Example: query.substrate.code --info
-Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
+Example: --info query.substrate.code
+Example: --seed "//Alice" tx.balances.transfer F7Gh 10000
+Example: --seed "//Alice" --sudo tx.balances.setBalance 12345`;
 
 // retrieve and parse arguments - we do this globally, since this is a single command
-const {
-  _: [endpoint, ...paramsInline],
-  info,
-  params: paramsFile,
-  seed,
-  sign,
-  sub,
-  ws,
-  sudo
-} = yargs
+const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, ws, sudo } = yargs
   .command('$0', usage)
   .middleware((argv) => {
     argv._ = argv._.map((param) => {
@@ -92,6 +84,10 @@ const {
       description: 'Shows the meta information for the call',
       type: 'boolean'
     },
+    params: {
+      description: 'Location of file containing space-separated transaction parameters',
+      type: 'string'
+    },
     seed: {
       description: 'The account seed to use (required for tx.* only)',
       type: 'string'
@@ -106,13 +102,9 @@ const {
       description: 'With this flag set, perform subscription, running until exited with ^C',
       type: 'boolean'
     },
-    params: {
-      description: 'Location of file containing space-separated transaction parameters (optional)',
-      type: 'string'
-    },
     ws: {
       default: 'ws://127.0.0.1:9944',
-      description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
+      description: 'The API endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io',
       type: 'string',
       required: true
     },
@@ -125,6 +117,7 @@ const {
   .argv;
 
 let params: string[];
+
 if (paramsFile) {
   assert(fs.existsSync(paramsFile), 'Cannot find supplied transaction parameters file');
 
@@ -141,13 +134,15 @@ if (paramsFile) {
 
 // a parameter whose initial character is @ treated as a path and replaced
 // with the hexadecimal representation of the binary contents of that file
-params = params.map(param => {
+params = params.map((param) => {
   if (param.startsWith('@')) {
     const path = param.substring(1);
+
     assert(fs.existsSync(path), `Cannot find path ${path}`);
-    const data = fs.readFileSync(path).toString('hex');
-    return `0x${data}`;
+
+    return `0x${fs.readFileSync(path).toString('hex')}`;
   }
+
   return param;
 });
 
