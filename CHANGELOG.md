@@ -4,7 +4,7 @@
 - Cleanup global install docs with correct argument order (Thanks to https://github.com/coriolinus)
 - Allow passing signer tx params in file (Thanks to https://github.com/kwingram25)
 - Transaction submission output now is displayed in `.toHuman` format
-- Bump api & util (supprt for composite accounts)
+- Bump api & util (support for composite accounts)
 - Update documentation for composite account support
 - `@polkadot/api` 1.3.1
 
