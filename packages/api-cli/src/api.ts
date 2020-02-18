@@ -9,7 +9,7 @@ import fs from 'fs';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
-import { assert } from '@polkadot/util';
+import { assert, isFunction } from '@polkadot/util';
 
 // the function signature for our catch-any result logger
 type LogFn = (result: SubmittableResult | Codec | ApiCallFn) => void;
@@ -36,7 +36,7 @@ interface ApiExtSection {
   };
 }
 
-// extend out API definition to know about how we decorate the methods - we are really hacking
+// extend our API definition to know about how we decorate the methods - we are really hacking
 // into the API definitions here a bit since we want to dynamically access the endpoints
 interface ApiExt {
   consts: ApiExtSection;
@@ -140,8 +140,14 @@ async function getCallInfo (): Promise<CallInfo> {
 
   return {
     fn,
-    log: (result: SubmittableResult | Codec | ApiCallFn): void =>
-      console.log(JSON.stringify({ [method]: result }, null, 2)),
+    log: (result: SubmittableResult | Codec | ApiCallFn): void => console.log(
+      JSON.stringify({
+        // eslint-disable-next-line @typescript-eslint/unbound-method
+        [method]: isFunction((result as Codec).toHuman)
+          ? (result as Codec).toHuman()
+          : result
+      }, null, 2)
+    ),
     method,
     section,
     type
