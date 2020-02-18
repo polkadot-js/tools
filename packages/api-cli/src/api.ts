@@ -139,6 +139,18 @@ if (paramsFile) {
   params = paramsInline;
 }
 
+// a parameter whose initial character is @ treated as a path and replaced
+// with the hexadecimal representation of the binary contents of that file
+params = params.map(param => {
+  if (param.startsWith('@')) {
+    const path = param.substring(1);
+    assert(fs.existsSync(path), `Cannot find path ${path}`);
+    const data = fs.readFileSync(path).toString('hex');
+    return `0x${data}`;
+  }
+  return param;
+});
+
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');

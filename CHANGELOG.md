@@ -1,5 +1,6 @@
 # 0.10.0-beta.x
 
+- Add support for file syntax for tx params (`@path`) to api-cli (Thanks to https://github.com/coriolinus)
 - Add support for sudo txs (via `--sudo`) to api-cli (Thanks to https://github.com/coriolinus)
 - Cleanup global install docs with correct argument order (Thanks to https://github.com/coriolinus)
 - Allow passing signer tx params in file (Thanks to https://github.com/kwingram25)
