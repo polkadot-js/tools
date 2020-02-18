@@ -3,12 +3,14 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { KeyringPair } from '@polkadot/keyring/types';
+import { Proposal } from '@polkadot/types/interfaces/democracy';
 import { Codec } from '@polkadot/types/types';
 
 import fs from 'fs';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
+import testKeyring from '@polkadot/keyring/testing';
 import { assert } from '@polkadot/util';
 
 // the function signature for our catch-any result logger
@@ -63,7 +65,16 @@ Example: query.substrate.code --info
 Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
 
 // retrieve and parse arguments - we do this globally, since this is a single command
-const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, ws } = yargs
+const {
+  _: [endpoint, ...paramsInline],
+  info,
+  params: paramsFile,
+  seed,
+  sign,
+  sub,
+  ws,
+  sudo
+} = yargs
   .command('$0', usage)
   .middleware((argv) => {
     argv._ = argv._.map((param) => {
@@ -104,6 +115,10 @@ const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, su
       description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
       type: 'string',
       required: true
+    },
+    sudo: {
+      description: 'Run this tx as superuser. Uses dev keyring.',
+      type: 'boolean'
     }
   })
   .strict()
@@ -177,13 +192,25 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
 
 // send a transaction
 async function makeTx ({ fn, log }: CallInfo): Promise<void> {
-  assert(seed, 'You need to specify an account seed with tx.*');
-  assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
+  let signable;
+  let auth;
+  if (sudo) {
+    const provider = new WsProvider(ws);
+    const api = await ApiPromise.create({ provider });
+    const adminId = await api.query.sudo.key();
+    const keyring = testKeyring();
+    auth = keyring.getPair(adminId.toString());
+    signable = api.tx.sudo.sudo((fn(...params) as unknown) as Proposal);
+  } else {
+    assert(seed, 'You need to specify an account seed with tx.*');
+    assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
-  const keyring = new Keyring();
-  const account = keyring.createFromUri(seed, {}, sign as 'ed25519');
+    const keyring = new Keyring();
+    auth = keyring.createFromUri(seed, {}, sign as 'ed25519');
+    signable = fn(...params);
+  }
 
-  return fn(...params).signAndSend(account, (result: SubmittableResult): void => {
+  return signable.signAndSend(auth, (result: SubmittableResult): void => {
     log(result);
 
     if (result.isInBlock || result.isFinalized) {
