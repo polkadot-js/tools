@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/signer-cli",
-  "version": "0.10.0-beta.9",
+  "version": "0.10.0-beta.10",
   "description": "A commandline signer for offline signature generataion",
   "main": "index.js",
   "bin": {
