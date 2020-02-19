@@ -136,6 +136,9 @@ const {
     }
   })
   .strict()
+  .parserConfiguration({
+    'parse-numbers': false
+  })
   .argv;
 
 let params: string[];
