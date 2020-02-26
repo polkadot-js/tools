@@ -55,8 +55,8 @@ function percentageFormat (top: BN, bottom: BN): string {
 }
 
 function onElectedInfo (info: DerivedStakingElected): void {
-  totalBonded = info.info.reduce((totalBonded, { stakers }): BN => {
-    return totalBonded.add(stakers?.total.unwrap() || new BN(0));
+  totalBonded = info.info.reduce((totalBonded, { exposure }): BN => {
+    return totalBonded.add(exposure?.total.unwrap() || new BN(0));
   }, new BN(0));
 }
 
