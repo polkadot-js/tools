@@ -55,6 +55,6 @@ $ polkadot-js-api ...
 
 ## Other options
 
-The `--ws` param can be used to connect to other Webscoket endpoints, when submitting transactions, you can use the `--seed <seed>` to specify an account seed. To read documentation on a call, use the `--info` command.
+The `--ws` param can be used to connect to other Websocket endpoints, when submitting transactions, you can use the `--seed <seed>` to specify an account seed. To read documentation on a call, use the `--info` command.
 
 For a complete list of available commands, you can use `--help`

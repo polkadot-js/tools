@@ -1,13 +1,12 @@
-# 0.10.0-beta.x
+# 0.10.1 Feb 26, 2020
 
 - Add support for file syntax for tx params (`@path`) to api-cli (Thanks to https://github.com/coriolinus)
 - Add support for sudo txs (via `--sudo`) to api-cli (Thanks to https://github.com/coriolinus)
 - Cleanup global install docs with correct argument order (Thanks to https://github.com/coriolinus)
 - Allow passing signer tx params in file (Thanks to https://github.com/kwingram25)
 - Transaction submission output now is displayed in `.toHuman` format
-- Bump api & util (support for composite accounts)
 - Update documentation for composite account support
-- `@polkadot/api` 1.3.1
+- Update to `@polkadot/api` 1.4.1 & `@polkadot/util` 2.5.1
 
 # 0.9.1 Jan 30, 2020
 
