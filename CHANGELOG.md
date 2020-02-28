@@ -1,3 +1,7 @@
+# 0.11.0-beta.x
+
+- Swap to yarn 2 for this project
+
 # 0.10.1 Feb 26, 2020
 
 - Add support for file syntax for tx params (`@path`) to api-cli (Thanks to https://github.com/coriolinus)
