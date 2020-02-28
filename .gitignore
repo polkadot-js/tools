@@ -8,6 +8,11 @@ tmp/
 .env.test.local
 .env.production.local
 .npmrc
+.pnp.*
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
 cc-test-reporter
 lerna-debug.log*
 package-lock.json
