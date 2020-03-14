@@ -2541,6 +2541,7 @@ __metadata:
     "@polkadot/keyring": ^2.6.2
     "@polkadot/types": ^1.7.0-beta.10
     "@polkadot/util": ^2.6.2
+    "@types/node": ^13.9.1
     "@types/yargs": ^15.0.4
     yargs: ^15.3.0
   bin:
@@ -2586,9 +2587,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/dev@npm:^0.50.31":
-  version: 0.50.31
-  resolution: "@polkadot/dev@npm:0.50.31"
+"@polkadot/dev@npm:^0.50.32":
+  version: 0.50.33
+  resolution: "@polkadot/dev@npm:0.50.33"
   dependencies:
     "@babel/cli": ^7.8.4
     "@babel/core": ^7.8.7
@@ -2670,7 +2671,7 @@ __metadata:
     polkadot-exec-typedoc: scripts/polkadot-exec-typedoc.js
     polkadot-exec-vuepress: scripts/polkadot-exec-vuepress.js
     polkadot-exec-webpack: scripts/polkadot-exec-webpack.js
-  checksum: 2/33b76f85de371410f6e44b5281ba4bfcf8d738cda393097cb1b0de213e0a819fa48c7efc177365f02371c079f72fd0b56146c31426d91d1de74e633be333b864
+  checksum: 2/8dd7f23799da0a653838694f76d3f8222b39a57465c5feada5ef0c874ce82d2e5cd210bc59414182e05345512d68d1346a9b866d7dfa6e4c31c8b29ff7cd8c4d
   languageName: node
   linkType: hard
 
@@ -2686,6 +2687,7 @@ __metadata:
     "@types/bn.js": ^4.11.6
     "@types/koa": ^2.11.2
     "@types/koa-route": ^3.2.4
+    "@types/node": ^13.9.1
     "@types/yargs": ^15.0.4
     koa: ^2.11.0
     koa-route: ^3.2.0
@@ -2740,6 +2742,7 @@ __metadata:
     "@polkadot/types": ^1.7.0-beta.10
     "@types/koa": ^2.11.2
     "@types/koa-route": ^3.2.4
+    "@types/node": ^13.9.1
     "@types/yargs": ^15.0.4
     koa: ^2.11.0
     koa-route: ^3.2.0
@@ -2794,6 +2797,7 @@ __metadata:
     "@polkadot/types": ^1.7.0-beta.10
     "@polkadot/util": ^2.6.2
     "@polkadot/util-crypto": ^2.6.2
+    "@types/node": ^13.9.1
     "@types/yargs": ^15.0.4
     yargs: ^15.3.0
   bin:
@@ -2801,12 +2805,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot/ts@npm:^0.3.8":
-  version: 0.3.8
-  resolution: "@polkadot/ts@npm:0.3.8"
+"@polkadot/ts@npm:^0.3.9":
+  version: 0.3.10
+  resolution: "@polkadot/ts@npm:0.3.10"
   dependencies:
     "@types/chrome": ^0.0.100
-  checksum: 2/252e254c4f2fef159623c98dc4e1fe7f4f47ebff9ca6ae0b6682b944fdb1221e3d0cd2dd735b44b5ea65b8d1d7ec6a28ad01edad471d8fe5bb80928b01496024
+  checksum: 2/f3469cc60371ce60d92c028e25c39f5c3cd89868bf2e2d57acaac81483fddf019fb8e078ae1516adb495a600ac367c43817fe420e2f50e2b9294edfcb57bb9fd
   languageName: node
   linkType: hard
 
@@ -15540,8 +15544,11 @@ resolve@1.1.7:
     "@babel/core": ^7.8.7
     "@babel/register": ^7.8.6
     "@babel/runtime": ^7.8.7
-    "@polkadot/dev": ^0.50.31
-    "@polkadot/ts": ^0.3.8
+    "@polkadot/dev": ^0.50.32
+    "@polkadot/ts": ^0.3.9
+    "@types/node": ^13.9.1
+    "@types/yargs": ^15.0.4
+    "@yarnpkg/pnpify": ^2.0.0-rc.19
   languageName: unknown
   linkType: soft
 

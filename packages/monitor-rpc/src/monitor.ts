@@ -4,7 +4,7 @@
 
 import { BlockNumber, Header } from '@polkadot/types/interfaces';
 
-import Koa, { Context } from 'koa';
+import Koa from 'koa';
 import koaRoute from 'koa-route';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
@@ -52,7 +52,7 @@ function updateCurrent (header: Header): void {
   console.log(`#${currentBlockNumber} received at ${currentTimestamp}`);
 }
 
-function httpStatus (ctx: Context): void {
+function httpStatus (ctx: Koa.Context): void {
   const elapsed = Date.now() - currentTimestamp.getTime();
 
   ctx.body = {
