@@ -3,6 +3,7 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { KeyringPair } from '@polkadot/keyring/types';
+import { Hash } from '@polkadot/types/interfaces';
 import { CallFunction, Codec } from '@polkadot/types/types';
 
 import fs from 'fs';
@@ -216,7 +217,7 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
 }
 
 // send a transaction
-async function makeTx ({ fn, log, api }: CallInfo): Promise<() => void> {
+async function makeTx ({ fn, log, api }: CallInfo): Promise<(() => void) | Hash> {
   assert(seed, 'You need to specify an account seed with tx.*');
   assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
@@ -244,6 +245,7 @@ async function makeTx ({ fn, log, api }: CallInfo): Promise<() => void> {
 }
 
 // make a derive, query or rpc call
+// eslint-disable-next-line @typescript-eslint/require-await
 async function makeCall ({ fn, log, method, type }: CallInfo): Promise<void> {
   const isRpcSub = (type === 'rpc') && method.startsWith('subscribe');
 
@@ -257,7 +259,7 @@ async function makeCall ({ fn, log, method, type }: CallInfo): Promise<void> {
 }
 
 // our main entry point - from here we call out
-async function main (): Promise<void | (() => void)> {
+async function main (): Promise<void | Hash | (() => void)> {
   const callInfo = await getCallInfo();
 
   if (info) {
