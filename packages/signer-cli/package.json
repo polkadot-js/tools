@@ -33,6 +33,9 @@
     "@babel/runtime": "^7.8.7",
     "@polkadot/api": "^1.7.0-beta.10",
     "@polkadot/keyring": "^2.6.2",
+    "@polkadot/types": "^1.7.0-beta.10",
+    "@polkadot/util": "^2.6.2",
+    "@polkadot/util-crypto": "^2.6.2",
     "yargs": "^15.3.0"
   },
   "devDependencies": {

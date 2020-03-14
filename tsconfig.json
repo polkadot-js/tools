@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/@polkadot/dev/config/tsconfig",
+  "extends": "@polkadot/dev/config/tsconfig",
   "exclude": [
     "build/**/*",
     "**/build/**/*"
@@ -12,10 +12,6 @@
       "@polkadot/monitor-rpc": [ "packages/monitor-rpc/src" ],
       "@polkadot/monitor-rpc/*": [ "packages/monitor-rpc/src/*" ]
     },
-    "skipLibCheck": true,
-    "typeRoots": [
-      "./node_modules/@polkadot/ts",
-      "./node_modules/@types"
-    ]
+    "skipLibCheck": true
   }
 }
