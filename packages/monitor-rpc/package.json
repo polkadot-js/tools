@@ -40,6 +40,7 @@
   "devDependencies": {
     "@types/koa": "^2.11.2",
     "@types/koa-route": "^3.2.4",
+    "@types/node": "^13.9.1",
     "@types/yargs": "^15.0.4"
   }
 }

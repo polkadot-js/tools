@@ -66,16 +66,7 @@ Example: query.substrate.code --info
 Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
 
 // retrieve and parse arguments - we do this globally, since this is a single command
-const {
-  _: [endpoint, ...paramsInline],
-  info,
-  params: paramsFile,
-  seed,
-  sign,
-  sub,
-  ws,
-  sudo
-} = yargs
+const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, ws } = yargs
   .command('$0', usage)
   .middleware((argv) => {
     // a parameter whose initial character is @ treated as a path and replaced

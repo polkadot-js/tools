@@ -6,7 +6,7 @@ import { DerivedStakingElected } from '@polkadot/api-derive/types';
 import { Balance, BlockNumber, Header } from '@polkadot/types/interfaces';
 
 import BN from 'bn.js';
-import Koa, { Context } from 'koa';
+import Koa from 'koa';
 import koaRoute from 'koa-route';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
@@ -75,7 +75,7 @@ function onTotalInsurance (_totalInsurance: Balance): void {
   totalInsurance = _totalInsurance;
 }
 
-function jsonApi (ctx: Context): void {
+function jsonApi (ctx: Koa.Context): void {
   switch (ctx.query.q) {
     case 'bondedpercentage':
       ctx.body = percentageFormat(totalBonded, totalInsurance);
