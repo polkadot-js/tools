@@ -7,7 +7,5 @@
     "javascript",
     "typescript",
     "typescriptreact"
-  ],
-  "eslint.nodePath": ".vscode/pnpify",
-  "typescript.tsdk": ".vscode/pnpify/typescript/lib"
+  ]
 }
