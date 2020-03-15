@@ -32,7 +32,6 @@
     "@polkadot/dev": "^0.50.33",
     "@polkadot/ts": "^0.3.10",
     "@types/node": "^13.9.1",
-    "@types/yargs": "^15.0.4",
-    "@yarnpkg/pnpify": "^2.0.0-rc.19"
+    "@types/yargs": "^15.0.4"
   }
 }
