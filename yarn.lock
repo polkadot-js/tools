@@ -2587,7 +2587,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/dev@npm:^0.50.32":
+"@polkadot/dev@npm:^0.50.33":
   version: 0.50.33
   resolution: "@polkadot/dev@npm:0.50.33"
   dependencies:
@@ -2805,7 +2805,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot/ts@npm:^0.3.9":
+"@polkadot/ts@npm:^0.3.10":
   version: 0.3.10
   resolution: "@polkadot/ts@npm:0.3.10"
   dependencies:
@@ -15544,11 +15544,13 @@ resolve@1.1.7:
     "@babel/core": ^7.8.7
     "@babel/register": ^7.8.6
     "@babel/runtime": ^7.8.7
-    "@polkadot/dev": ^0.50.32
-    "@polkadot/ts": ^0.3.9
+    "@polkadot/dev": ^0.50.33
+    "@polkadot/ts": ^0.3.10
     "@types/node": ^13.9.1
     "@types/yargs": ^15.0.4
     "@yarnpkg/pnpify": ^2.0.0-rc.19
+    eslint: ^6.8.0
+    typescript: ^3.8.3
   languageName: unknown
   linkType: soft
 
