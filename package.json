@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build": "polkadot-dev-build-ts",
+    "build:release": "polkadot-ci-ghact-build",
     "lint": "polkadot-dev-run-lint",
     "clean": "polkadot-dev-clean-build",
     "postinstall": "polkadot-dev-yarn-only",
