@@ -19,10 +19,8 @@ export default async function cmdSign (_: string, seed: string, type: Curves, [p
   const keyring = new Keyring({ type });
   const pair = keyring.createFromUri(seed);
   const signature = pair.sign(hexToU8a(payload));
-
   const prefix = new Uint8Array(curvePrefixes[type]);
 
   console.log(`Signature: ${u8aToHex(u8aConcat(prefix, signature))}`);
-
   process.exit(0);
 }

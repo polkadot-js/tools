@@ -16,32 +16,28 @@ function getSignature (data: string): Promise<string> {
   });
 
   return new Promise((resolve): void => {
-    rl.question(`Payload: ${data}\nSignature> `, signature => {
+    rl.question(`Payload: ${data}\nSignature> `, (signature) => {
       resolve(signature);
       rl.close();
     });
   });
 }
 
-export default async function cmdSendOffline (
-  account: string,
-  blocks: number | undefined,
-  endpoint: string,
-  nonce: number | undefined | Index,
-  [tx, ...params]: string[]
-): Promise<void> {
+export default async function cmdSendOffline (account: string, blocks: number | undefined, endpoint: string, nonce: number | undefined | Index, [tx, ...params]: string[]): Promise<void> {
   const provider = new WsProvider(endpoint);
   const api = await ApiPromise.create({ provider });
   const [section, method] = tx.split('.');
 
   assert(api.tx[section] && api.tx[section][method], `Unable to find method ${section}.${method}`);
 
-  if (blocks == null) {
+  if (!blocks && blocks !== 0) {
     blocks = 50;
   }
-  if (nonce == null) {
+
+  if (!nonce && nonce !== 0) {
     nonce = (await api.derive.balances.account(account)).accountNonce;
   }
+
   let options: SignerOptions;
   let blockNumber: Compact<BlockNumber> | number | null = null;
 
@@ -55,6 +51,7 @@ export default async function cmdSendOffline (
   } else {
     // Get current block if we want to modify the number of blocks we have to sign
     const signedBlock = await api.rpc.chain.getBlock();
+
     options = {
       blockHash: signedBlock.block.header.hash,
       era: api.createType('ExtrinsicEra', {
@@ -67,7 +64,6 @@ export default async function cmdSendOffline (
   }
 
   const transaction: SubmittableExtrinsic<'promise'> = api.tx[section][method](...params);
-
   const payload: SignerPayload = api.createType('SignerPayload', {
     version: api.extrinsicVersion,
     runtimeVersion: api.runtimeVersion,
@@ -77,12 +73,9 @@ export default async function cmdSendOffline (
     method: transaction.method,
     blockNumber
   });
-
   const signature = await getSignature(payload.toRaw().data);
 
   transaction.addSignature(account, signature, payload.toPayload());
-
   console.log('\nSigned transaction:\n' + transaction.toJSON());
-
   process.exit(0);
 }
