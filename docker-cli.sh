@@ -28,11 +28,15 @@ case $CMD in
     polkadot-js-signer "$@"
     exit 0
     ;;
+  vanity)
+    polkadot-js-vanitygen "$@"
+    exit 0
+    ;;
 esac
 
 echo "This executes polkadot-js cli commands."
 echo ""
-echo "Usage: <api|json|monitor|signer> [...options]"
+echo "Usage: <api|json|monitor|signer|vanity> [...options]"
 echo ""
 echo "Commands:"
 echo "  api: Runs a cli interface to the api, use 'api --help' for options"

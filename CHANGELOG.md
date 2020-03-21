@@ -1,5 +1,7 @@
 # 0.11.0-beta.x
 
+- Add vanitygen cli utility (move from https://github.com/polkadot-js/apps)
+- Allow signer cli to use JSON params as inputs
 - Swap to yarn 2 for this project
 
 # 0.10.1 Feb 26, 2020

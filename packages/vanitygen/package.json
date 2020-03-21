@@ -1,0 +1,39 @@
+{
+  "name": "@polkadot/vanitygen",
+  "version": "0.11.0-beta.9",
+  "description": "A vanity generator",
+  "main": "index.js",
+  "bin": {
+    "polkadot-js-vanitygen": "./index.js"
+  },
+  "author": "Jaco Greeff <jacogr@gmail.com>",
+  "maintainers": [
+    "Jaco Greeff <jacogr@gmail.com>"
+  ],
+  "contributors": [],
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polkadot-js/tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/polkadot-js/tools/issues"
+  },
+  "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/vanitygen#readme",
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/runtime": "^7.9.0",
+    "@polkadot/util": "^2.6.2",
+    "@polkadot/util-crypto": "^2.6.2",
+    "chalk": "^3.0.0",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.2",
+    "@types/yargs": "^15.0.4"
+  }
+}

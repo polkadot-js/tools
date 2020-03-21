@@ -2902,6 +2902,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@polkadot/vanitygen@workspace:packages/vanitygen":
+  version: 0.0.0-use.local
+  resolution: "@polkadot/vanitygen@workspace:packages/vanitygen"
+  dependencies:
+    "@babel/core": ^7.9.0
+    "@babel/runtime": ^7.9.0
+    "@polkadot/util": ^2.6.2
+    "@polkadot/util-crypto": ^2.6.2
+    "@types/node": ^13.9.2
+    "@types/yargs": ^15.0.4
+    chalk: ^3.0.0
+    yargs: ^15.3.1
+  bin:
+    polkadot-js-vanitygen: ./index.js
+  languageName: unknown
+  linkType: soft
+
 "@polkadot/wasm-crypto@npm:^1.2.1":
   version: 1.2.1
   resolution: "@polkadot/wasm-crypto@npm:1.2.1"
