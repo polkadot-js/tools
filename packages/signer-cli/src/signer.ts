@@ -2,9 +2,8 @@
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
-import fs from 'fs';
 import yargs from 'yargs';
-import { assert } from '@polkadot/util';
+import { hexMiddleware, jsonMiddleware, parseParams } from '@polkadot/api-cli/cli';
 
 import cmdSign from './cmdSign';
 import cmdSubmit from './cmdSubmit';
@@ -18,6 +17,8 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
   .usage('Example: submit --account D3AhD...wrx --ws wss://... balances.transfer F7Gh 10000 ')
   .usage('Example: sign --seed "..." --account D3AhD...wrx --type ed25519 0x123...789')
   .usage('Example: sendOffline --seed "..." --account D3AhD...wrx --type ed25519 0x123...789')
+  .middleware(hexMiddleware)
+  .middleware(jsonMiddleware)
   .wrap(120)
   .options({
     account: {
@@ -40,7 +41,7 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
       type: 'number'
     },
     blocks: {
-      description: 'Exact number of blocks for a transaction to be signed and submitted before becoming invalid (mortality in blocks). Set to 0 for an immortal transaction (not recomended)',
+      description: 'Exact number of blocks for a transaction to be signed and submitted before becoming invalid (mortality in blocks). Set to 0 for an immortal transaction (not recommended)',
       default: undefined as number | undefined,
       type: 'number'
     },
@@ -63,23 +64,12 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
     }
   })
   .strict()
+  .parserConfiguration({
+    'parse-numbers': false
+  })
   .argv;
 
-let params: string[];
-
-if (paramsFile) {
-  assert(fs.existsSync(paramsFile), 'Cannot find supplied transaction parameters file');
-
-  try {
-    const contents = fs.readFileSync(paramsFile, 'utf8');
-
-    params = contents.split(' ');
-  } catch (error) {
-    assert(false, 'Error loading supplied transaction parameters file');
-  }
-} else {
-  params = paramsInline;
-}
+const params = parseParams(paramsInline, paramsFile);
 
 // our main entry point - from here we call out
 // eslint-disable-next-line @typescript-eslint/require-await

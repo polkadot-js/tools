@@ -6,12 +6,13 @@ import { KeyringPair } from '@polkadot/keyring/types';
 import { Hash } from '@polkadot/types/interfaces';
 import { CallFunction, Codec } from '@polkadot/types/types';
 
-import fs from 'fs';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
 import { Text } from '@polkadot/types';
 import { assert, isFunction } from '@polkadot/util';
+
+import { hexMiddleware, jsonMiddleware, parseParams } from './cli';
 
 // the function signature for our catch-any result logger
 type LogFn = (result: SubmittableResult | Codec | ApiCallFn) => void;
@@ -68,30 +69,8 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
 // retrieve and parse arguments - we do this globally, since this is a single command
 const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, ws } = yargs
   .command('$0', usage)
-  .middleware((argv) => {
-    // a parameter whose initial character is @ treated as a path and replaced
-    // with the hexadecimal representation of the binary contents of that file
-    argv._ = argv._.map((param) => {
-      if (param.startsWith('@')) {
-        const path = param.substring(1);
-        assert(fs.existsSync(path), `Cannot find path ${path}`);
-        const data = fs.readFileSync(path).toString('hex');
-        return `0x${data}`;
-      }
-      return param;
-    });
-    return argv;
-  })
-  .middleware((argv) => {
-    argv._ = argv._.map((param) => {
-      try {
-        return JSON.parse(param);
-      } catch (err) {
-        return param;
-      }
-    });
-    return argv;
-  })
+  .middleware(hexMiddleware)
+  .middleware(jsonMiddleware)
   .wrap(120)
   .options({
     info: {
@@ -133,20 +112,7 @@ const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, su
   })
   .argv;
 
-let params: string[];
-if (paramsFile) {
-  assert(fs.existsSync(paramsFile), 'Cannot find supplied transaction parameters file');
-
-  try {
-    const contents = fs.readFileSync(paramsFile, 'utf8');
-
-    params = contents.split(' ');
-  } catch (e) {
-    assert(false, 'Error loading supplied transaction parameters file');
-  }
-} else {
-  params = paramsInline;
-}
+const params = parseParams(paramsInline, paramsFile);
 
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
