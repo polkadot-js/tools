@@ -16,7 +16,14 @@ if (compiled) {
   require(compiled);
 } else {
   require('@babel/register')({
-    extensions: ['.js', '.ts']
+    extensions: ['.js', '.ts'],
+    plugins: [
+      ['module-resolver', {
+        alias: {
+          '^@polkadot/api-cli(.*)': './packages/api-cli/src\\1'
+        }
+      }]
+    ]
   });
   require('./signer');
 }
