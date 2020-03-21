@@ -51,7 +51,7 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
       type: 'number'
     },
     ws: {
-      description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io (submit and sendOffline only)',
+      description: 'The API endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io (submit and sendOffline only)',
       type: 'string'
     },
     tx: {

@@ -97,7 +97,7 @@ const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, su
     },
     ws: {
       default: 'ws://127.0.0.1:9944',
-      description: 'The API endpoint to connect to, e.g. wss://poc3-rpc.polkadot.io',
+      description: 'The API endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io',
       type: 'string',
       required: true
     },
