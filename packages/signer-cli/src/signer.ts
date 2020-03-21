@@ -66,6 +66,7 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
   .argv;
 
 let params: string[];
+
 if (paramsFile) {
   assert(fs.existsSync(paramsFile), 'Cannot find supplied transaction parameters file');
 
@@ -73,7 +74,7 @@ if (paramsFile) {
     const contents = fs.readFileSync(paramsFile, 'utf8');
 
     params = contents.split(' ');
-  } catch (e) {
+  } catch (error) {
     assert(false, 'Error loading supplied transaction parameters file');
   }
 } else {
@@ -87,9 +88,11 @@ async function main (): Promise<void> {
     return cmdSign(account as string, seed || '', type as 'ed25519', params);
   } else if (command === 'submit') {
     const mortality = minutes != null ? minutes * ONE_MINUTE : blocks;
+
     return cmdSubmit(account as string, mortality, ws || '', tx, params);
   } else if (command === 'sendOffline') {
     const mortality = minutes != null ? minutes * ONE_MINUTE : blocks;
+
     return cmdSendOffline(account as string, mortality, ws || '', nonce, params);
   }
 
