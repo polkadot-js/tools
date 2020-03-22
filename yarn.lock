@@ -2597,12 +2597,12 @@ __metadata:
   resolution: "@polkadot/api-cli@workspace:packages/api-cli"
   dependencies:
     "@babel/core": ^7.9.0
-    "@babel/runtime": ^7.9.0
+    "@babel/runtime": ^7.9.2
     "@polkadot/api": ^1.8.1
     "@polkadot/keyring": ^2.6.2
     "@polkadot/types": ^1.8.1
     "@polkadot/util": ^2.6.2
-    "@types/node": ^13.9.2
+    "@types/node": ^13.9.3
     "@types/yargs": ^15.0.4
     yargs: ^15.3.1
   bin:
@@ -2739,14 +2739,14 @@ __metadata:
   resolution: "@polkadot/json-serve@workspace:packages/json-serve"
   dependencies:
     "@babel/core": ^7.9.0
-    "@babel/runtime": ^7.9.0
+    "@babel/runtime": ^7.9.2
     "@polkadot/api": ^1.8.1
     "@polkadot/api-derive": ^1.8.1
     "@polkadot/types": ^1.8.1
     "@types/bn.js": ^4.11.6
     "@types/koa": ^2.11.2
     "@types/koa-route": ^3.2.4
-    "@types/node": ^13.9.2
+    "@types/node": ^13.9.3
     "@types/yargs": ^15.0.4
     koa: ^2.11.0
     koa-route: ^3.2.0
@@ -2785,12 +2785,12 @@ __metadata:
   resolution: "@polkadot/monitor-rpc@workspace:packages/monitor-rpc"
   dependencies:
     "@babel/core": ^7.9.0
-    "@babel/runtime": ^7.9.0
+    "@babel/runtime": ^7.9.2
     "@polkadot/api": ^1.8.1
     "@polkadot/types": ^1.8.1
     "@types/koa": ^2.11.2
     "@types/koa-route": ^3.2.4
-    "@types/node": ^13.9.2
+    "@types/node": ^13.9.3
     "@types/yargs": ^15.0.4
     koa: ^2.11.0
     koa-route: ^3.2.0
@@ -2837,14 +2837,14 @@ __metadata:
   resolution: "@polkadot/signer-cli@workspace:packages/signer-cli"
   dependencies:
     "@babel/core": ^7.9.0
-    "@babel/runtime": ^7.9.0
+    "@babel/runtime": ^7.9.2
     "@polkadot/api": ^1.8.1
     "@polkadot/api-cli": 0.11.0-beta.11
     "@polkadot/keyring": ^2.6.2
     "@polkadot/types": ^1.8.1
     "@polkadot/util": ^2.6.2
     "@polkadot/util-crypto": ^2.6.2
-    "@types/node": ^13.9.2
+    "@types/node": ^13.9.3
     "@types/yargs": ^15.0.4
     yargs: ^15.3.1
   bin:
@@ -2917,10 +2917,10 @@ __metadata:
   resolution: "@polkadot/vanitygen@workspace:packages/vanitygen"
   dependencies:
     "@babel/core": ^7.9.0
-    "@babel/runtime": ^7.9.0
+    "@babel/runtime": ^7.9.2
     "@polkadot/util": ^2.6.2
     "@polkadot/util-crypto": ^2.6.2
-    "@types/node": ^13.9.2
+    "@types/node": ^13.9.3
     "@types/yargs": ^15.0.4
     chalk: ^3.0.0
     yargs: ^15.3.1
@@ -3225,7 +3225,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^13.9.2":
+"@types/node@npm:*, @types/node@npm:>= 8":
   version: 13.9.2
   resolution: "@types/node@npm:13.9.2"
   checksum: 2/d462ab643ff00eb7b64883cd9a42b2318e5283b397afbe96310cac62e4f48ec97983ee99aa59c6a63c3e302fcd004d30d549889dbc6c712abb566572d92fa533
@@ -3236,6 +3236,13 @@ __metadata:
   version: 11.11.6
   resolution: "@types/node@npm:11.11.6"
   checksum: 2/2b64bfc2344f60fdcf3baea2f9f2e065189cee3a6144d3dbdcb32cb6728dd64933808e2da8bd4d69033f04510f7de1397c08d54d8f89d505b3a957b24dcc583f
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^13.9.3":
+  version: 13.9.3
+  resolution: "@types/node@npm:13.9.3"
+  checksum: 2/aa78643dc1e5b61029bcdf34d4928fc2451b383d1a3281ac2a2d1bd5b9a0d4fe48b22e44c6da2ba22b18cc3aed10ffb1ffa3d43f17962cdf2572e968dd850e7d
   languageName: node
   linkType: hard
 
@@ -15528,10 +15535,10 @@ __metadata:
   dependencies:
     "@babel/core": ^7.9.0
     "@babel/register": ^7.9.0
-    "@babel/runtime": ^7.9.0
+    "@babel/runtime": ^7.9.2
     "@polkadot/dev": ^0.51.7
     "@polkadot/ts": ^0.3.14
-    "@types/node": ^13.9.2
+    "@types/node": ^13.9.3
     "@types/yargs": ^15.0.4
   languageName: unknown
   linkType: soft

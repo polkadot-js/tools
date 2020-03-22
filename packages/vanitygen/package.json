@@ -26,14 +26,14 @@
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/vanitygen#readme",
   "dependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/runtime": "^7.9.0",
+    "@babel/runtime": "^7.9.2",
     "@polkadot/util": "^2.6.2",
     "@polkadot/util-crypto": "^2.6.2",
     "chalk": "^3.0.0",
     "yargs": "^15.3.1"
   },
   "devDependencies": {
-    "@types/node": "^13.9.2",
+    "@types/node": "^13.9.3",
     "@types/yargs": "^15.0.4"
   }
 }
