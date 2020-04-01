@@ -15,15 +15,15 @@ const { port, ws } = yargs
   .strict()
   .options({
     port: {
-      description: 'The HTTP port to listen on',
-      type: 'number',
       default: 9099,
-      required: true
+      description: 'The HTTP port to listen on',
+      required: true,
+      type: 'number'
     },
     ws: {
       description: 'The endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io',
-      type: 'string',
-      required: true
+      required: true,
+      type: 'string'
     }
   })
   .argv;

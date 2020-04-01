@@ -10,7 +10,7 @@ jobs:
       matrix:
         step: ['build:release']
     name: ${{ matrix.step }}
-    if: "! contains(github.event.head_commit.message, '[CI Skip]')"
+    if: "! contains(github.event.head_commit.message, '[CI Skip]') && github.repository == 'polkadot-js/tools'"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -31,7 +31,7 @@ jobs:
 
   docker:
     name: docker
-    if: "contains(github.event.head_commit.message, '[CI Skip]')"
+    if: "contains(github.event.head_commit.message, '[CI Skip]') && github.repository == 'polkadot-js/tools'"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1

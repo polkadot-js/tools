@@ -2,7 +2,7 @@
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
-import { DerivedStakingElected } from '@polkadot/api-derive/types';
+import { DeriveStakingElected } from '@polkadot/api-derive/types';
 import { Balance, BlockNumber, Header } from '@polkadot/types/interfaces';
 
 import BN from 'bn.js';
@@ -15,15 +15,15 @@ const { port, ws } = yargs
   .strict()
   .options({
     port: {
-      description: 'The HTTP port to listen on',
-      type: 'number',
       default: 9099,
-      required: true
+      description: 'The HTTP port to listen on',
+      required: true,
+      type: 'number'
     },
     ws: {
       description: 'The endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io',
-      type: 'string',
-      required: true
+      required: true,
+      type: 'string'
     }
   })
   .argv;
@@ -54,7 +54,7 @@ function percentageFormat (top: BN, bottom: BN): string {
   return '0.00';
 }
 
-function onElectedInfo (info: DerivedStakingElected): void {
+function onElectedInfo (info: DeriveStakingElected): void {
   totalBonded = info.info.reduce((totalBonded, { exposure }): BN => {
     return totalBonded.add(exposure?.total.unwrap() || new BN(0));
   }, new BN(0));

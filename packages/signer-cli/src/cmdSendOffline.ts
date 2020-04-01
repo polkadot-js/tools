@@ -43,8 +43,8 @@ export default async function cmdSendOffline (account: string, blocks: number | 
 
   if (blocks === 0) {
     options = {
-      era: 0,
       blockHash: api.genesisHash,
+      era: 0,
       nonce
     };
     blockNumber = 0;
@@ -65,13 +65,13 @@ export default async function cmdSendOffline (account: string, blocks: number | 
 
   const transaction: SubmittableExtrinsic<'promise'> = api.tx[section][method](...params);
   const payload: SignerPayload = api.createType('SignerPayload', {
-    version: api.extrinsicVersion,
-    runtimeVersion: api.runtimeVersion,
     genesisHash: api.genesisHash,
+    runtimeVersion: api.runtimeVersion,
+    version: api.extrinsicVersion,
     ...options,
     address: account,
-    method: transaction.method,
-    blockNumber
+    blockNumber,
+    method: transaction.method
   });
   const signature = await getSignature(payload.toRaw().data);
 

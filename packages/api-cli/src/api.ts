@@ -77,6 +77,10 @@ const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, su
       description: 'Shows the meta information for the call',
       type: 'boolean'
     },
+    params: {
+      description: 'Location of file containing space-separated transaction parameters (optional)',
+      type: 'string'
+    },
     seed: {
       description: 'The account seed to use (required for tx.* only)',
       type: 'string'
@@ -91,19 +95,15 @@ const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, su
       description: 'With this flag set, perform subscription, running until exited with ^C',
       type: 'boolean'
     },
-    params: {
-      description: 'Location of file containing space-separated transaction parameters (optional)',
-      type: 'string'
+    sudo: {
+      description: 'Run this tx as a wrapped sudo.sudo call',
+      type: 'boolean'
     },
     ws: {
       default: 'ws://127.0.0.1:9944',
       description: 'The API endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io',
-      type: 'string',
-      required: true
-    },
-    sudo: {
-      description: 'Run this tx as a wrapped sudo.sudo call',
-      type: 'boolean'
+      required: true,
+      type: 'string'
     }
   })
   .strict()
@@ -174,7 +174,7 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
 }
 
 // send a transaction
-async function makeTx ({ fn, log, api }: CallInfo): Promise<(() => void) | Hash> {
+async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash> {
   assert(seed, 'You need to specify an account seed with tx.*');
   assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
