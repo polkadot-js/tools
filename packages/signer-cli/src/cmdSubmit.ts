@@ -35,6 +35,7 @@ export default async function cmdSubmit (account: string, blocks: number | undef
   assert(api.tx[section] && api.tx[section][method], `Unable to find method ${section}.${method}`);
 
   const options: Partial<SignerOptions> = {};
+
   if (blocks === 0) {
     options.era = 0;
   } else if (blocks != null) {
