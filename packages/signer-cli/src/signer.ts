@@ -25,8 +25,31 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
       description: 'The actual address for the signer',
       type: 'string'
     },
+    blocks: {
+      default: undefined as number | undefined,
+      description: 'Exact number of blocks for a transaction to be signed and submitted before becoming invalid (mortality in blocks). Set to 0 for an immortal transaction (not recommended)',
+      type: 'number'
+    },
+    minutes: {
+      default: undefined as number | undefined,
+      description: 'Approximate time for a transaction to be signed and submitted before becoming invalid (mortality in minutes)',
+      type: 'number'
+    },
+    nonce: {
+      default: undefined as number | undefined,
+      description: 'Transaction nonce (sendOffline only)',
+      type: 'number'
+    },
+    params: {
+      description: 'Location of file containing space-separated transaction parameters (optional)',
+      type: 'string'
+    },
     seed: {
       description: 'The account seed to use (sign only)',
+      type: 'string'
+    },
+    tx: {
+      description: 'Pre-signed transaction generated using e.g. the sendOffline command. If provided, only --ws is required as well (submit only)',
       type: 'string'
     },
     type: {
@@ -35,31 +58,8 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
       description: 'The account crypto signature to use (sign only)',
       type: 'string'
     },
-    minutes: {
-      description: 'Approximate time for a transaction to be signed and submitted before becoming invalid (mortality in minutes)',
-      default: undefined as number | undefined,
-      type: 'number'
-    },
-    blocks: {
-      description: 'Exact number of blocks for a transaction to be signed and submitted before becoming invalid (mortality in blocks). Set to 0 for an immortal transaction (not recommended)',
-      default: undefined as number | undefined,
-      type: 'number'
-    },
-    nonce: {
-      description: 'Transaction nonce (sendOffline only)',
-      default: undefined as number | undefined,
-      type: 'number'
-    },
     ws: {
       description: 'The API endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io (submit and sendOffline only)',
-      type: 'string'
-    },
-    tx: {
-      description: 'Pre-signed transaction generated using e.g. the sendOffline command. If provided, only --ws is required as well (submit only)',
-      type: 'string'
-    },
-    params: {
-      description: 'Location of file containing space-separated transaction parameters (optional)',
       type: 'string'
     }
   })
