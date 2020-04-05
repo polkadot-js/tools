@@ -29,7 +29,7 @@
     "@babel/runtime": "^7.9.2",
     "@polkadot/util": "^2.7.1",
     "@polkadot/util-crypto": "^2.7.1",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "yargs": "^15.3.1"
   },
   "devDependencies": {
