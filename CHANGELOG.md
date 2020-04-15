@@ -1,8 +1,9 @@
-# 0.11.0-beta.x
+# 0.11.1 Apr 15, 2020
 
-- Add vanitygen cli utility (move from https://github.com/polkadot-js/apps)
+- Add vanitygen cli utility (moved from https://github.com/polkadot-js/apps)
 - Allow signer cli to use JSON params as inputs
 - Swap to yarn 2 for this project
+- update to @polkadot/api 1.10 & @polkadot/util 2.8
 
 # 0.10.1 Feb 26, 2020
 
