@@ -1,3 +1,8 @@
+# 0.12.1 May 14, 2020
+
+- `@polkadot/api` 1.14.1 including all latest types
+- `@polkadot/util` 2.10.1
+
 # 0.11.1 Apr 15, 2020
 
 - Add vanitygen cli utility (moved from https://github.com/polkadot-js/apps)
