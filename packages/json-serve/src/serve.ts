@@ -68,7 +68,7 @@ function onNewHead (header: Header): void {
   currentBlockNumber = header.number.unwrap();
   currentTimestamp = new Date();
 
-  console.log(`#${currentBlockNumber} received at ${currentTimestamp}`);
+  console.log(`#${currentBlockNumber.toString()} received at ${currentTimestamp.toString()}`);
 }
 
 function onTotalInsurance (_totalInsurance: Balance): void {
@@ -76,6 +76,7 @@ function onTotalInsurance (_totalInsurance: Balance): void {
 }
 
 function jsonApi (ctx: Koa.Context): void {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   switch (ctx.query.q) {
     case 'bondedpercentage':
       ctx.body = percentageFormat(totalBonded, totalInsurance);
@@ -90,7 +91,7 @@ function jsonApi (ctx: Koa.Context): void {
       break;
 
     default:
-      ctx.body = `Error: Invalid query '?q=${ctx.query.q || ''}', expected '?q=<type>', one of 'bondedpercentage', 'totalbonded', 'totalcoins'`;
+      ctx.body = "Error: Invalid query, expected '?q=<type>', one of 'bondedpercentage', 'totalbonded', 'totalcoins'";
       break;
   }
 }
