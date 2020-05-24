@@ -37,7 +37,7 @@ function checkDelay (): void {
   if (elapsed >= MAX_ELAPSED) {
     const secs = (elapsed / 1000).toFixed(2);
 
-    console.error(`ERROR: #${currentBlockNumber} received at ${currentTimestamp}, ${secs}s ago`);
+    currentBlockNumber && console.error(`ERROR: #${currentBlockNumber.toString()} received at ${currentTimestamp.toString()}, ${secs}s ago`);
   }
 }
 
@@ -49,7 +49,7 @@ function updateCurrent (header: Header): void {
   currentBlockNumber = header.number.unwrap();
   currentTimestamp = new Date();
 
-  console.log(`#${currentBlockNumber} received at ${currentTimestamp}`);
+  console.log(`#${currentBlockNumber.toString()} received at ${currentTimestamp.toString()}`);
 }
 
 function httpStatus (ctx: Koa.Context): void {

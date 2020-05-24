@@ -12,6 +12,7 @@ import RawSigner from './RawSigner';
 function submitPreSignedTx (api: ApiPromise, tx: string): void {
   const extrinsic = api.createType('Extrinsic', tx);
 
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   api.rpc.author.submitAndWatchExtrinsic(extrinsic, (result) => {
     console.log(JSON.stringify(result.toHuman(), null, 2));
 

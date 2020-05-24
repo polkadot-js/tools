@@ -14,7 +14,7 @@ interface ArgV {
 
 function asJson (param: string): string {
   try {
-    return JSON.parse(param);
+    return JSON.parse(param) as string;
   } catch (error) {
     return param;
   }
