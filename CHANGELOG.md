@@ -1,3 +1,9 @@
+# 0.13.1 Ma 26, 2020
+
+- Polkadot CC1 support via API
+- `@polkadot/api` 1.16.1
+- `@polkadot/util` 2.11.1
+
 # 0.12.1 May 14, 2020
 
 - `@polkadot/api` 1.14.1 including all latest types
