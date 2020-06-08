@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.14.0-beta.x
+
+- `@polkadot/api` 1.18.1
+- `@polkadot/util` 2.13.1
+
 ## 0.13.1 May 26, 2020
 
 - Polkadot CC1 support via API
