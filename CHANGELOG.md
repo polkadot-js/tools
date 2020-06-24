@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.15.1 Jun 24, 2020
+
+- Support for latest Polkadot/Substrate types
+- `@polkadot/api` 1.21.1
+- `@polkadot/util` 2.15.1
+
 ## 0.14.1 Jun 16, 2020
 
 - Support for latest Polkadot/Substrate types
