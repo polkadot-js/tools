@@ -22,9 +22,9 @@ function rawValidate (seed: string): boolean {
 }
 
 export default async function cmdSign (_: string, seed: string, type: Curves, [payload]: string[]): Promise<void> {
-  await cryptoWaitReady();
-
   assert(rawValidate(seed), 'Invalid seed provided. Please check your input and try again.');
+
+  await cryptoWaitReady();
 
   const keyring = new Keyring({ type });
   const pair = keyring.createFromUri(seed);
