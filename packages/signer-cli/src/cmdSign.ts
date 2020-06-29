@@ -3,7 +3,7 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { Keyring } from '@polkadot/keyring';
-import { hexToU8a, u8aToHex, u8aConcat } from '@polkadot/util';
+import { assert, hexToU8a, isHex, u8aToHex, u8aConcat } from '@polkadot/util';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 
 type Curves = 'ed25519' | 'sr25519';
@@ -13,8 +13,18 @@ const curvePrefixes: {[key in Curves]: [number] } = {
   sr25519: [1]
 };
 
+function isHexSeed (seed: string): boolean {
+  return isHex(seed) && seed.length === 66;
+}
+
+function rawValidate (seed: string): boolean {
+  return ((seed.length > 0) && (seed.length <= 32)) || isHexSeed(seed);
+}
+
 export default async function cmdSign (_: string, seed: string, type: Curves, [payload]: string[]): Promise<void> {
   await cryptoWaitReady();
+
+  assert(rawValidate(seed), 'Invalid seed provided. Please check your input and try again.');
 
   const keyring = new Keyring({ type });
   const pair = keyring.createFromUri(seed);
