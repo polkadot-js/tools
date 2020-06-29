@@ -26,9 +26,8 @@ function rawValidate (seed: string): boolean {
    *  1. full SURI: <mnemonic>//<hard>/<soft>///<password>
    *  2. raw hex with or without derivation path: <hex>//<hard>/<soft>///<password>
    *  3. just mnemonic: hard clown circus world laugh ...
-   * 
   */
-function validate(seed: string): boolean {
+function validate (seed: string): boolean {
   try {
     // this catches cases 1, 2
     const { phrase } = keyExtractSuri(seed);
