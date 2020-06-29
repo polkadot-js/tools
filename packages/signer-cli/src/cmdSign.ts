@@ -14,8 +14,8 @@ const curvePrefixes: {[key in Curves]: [number] } = {
 };
 
 export default async function cmdSign (_: string, seed: string, type: Curves, [payload]: string[]): Promise<void> {
-  assert(payload && payload.length > 0, "Cannot sign empty payload. Please check your input and try again.");
-  assert(isHex(payload), "Payload must be supplied as a hex string. Please check your input and try again.");
+  assert(payload && payload.length > 0, 'Cannot sign empty payload. Please check your input and try again.');
+  assert(isHex(payload), 'Payload must be supplied as a hex string. Please check your input and try again.');
 
   await cryptoWaitReady();
 
