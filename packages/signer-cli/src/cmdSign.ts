@@ -16,11 +16,12 @@ const curvePrefixes: {[key in Curves]: [number] } = {
 };
 
 /**
-   * seed here can be any of the following:
-   *  1. full SURI: <mnemonic>//<hard>/<soft>///<password>
-   *  2. hex seed with or without derivation path: <hex>//<hard>/<soft>///<password>
-   *  3. just mnemonic: hard clown circus world laugh ...
-  */
+  * Doesn't cater for 1st gen seeds
+  * seed here can be any of the following:
+  *  1. full SURI: <mnemonic>//<hard>/<soft>///<password>
+  *  2. hex seed with or without derivation path: <hex>//<hard>/<soft>///<password>
+  *  3. just mnemonic: hard clown circus world laugh ...
+*/
 function validateSeed (suri: string) {
   const { phrase } = keyExtractSuri(suri);
 
@@ -33,7 +34,7 @@ function validateSeed (suri: string) {
   }
 }
 
-function validatePayload(payload: string) {
+function validatePayload (payload: string) {
   assert(payload && payload.length > 0, 'Cannot sign empty payload. Please check your input and try again.');
   assert(isHex(payload), 'Payload must be supplied as a hex string. Please check your input and try again.');
 }
