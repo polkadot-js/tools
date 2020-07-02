@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.16.1 Jul 2, 2020
+
+- Validate payload & seed formats before signing (Thanks to https://github.com/yjkimjunior)
+- `@polkadot/api` 1.22.1
+- `@polkadot/util` 2.16.1
+
 ## 0.15.1 Jun 24, 2020
 
 - Support for latest Polkadot/Substrate types
