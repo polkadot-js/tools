@@ -31,11 +31,11 @@
   "dependencies": {
     "@babel/core": "^7.10.4",
     "@babel/runtime": "^7.10.4",
-    "@polkadot/api": "^1.23.0-beta.6",
+    "@polkadot/api": "^1.22.1",
     "@polkadot/keyring": "^2.16.1",
-    "@polkadot/types": "^1.23.0-beta.6",
+    "@polkadot/types": "^1.22.1",
     "@polkadot/util": "^2.16.1",
-    "yargs": "^15.3.1"
+    "yargs": "^15.4.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.14",
