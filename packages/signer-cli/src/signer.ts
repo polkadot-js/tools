@@ -63,7 +63,6 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
       type: 'string'
     }
   })
-  .strict()
   .parserConfiguration({
     'parse-numbers': false
   })

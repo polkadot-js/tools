@@ -12,7 +12,6 @@ import yargs from 'yargs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
 const { port, ws } = yargs
-  .strict()
   .options({
     port: {
       default: 9099,

@@ -106,7 +106,6 @@ const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, su
       type: 'string'
     }
   })
-  .strict()
   .parserConfiguration({
     'parse-numbers': false
   })

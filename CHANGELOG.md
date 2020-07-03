@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.16.2 Jul 3, 202
+
+- Remove `strict()` from yargs, allowing "unknown" commands to follow
+
 ## 0.16.1 Jul 2, 2020
 
 - Validate payload & seed formats before signing (Thanks to https://github.com/yjkimjunior)
