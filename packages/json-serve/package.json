@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/json-serve",
-  "version": "0.16.1",
+  "version": "0.16.2",
   "description": "A JSON API endpoint server",
   "main": "index.js",
   "bin": {
@@ -36,7 +36,7 @@
     "@polkadot/types": "^1.22.1",
     "koa": "^2.13.0",
     "koa-route": "^3.2.0",
-    "yargs": "^15.3.1"
+    "yargs": "^15.4.0"
   },
   "devDependencies": {
     "@types/bn.js": "^4.11.6",

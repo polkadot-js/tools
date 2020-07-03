@@ -12,7 +12,6 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 const MAX_ELAPSED = 60000;
 
 const { port, ws } = yargs
-  .strict()
   .options({
     port: {
       default: 9099,

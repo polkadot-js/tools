@@ -45,7 +45,6 @@ const { match, mnemonic, network, type, withCase } = yargs
     default: false,
     type: 'boolean'
   })
-  .strict()
   .argv;
 
 const INDICATORS = ['|', '/', '-', '\\'];
