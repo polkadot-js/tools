@@ -1,6 +1,11 @@
 # CHANGELOG
 
-## 0.16.2 Jul 3, 202
+## 0.17.1 Jul 21, 2020
+
+- `@polkadot/api` 1.25.1
+- `@polkadot/util` 2.18.1
+
+## 0.16.2 Jul 3, 2020
 
 - Remove `strict()` from yargs, allowing "unknown" commands to follow
 
