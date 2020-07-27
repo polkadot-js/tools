@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/vanitygen",
-  "version": "0.17.1",
+  "version": "0.18.0",
   "description": "A vanity generator",
   "main": "index.js",
   "bin": {
@@ -27,13 +27,13 @@
   "dependencies": {
     "@babel/core": "^7.10.5",
     "@babel/runtime": "^7.10.5",
-    "@polkadot/util": "^2.18.1",
-    "@polkadot/util-crypto": "^2.18.1",
+    "@polkadot/util": "^3.0.1",
+    "@polkadot/util-crypto": "^3.0.1",
     "chalk": "^4.1.0",
     "yargs": "^15.4.1"
   },
   "devDependencies": {
-    "@types/node": "^14.0.24",
+    "@types/node": "^14.0.26",
     "@types/yargs": "^15.0.5"
   }
 }

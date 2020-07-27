@@ -7,12 +7,12 @@
     "packages/*"
   ],
   "resolutions": {
-    "@polkadot/api": "^1.25.1",
-    "@polkadot/api-derive": "^1.25.1",
-    "@polkadot/keyring": "^2.18.1",
-    "@polkadot/types": "^1.25.1",
-    "@polkadot/util": "^2.18.1",
-    "@polkadot/util-crypto": "^2.18.1",
+    "@polkadot/api": "^1.26.1",
+    "@polkadot/api-derive": "^1.26.1",
+    "@polkadot/keyring": "^3.0.1",
+    "@polkadot/types": "^1.26.1",
+    "@polkadot/util": "^3.0.1",
+    "@polkadot/util-crypto": "^3.0.1",
     "babel-core": "^7.0.0-bridge.0"
   },
   "scripts": {
@@ -32,10 +32,10 @@
     "@babel/core": "^7.10.5",
     "@babel/register": "^7.10.5",
     "@babel/runtime": "^7.10.5",
-    "@polkadot/dev": "^0.55.27",
+    "@polkadot/dev": "^0.55.28",
     "@polkadot/ts": "^0.3.29",
-    "@types/node": "^14.0.24",
+    "@types/node": "^14.0.26",
     "@types/yargs": "^15.0.5"
   },
-  "version": "0.17.1"
+  "version": "0.18.0"
 }

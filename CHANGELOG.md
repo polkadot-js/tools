@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.18.1 Jul 27, 2020
+
+- `@polkadot/api` 1.26.1
+- `@polkadot/util` 3.0.1
+
 ## 0.17.1 Jul 21, 2020
 
 - `@polkadot/api` 1.25.1
