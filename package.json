@@ -37,5 +37,5 @@
     "@types/node": "^14.0.26",
     "@types/yargs": "^15.0.5"
   },
-  "version": "0.18.0"
+  "version": "0.18.1"
 }
