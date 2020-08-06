@@ -29,11 +29,11 @@
   },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/api-json-serve#readme",
   "dependencies": {
-    "@babel/core": "^7.11.0",
-    "@babel/runtime": "^7.11.0",
-    "@polkadot/api": "^1.28.0-beta.2",
-    "@polkadot/api-derive": "^1.28.0-beta.2",
-    "@polkadot/types": "^1.28.0-beta.2",
+    "@babel/core": "^7.11.1",
+    "@babel/runtime": "^7.11.2",
+    "@polkadot/api": "^1.28.0-beta.3",
+    "@polkadot/api-derive": "^1.28.0-beta.3",
+    "@polkadot/types": "^1.28.0-beta.3",
     "koa": "^2.13.0",
     "koa-route": "^3.2.0",
     "yargs": "^15.4.1"
