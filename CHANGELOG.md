@@ -1,16 +1,30 @@
 # CHANGELOG
 
+## 0.19.1 Aug 10, 2020
+
+Upgrade priority: Low
+
+- `@polkadot/api` 1.28.1
+- `@polkadot/util` 3.1.1
+- `@polkadot/wasm-crypto` 1.3.1
+
 ## 0.18.1 Jul 27, 2020
+
+Upgrade priority: Low
 
 - `@polkadot/api` 1.26.1
 - `@polkadot/util` 3.0.1
 
 ## 0.17.1 Jul 21, 2020
 
+Upgrade priority: Low
+
 - `@polkadot/api` 1.25.1
 - `@polkadot/util` 2.18.1
 
 ## 0.16.2 Jul 3, 2020
+
+Upgrade priority: Medium
 
 - Remove `strict()` from yargs, allowing "unknown" commands to follow
 
