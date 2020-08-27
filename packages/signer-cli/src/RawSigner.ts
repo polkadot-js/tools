@@ -23,7 +23,6 @@ export default class RawSigner implements Signer {
       } else {
         hashed = data;
       }
-			
       rl.question(`Payload: ${hashed}\nSignature> `, (signature) => {
         resolve({ id: 1, signature });
         rl.close();
