@@ -4,6 +4,7 @@
 
 import { Signer, SignerResult } from '@polkadot/api/types';
 import { SignerPayloadRaw } from '@polkadot/types/types';
+import { blake2AsHex } from '@polkadot/util-crypto';
 
 import * as readline from 'readline';
 
@@ -15,7 +16,13 @@ export default class RawSigner implements Signer {
     });
 
     return new Promise((resolve): void => {
-      rl.question(`Payload: ${data}\nSignature> `, (signature) => {
+      var hashed;
+			if ((256 + 1) * 2 < data.length) {
+				hashed = blake2AsHex(data);
+			} else {
+				hashed = data;
+			};
+      rl.question(`Payload: ${hashed}\nSignature> `, (signature) => {
         resolve({ id: 1, signature });
         rl.close();
       });
