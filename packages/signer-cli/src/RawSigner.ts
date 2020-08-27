@@ -18,7 +18,7 @@ export default class RawSigner implements Signer {
     return new Promise((resolve): void => {
       const hashed = (data.length > (256 + 1) * 2)
         ? blake2AsHex(data);
-        : hashed = data;
+        : data;
 
 
       rl.question(`Payload: ${hashed}\nSignature> `, (signature) => {
