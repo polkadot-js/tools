@@ -16,12 +16,14 @@ export default class RawSigner implements Signer {
     });
 
     return new Promise((resolve): void => {
-      var hashed;
-			if ((256 + 1) * 2 < data.length) {
-				hashed = blake2AsHex(data);
-			} else {
-				hashed = data;
-			};
+      let hashed;
+      
+      if (data.length > (256 + 1) * 2) {
+        hashed = blake2AsHex(data);
+      } else {
+        hashed = data;
+      };
+			
       rl.question(`Payload: ${hashed}\nSignature> `, (signature) => {
         resolve({ id: 1, signature });
         rl.close();
