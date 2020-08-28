@@ -20,7 +20,6 @@ export default class RawSigner implements Signer {
         ? blake2AsHex(data)
         : data;
 
-
       rl.question(`Payload: ${hashed}\nSignature> `, (signature) => {
         resolve({ id: 1, signature });
         rl.close();
