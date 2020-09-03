@@ -15,6 +15,7 @@ import { assert, isFunction } from '@polkadot/util';
 import { hexMiddleware, jsonMiddleware, parseParams } from './cli';
 
 // the function signature for our catch-any result logger
+// eslint-disable-next-line no-use-before-define
 type LogFn = (result: SubmittableResult | Codec | ApiCallFn) => void;
 
 // Assume that we know what we are doing where we use this - create a signature
