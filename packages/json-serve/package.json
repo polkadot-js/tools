@@ -31,9 +31,9 @@
   "dependencies": {
     "@babel/core": "^7.11.6",
     "@babel/runtime": "^7.11.2",
-    "@polkadot/api": "^1.32.0-beta.20",
-    "@polkadot/api-derive": "^1.32.0-beta.20",
-    "@polkadot/types": "^1.32.0-beta.20",
+    "@polkadot/api": "^1.32.0-beta.24",
+    "@polkadot/api-derive": "^1.32.0-beta.24",
+    "@polkadot/types": "^1.32.0-beta.24",
     "koa": "^2.13.0",
     "koa-route": "^3.2.0",
     "yargs": "^15.4.1"
