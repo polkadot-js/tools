@@ -1,6 +1,5 @@
 // Copyright 2018-2020 @polkadot/signer-cli authors & contributors
-// This software may be modified and distributed under the terms
-// of the Apache-2.0 license. See the LICENSE file for details.
+// SPDX-License-Identifier: Apache-2.0
 
 import { Keyring } from '@polkadot/keyring';
 import { assert, hexToU8a, isHex, u8aToHex, u8aConcat } from '@polkadot/util';
