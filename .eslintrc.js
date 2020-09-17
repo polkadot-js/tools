@@ -1,3 +1,6 @@
+// Copyright 2018-2020 @polkadot/tools authors & contributors
+// SPDX-License-Identifier: Apache-2.0
+
 const base = require('@polkadot/dev/config/eslint');
 
 module.exports = {
