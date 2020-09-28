@@ -35,8 +35,8 @@
     "@babel/runtime": "^7.11.2",
     "@polkadot/dev": "^0.55.54",
     "@polkadot/ts": "^0.3.47",
-    "@types/node": "^14.10.2",
-    "@types/yargs": "^15.0.5"
+    "@types/node": "^14.11.2",
+    "@types/yargs": "^15.0.7"
   },
   "version": "0.21.0"
 }
