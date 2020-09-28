@@ -1,8 +1,20 @@
 # CHANGELOG
 
+## 0.21.1 Sep 28, 2020
+
+Changes:
+
+- Bump to `@polkadot/api` 2.0.1
+- Bump to `@polkadot/util` 3.5.1
+
+
 ## 0.20.1 Aug 31, 2020
 
 Upgrade priority: Medium if using `.at`-queries or Polkadot-related chains
+
+Contributed:
+
+- Hash payload for display, align with subkey (Thanks to https://github.com/cheme)
 
 Changes:
 
