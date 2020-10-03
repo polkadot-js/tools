@@ -24,6 +24,7 @@
     "postinstall": "polkadot-dev-yarn-only",
     "run:api": "./packages/api-cli/src/index.js",
     "run:json": "./packages/json-serve/src/index.js",
+    "run:metadata": "./packages/metadata-cmp/src/index.js",
     "run:monitor": "./packages/monitor-rpc/src/index.js",
     "run:signer": "./packages/signer-cli/src/index.js",
     "run:vanity": "./packages/vanitygen/src/index.js",

@@ -19,6 +19,10 @@ case $CMD in
     polkadot-js-json-serve "$@"
     exit 0
     ;;
+  metadata)
+    polkadot-js-metadata-cmp "$@"
+    exit 0
+    ;;
   monitor)
     polkadot-js-monitor "$@"
     exit 0
@@ -35,7 +39,7 @@ esac
 
 echo "This executes polkadot-js cli commands."
 echo ""
-echo "Usage: <api|json|monitor|signer|vanity> [...options]"
+echo "Usage: <api|json|metadata|monitor|signer|vanity> [...options]"
 echo ""
 echo "Commands:"
 echo "  api: Runs a cli interface to the api, use 'api --help' for options"
