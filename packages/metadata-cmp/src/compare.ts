@@ -77,16 +77,13 @@ async function main (): Promise<number> {
           const cB = decB.tx[n][c];
           const tA = cA.meta.args.map(({ type }) => type.toString());
           const tB = cB.meta.args.map(({ type }) => type.toString());
-          const typeDiff = tA.some((t, index) => tB[index] !== t);
+          const typeDiff = tA.length !== tB.length || tA.some((t, index) => tB[index] !== t);
 
-          if (cA.callIndex[1] !== cB.callIndex[1] || tA.length !== tB.length || typeDiff) {
+          if (cA.callIndex[1] !== cB.callIndex[1] || typeDiff) {
             const params = createCompare('arg', '', tA.length, tB.length, undefined, true);
 
             console.log(createCompare(c, 'idx', cA.callIndex[1], cB.callIndex[1], params));
-
-            if (typeDiff) {
-              console.log(createCompare('', '', `(${tA.join(', ')})`, `(${tB.join(', ')})`));
-            }
+            console.log(createCompare('', '', `(${tA.join(', ')})`, `(${tB.join(', ')})`));
           }
         });
 
