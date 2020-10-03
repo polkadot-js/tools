@@ -10,7 +10,7 @@ import { assert, stringCamelCase } from '@polkadot/util';
 const [ws1, ws2] = yargs.demandCommand(2).argv._;
 
 function createLog (title: string, pre: string, text: string, post?: string, noPad?: boolean): string {
-  return `${noPad ? title : `[${title}]`.padStart(40)}${pre ? ` ${pre}` : ''} ${text}${post ? ` (${post})` : ''}`;
+  return `${noPad ? title : (title ? `[${title}]` : '').padStart(40)}${pre ? ` ${pre}` : ''} ${text}${post ? ` (${post})` : ''}`;
 }
 
 function createCompare (title: string, pre: string, a: string | number = '-', b: string | number = '-', post?: string, noPad?: boolean): string {
@@ -75,11 +75,18 @@ async function main (): Promise<number> {
         .forEach((c): void => {
           const cA = decA.tx[n][c];
           const cB = decB.tx[n][c];
+          const tA = cA.meta.args.map(({ type }) => type.toString());
+          const tB = cB.meta.args.map(({ type }) => type.toString());
+          const typeDiff = tA.some((t, index) => tB[index] !== t);
 
-          if (cA.callIndex[1] !== cB.callIndex[1] || cA.meta.args.length !== cB.meta.args.length) {
-            const params = createCompare('arg', '', cA.meta.args.length, cB.meta.args.length, undefined, true);
+          if (cA.callIndex[1] !== cB.callIndex[1] || tA.length !== tB.length || typeDiff) {
+            const params = createCompare('arg', '', tA.length, tB.length, undefined, true);
 
             console.log(createCompare(c, 'idx', cA.callIndex[1], cB.callIndex[1], params));
+
+            if (typeDiff) {
+              console.log(createCompare('', '', `(${tA.join(', ')})`, `(${tB.join(', ')})`));
+            }
           }
         });
 
