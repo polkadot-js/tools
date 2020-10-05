@@ -1,6 +1,17 @@
 # CHANGELOG
 
+## 0.22.1 Oct 5, 2020
+
+Upgrade priority: Low.
+
+Changes:
+
+- Add `metadata-cmp` package to compare metadata between upgrades
+
+
 ## 0.21.1 Sep 28, 2020
+
+Upgrade priority: Medium, latest Substrate support.
 
 Changes:
 
