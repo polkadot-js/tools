@@ -61,14 +61,18 @@ interface CallInfo {
 
 const CRYPTO = ['ed25519', 'sr25519'];
 
-const usage = `Usage: [options] <endpoint> <...params>
-Example: query.system.account 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB
-Example: query.substrate.code --info
-Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`;
-
 // retrieve and parse arguments - we do this globally, since this is a single command
 const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, ws } = yargs
-  .command('$0', usage)
+  .parserConfiguration({
+    'parse-numbers': false,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore This is not in the types yet, but needed now...
+    'parse-positional-numbers': false
+  })
+  .command('$0', `Usage: [options] <endpoint> <...params>
+Example: query.system.account 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB
+Example: query.substrate.code --info
+Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
   .middleware(hexMiddleware)
   .middleware(jsonMiddleware)
   .wrap(120)
@@ -105,9 +109,6 @@ const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, su
       required: true,
       type: 'string'
     }
-  })
-  .parserConfiguration({
-    'parse-numbers': false
   })
   .argv;
 
