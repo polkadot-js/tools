@@ -13,7 +13,7 @@ jobs:
     if: "! startsWith(github.event.head_commit.message, '[CI Skip]') && github.repository == 'polkadot-js/tools'"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
       with:
         token: ${{ secrets.GH_PAT }}
     - name: ${{ matrix.step }}
@@ -31,13 +31,13 @@ jobs:
     if: "startsWith(github.event.head_commit.message, '[CI Skip] release/') && github.repository == 'polkadot-js/tools'"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: docker
       env:
         DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
       run: |
-        ./docker.sh build
-        ./docker.sh publish
+        ./docker/build.sh build
+        ./docker/build.sh publish
 
   dummy:
     runs-on: ubuntu-latest

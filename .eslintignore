@@ -1,7 +1,0 @@
-.eslintrc.js
-.github/**
-.vscode/**
-.yarn/**
-**/build/*
-**/coverage/*
-**/node_modules/*

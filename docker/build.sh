@@ -23,7 +23,7 @@ VERSION=$(cat package.json \
 # helper function for the build logic
 function build () {
   echo "*** Creating Dockerfile from latest npm version"
-  sed "s/VERSION/$VERSION/g" Dockerfile.tmpl > Dockerfile
+  sed "s/VERSION/$VERSION/g" docker/Dockerfile.tmpl > docker/Dockerfile
 
   echo "*** Building $NAME"
   docker build -t $NAME .
