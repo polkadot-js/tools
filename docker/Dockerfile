@@ -13,14 +13,14 @@ RUN apt-get update
 RUN apt-get install -y curl gcc g++ make python git
 
 # install node
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y nodejs
 
 # env variable works around gyp install (secp256k1) with root permissions
-RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli @polkadot/json-serve @polkadot/monitor-rpc @polkadot/signer-cli @polkadot/vanitygen
+RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@0.22.2-2 @polkadot/json-serve@0.22.2-2 @polkadot/metadata-cmp@0.22.2-2 @polkadot/monitor-rpc@0.22.2-2 @polkadot/signer-cli@0.22.2-2 @polkadot/vanitygen@0.22.2-2
 
 # copy the cli wrapper to this container
-COPY docker-cli.sh .
+COPY cli.sh .
 
 # run the cli wrapper with options as passed
-ENTRYPOINT ["./docker-cli.sh"]
+ENTRYPOINT ["./cli.sh"]

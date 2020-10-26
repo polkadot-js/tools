@@ -26,7 +26,7 @@ function build () {
   sed "s/VERSION/$VERSION/g" docker/Dockerfile.tmpl > docker/Dockerfile
 
   echo "*** Building $NAME"
-  docker build -t $NAME .
+  docker build -t $NAME docker
 
   exit 0
 }
