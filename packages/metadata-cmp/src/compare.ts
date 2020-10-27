@@ -5,6 +5,7 @@ import yargs from 'yargs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import Decorated from '@polkadot/metadata/Decorated';
 import { Metadata } from '@polkadot/types';
+import { RuntimeVersion } from '@polkadot/types/interfaces';
 import { assert, stringCamelCase } from '@polkadot/util';
 
 const [ws1, ws2] = yargs.demandCommand(2).argv._;
@@ -17,21 +18,22 @@ function createCompare (title: string, pre: string, a: string | number = '-', b:
   return createLog(title, pre, `${a === b ? a : `${a} -> ${b}`}`, post, noPad);
 }
 
-async function getMetadata (url: string): Promise<Metadata> {
+async function getMetadata (url: string): Promise<[Metadata, RuntimeVersion]> {
   assert(url.startsWith('ws://') || url.startsWith('wss://'), `Invalid WebSocket endpoint ${url}, expected ws:// or wss://`);
 
   const api = await ApiPromise.create({ provider: new WsProvider(url) });
 
-  return api.rpc.state.getMetadata();
+  return Promise.all([api.rpc.state.getMetadata(), api.rpc.state.getRuntimeVersion()]);
 }
 
 // our main entry point - from here we call out
 async function main (): Promise<number> {
-  const metaA = await getMetadata(ws1);
-  const metaB = await getMetadata(ws2);
+  const [metaA, verA] = await getMetadata(ws1);
+  const [metaB, verB] = await getMetadata(ws2);
   const a = metaA.asLatest;
   const b = metaB.asLatest;
 
+  console.log(createCompare('Spec', 'ver', verA.specVersion.toNumber(), verB.specVersion.toNumber()));
   console.log(createCompare('Metadata', 'ver', metaA.version, metaB.version));
 
   const mA = a.modules.map(({ name }) => name.toString());
@@ -60,7 +62,7 @@ async function main (): Promise<number> {
         return;
       }
 
-      const count = createCompare('num', '', eA.length, eB.length, undefined, true);
+      const count = createCompare('calls', '', eA.length, eB.length, undefined, true);
 
       console.log(createCompare(m, 'idx', decA.tx[n][eA[0]]?.callIndex[0], decB.tx[n][eB[0]]?.callIndex[0], count));
 
@@ -80,7 +82,7 @@ async function main (): Promise<number> {
           const typeDiff = tA.length !== tB.length || tA.some((t, index) => tB[index] !== t);
 
           if (cA.callIndex[1] !== cB.callIndex[1] || typeDiff) {
-            const params = createCompare('arg', '', tA.length, tB.length, undefined, true);
+            const params = createCompare('args', '', tA.length, tB.length, undefined, true);
 
             console.log(createCompare(c, 'idx', cA.callIndex[1], cB.callIndex[1], params));
             console.log(createCompare('', '', `(${tA.join(', ')})`, `(${tB.join(', ')})`));
