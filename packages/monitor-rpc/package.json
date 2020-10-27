@@ -30,9 +30,10 @@
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/monitor-rpc#readme",
   "dependencies": {
     "@babel/core": "^7.12.3",
+    "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.12.1",
-    "@polkadot/api": "^2.4.1",
-    "@polkadot/types": "^2.4.1",
+    "@polkadot/api": "^2.4.2-5",
+    "@polkadot/types": "^2.4.2-5",
     "koa": "^2.13.0",
     "koa-route": "^3.2.0",
     "yargs": "^16.1.0"
