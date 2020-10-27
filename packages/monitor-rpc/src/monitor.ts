@@ -75,6 +75,11 @@ async function main (): Promise<void> {
   setInterval(checkDelay, 1000);
 }
 
+process.on('unhandledRejection', (error): void => {
+  console.error(error);
+  process.exit(1);
+});
+
 main().catch((error): void => {
   console.error(error);
 

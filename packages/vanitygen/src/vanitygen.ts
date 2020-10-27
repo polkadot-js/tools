@@ -108,6 +108,11 @@ function showBest (): void {
   console.log(`\r::: ${address.slice(0, offset)}${chalk.cyan(address.slice(offset, count + offset))}${address.slice(count + offset)} <= ${u8aToHex(seed)} (count=${count}, offset=${offset})${mnemonic ? '\n                                                        ' + mnemonic : ''}`);
 }
 
+process.on('unhandledRejection', (error): void => {
+  console.error(error);
+  process.exit(1);
+});
+
 cryptoWaitReady()
   .then((): void => {
     while (true) {

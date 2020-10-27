@@ -87,6 +87,11 @@ async function main (): Promise<void> {
   throw new Error(`Unknown command '${command}' found, expected one of 'sign', 'submit' or 'sendOffline'`);
 }
 
+process.on('unhandledRejection', (error): void => {
+  console.error(error);
+  process.exit(1);
+});
+
 main().catch((error): void => {
   console.error(error);
 

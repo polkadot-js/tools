@@ -230,6 +230,11 @@ async function main (): Promise<void | Hash | (() => void)> {
   return makeCall(callInfo);
 }
 
+process.on('unhandledRejection', (error): void => {
+  console.error(error);
+  process.exit(1);
+});
+
 main().catch((error): void => {
   console.error(error);
 

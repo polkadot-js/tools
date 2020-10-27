@@ -111,6 +111,11 @@ async function main (): Promise<void> {
   await api.derive.staking.electedInfo(onElectedInfo);
 }
 
+process.on('unhandledRejection', (error): void => {
+  console.error(error);
+  process.exit(1);
+});
+
 main().catch((error): void => {
   console.error(error);
 

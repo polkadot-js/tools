@@ -21,7 +21,10 @@ function createCompare (title: string, pre: string, a: string | number = '-', b:
 async function getMetadata (url: string): Promise<[Metadata, RuntimeVersion]> {
   assert(url.startsWith('ws://') || url.startsWith('wss://'), `Invalid WebSocket endpoint ${url}, expected ws:// or wss://`);
 
-  const api = await ApiPromise.create({ provider: new WsProvider(url) });
+  const provider = new WsProvider(url);
+  const api = await ApiPromise.create({ provider });
+
+  provider.on('error', () => process.exit());
 
   return Promise.all([api.rpc.state.getMetadata(), api.rpc.state.getRuntimeVersion()]);
 }
@@ -95,10 +98,14 @@ async function main (): Promise<number> {
   return 0;
 }
 
+process.on('unhandledRejection', (error): void => {
+  console.error(error);
+  process.exit(1);
+});
+
 main()
   .then((code) => process.exit(code))
   .catch((error): void => {
     console.error(error);
-
     process.exit(1);
   });
