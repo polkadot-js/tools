@@ -53,7 +53,6 @@ async function main (): Promise<number> {
 
   const decA = new Decorated(metaA.registry, metaA);
   const decB = new Decorated(metaB.registry, metaB);
-  console.log(decB);
 
   mA
     .filter((m) => mB.includes(m))
@@ -85,12 +84,6 @@ async function main (): Promise<number> {
       eAdd.length && console.log(createLog('+ calls', '', eAdd.join(', ')));
       eDel.length && console.log(createLog('- calls', '', eDel.join(', ')));
 
-      const sAdd = sB.filter((e) => !sA.includes(e));
-      const sDel = sA.filter((e) => !sB.includes(e));
-
-      sAdd.length && console.log(createLog('+ storage', '', sAdd.join(', ')));
-      sDel.length && console.log(createLog('- storage', '', sDel.join(', ')));
-
       eA
         .filter((c) => eB.includes(c))
         .forEach((c): void => {
@@ -105,6 +98,79 @@ async function main (): Promise<number> {
 
             console.log(createCompare(c, 'idx', cA.callIndex[1], cB.callIndex[1], params));
             console.log(createCompare('', '', `(${tA.join(', ')})`, `(${tB.join(', ')})`));
+          }
+        });
+      
+      const sAdd = sB.filter((e) => !sA.includes(e));
+      const sDel = sA.filter((e) => !sB.includes(e));
+
+      sAdd.length && console.log(createLog('+ storage', '', sAdd.join(', ')));
+      sDel.length && console.log(createLog('- storage', '', sDel.join(', ')));
+
+      sA
+        .filter((c) => sB.includes(c))
+        .forEach((c): void => {
+          const cA = decA.query[n][c];
+          const cB = decB.query[n][c];
+
+          // storage types differ
+          if (!cA.meta.type.eq(cB.meta.type)) {
+            // diff map
+            if (cA.meta.type.isMap && cB.meta.type.isMap) {
+              let mapA = cA.meta.type.asMap;
+              let mapB = cB.meta.type.asMap;
+              let diffs = [];
+              if (!mapA.hasher.eq(mapB.hasher)) {
+                diffs.push(createCompare("hasher", '', mapA.hasher.toString(), mapB.hasher.toString(), undefined, true));
+              }
+              if (!mapA.key.eq(mapB.key)) {
+                diffs.push(createCompare("key", '', mapA.key.toString(), mapB.key.toString(), undefined, true));
+              }
+              if (!mapA.value.eq(mapB.value)) {
+                diffs.push(createCompare("value", '', mapA.value.toString(), mapB.value.toString(), undefined, true));
+              }
+              console.log(createLog(c, diffs.shift(), ''));
+              for (let diff of diffs) {
+                console.log(createLog('', diff, ''));
+              }
+            }
+            // diff double map
+            else if (cA.meta.type.isDoubleMap && cB.meta.type.isDoubleMap) {
+              let mapA = cA.meta.type.asDoubleMap;
+              let mapB = cB.meta.type.asDoubleMap;
+              let diffs = [];
+              if (!mapA.hasher.eq(mapB.hasher)) {
+                diffs.push(createCompare("hasher", '', mapA.hasher.toString(), mapB.hasher.toString(), undefined, true));
+              }
+              if (!mapA.key1.eq(mapB.key1)) {
+                diffs.push(createCompare("key1", '', mapA.key1.toString(), mapB.key1.toString(), undefined, true));
+              }
+              if (!mapA.key2Hasher.eq(mapB.key2Hasher)) {
+                diffs.push(createCompare("key2Hasher", '', mapA.key2Hasher.toString(), mapB.key2Hasher.toString(), undefined, true));
+              }
+              if (!mapA.key2.eq(mapB.key2)) {
+                diffs.push(createCompare("key2", '', mapA.key2.toString(), mapB.key2.toString(), undefined, true));
+              }
+              if (!mapA.value.eq(mapB.value)) {
+                diffs.push(createCompare("value", '', mapA.value.toString(), mapB.value.toString(), undefined, true));
+              }
+              console.log(createLog(c, diffs.shift(), ''));
+              for (let diff of diffs) {
+                console.log(createLog('', diff, ''));
+              }
+            }
+            // diff plain type
+            else if (cA.meta.type.isPlain && cB.meta.type.isPlain) {
+              let tA = cA.meta.type.asPlain;
+              let tB = cB.meta.type.asPlain;
+              console.log(createCompare(c, 'type', tA.toString(), tB.toString(), undefined));
+            }
+            // fallback diff if types are completely different
+            else {
+              console.log(createLog(c, cA.meta.type.toString(), ''));
+              console.log(createLog('', "->", ''));
+              console.log(createLog('', cB.meta.type.toString(), ''));
+            }
           }
         });
 
