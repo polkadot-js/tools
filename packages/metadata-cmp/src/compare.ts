@@ -53,6 +53,7 @@ async function main (): Promise<number> {
 
   const decA = new Decorated(metaA.registry, metaA);
   const decB = new Decorated(metaB.registry, metaB);
+  console.log(decB);
 
   mA
     .filter((m) => mB.includes(m))
@@ -65,9 +66,18 @@ async function main (): Promise<number> {
         return;
       }
 
+      const sA = Object.keys(decA.query[n] || {});
+      const sB = Object.keys(decB.query[n] || {});
+      
+      if (sA.length === sB.length && sA.length === 0) {
+        return;
+      }
+      
       const count = createCompare('calls', '', eA.length, eB.length, undefined, true);
+      const storage = createCompare('storage', '', sA.length, sB.length, undefined, true);
+      const post = `${count}, ${storage}`;
 
-      console.log(createCompare(m, 'idx', decA.tx[n][eA[0]]?.callIndex[0], decB.tx[n][eB[0]]?.callIndex[0], count));
+      console.log(createCompare(m, 'idx', decA.tx[n][eA[0]]?.callIndex[0], decB.tx[n][eB[0]]?.callIndex[0], post));
 
       const eAdd = eB.filter((e) => !eA.includes(e));
       const eDel = eA.filter((e) => !eB.includes(e));
@@ -93,7 +103,7 @@ async function main (): Promise<number> {
         });
 
       console.log();
-    });
+    })
 
   return 0;
 }
