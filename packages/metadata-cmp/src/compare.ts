@@ -175,7 +175,7 @@ async function main (): Promise<number> {
         });
 
       console.log();
-    })
+    });
 
   return 0;
 }
