@@ -82,8 +82,14 @@ async function main (): Promise<number> {
       const eAdd = eB.filter((e) => !eA.includes(e));
       const eDel = eA.filter((e) => !eB.includes(e));
 
-      eAdd.length && console.log(createLog('+', '', eAdd.join(', ')));
-      eDel.length && console.log(createLog('-', '', eDel.join(', ')));
+      eAdd.length && console.log(createLog('+ calls', '', eAdd.join(', ')));
+      eDel.length && console.log(createLog('- calls', '', eDel.join(', ')));
+
+      const sAdd = sB.filter((e) => !sA.includes(e));
+      const sDel = sA.filter((e) => !sB.includes(e));
+
+      sAdd.length && console.log(createLog('+ storage', '', sAdd.join(', ')));
+      sDel.length && console.log(createLog('- storage', '', sDel.join(', ')));
 
       eA
         .filter((c) => eB.includes(c))
