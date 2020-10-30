@@ -100,7 +100,6 @@ async function main (): Promise<number> {
             console.log(createCompare('', '', `(${tA.join(', ')})`, `(${tB.join(', ')})`));
           }
         });
-      
       const sAdd = sB.filter((e) => !sA.includes(e));
       const sDel = sA.filter((e) => !sB.includes(e));
 
@@ -135,13 +134,13 @@ async function main (): Promise<number> {
 
               if (diffs.length > 0) {
                 console.log(createLog(c, diffs.shift() || '', ''));
-                for (let diff of diffs) {
+
+                for (const diff of diffs) {
                   console.log(createLog('', diff, ''));
                 }
               }
-            }
-            // diff double map
-            else if (cA.meta.type.isDoubleMap && cB.meta.type.isDoubleMap) {
+            } else if (cA.meta.type.isDoubleMap && cB.meta.type.isDoubleMap) {
+              // diff double map
               const mapA = cA.meta.type.asDoubleMap;
               const mapB = cB.meta.type.asDoubleMap;
               const diffs = [];
@@ -168,19 +167,18 @@ async function main (): Promise<number> {
 
               if (diffs.length > 0) {
                 console.log(createLog(c, diffs.shift() || '', ''));
-                for (let diff of diffs) {
+
+                for (const diff of diffs) {
                   console.log(createLog('', diff, ''));
                 }
               }
-            }
-            // diff plain type
-            else if (cA.meta.type.isPlain && cB.meta.type.isPlain) {
+            } else if (cA.meta.type.isPlain && cB.meta.type.isPlain) {
+              // diff plain type
               const tA = cA.meta.type.asPlain;
               const tB = cB.meta.type.asPlain;
               console.log(createCompare(c, 'type', tA.toString(), tB.toString(), undefined));
-            }
-            // fallback diff if types are completely different
-            else {
+            } else {
+              // fallback diff if types are completely different
               console.log(createLog(c, cA.meta.type.toString(), ''));
               console.log(createLog('', '->', ''));
               console.log(createLog('', cB.meta.type.toString(), ''));
