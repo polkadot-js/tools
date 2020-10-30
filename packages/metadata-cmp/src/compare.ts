@@ -121,17 +121,19 @@ async function main (): Promise<number> {
               let mapB = cB.meta.type.asMap;
               let diffs = [];
               if (!mapA.hasher.eq(mapB.hasher)) {
-                diffs.push(createCompare("hasher", '', mapA.hasher.toString(), mapB.hasher.toString(), undefined, true));
+                diffs.push(createCompare('hasher', '', mapA.hasher.toString(), mapB.hasher.toString(), undefined, true));
               }
               if (!mapA.key.eq(mapB.key)) {
-                diffs.push(createCompare("key", '', mapA.key.toString(), mapB.key.toString(), undefined, true));
+                diffs.push(createCompare('key', '', mapA.key.toString(), mapB.key.toString(), undefined, true));
               }
               if (!mapA.value.eq(mapB.value)) {
-                diffs.push(createCompare("value", '', mapA.value.toString(), mapB.value.toString(), undefined, true));
+                diffs.push(createCompare('value', '', mapA.value.toString(), mapB.value.toString(), undefined, true));
               }
-              console.log(createLog(c, diffs.shift(), ''));
-              for (let diff of diffs) {
-                console.log(createLog('', diff, ''));
+              if (diffs.length > 0) {
+                console.log(createLog(c, diffs.shift() || '', ''));
+                for (let diff of diffs) {
+                  console.log(createLog('', diff, ''));
+                }
               }
             }
             // diff double map
@@ -140,23 +142,25 @@ async function main (): Promise<number> {
               let mapB = cB.meta.type.asDoubleMap;
               let diffs = [];
               if (!mapA.hasher.eq(mapB.hasher)) {
-                diffs.push(createCompare("hasher", '', mapA.hasher.toString(), mapB.hasher.toString(), undefined, true));
+                diffs.push(createCompare('hasher', '', mapA.hasher.toString(), mapB.hasher.toString(), undefined, true));
               }
               if (!mapA.key1.eq(mapB.key1)) {
-                diffs.push(createCompare("key1", '', mapA.key1.toString(), mapB.key1.toString(), undefined, true));
+                diffs.push(createCompare('key1', '', mapA.key1.toString(), mapB.key1.toString(), undefined, true));
               }
               if (!mapA.key2Hasher.eq(mapB.key2Hasher)) {
-                diffs.push(createCompare("key2Hasher", '', mapA.key2Hasher.toString(), mapB.key2Hasher.toString(), undefined, true));
+                diffs.push(createCompare('key2Hasher', '', mapA.key2Hasher.toString(), mapB.key2Hasher.toString(), undefined, true));
               }
               if (!mapA.key2.eq(mapB.key2)) {
-                diffs.push(createCompare("key2", '', mapA.key2.toString(), mapB.key2.toString(), undefined, true));
+                diffs.push(createCompare('key2', '', mapA.key2.toString(), mapB.key2.toString(), undefined, true));
               }
               if (!mapA.value.eq(mapB.value)) {
-                diffs.push(createCompare("value", '', mapA.value.toString(), mapB.value.toString(), undefined, true));
+                diffs.push(createCompare('value', '', mapA.value.toString(), mapB.value.toString(), undefined, true));
               }
-              console.log(createLog(c, diffs.shift(), ''));
-              for (let diff of diffs) {
-                console.log(createLog('', diff, ''));
+              if (diffs.length > 0) {
+                console.log(createLog(c, diffs.shift() || '', ''));
+                for (let diff of diffs) {
+                  console.log(createLog('', diff, ''));
+                }
               }
             }
             // diff plain type
