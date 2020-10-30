@@ -176,6 +176,7 @@ async function main (): Promise<number> {
               // diff plain type
               const tA = cA.meta.type.asPlain;
               const tB = cB.meta.type.asPlain;
+
               console.log(createCompare(c, 'type', tA.toString(), tB.toString(), undefined));
             } else {
               // fallback diff if types are completely different
