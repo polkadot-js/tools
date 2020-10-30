@@ -10,9 +10,8 @@ import { assert, stringCamelCase } from '@polkadot/util';
 
 const [ws1, ws2] = yargs.demandCommand(2).argv._;
 
-function chunk (array: any[], size: number): any[] {
+function chunk (array: string[], size: number): string[][] {
   const chunked = [];
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const copied = [...array];
   const numOfChild = Math.ceil(copied.length / size);
 
@@ -37,13 +36,11 @@ function createCompare (a: string | number = '-', b: string | number = '-'): str
   return `${a === b ? a : `${a} -> ${b}`}`;
 }
 
-function logArray (pad: number, title: string, pre: string, arr: any[], chunkSize: number) {
+function logArray (pad: number, title: string, pre: string, arr: string[], chunkSize: number) {
   if (arr.length) {
     let first = true;
 
     for (const ch of chunk(arr, chunkSize)) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       console.log(createLog(pad, first ? title : '', first ? pre : '', ch.join(', ')));
       first = false;
     }
