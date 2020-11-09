@@ -3,8 +3,7 @@
 
 import yargs from 'yargs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { expandMetadata } from '@polkadot/metadata';
-import { Metadata } from '@polkadot/types';
+import { Metadata, expandMetadata } from '@polkadot/metadata';
 import { RuntimeVersion } from '@polkadot/types/interfaces';
 import { assert, stringCamelCase } from '@polkadot/util';
 
