@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 0.23.1 Nov 9, 2020
+
+Upgrade priority: Low.
+
+Contributed:
+
+- Expand metadata compare to cater for storage (Thanks to https://github.com/apopiak)
+
+Changes:
+
+- Display specVersion changes in metadata compare
+- Use node unhandledRejection interfaces in all cli commands
+- Fix usage of yargs (numbers on commandline) to cater for latest
+- Updated to `@polkadot/{keyring, util, util-crypto}` 4.0.1
+- Updated to `@polkadot/api` 2.6.1
+
+
 ## 0.22.1 Oct 5, 2020
 
 Upgrade priority: Low.
