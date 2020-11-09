@@ -46,8 +46,9 @@ const { match, mnemonic, network, type, withCase } = yargs
   })
   .argv;
 
-const INDICATORS = ['|', '/', '-', '\\'];
+// eslint-disable-next-line prefer-regex-literals
 const NUMBER_REGEX = new RegExp('(\\d+?)(?=(\\d{3})+(?!\\d)|$)', 'g');
+const INDICATORS = ['|', '/', '-', '\\'];
 
 const options: GeneratorOptions = {
   match,
