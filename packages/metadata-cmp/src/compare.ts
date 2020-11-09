@@ -3,7 +3,7 @@
 
 import yargs from 'yargs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import Decorated from '@polkadot/metadata/Decorated';
+import { expandMetadata } from '@polkadot/metadata';
 import { Metadata } from '@polkadot/types';
 import { RuntimeVersion } from '@polkadot/types/interfaces';
 import { assert, stringCamelCase } from '@polkadot/util';
@@ -88,8 +88,8 @@ async function main (): Promise<number> {
   logArray(lvl1 + deltaInc, '-', 'modules:', mDel, chunkSize);
   console.log();
 
-  const decA = new Decorated(metaA.registry, metaA);
-  const decB = new Decorated(metaB.registry, metaB);
+  const decA = expandMetadata(metaA.registry, metaA);
+  const decB = expandMetadata(metaB.registry, metaB);
 
   mA
     .filter((m) => mB.includes(m))
