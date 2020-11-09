@@ -3,6 +3,8 @@
   "version": "0.23.1",
   "description": "A vanity generator",
   "main": "index.js",
+  "module": "esnext/index.js",
+  "sideEffects": false,
   "bin": {
     "polkadot-js-vanitygen": "./index.js"
   },
