@@ -30,8 +30,8 @@
     "@babel/core": "^7.12.3",
     "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.12.1",
-    "@polkadot/util": "^4.0.1",
-    "@polkadot/util-crypto": "^4.0.1",
+    "@polkadot/util": "^4.0.2-7",
+    "@polkadot/util-crypto": "^4.0.2-7",
     "chalk": "^4.1.0",
     "yargs": "^16.1.0"
   },
