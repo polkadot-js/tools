@@ -32,9 +32,9 @@
     "@babel/core": "^7.12.3",
     "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.12.1",
-    "@polkadot/api": "^2.6.2-2",
-    "@polkadot/api-derive": "^2.6.2-2",
-    "@polkadot/types": "^2.6.2-2",
+    "@polkadot/api": "^2.6.2-4",
+    "@polkadot/api-derive": "^2.6.2-4",
+    "@polkadot/types": "^2.6.2-4",
     "koa": "^2.13.0",
     "koa-route": "^3.2.0",
     "yargs": "^16.1.0"
