@@ -11,29 +11,18 @@
     "JsonRPC"
   ],
   "author": "Jaco Greeff <jacogr@gmail.com>",
-  "maintainers": [
-    "Jaco Greeff <jacogr@gmail.com>"
-  ],
+  "maintainers": [],
   "contributors": [],
   "license": "Apache-2.0",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/polkadot-js/tools.git"
-  },
-  "bugs": {
-    "url": "https://github.com/polkadot-js/tools/issues"
-  },
+  "repository": "github:polkadot-js/tools",
+  "bugs": "https://github.com/polkadot-js/tools/issues",
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/monitor-rpc#readme",
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.12.1",
-    "@polkadot/api": "^2.6.2-4",
-    "@polkadot/types": "^2.6.2-4",
+    "@polkadot/api": "^2.6.2-5",
+    "@polkadot/types": "^2.6.2-5",
     "koa": "^2.13.0",
     "koa-route": "^3.2.0",
     "yargs": "^16.1.0"
