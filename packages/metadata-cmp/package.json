@@ -18,17 +18,17 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/metadata-cmp#readme",
   "dependencies": {
-    "@babel/core": "^7.12.3",
+    "@babel/core": "^7.12.8",
     "@babel/register": "^7.12.1",
-    "@babel/runtime": "^7.12.1",
-    "@polkadot/api": "^2.6.2-7",
-    "@polkadot/keyring": "^4.0.2-12",
-    "@polkadot/types": "^2.6.2-7",
-    "@polkadot/util": "^4.0.2-12",
-    "yargs": "^16.1.0"
+    "@babel/runtime": "^7.12.5",
+    "@polkadot/api": "^2.8.2-0",
+    "@polkadot/keyring": "^4.2.1",
+    "@polkadot/types": "^2.8.2-0",
+    "@polkadot/util": "^4.2.1",
+    "yargs": "^16.1.1"
   },
   "devDependencies": {
-    "@types/node": "^14.14.3",
-    "@types/yargs": "^15.0.9"
+    "@types/node": "^14.14.9",
+    "@types/yargs": "^15.0.10"
   }
 }
