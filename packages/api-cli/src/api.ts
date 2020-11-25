@@ -5,6 +5,7 @@ import { KeyringPair } from '@polkadot/keyring/types';
 import { Hash } from '@polkadot/types/interfaces';
 import { CallFunction, Codec } from '@polkadot/types/types';
 
+import fs from 'fs';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
@@ -62,7 +63,7 @@ interface CallInfo {
 const CRYPTO = ['ed25519', 'sr25519'];
 
 // retrieve and parse arguments - we do this globally, since this is a single command
-const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, ws } = yargs
+const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, types, ws } = yargs
   .parserConfiguration({
     'parse-numbers': false,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -103,6 +104,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
       description: 'Run this tx as a wrapped sudo.sudo call',
       type: 'boolean'
     },
+    types: {
+      description: 'Add this .json file as types to the API constructor',
+      type: 'string'
+    },
     ws: {
       default: 'ws://127.0.0.1:9944',
       description: 'The API endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io',
@@ -114,12 +119,22 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
 
 const params = parseParams(paramsInline, paramsFile);
 
+function readTypes (): Record<string, string> {
+  if (!types) {
+    return {};
+  }
+
+  assert(fs.existsSync(types), `Unable to read .json file at ${types}`);
+
+  return JSON.parse(fs.readFileSync(types, 'utf8')) as Record<string, string>;
+}
+
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
   const provider = new WsProvider(ws);
-  const api = await ApiPromise.create({ provider });
+  const api = await ApiPromise.create({ provider, types: readTypes() });
   const apiExt = api as unknown as ApiExt;
   const [type, section, method] = endpoint.split('.') as [keyof ApiExt, string, string];
 
