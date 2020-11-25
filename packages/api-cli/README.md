@@ -2,6 +2,7 @@
 
 A simple cli interface to the [@polkadot/api](https://github.com/polkadot-js/api).
 
+
 ## Usage
 
 Commands are of the form,
@@ -36,6 +37,7 @@ It is often desirable to include large binary blobs as transaction parameters. T
 
 The `sudo` example demonstrates this.
 
+
 ### Sudo
 
 Some transactions require superuser access. For example, to change the runtime code, you can do
@@ -46,6 +48,7 @@ yarn run:api --sudo --seed "//Alice" tx.system.setCode @test.wasm
 
 In all cases when sudoing, the seed provided should be that of the superuser. For most development nets, that is `"//Alice"`.
 
+
 ## Global Installation
 
 ```
@@ -53,8 +56,11 @@ $ yarn global add @polkadot/api-cli
 $ polkadot-js-api ...
 ```
 
+
 ## Other options
 
 The `--ws` param can be used to connect to other Websocket endpoints, when submitting transactions, you can use the `--seed <seed>` to specify an account seed. To read documentation on a call, use the `--info` command.
+
+To specify types for a specific chain, you can use the `--types <types.json>` param, injecting the specified types into the API on construction.
 
 For a complete list of available commands, you can use `--help`
