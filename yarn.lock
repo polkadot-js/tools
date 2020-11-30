@@ -49,7 +49,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.8, @babel/core@npm:^7.12.9, @babel/core@npm:^7.7.5":
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.9, @babel/core@npm:^7.7.5":
   version: 7.12.9
   resolution: "@babel/core@npm:7.12.9"
   dependencies:
@@ -1726,14 +1726,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/api-cli@workspace:packages/api-cli"
   dependencies:
-    "@babel/core": ^7.12.8
+    "@babel/core": ^7.12.9
     "@babel/register": ^7.12.1
     "@babel/runtime": ^7.12.5
     "@polkadot/api": ^2.9.1
     "@polkadot/keyring": ^4.2.1
     "@polkadot/types": ^2.9.1
     "@polkadot/util": ^4.2.1
-    "@types/node": ^14.14.9
+    "@types/node": ^14.14.10
     "@types/yargs": ^15.0.10
     yargs: ^16.1.1
   bin:
@@ -1875,7 +1875,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/json-serve@workspace:packages/json-serve"
   dependencies:
-    "@babel/core": ^7.12.8
+    "@babel/core": ^7.12.9
     "@babel/register": ^7.12.1
     "@babel/runtime": ^7.12.5
     "@polkadot/api": ^2.9.1
@@ -1884,7 +1884,7 @@ __metadata:
     "@types/bn.js": ^4.11.6
     "@types/koa": ^2.11.6
     "@types/koa-route": ^3.2.4
-    "@types/node": ^14.14.9
+    "@types/node": ^14.14.10
     "@types/yargs": ^15.0.10
     koa: ^2.13.0
     koa-route: ^3.2.0
@@ -1912,14 +1912,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/metadata-cmp@workspace:packages/metadata-cmp"
   dependencies:
-    "@babel/core": ^7.12.8
+    "@babel/core": ^7.12.9
     "@babel/register": ^7.12.1
     "@babel/runtime": ^7.12.5
     "@polkadot/api": ^2.9.1
     "@polkadot/keyring": ^4.2.1
     "@polkadot/types": ^2.9.1
     "@polkadot/util": ^4.2.1
-    "@types/node": ^14.14.9
+    "@types/node": ^14.14.10
     "@types/yargs": ^15.0.10
     yargs: ^16.1.1
   bin:
@@ -1945,14 +1945,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/monitor-rpc@workspace:packages/monitor-rpc"
   dependencies:
-    "@babel/core": ^7.12.8
+    "@babel/core": ^7.12.9
     "@babel/register": ^7.12.1
     "@babel/runtime": ^7.12.5
     "@polkadot/api": ^2.9.1
     "@polkadot/types": ^2.9.1
     "@types/koa": ^2.11.6
     "@types/koa-route": ^3.2.4
-    "@types/node": ^14.14.9
+    "@types/node": ^14.14.10
     "@types/yargs": ^15.0.10
     koa: ^2.13.0
     koa-route: ^3.2.0
@@ -2006,7 +2006,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/signer-cli@workspace:packages/signer-cli"
   dependencies:
-    "@babel/core": ^7.12.8
+    "@babel/core": ^7.12.9
     "@babel/register": ^7.12.1
     "@babel/runtime": ^7.12.5
     "@polkadot/api": ^2.9.1
@@ -2015,7 +2015,7 @@ __metadata:
     "@polkadot/types": ^2.9.1
     "@polkadot/util": ^4.2.1
     "@polkadot/util-crypto": ^4.2.1
-    "@types/node": ^14.14.9
+    "@types/node": ^14.14.10
     "@types/yargs": ^15.0.10
     yargs: ^16.1.1
   bin:
@@ -2104,12 +2104,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/vanitygen@workspace:packages/vanitygen"
   dependencies:
-    "@babel/core": ^7.12.8
+    "@babel/core": ^7.12.9
     "@babel/register": ^7.12.1
     "@babel/runtime": ^7.12.5
     "@polkadot/util": ^4.2.1
     "@polkadot/util-crypto": ^4.2.1
-    "@types/node": ^14.14.9
+    "@types/node": ^14.14.10
     "@types/yargs": ^15.0.10
     chalk: ^4.1.0
     yargs: ^16.1.1
@@ -2501,10 +2501,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^14.14.9":
-  version: 14.14.9
-  resolution: "@types/node@npm:14.14.9"
-  checksum: df0405c708fa94831e7f71ed01cd6f859a38ab0daeae99e01afdd408905479f205556a43bafe5692c82cd126abbdc68baeb99b4b7d653c1480c289080b71622b
+"@types/node@npm:*, @types/node@npm:^14.14.10":
+  version: 14.14.10
+  resolution: "@types/node@npm:14.14.10"
+  checksum: b793aa15e8c08df50d0f77dc0fe7a93bc2e09bfa5a424841d4dba045d6ae8503b7ffe89b773ffe197c9b637c898bb22e78442e21ff4b33414d35160d9c3f8a9b
   languageName: node
   linkType: hard
 
@@ -9628,12 +9628,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@babel/core": ^7.12.8
+    "@babel/core": ^7.12.9
     "@babel/register": ^7.12.1
     "@babel/runtime": ^7.12.5
     "@polkadot/dev": ^0.60.5
     "@polkadot/ts": ^0.3.55
-    "@types/node": ^14.14.9
+    "@types/node": ^14.14.10
     "@types/yargs": ^15.0.10
   languageName: unknown
   linkType: soft

@@ -18,7 +18,7 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/metadata-cmp#readme",
   "dependencies": {
-    "@babel/core": "^7.12.8",
+    "@babel/core": "^7.12.9",
     "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.12.5",
     "@polkadot/api": "^2.9.1",
@@ -28,7 +28,7 @@
     "yargs": "^16.1.1"
   },
   "devDependencies": {
-    "@types/node": "^14.14.9",
+    "@types/node": "^14.14.10",
     "@types/yargs": "^15.0.10"
   }
 }
