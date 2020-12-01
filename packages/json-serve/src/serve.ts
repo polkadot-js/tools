@@ -1,8 +1,8 @@
 // Copyright 2018-2020 @polkadot/json-serve authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { DeriveStakingElected } from '@polkadot/api-derive/types';
-import { Balance, BlockNumber, Header } from '@polkadot/types/interfaces';
+import type { DeriveStakingElected } from '@polkadot/api-derive/types';
+import type { Balance, BlockNumber, Header } from '@polkadot/types/interfaces';
 
 import BN from 'bn.js';
 import Koa from 'koa';

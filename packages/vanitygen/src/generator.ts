@@ -1,7 +1,7 @@
 // Copyright 2017-2020 @polkadot/vanitygen authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { GeneratorMatches, GeneratorResult, GeneratorOptions } from './types';
+import type { GeneratorMatches, GeneratorResult, GeneratorOptions } from './types';
 
 import generate from './generate';
 

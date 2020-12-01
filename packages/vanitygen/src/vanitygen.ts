@@ -2,8 +2,8 @@
 // Copyright 2017-2020 @polkadot/vanitygen authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { KeypairType } from '@polkadot/util-crypto/types';
-import { GeneratorOptions } from './types';
+import type { KeypairType } from '@polkadot/util-crypto/types';
+import type { GeneratorOptions } from './types';
 
 import yargs from 'yargs';
 import chalk from 'chalk';
