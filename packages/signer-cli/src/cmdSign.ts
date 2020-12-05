@@ -2,24 +2,17 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { Keyring } from '@polkadot/keyring';
-import { assert, hexToU8a, isHex, u8aToHex, u8aConcat } from '@polkadot/util';
+import { assert, hexToU8a, isHex, u8aToHex } from '@polkadot/util';
 import { cryptoWaitReady, keyExtractSuri, mnemonicValidate } from '@polkadot/util-crypto';
 
 type Curves = 'ed25519' | 'sr25519';
 
 const SEED_LENGTHS = [12, 15, 18, 21, 24];
 
-const curvePrefixes: {[key in Curves]: [number] } = {
-  ed25519: [0],
-  sr25519: [1]
-};
-
 /**
-  * Doesn't cater for 1st gen seeds
-  * seed here can be any of the following:
-  *  1. full SURI: <mnemonic>//<hard>/<soft>///<password>
-  *  2. hex seed with or without derivation path: <hex>//<hard>/<soft>///<password>
-  *  3. just mnemonic: hard clown circus world laugh ...
+  * Seed here can be any of the following:
+  *  - mnemonic (with/without derivation path): <mnemonic>[//<hard>/<soft>///<password>]
+  *  - hex seed (with/without derivation path): <hex>[//<hard>/<soft>///<password>]
 */
 function validateSeed (suri: string) {
   const { phrase } = keyExtractSuri(suri);
@@ -46,9 +39,8 @@ export default async function cmdSign (_: string, suri: string, type: Curves, [p
 
   const keyring = new Keyring({ type });
   const pair = keyring.createFromUri(suri);
-  const signature = pair.sign(hexToU8a(payload));
-  const prefix = new Uint8Array(curvePrefixes[type]);
+  const signature = pair.sign(hexToU8a(payload), { withType: true });
 
-  console.log(`Signature: ${u8aToHex(u8aConcat(prefix, signature))}`);
+  console.log(`Signature: ${u8aToHex(signature)}`);
   process.exit(0);
 }
