@@ -1,11 +1,12 @@
 // Copyright 2018-2020 @polkadot/signer-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import type { Index, SignerPayload, BlockNumber } from '@polkadot/types/interfaces';
+import type { SubmittableExtrinsic, SignerOptions } from '@polkadot/api/submittable/types';
+import type { Compact } from '@polkadot/types';
+
 import * as readline from 'readline';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { Index, SignerPayload, BlockNumber } from '@polkadot/types/interfaces';
-import { SubmittableExtrinsic, SignerOptions } from '@polkadot/api/submittable/types';
-import { Compact } from '@polkadot/types';
 import { assert } from '@polkadot/util';
 
 function getSignature (data: string): Promise<string> {

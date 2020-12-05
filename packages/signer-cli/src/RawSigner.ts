@@ -1,7 +1,8 @@
 // Copyright 2018-2020 @polkadot/signer-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { Signer, SignerResult } from '@polkadot/api/types';
+import type { Signer, SignerResult } from '@polkadot/api/types';
+
 import { SignerPayloadRaw } from '@polkadot/types/types';
 import { blake2AsHex } from '@polkadot/util-crypto';
 

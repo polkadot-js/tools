@@ -1,7 +1,7 @@
 // Copyright 2017-2020 @polkadot/vanitygen authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { KeypairType } from '@polkadot/util-crypto/types';
+import type { KeypairType } from '@polkadot/util-crypto/types';
 
 export interface GeneratorCalculation {
   count: number;
