@@ -1,7 +1,7 @@
 // Copyright 2018-2020 @polkadot/monitor-rpc authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { BlockNumber, Header } from '@polkadot/types/interfaces';
+import type { BlockNumber, Header } from '@polkadot/types/interfaces';
 
 import Koa from 'koa';
 import koaRoute from 'koa-route';

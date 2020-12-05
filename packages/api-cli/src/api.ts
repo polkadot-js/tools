@@ -1,15 +1,15 @@
 // Copyright 2018-2020 @polkadot/api-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { KeyringPair } from '@polkadot/keyring/types';
-import { Hash } from '@polkadot/types/interfaces';
-import { CallFunction, Codec } from '@polkadot/types/types';
+import type { KeyringPair } from '@polkadot/keyring/types';
+import type { Text } from '@polkadot/types';
+import type { Hash } from '@polkadot/types/interfaces';
+import type { CallFunction, Codec } from '@polkadot/types/types';
 
 import fs from 'fs';
 import yargs from 'yargs';
 import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
-import { Text } from '@polkadot/types';
 import { assert, isFunction } from '@polkadot/util';
 
 import { hexMiddleware, jsonMiddleware, parseParams } from './cli';

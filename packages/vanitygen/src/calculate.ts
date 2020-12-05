@@ -1,7 +1,7 @@
 // Copyright 2017-2020 @polkadot/vanitygen authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { GeneratorCalculation, GeneratorOptions } from './types';
+import type { GeneratorCalculation, GeneratorOptions } from './types';
 
 const MAX_OFFSET = 5;
 

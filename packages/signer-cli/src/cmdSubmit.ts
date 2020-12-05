@@ -1,7 +1,7 @@
 // Copyright 2018-2020 @polkadot/signer-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { SignerOptions } from '@polkadot/api/submittable/types';
+import type { SignerOptions } from '@polkadot/api/submittable/types';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { assert } from '@polkadot/util';

@@ -1,10 +1,11 @@
 // Copyright 2018-2020 @polkadot/metadata-cmp authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import type { RuntimeVersion } from '@polkadot/types/interfaces';
+
 import yargs from 'yargs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { Metadata, expandMetadata } from '@polkadot/metadata';
-import { RuntimeVersion } from '@polkadot/types/interfaces';
 import { assert, stringCamelCase } from '@polkadot/util';
 
 const [ws1, ws2] = yargs.demandCommand(2).argv._;
