@@ -62,12 +62,12 @@ interface CallInfo {
 
 interface Params {
   _: string[];
-  info: string;
+  info: boolean;
   params: string;
   seed: string;
   sign: string;
-  sub: string;
-  sudo: string;
+  sub: boolean;
+  sudo: boolean;
   types: string;
   ws: string;
 }
