@@ -5,13 +5,11 @@ import fs from 'fs';
 
 import { assert } from '@polkadot/util';
 
-interface ArgV {
-  [argName: string]: unknown;
-  _: string[];
-  $0: string;
-}
+import type { ArgV } from './types';
 
-function asJson (param: string): string {
+function asJson (_param: string | number): string {
+  const param = _param.toString();
+
   try {
     return JSON.parse(param) as string;
   } catch (error) {
@@ -22,7 +20,9 @@ function asJson (param: string): string {
 export function hexMiddleware (argv: ArgV): ArgV {
   // a parameter whose initial character is @ treated as a path and replaced
   // with the hexadecimal representation of the binary contents of that file
-  argv._ = argv._.map((param) => {
+  argv._ = argv._.map((_param) => {
+    const param = _param.toString();
+
     if (param.startsWith('@')) {
       const path = param.substring(1);
 
@@ -43,7 +43,7 @@ export function jsonMiddleware (argv: ArgV): ArgV {
   return argv;
 }
 
-export function parseParams (inline: string[], file?: string): string[] {
+export function parseParams (inline: (string | number)[], file?: string): string[] {
   if (file) {
     assert(fs.existsSync(file), 'Cannot find supplied transaction parameters file');
 
@@ -54,5 +54,5 @@ export function parseParams (inline: string[], file?: string): string[] {
     }
   }
 
-  return inline;
+  return inline.map((i) => i.toString());
 }

@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { KeyringPair } from '@polkadot/keyring/types';
-import type { Text } from '@polkadot/types';
 import type { Hash } from '@polkadot/types/interfaces';
 import type { CallFunction, Codec } from '@polkadot/types/types';
 
@@ -60,10 +59,22 @@ interface CallInfo {
   type: string;
 }
 
+interface Params {
+  _: string[];
+  info: boolean;
+  params: string;
+  seed: string;
+  sign: string;
+  sub: boolean;
+  sudo: boolean;
+  types: string;
+  ws: string;
+}
+
 const CRYPTO = ['ed25519', 'sr25519'];
 
 // retrieve and parse arguments - we do this globally, since this is a single command
-const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, types, ws } = yargs
+const argv = yargs
   .parserConfiguration({
     'parse-numbers': false,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -117,6 +128,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
   })
   .argv;
 
+const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, types, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
 function readTypes (): Record<string, string> {
