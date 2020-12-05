@@ -22,9 +22,7 @@ function submitPreSignedTx (api: ApiPromise, tx: string): void {
 }
 
 export default async function cmdSubmit (account: string, blocks: number | undefined, endpoint: string, tx: string | undefined, [txName, ...params]: string[]): Promise<void> {
-  const signer = new RawSigner();
-  const provider = new WsProvider(endpoint);
-  const api = await ApiPromise.create({ provider, signer });
+  const api = await ApiPromise.create({ provider: new WsProvider(endpoint) });
 
   if (tx) {
     return submitPreSignedTx(api, tx);
@@ -34,7 +32,7 @@ export default async function cmdSubmit (account: string, blocks: number | undef
 
   assert(api.tx[section] && api.tx[section][method], `Unable to find method ${section}.${method}`);
 
-  const options: Partial<SignerOptions> = {};
+  const options: Partial<SignerOptions> = { signer: new RawSigner() };
 
   if (blocks === 0) {
     options.era = 0;
