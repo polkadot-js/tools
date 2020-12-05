@@ -2,11 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { Signer, SignerResult } from '@polkadot/api/types';
-
-import { SignerPayloadRaw } from '@polkadot/types/types';
-import { blake2AsHex } from '@polkadot/util-crypto';
+import type { SignerPayloadRaw } from '@polkadot/types/types';
 
 import * as readline from 'readline';
+import { blake2AsHex } from '@polkadot/util-crypto';
 
 export default class RawSigner implements Signer {
   public async signRaw ({ data }: SignerPayloadRaw): Promise<SignerResult> {
