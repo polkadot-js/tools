@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 0.24.1 Dec 7, 2020
+
+Upgrade priority: Low.
+
+Changes:
+
+- Added `--types` param to api-cli
+- Cleanup `api-signer` to oly use the API signer interfaces (no manual construction)
+- Updated to `@polkadot/util` 4.2.1
+- Updated to `@polkadot/api` 2.10.1
+- Use `import type` in all packages
+
+
 ## 0.23.1 Nov 9, 2020
 
 Upgrade priority: Low.
