@@ -5,8 +5,9 @@
 import type { KeypairType } from '@polkadot/util-crypto/types';
 import type { GeneratorOptions } from './types';
 
-import yargs from 'yargs';
 import chalk from 'chalk';
+import yargs from 'yargs';
+
 import { u8aToHex } from '@polkadot/util';
 import { cryptoWaitReady, setSS58Format } from '@polkadot/util-crypto';
 

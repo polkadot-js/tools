@@ -2,11 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import yargs from 'yargs';
+
 import { hexMiddleware, jsonMiddleware, parseParams } from '@polkadot/api-cli/cli';
 
+import cmdSendOffline from './cmdSendOffline';
 import cmdSign from './cmdSign';
 import cmdSubmit from './cmdSubmit';
-import cmdSendOffline from './cmdSendOffline';
 
 const BLOCKTIME = 6;
 const ONE_MINUTE = 60 / BLOCKTIME;

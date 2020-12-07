@@ -1,11 +1,11 @@
 // Copyright 2018-2020 @polkadot/api-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import type { ArgV } from './types';
+
 import fs from 'fs';
 
 import { assert } from '@polkadot/util';
-
-import type { ArgV } from './types';
 
 function asJson (_param: string | number): string {
   const param = _param.toString();

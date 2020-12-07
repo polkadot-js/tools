@@ -7,7 +7,8 @@ import type { CallFunction, Codec } from '@polkadot/types/types';
 
 import fs from 'fs';
 import yargs from 'yargs';
-import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot/api';
+
+import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
 import { assert, isFunction } from '@polkadot/util';
 
