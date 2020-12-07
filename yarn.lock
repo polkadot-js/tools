@@ -1725,7 +1725,7 @@ __metadata:
     "@polkadot/util": ^4.2.1
     "@types/node": ^14.14.10
     "@types/yargs": ^15.0.11
-    yargs: ^16.1.1
+    yargs: ^16.2.0
   bin:
     polkadot-js-api: ./index.js
   languageName: unknown
@@ -1878,7 +1878,7 @@ __metadata:
     "@types/yargs": ^15.0.11
     koa: ^2.13.0
     koa-route: ^3.2.0
-    yargs: ^16.1.1
+    yargs: ^16.2.0
   bin:
     polkadot-js-json-serve: ./index.js
   languageName: unknown
@@ -1911,7 +1911,7 @@ __metadata:
     "@polkadot/util": ^4.2.1
     "@types/node": ^14.14.10
     "@types/yargs": ^15.0.11
-    yargs: ^16.1.1
+    yargs: ^16.2.0
   bin:
     polkadot-js-metadata-cmp: ./index.js
   languageName: unknown
@@ -1946,7 +1946,7 @@ __metadata:
     "@types/yargs": ^15.0.11
     koa: ^2.13.0
     koa-route: ^3.2.0
-    yargs: ^16.1.1
+    yargs: ^16.2.0
   bin:
     polkadot-js-monitor: ./index.js
   languageName: unknown
@@ -2007,7 +2007,7 @@ __metadata:
     "@polkadot/util-crypto": ^4.2.1
     "@types/node": ^14.14.10
     "@types/yargs": ^15.0.11
-    yargs: ^16.1.1
+    yargs: ^16.2.0
   bin:
     polkadot-js-signer: ./index.js
   languageName: unknown
@@ -2102,7 +2102,7 @@ __metadata:
     "@types/node": ^14.14.10
     "@types/yargs": ^15.0.11
     chalk: ^4.1.0
-    yargs: ^16.1.1
+    yargs: ^16.2.0
   bin:
     polkadot-js-vanitygen: ./index.js
   languageName: unknown
@@ -3388,7 +3388,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.14.5, browserslist@npm:^4.14.7, browserslist@npm:^4.15.0":
+"browserslist@npm:^4.14.5, browserslist@npm:^4.15.0":
   version: 4.15.0
   resolution: "browserslist@npm:4.15.0"
   dependencies:
@@ -3913,12 +3913,12 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.7.0":
-  version: 3.8.0
-  resolution: "core-js-compat@npm:3.8.0"
+  version: 3.8.1
+  resolution: "core-js-compat@npm:3.8.1"
   dependencies:
-    browserslist: ^4.14.7
+    browserslist: ^4.15.0
     semver: 7.0.0
-  checksum: e0278c0e64334bdd5a7e13cc49830585dd194d0d4f84322c9fe3cb30ab7f23396374cf499fe02f8e4817470b51e3b35d533e67045a0f67ed391995f013f17a83
+  checksum: 964ad886a9f55399d2f33350d15f4653bfd24cb6de04606c515d0266be4101a1f435bab9a6d76b249de5f573aecb230a98468d6a8141743019abab5edd4d4281
   languageName: node
   linkType: hard
 
@@ -11519,9 +11519,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"yargs@npm:^16.0.3, yargs@npm:^16.1.1":
-  version: 16.1.1
-  resolution: "yargs@npm:16.1.1"
+"yargs@npm:^16.0.3, yargs@npm:^16.1.1, yargs@npm:^16.2.0":
+  version: 16.2.0
+  resolution: "yargs@npm:16.2.0"
   dependencies:
     cliui: ^7.0.2
     escalade: ^3.1.1
@@ -11530,7 +11530,7 @@ fsevents@~2.1.2:
     string-width: ^4.2.0
     y18n: ^5.0.5
     yargs-parser: ^20.2.2
-  checksum: f88462770b6d65107b7295bdd68c38bc3cba9ab0362df476f44c5f6770ee2f39f48bca9813e8a9dc792a15f93e051a7e37346c0f66cf0ec35c63869963c43e0c
+  checksum: a79ce1f043021cd645de1ffebb6149541d382ba68f4a6b5eca5d2ad65af51893371bbd78e240dc3b6cf0cbb419511ba5bda715dec992e4266e6863ea49f14feb
   languageName: node
   linkType: hard
 
