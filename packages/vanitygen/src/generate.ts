@@ -3,7 +3,7 @@
 
 import type { GeneratorMatch, GeneratorOptions } from './types';
 
-import { encodeAddress, mnemonicGenerate, naclKeypairFromSeed, randomAsU8a, schnorrkelKeypairFromSeed, mnemonicToMiniSecret } from '@polkadot/util-crypto';
+import { encodeAddress, mnemonicGenerate, mnemonicToMiniSecret, naclKeypairFromSeed, randomAsU8a, schnorrkelKeypairFromSeed } from '@polkadot/util-crypto';
 
 import calculate from './calculate';
 

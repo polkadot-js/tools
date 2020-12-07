@@ -5,6 +5,7 @@ import type { Signer, SignerResult } from '@polkadot/api/types';
 import type { SignerPayloadRaw } from '@polkadot/types/types';
 
 import * as readline from 'readline';
+
 import { blake2AsHex } from '@polkadot/util-crypto';
 
 export default class RawSigner implements Signer {
