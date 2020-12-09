@@ -18,8 +18,8 @@
     "@babel/core": "^7.12.9",
     "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.12.5",
-    "@polkadot/util": "^4.2.1",
-    "@polkadot/util-crypto": "^4.2.1",
+    "@polkadot/util": "^4.2.2-9",
+    "@polkadot/util-crypto": "^4.2.2-9",
     "chalk": "^4.1.0",
     "yargs": "^16.2.0"
   },
