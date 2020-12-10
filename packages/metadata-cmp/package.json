@@ -6,10 +6,6 @@
   "bin": {
     "polkadot-js-metadata-cmp": "./index.js"
   },
-  "keywords": [
-    "Polkadot",
-    "JsonRPC"
-  ],
   "author": "Jaco Greeff <jacogr@gmail.com>",
   "maintainers": [],
   "contributors": [],
@@ -21,10 +17,10 @@
     "@babel/core": "^7.12.9",
     "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.12.5",
-    "@polkadot/api": "^2.10.2-9",
-    "@polkadot/keyring": "^4.2.2-9",
-    "@polkadot/types": "^2.10.2-9",
-    "@polkadot/util": "^4.2.2-9",
+    "@polkadot/api": "^2.10.2-11",
+    "@polkadot/keyring": "^4.2.2-11",
+    "@polkadot/types": "^2.10.2-11",
+    "@polkadot/util": "^4.2.2-11",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
