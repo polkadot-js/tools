@@ -1,8 +1,17 @@
 # CHANGELOG
 
+## 0.25.1 Dec 14, 2020
+
+Upgrade priority: Low. Recommended for Substrate master users.
+
+- Build esm output alongside cjs
+- Updated to `@polkadot/util` 5.0.1
+- Updated to `@polkadot/api` 3.0.1
+
+
 ## 0.24.1 Dec 7, 2020
 
-Upgrade priority: Low.
+Upgrade priority: Low. Recommended for parachain users.
 
 Changes:
 
