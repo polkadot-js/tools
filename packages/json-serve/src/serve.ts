@@ -1,4 +1,4 @@
-// Copyright 2018-2020 @polkadot/json-serve authors & contributors
+// Copyright 2018-2021 @polkadot/json-serve authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { DeriveStakingElected } from '@polkadot/api-derive/types';
@@ -109,7 +109,7 @@ async function main (): Promise<void> {
 
   await api.rpc.chain.subscribeNewHeads(onNewHead);
   await api.query.balances.totalIssuance(onTotalInsurance);
-  await api.derive.staking.electedInfo(onElectedInfo);
+  await api.derive.staking.electedInfo(undefined, onElectedInfo);
 }
 
 process.on('unhandledRejection', (error): void => {

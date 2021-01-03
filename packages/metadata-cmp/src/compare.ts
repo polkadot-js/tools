@@ -1,4 +1,4 @@
-// Copyright 2018-2020 @polkadot/metadata-cmp authors & contributors
+// Copyright 2018-2021 @polkadot/metadata-cmp authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { RuntimeVersion } from '@polkadot/types/interfaces';
