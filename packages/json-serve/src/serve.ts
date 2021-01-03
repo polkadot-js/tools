@@ -109,7 +109,7 @@ async function main (): Promise<void> {
 
   await api.rpc.chain.subscribeNewHeads(onNewHead);
   await api.query.balances.totalIssuance(onTotalInsurance);
-  await api.derive.staking.electedInfo(onElectedInfo);
+  await api.derive.staking.electedInfo(undefined, onElectedInfo);
 }
 
 process.on('unhandledRejection', (error): void => {
