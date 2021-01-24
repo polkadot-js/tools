@@ -3,7 +3,6 @@
   "version": "0.25.2-2",
   "description": "A vanity generator",
   "main": "index.js",
-  "module": "index.mjs",
   "sideEffects": false,
   "bin": {
     "polkadot-js-vanitygen": "./index.js"
@@ -19,8 +18,8 @@
     "@babel/core": "^7.12.10",
     "@babel/register": "^7.12.10",
     "@babel/runtime": "^7.12.5",
-    "@polkadot/util": "^5.2.3",
-    "@polkadot/util-crypto": "^5.2.3",
+    "@polkadot/util": "^5.4.4",
+    "@polkadot/util-crypto": "^5.4.4",
     "chalk": "^4.1.0",
     "yargs": "^16.2.0"
   },

@@ -1,8 +1,20 @@
 # CHANGELOG
 
+## 0.26.1 Jan 24, 2021
+
+Upgrade priority: Medium. Contains all the types for the next Kusama & Polkadot updated.
+
+Changes:
+
+- Updated to `@polkadot/util` 5.4.4
+- Updated to `@polkadot/api` 3.6.3
+
+
 ## 0.25.1 Dec 14, 2020
 
 Upgrade priority: Low. Recommended for Substrate master users.
+
+Changes:
 
 - Build esm output alongside cjs
 - Updated to `@polkadot/util` 5.0.1
