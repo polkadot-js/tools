@@ -105,7 +105,7 @@ async function main (): Promise<void> {
   const api = await ApiPromise.create({ provider });
   const chainProperties = await api.rpc.system.properties();
 
-  tokenDecimals = chainProperties.tokenDecimals.unwrapOr(new BN(12)).toNumber();
+  tokenDecimals = chainProperties.tokenDecimals.unwrapOr([new BN(12)])[0].toNumber();
 
   await api.rpc.chain.subscribeNewHeads(onNewHead);
   await api.query.balances.totalIssuance(onTotalInsurance);
