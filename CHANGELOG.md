@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## 0.26.1 Jan 24, 2021
+## 0.26.1 Jan 25, 2021
 
-Upgrade priority: Medium. Contains all the types for the next Kusama & Polkadot updated.
+Upgrade priority: Medium. Contains all the types for the next Kusama & Polkadot updates.
 
 Changes:
 
