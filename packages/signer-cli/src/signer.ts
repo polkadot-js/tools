@@ -64,7 +64,8 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
     }
   })
   .parserConfiguration({
-    'parse-numbers': false
+    'parse-numbers': false,
+    'parse-positional-numbers': false
   })
   .argv;
 

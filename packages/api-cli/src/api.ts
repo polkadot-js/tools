@@ -78,8 +78,6 @@ const CRYPTO = ['ed25519', 'sr25519'];
 const argv = yargs
   .parserConfiguration({
     'parse-numbers': false,
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore This is not in the types yet, but needed now...
     'parse-positional-numbers': false
   })
   .command('$0', `Usage: [options] <endpoint> <...params>
