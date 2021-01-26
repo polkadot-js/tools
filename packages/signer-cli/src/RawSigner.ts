@@ -22,7 +22,7 @@ export default class RawSigner implements Signer {
         : data;
 
       rl.question(`Payload: ${hashed}\nSignature> `, (signature) => {
-        assert(isHex(signature), 'Supplies signature is not hex');
+        assert(isHex(signature), 'Supplied signature is not hex');
 
         resolve({ id: 1, signature: signature.trim() });
         rl.close();
