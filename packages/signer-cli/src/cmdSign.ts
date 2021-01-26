@@ -1,6 +1,10 @@
 // Copyright 2018-2021 @polkadot/signer-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import type { KeyringPair } from '@polkadot/keyring/types';
+
+import * as readline from 'readline';
+
 import { Keyring } from '@polkadot/keyring';
 import { assert, hexToU8a, isHex, u8aToHex } from '@polkadot/util';
 import { cryptoWaitReady, keyExtractSuri, mnemonicValidate } from '@polkadot/util-crypto';
@@ -26,21 +30,39 @@ function validateSeed (suri: string) {
   }
 }
 
-function validatePayload (payload: string) {
+function validatePayload (payload: string): void {
   assert(payload && payload.length > 0, 'Cannot sign empty payload. Please check your input and try again.');
   assert(isHex(payload), 'Payload must be supplied as a hex string. Please check your input and try again.');
 }
 
+function createSignature (pair: KeyringPair, payload: string): void {
+  validatePayload(payload);
+
+  const signature = pair.sign(hexToU8a(payload), { withType: true });
+
+  console.log(`Signature: ${u8aToHex(signature)}`);
+  process.exit(0);
+}
+
 export default async function cmdSign (_: string, suri: string, type: Curves, [payload]: string[]): Promise<void> {
   validateSeed(suri);
-  validatePayload(payload);
 
   await cryptoWaitReady();
 
   const keyring = new Keyring({ type });
   const pair = keyring.createFromUri(suri);
-  const signature = pair.sign(hexToU8a(payload), { withType: true });
 
-  console.log(`Signature: ${u8aToHex(signature)}`);
-  process.exit(0);
+  if (!payload) {
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+
+    rl.question('Payload> ', (payload) => {
+      createSignature(pair, payload.trim());
+      rl.close();
+    });
+  } else {
+    createSignature(pair, payload.trim());
+  }
 }
