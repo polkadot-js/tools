@@ -69,7 +69,7 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
   })
   .argv;
 
-const params = parseParams(paramsInline, paramsFile);
+const params = parseParams(paramsInline as string[], paramsFile);
 
 // our main entry point - from here we call out
 // eslint-disable-next-line @typescript-eslint/require-await

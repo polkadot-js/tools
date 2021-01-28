@@ -43,7 +43,7 @@ export function jsonMiddleware (argv: ArgV): ArgV {
   return argv;
 }
 
-export function parseParams (inline: (string | number)[], file?: string): (string | number)[] {
+export function parseParams (inline: string[], file?: string): string[] {
   if (file) {
     assert(fs.existsSync(file), 'Cannot find supplied transaction parameters file');
 
