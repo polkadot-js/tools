@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/vanitygen",
-  "version": "0.26.3-0",
+  "version": "0.26.3",
   "description": "A vanity generator",
   "main": "index.js",
   "sideEffects": false,
@@ -24,7 +24,7 @@
     "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.19",
+    "@types/node": "^14.14.22",
     "@types/yargs": "^15.0.12"
   }
 }

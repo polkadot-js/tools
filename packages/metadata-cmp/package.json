@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/metadata-cmp",
-  "version": "0.26.3-0",
+  "version": "0.26.3",
   "description": "Compares metadata from 2 sources",
   "main": "index.js",
   "sideEffects": false,
@@ -18,14 +18,14 @@
     "@babel/core": "^7.12.10",
     "@babel/register": "^7.12.10",
     "@babel/runtime": "^7.12.5",
-    "@polkadot/api": "^3.6.3",
+    "@polkadot/api": "^3.6.4",
     "@polkadot/keyring": "^5.4.4",
-    "@polkadot/types": "^3.6.3",
+    "@polkadot/types": "^3.6.4",
     "@polkadot/util": "^5.4.4",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.19",
+    "@types/node": "^14.14.22",
     "@types/yargs": "^15.0.12"
   }
 }
