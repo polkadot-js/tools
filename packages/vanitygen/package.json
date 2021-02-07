@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/vanitygen",
-  "version": "0.27.1",
+  "version": "0.28.0",
   "description": "A vanity generator",
   "main": "index.js",
   "sideEffects": false,
@@ -15,16 +15,16 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/vanitygen#readme",
   "dependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/register": "^7.12.10",
-    "@babel/runtime": "^7.12.5",
-    "@polkadot/util": "^5.5.1",
-    "@polkadot/util-crypto": "^5.5.1",
+    "@babel/core": "^7.12.13",
+    "@babel/register": "^7.12.13",
+    "@babel/runtime": "^7.12.13",
+    "@polkadot/util": "^5.6.1",
+    "@polkadot/util-crypto": "^5.6.1",
     "chalk": "^4.1.0",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.22",
-    "@types/yargs": "^15.0.13"
+    "@types/node": "^14.14.25",
+    "@types/yargs": "^16.0.0"
   }
 }
