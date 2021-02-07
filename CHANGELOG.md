@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.27.1 Feb 7, 2020
+## 0.28.1 Feb 7, 2020
 
 Upgrade priority: Low.
 
