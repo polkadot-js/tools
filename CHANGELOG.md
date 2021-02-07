@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.27.1 Feb 7, 2020
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/util` 5.6.1
+- Updated to `@polkadot/api` 3.8.1
+
+
 ## 0.27.1 Feb 1, 2020
 
 Upgrade priority: Medium contains types for future Kusama & Polkadot updates and fixes cli parsing.
@@ -8,7 +18,7 @@ Changes:
 
 - Add prompt for the signing payout if not specified
 - Fix JSON argument parsing on api-cli
-- don't parse hex into numbers in signer-cli
+- Don't parse hex into numbers in signer-cli
 - Updated to `@polkadot/util` 5.5.1
 - Updated to `@polkadot/api` 3.7.1
 
