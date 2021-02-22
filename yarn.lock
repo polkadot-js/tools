@@ -1747,7 +1747,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/api-cli@^0.29.0, @polkadot/api-cli@workspace:packages/api-cli":
+"@polkadot/api-cli@^0.29.1, @polkadot/api-cli@workspace:packages/api-cli":
   version: 0.0.0-use.local
   resolution: "@polkadot/api-cli@workspace:packages/api-cli"
   dependencies:
@@ -2033,7 +2033,7 @@ __metadata:
     "@babel/register": ^7.12.13
     "@babel/runtime": ^7.12.18
     "@polkadot/api": ^3.10.1
-    "@polkadot/api-cli": ^0.29.0
+    "@polkadot/api-cli": ^0.29.1
     "@polkadot/keyring": ^5.7.1
     "@polkadot/types": ^3.10.1
     "@polkadot/util": ^5.7.1
