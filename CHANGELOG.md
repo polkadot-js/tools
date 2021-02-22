@@ -1,6 +1,16 @@
 # CHANGELOG
 
-## 0.28.1 Feb 7, 2020
+## 0.29.1 Feb 22, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/util` 5.7.1
+- Updated to `@polkadot/api` 3.10.1
+
+
+## 0.28.1 Feb 7, 2021
 
 Upgrade priority: Low.
 
@@ -10,7 +20,7 @@ Changes:
 - Updated to `@polkadot/api` 3.8.1
 
 
-## 0.27.1 Feb 1, 2020
+## 0.27.1 Feb 1, 2021
 
 Upgrade priority: Medium contains types for future Kusama & Polkadot updates and fixes cli parsing.
 
