@@ -7,7 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const [compiled] = ['./serve.js']
+const [compiled] = ['./serve.cjs']
   .map((file) => path.join(__dirname, file))
   .filter((file) => fs.existsSync(file));
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "sideEffects": false,
   "bin": {
-    "polkadot-js-vanitygen": "./index.js"
+    "polkadot-js-vanitygen": "./index.cjs"
   },
   "author": "Jaco Greeff <jacogr@gmail.com>",
   "maintainers": [],
@@ -17,9 +17,9 @@
   "dependencies": {
     "@babel/core": "^7.13.8",
     "@babel/register": "^7.13.8",
-    "@babel/runtime": "^7.13.8",
-    "@polkadot/util": "^5.9.2",
-    "@polkadot/util-crypto": "^5.9.2",
+    "@babel/runtime": "^7.13.9",
+    "@polkadot/util": "^6.0.1-5",
+    "@polkadot/util-crypto": "^6.0.1-5",
     "chalk": "^4.1.0",
     "yargs": "^16.2.0"
   },
