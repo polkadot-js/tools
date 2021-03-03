@@ -7,7 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const [compiled] = ['./api.js']
+const [compiled] = ['./api.cjs']
   .map((file) => path.join(__dirname, file))
   .filter((file) => fs.existsSync(file));
 
