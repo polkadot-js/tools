@@ -15,17 +15,17 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/api-cli#readme",
   "dependencies": {
-    "@babel/core": "^7.13.8",
+    "@babel/core": "^7.13.10",
     "@babel/register": "^7.13.8",
-    "@babel/runtime": "^7.13.9",
-    "@polkadot/api": "^4.0.1-4",
-    "@polkadot/keyring": "^6.0.1-5",
-    "@polkadot/types": "^4.0.1-4",
-    "@polkadot/util": "^6.0.1-5",
+    "@babel/runtime": "^7.13.10",
+    "@polkadot/api": "^4.0.4-5",
+    "@polkadot/keyring": "^6.0.5",
+    "@polkadot/types": "^4.0.4-5",
+    "@polkadot/util": "^6.0.5",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.31",
+    "@types/node": "^14.14.33",
     "@types/yargs": "^16.0.0"
   }
 }
