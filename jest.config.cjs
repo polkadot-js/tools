@@ -3,9 +3,11 @@
 
 const config = require('@polkadot/dev/config/jest.cjs');
 
-module.exports = Object.assign({}, config, {
+module.exports = {
+  ...config,
   moduleNameMapper: {
     '@polkadot/api-cli(.*)$': '<rootDir>/packages/api-cli/src/$1',
     '@polkadot/monitor-rpc(.*)$': '<rootDir>/packages/monitor-rpc/src/$1'
-  }
-});
+  },
+  transformIgnorePatterns: ['/node_modules/(?!@polkadot|@babel/runtime/helpers/esm/)']
+};
