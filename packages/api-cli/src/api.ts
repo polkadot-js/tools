@@ -69,6 +69,7 @@ interface Params {
   sub: boolean;
   sudo: boolean;
   types: string;
+  waitForTxInclusion: boolean;
   ws: string;
 }
 
@@ -118,6 +119,11 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
       description: 'Add this .json file as types to the API constructor',
       type: 'string'
     },
+    waitForTxInclusion: {
+      default: true,
+      description: 'When sending a tx wait until it is included in a block',
+      type: 'boolean'
+    },
     ws: {
       default: 'ws://127.0.0.1:9944',
       description: 'The API endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io',
@@ -127,7 +133,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
   })
   .argv;
 
-const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, types, ws } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, types, waitForTxInclusion, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
 function readTypes (): Record<string, string> {
@@ -221,7 +227,7 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
   return signable.signAndSend(auth, (result: SubmittableResult): void => {
     log(result);
 
-    if (result.isInBlock || result.isFinalized) {
+    if (!waitForTxInclusion || result.isInBlock || result.isFinalized) {
       process.exit(0);
     }
   });
