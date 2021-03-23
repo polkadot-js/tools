@@ -132,7 +132,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
   })
   .argv;
 
-const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, types, noWait, ws } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, types, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
 function readTypes (): Record<string, string> {
