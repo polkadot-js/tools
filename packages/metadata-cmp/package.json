@@ -2,7 +2,7 @@
   "name": "@polkadot/metadata-cmp",
   "version": "0.30.2-3",
   "description": "Compares metadata from 2 sources",
-  "main": "index.js",
+  "main": "index.cjs",
   "sideEffects": false,
   "bin": {
     "polkadot-js-metadata-cmp": "./index.cjs"
@@ -18,9 +18,9 @@
     "@babel/core": "^7.13.14",
     "@babel/register": "^7.13.14",
     "@babel/runtime": "^7.13.10",
-    "@polkadot/api": "^4.4.2-1",
+    "@polkadot/api": "^4.4.2-6",
     "@polkadot/keyring": "^6.0.5",
-    "@polkadot/types": "^4.4.2-1",
+    "@polkadot/types": "^4.4.2-6",
     "@polkadot/util": "^6.0.5",
     "yargs": "^16.2.0"
   },

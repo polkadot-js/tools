@@ -2,7 +2,7 @@
   "name": "@polkadot/vanitygen",
   "version": "0.30.2-3",
   "description": "A vanity generator",
-  "main": "index.js",
+  "main": "index.cjs",
   "sideEffects": false,
   "bin": {
     "polkadot-js-vanitygen": "./index.cjs"

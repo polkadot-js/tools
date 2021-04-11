@@ -13,7 +13,7 @@ RUN apt-get update
 RUN apt-get install -y curl gcc g++ make python git
 
 # install node
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
 # env variable works around gyp install (secp256k1) with root permissions
