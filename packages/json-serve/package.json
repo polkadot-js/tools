@@ -2,7 +2,7 @@
   "name": "@polkadot/json-serve",
   "version": "0.30.2-3",
   "description": "A JSON API endpoint server",
-  "main": "index.js",
+  "main": "index.cjs",
   "sideEffects": false,
   "bin": {
     "polkadot-js-json-serve": "./index.cjs"
@@ -15,12 +15,12 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/json-serve#readme",
   "dependencies": {
-    "@babel/core": "^7.13.14",
+    "@babel/core": "^7.13.15",
     "@babel/register": "^7.13.14",
     "@babel/runtime": "^7.13.10",
-    "@polkadot/api": "^4.4.2-1",
-    "@polkadot/api-derive": "^4.4.2-1",
-    "@polkadot/types": "^4.4.2-1",
+    "@polkadot/api": "^4.4.2-6",
+    "@polkadot/api-derive": "^4.4.2-6",
+    "@polkadot/types": "^4.4.2-6",
     "koa": "^2.13.1",
     "koa-route": "^3.2.0",
     "yargs": "^16.2.0"
