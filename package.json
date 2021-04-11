@@ -30,7 +30,7 @@
     "test": "echo \"no tests\""
   },
   "devDependencies": {
-    "@babel/core": "^7.13.14",
+    "@babel/core": "^7.13.15",
     "@babel/register": "^7.13.14",
     "@babel/runtime": "^7.13.10",
     "@polkadot/dev": "^0.62.7",
