@@ -63,6 +63,7 @@ interface CallInfo {
 interface Params {
   _: string[];
   info: boolean;
+  noWait: boolean;
   params: string;
   seed: string;
   sign: string;
@@ -90,6 +91,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
   .options({
     info: {
       description: 'Shows the meta information for the call',
+      type: 'boolean'
+    },
+    noWait: {
+      description: 'After sending a tx return immediately and don\'t wait until it is included in a block',
       type: 'boolean'
     },
     params: {
@@ -127,7 +132,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
   })
   .argv;
 
-const { _: [endpoint, ...paramsInline], info, params: paramsFile, seed, sign, sub, sudo, types, ws } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, types, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
 function readTypes (): Record<string, string> {
@@ -221,7 +226,7 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
   return signable.signAndSend(auth, (result: SubmittableResult): void => {
     log(result);
 
-    if (result.isInBlock || result.isFinalized) {
+    if (noWait || result.isInBlock || result.isFinalized) {
       process.exit(0);
     }
   });
