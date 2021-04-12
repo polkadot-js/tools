@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 0.31.1 Apr 12, 2021
+
+Upgrade priority: Low.
+
+Contributed:
+
+- Added option to skip tx wait (Thanks to https://github.com/andresilva)
+
+Changes:
+
+- Convert to ESM library publish (tools execution stays cjs)
+- Updated to `@polkadot/util` 6.1.1
+- Updated to `@polkadot/api` 4.5.1
+
+
 ## 0.30.1 Feb 22, 2021
 
 Upgrade priority: Low.
