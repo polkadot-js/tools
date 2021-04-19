@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/api-cli",
-  "version": "0.31.1",
+  "version": "0.32.0",
   "description": "A commandline API interface for interacting with a chain",
   "main": "index.cjs",
   "sideEffects": false,
@@ -18,10 +18,10 @@
     "@babel/core": "^7.13.15",
     "@babel/register": "^7.13.14",
     "@babel/runtime": "^7.13.10",
-    "@polkadot/api": "^4.5.1",
-    "@polkadot/keyring": "^6.1.1",
-    "@polkadot/types": "^4.5.1",
-    "@polkadot/util": "^6.1.1",
+    "@polkadot/api": "^4.6.2",
+    "@polkadot/keyring": "^6.2.1",
+    "@polkadot/types": "^4.6.2",
+    "@polkadot/util": "^6.2.1",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
