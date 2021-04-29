@@ -8,8 +8,9 @@ import yargs from 'yargs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { expandMetadata, Metadata } from '@polkadot/metadata';
 import { assert, stringCamelCase } from '@polkadot/util';
+import { readFile } from 'fs/promises';
 
-const [ws1, ws2] = yargs.demandCommand(2).argv._ as [string, string];
+const [src1, src2] = yargs.demandCommand(2).argv._ as [string, string];
 
 function chunk (array: string[], size: number): string[][] {
   const chunked = [];
@@ -48,7 +49,7 @@ function logArray (pad: number, title: string, pre: string, arr: string[], chunk
   }
 }
 
-async function getMetadata (url: string): Promise<[Metadata, RuntimeVersion]> {
+async function getMetadataFromNode (url: string): Promise<[Metadata, RuntimeVersion]> {
   assert(url.startsWith('ws://') || url.startsWith('wss://'), `Invalid WebSocket endpoint ${url}, expected ws:// or wss://`);
 
   const provider = new WsProvider(url);
@@ -59,10 +60,31 @@ async function getMetadata (url: string): Promise<[Metadata, RuntimeVersion]> {
   return Promise.all([api.rpc.state.getMetadata(), api.rpc.state.getRuntimeVersion()]);
 }
 
+type JsonInputFile = {
+  metadata: Metadata,
+  runtimeVersion: RuntimeVersion,
+}
+
+async function getMetadataFromDisk (filename: string): Promise<[Metadata, RuntimeVersion]> {
+  console.log("getting data from disk");
+  const buffer = (await readFile(filename)).toString();
+  const json = JSON.parse(buffer) as unknown as JsonInputFile;
+  const { metadata, runtimeVersion } = json;
+  return [metadata as Metadata, runtimeVersion as RuntimeVersion];
+}
+
+async function getMetadata (src: string): Promise<[Metadata, RuntimeVersion]> {
+  if (src.startsWith('ws://') || src.startsWith('wss://')) return getMetadataFromNode(src);
+  if (src.endsWith('.json')) return getMetadataFromDisk(src);
+
+  throw new Error("Unknown source, please use node url or a local file with the .json extension");
+}
+
 // our main entry point - from here we call out
 async function main (): Promise<number> {
-  const [metaA, verA] = await getMetadata(ws1);
-  const [metaB, verB] = await getMetadata(ws2);
+  const [metaA, verA] = await getMetadata(src1);
+  const [metaB, verB] = await getMetadata(src2);
+
   const a = metaA.asLatest;
   const b = metaB.asLatest;
   // configure padding
