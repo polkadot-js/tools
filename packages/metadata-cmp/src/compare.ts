@@ -6,9 +6,11 @@ import type { RuntimeVersion } from '@polkadot/types/interfaces';
 import yargs from 'yargs';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { expandMetadata, Metadata } from '@polkadot/metadata';
+import { expandMetadata } from '@polkadot/metadata';
 import { assert, stringCamelCase } from '@polkadot/util';
 import { readFile } from 'fs/promises';
+import { TypeRegistry } from '@polkadot/types';
+import { Metadata } from '@polkadot/metadata';
 
 const [src1, src2] = yargs.demandCommand(2).argv._ as [string, string];
 
@@ -66,10 +68,13 @@ type JsonInputFile = {
 }
 
 async function getMetadataFromDisk (filename: string): Promise<[Metadata, RuntimeVersion]> {
-  console.log("getting data from disk");
   const buffer = (await readFile(filename)).toString();
   const json = JSON.parse(buffer) as unknown as JsonInputFile;
-  const { metadata, runtimeVersion } = json;
+  const { metadata: m, runtimeVersion: r } = json;
+  const registry = new TypeRegistry();
+  const metadata = new Metadata(registry, m.toHex());
+  let runtimeVersion = registry.createType('RuntimeVersion', r);
+
   return [metadata as Metadata, runtimeVersion as RuntimeVersion];
 }
 
