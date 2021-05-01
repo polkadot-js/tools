@@ -15,16 +15,16 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/vanitygen#readme",
   "dependencies": {
-    "@babel/core": "^7.13.16",
+    "@babel/core": "^7.14.0",
     "@babel/register": "^7.13.16",
-    "@babel/runtime": "^7.13.17",
+    "@babel/runtime": "^7.14.0",
     "@polkadot/util": "^6.3.1",
     "@polkadot/util-crypto": "^6.3.1",
     "chalk": "^4.1.1",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.41",
+    "@types/node": "^15.0.1",
     "@types/yargs": "^16.0.1"
   }
 }
