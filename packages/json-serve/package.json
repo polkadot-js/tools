@@ -18,18 +18,18 @@
     "@babel/core": "^7.14.0",
     "@babel/register": "^7.13.16",
     "@babel/runtime": "^7.14.0",
-    "@polkadot/api": "^4.7.2",
-    "@polkadot/api-derive": "^4.7.2",
-    "@polkadot/types": "^4.7.2",
+    "@polkadot/api": "^4.9.3-14",
+    "@polkadot/api-derive": "^4.9.3-14",
+    "@polkadot/types": "^4.9.3-14",
     "koa": "^2.13.1",
     "koa-route": "^3.2.0",
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.1"
   },
   "devDependencies": {
     "@types/bn.js": "^4.11.6",
     "@types/koa": "^2.13.1",
     "@types/koa-route": "^3.2.4",
-    "@types/node": "^15.0.1",
+    "@types/node": "^15.0.2",
     "@types/yargs": "^16.0.1"
   }
 }
