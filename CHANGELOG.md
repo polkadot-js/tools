@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## master
+
+Changes:
+
+- The vanity generator now expects an `ss58Format` as part of the options
+
+
 ## 0.33.1 Apr 25, 2021
 
 Upgrade priority: Low.
