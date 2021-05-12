@@ -9,7 +9,7 @@ import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { u8aToHex } from '@polkadot/util';
-import { cryptoWaitReady, setSS58Format } from '@polkadot/util-crypto';
+import { cryptoWaitReady } from '@polkadot/util-crypto';
 
 import generator from './generator';
 import matchRegex from './regex';
@@ -55,6 +55,7 @@ const options: GeneratorOptions = {
   match,
   network,
   runs: 50,
+  ss58Format: 42,
   type: type as KeypairType,
   withCase,
   withHex: !mnemonic
@@ -78,15 +79,14 @@ tests.forEach((test): void => {
 
 switch (network) {
   case 'kusama':
-    setSS58Format(2);
+    options.ss58Format = 2;
     break;
 
   case 'polkadot':
-    setSS58Format(0);
+    options.ss58Format = 0;
     break;
 
   default:
-    setSS58Format(42);
     break;
 }
 
