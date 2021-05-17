@@ -1,10 +1,14 @@
 # CHANGELOG
 
-## master
+## 0.34.1 May 17, 2021
+
+Upgrade priority: Low.
 
 Changes:
 
 - The vanity generator now expects an `ss58Format` as part of the options
+- Updated to `@polkadot/util` 6.4.1
+- Updated to `@polkadot/api` 4.10.1
 
 
 ## 0.33.1 Apr 25, 2021
