@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/metadata-cmp",
-  "version": "0.33.2-2",
+  "version": "0.34.0",
   "description": "Compares metadata from 2 sources",
   "main": "index.cjs",
   "sideEffects": false,
@@ -15,17 +15,17 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/metadata-cmp#readme",
   "dependencies": {
-    "@babel/core": "^7.14.0",
+    "@babel/core": "^7.14.2",
     "@babel/register": "^7.13.16",
     "@babel/runtime": "^7.14.0",
-    "@polkadot/api": "^4.9.3-14",
-    "@polkadot/keyring": "^6.3.2-12",
-    "@polkadot/types": "^4.9.3-14",
-    "@polkadot/util": "^6.3.2-12",
+    "@polkadot/api": "^4.10.1",
+    "@polkadot/keyring": "^6.4.1",
+    "@polkadot/types": "^4.10.1",
+    "@polkadot/util": "^6.4.1",
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "@types/node": "^15.0.2",
+    "@types/node": "^15.3.0",
     "@types/yargs": "^16.0.1"
   }
 }
