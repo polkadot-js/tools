@@ -21,6 +21,7 @@ export interface GeneratorOptions {
   match: string;
   network?: string;
   runs: number;
+  ss58Format: number;
   type: KeypairType;
   withCase?: boolean;
   withHex?: boolean;

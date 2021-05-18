@@ -7,13 +7,13 @@
     "packages/*"
   ],
   "resolutions": {
-    "@polkadot/api": "^4.0.1-4",
-    "@polkadot/api-derive": "^4.0.1-4",
-    "@polkadot/keyring": "^6.0.1-5",
-    "@polkadot/types": "^4.0.1-4",
-    "@polkadot/util": "^6.0.1-5",
-    "@polkadot/util-crypto": "^6.0.1-5",
-    "typescript": "^4.2.2"
+    "@polkadot/api": "^4.10.1",
+    "@polkadot/api-derive": "^4.10.1",
+    "@polkadot/keyring": "^6.4.1",
+    "@polkadot/types": "^4.10.1",
+    "@polkadot/util": "^6.4.1",
+    "@polkadot/util-crypto": "^6.4.1",
+    "typescript": "^4.2.4"
   },
   "scripts": {
     "build": "polkadot-dev-build-ts",
@@ -21,22 +21,22 @@
     "lint": "polkadot-dev-run-lint",
     "clean": "polkadot-dev-clean-build",
     "postinstall": "polkadot-dev-yarn-only",
-    "run:api": "./packages/api-cli/src/index.js",
-    "run:json": "./packages/json-serve/src/index.js",
-    "run:metadata": "./packages/metadata-cmp/src/index.js",
-    "run:monitor": "./packages/monitor-rpc/src/index.js",
-    "run:signer": "./packages/signer-cli/src/index.js",
-    "run:vanity": "./packages/vanitygen/src/index.js",
+    "run:api": "./packages/api-cli/src/index.cjs",
+    "run:json": "./packages/json-serve/src/index.cjs",
+    "run:metadata": "./packages/metadata-cmp/src/index.cjs",
+    "run:monitor": "./packages/monitor-rpc/src/index.cjs",
+    "run:signer": "./packages/signer-cli/src/index.cjs",
+    "run:vanity": "./packages/vanitygen/src/index.cjs",
     "test": "echo \"no tests\""
   },
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/register": "^7.13.8",
-    "@babel/runtime": "^7.13.9",
-    "@polkadot/dev": "^0.62.5",
-    "@polkadot/ts": "^0.3.61",
-    "@types/node": "^14.14.31",
-    "@types/yargs": "^16.0.0"
+    "@babel/core": "^7.14.2",
+    "@babel/register": "^7.13.16",
+    "@babel/runtime": "^7.14.0",
+    "@polkadot/dev": "^0.62.14",
+    "@polkadot/ts": "^0.3.66",
+    "@types/node": "^15.3.0",
+    "@types/yargs": "^16.0.1"
   },
-  "version": "0.30.2-1"
+  "version": "0.34.1"
 }

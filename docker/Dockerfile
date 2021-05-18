@@ -13,11 +13,11 @@ RUN apt-get update
 RUN apt-get install -y curl gcc g++ make python git
 
 # install node
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
 # env variable works around gyp install (secp256k1) with root permissions
-RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@0.22.2-2 @polkadot/json-serve@0.22.2-2 @polkadot/metadata-cmp@0.22.2-2 @polkadot/monitor-rpc@0.22.2-2 @polkadot/signer-cli@0.22.2-2 @polkadot/vanitygen@0.22.2-2
+RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@0.30.2-3 @polkadot/json-serve@0.30.2-3 @polkadot/metadata-cmp@0.30.2-3 @polkadot/monitor-rpc@0.30.2-3 @polkadot/signer-cli@0.30.2-3 @polkadot/vanitygen@0.30.2-3
 
 # copy the cli wrapper to this container
 COPY cli.sh .

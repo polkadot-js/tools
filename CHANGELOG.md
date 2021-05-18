@@ -1,5 +1,51 @@
 # CHANGELOG
 
+## 0.34.1 May 17, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- The vanity generator now expects an `ss58Format` as part of the options
+- Updated to `@polkadot/util` 6.4.1
+- Updated to `@polkadot/api` 4.10.1
+
+
+## 0.33.1 Apr 25, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/util` 6.3.1
+- Updated to `@polkadot/api` 4.7.1
+
+
+## 0.32.1 Apr 19, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/util` 6.2.1
+- Updated to `@polkadot/api` 4.6.2
+
+
+## 0.31.1 Apr 12, 2021
+
+Upgrade priority: Low.
+
+Contributed:
+
+- Added option to skip tx wait (Thanks to https://github.com/andresilva)
+
+Changes:
+
+- Convert to ESM library publish (tools execution stays cjs)
+- Updated to `@polkadot/util` 6.1.1
+- Updated to `@polkadot/api` 4.5.1
+
+
 ## 0.30.1 Feb 22, 2021
 
 Upgrade priority: Low.
