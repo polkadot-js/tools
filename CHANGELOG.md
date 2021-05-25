@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.35.1 May 25, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/util` 6.5.1
+- Updated to `@polkadot/api` 4.11.2
+
+
 ## 0.34.1 May 17, 2021
 
 Upgrade priority: Low.

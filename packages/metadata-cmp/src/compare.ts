@@ -9,7 +9,9 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 import { expandMetadata, Metadata } from '@polkadot/metadata';
 import { assert, stringCamelCase } from '@polkadot/util';
 
-const [ws1, ws2] = yargs.demandCommand(2).argv._ as [string, string];
+type ArgV = { _: [string, string] };
+
+const [ws1, ws2] = (yargs.demandCommand(2).argv as unknown as ArgV)._;
 
 function chunk (array: string[], size: number): string[][] {
   const chunked = [];
