@@ -12,6 +12,8 @@ import cmdSubmit from './cmdSubmit';
 const BLOCKTIME = 6;
 const ONE_MINUTE = 60 / BLOCKTIME;
 
+type ArgV = { _: string[]; account?: string; blocks?: number; minutes?: number; nonce?: number; params?: string; seed?: string; type?: string; ws?: string; tx?: string; };
+
 const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: paramsFile, seed, type, ws, tx } = yargs
   .usage('Usage: [options] <endpoint> <...params>')
   .usage('Example: submit --account D3AhD...wrx --ws wss://... balances.transfer F7Gh 10000 ')
@@ -67,9 +69,9 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
     'parse-numbers': false,
     'parse-positional-numbers': false
   })
-  .argv;
+  .argv as ArgV;
 
-const params = parseParams(paramsInline as string[], paramsFile);
+const params = parseParams(paramsInline, paramsFile);
 
 // our main entry point - from here we call out
 // eslint-disable-next-line @typescript-eslint/require-await
