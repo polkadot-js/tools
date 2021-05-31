@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/metadata-cmp",
-  "version": "0.36.2-1",
+  "version": "0.36.2-2",
   "description": "Compares metadata from 2 sources",
   "main": "index.cjs",
   "sideEffects": false,
