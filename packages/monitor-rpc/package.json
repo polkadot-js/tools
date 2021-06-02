@@ -18,8 +18,8 @@
     "@babel/core": "^7.14.3",
     "@babel/register": "^7.13.16",
     "@babel/runtime": "^7.14.0",
-    "@polkadot/api": "^4.12.1",
-    "@polkadot/types": "^4.12.1",
+    "@polkadot/api": "^4.12.2-6",
+    "@polkadot/types": "^4.12.2-6",
     "koa": "^2.13.1",
     "koa-route": "^3.2.0",
     "yargs": "^17.0.1"
