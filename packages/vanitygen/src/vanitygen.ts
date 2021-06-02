@@ -23,6 +23,8 @@ interface Best {
   withCase?: boolean;
 }
 
+type ArgV = { match: string; mnemonic: boolean; network: string; type: string; withCase: boolean };
+
 const { match, mnemonic, network, type, withCase } = yargs
   .wrap(120)
   .option('match', {
@@ -45,7 +47,7 @@ const { match, mnemonic, network, type, withCase } = yargs
     default: false,
     type: 'boolean'
   })
-  .argv;
+  .argv as ArgV;
 
 // eslint-disable-next-line prefer-regex-literals
 const NUMBER_REGEX = new RegExp('(\\d+?)(?=(\\d{3})+(?!\\d)|$)', 'g');

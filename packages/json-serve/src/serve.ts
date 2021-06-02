@@ -11,6 +11,8 @@ import yargs from 'yargs';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
+type ArgV = { port: number; ws: string };
+
 const { port, ws } = yargs
   .options({
     port: {
@@ -25,7 +27,7 @@ const { port, ws } = yargs
       type: 'string'
     }
   })
-  .argv;
+  .argv as ArgV;
 
 let currentBlockNumber: BlockNumber | undefined;
 let currentTimestamp: Date = new Date();
