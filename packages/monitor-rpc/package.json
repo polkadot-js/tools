@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/monitor-rpc",
-  "version": "0.36.2-5",
+  "version": "0.36.2-6",
   "description": "A simple monitor via RPC",
   "main": "index.cjs",
   "sideEffects": false,
