@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/json-serve",
-  "version": "0.37.2-1",
+  "version": "0.37.2",
   "description": "A JSON API endpoint server",
   "main": "index.cjs",
   "sideEffects": false,
@@ -18,9 +18,9 @@
     "@babel/core": "^7.14.3",
     "@babel/register": "^7.13.16",
     "@babel/runtime": "^7.14.0",
-    "@polkadot/api": "^4.13.1",
-    "@polkadot/api-derive": "^4.13.1",
-    "@polkadot/types": "^4.13.1",
+    "@polkadot/api": "^4.13.2-9",
+    "@polkadot/api-derive": "^4.13.2-9",
+    "@polkadot/types": "^4.13.2-9",
     "koa": "^2.13.1",
     "koa-route": "^3.2.0",
     "yargs": "^17.0.1"
