@@ -19,7 +19,7 @@ RUN apt-get install --no-install-recommends -y nodejs npm && \
   rm -rf /var/lib/apt/lists/*
 
 # env variable works around gyp install (secp256k1) with root permissions
-RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@0.37.2-1 @polkadot/json-serve@0.37.2-1 @polkadot/metadata-cmp@0.37.2-1 @polkadot/monitor-rpc@0.37.2-1 @polkadot/signer-cli@0.37.2-1 @polkadot/vanitygen@0.37.2-1
+RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@0.37.2 @polkadot/json-serve@0.37.2 @polkadot/metadata-cmp@0.37.2 @polkadot/monitor-rpc@0.37.2 @polkadot/signer-cli@0.37.2 @polkadot/vanitygen@0.37.2
 
 # copy the cli wrapper to this container
 COPY cli.sh .
