@@ -173,7 +173,9 @@ async function getCallInfo (): Promise<CallInfo> {
         JSON.stringify(
           {
             // eslint-disable-next-line @typescript-eslint/unbound-method
-            [method]: isFunction((result as Codec).toHuman) ? (result as Codec).toHuman() : result
+            [method]: isFunction((result as Codec).toHuman)
+              ? (result as Codec).toHuman()
+              : result
           },
           null,
           2
