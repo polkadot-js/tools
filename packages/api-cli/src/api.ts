@@ -22,7 +22,7 @@ type LogFn = (result: SubmittableResult | Codec | ApiCallFn) => void;
 // Assume that we know what we are doing where we use this - create a signature
 // that combines the Extrinsic and normal calls into one as a result
 interface ApiCallResult extends Promise<Codec> {
-  signAndSend(addr: KeyringPair, cb: (result: SubmittableResult) => void): Promise<() => void>;
+  signAndSend (addr: KeyringPair, cb: (result: SubmittableResult) => void): Promise<() => void>;
 }
 
 // As above, combine the normal calls (meta) with stuff exposed on extrinsics (description)
