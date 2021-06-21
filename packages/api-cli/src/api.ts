@@ -82,9 +82,7 @@ const argv = yargs
     'parse-numbers': false,
     'parse-positional-numbers': false
   })
-  .command(
-    '$0',
-    `Usage: [options] <endpoint> <...params>
+  .command('$0', `Usage: [options] <endpoint> <...params>
 Example: query.system.account 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB
 Example: query.substrate.code --info
 Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
