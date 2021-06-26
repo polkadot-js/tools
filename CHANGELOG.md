@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.40.1 Jun 26, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Fix running of tools directly from repo
+- Updated to `@polkadot/util` 6.10.1
+- Updated to `@polkadot/api` 4.16.1
+
+
 ## 0.39.1 Jun 22, 2021
 
 Upgrade priority: Low.
