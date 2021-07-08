@@ -71,6 +71,7 @@ interface Params {
   sudo: boolean;
   types: string;
   ws: string;
+  assetId: number;
 }
 
 const CRYPTO = ['ed25519', 'sr25519'];
@@ -128,11 +129,16 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
       description: 'The API endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io',
       required: true,
       type: 'string'
+    },
+    assetId: {
+      default: 0,
+      description: 'The asset id to add to the transaction for payment',
+      type: 'number'
     }
   })
   .argv;
 
-const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, types, ws } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, types, ws, assetId } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
 function readTypes (): Record<string, string> {
@@ -223,7 +229,9 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
     signable = fn(...params);
   }
 
-  return signable.signAndSend(auth, (result: SubmittableResult): void => {
+  const extra = assetId > 0 ? { assetId } : {};
+
+  return signable.signAndSend(auth, extra, (result: SubmittableResult): void => {
     log(result);
 
     if (noWait || result.isInBlock || result.isFinalized) {
