@@ -6,7 +6,7 @@ import type { RuntimeVersion } from '@polkadot/types/interfaces';
 import yargs from 'yargs';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { expandMetadata, Metadata } from '@polkadot/metadata';
+import { expandMetadata, Metadata } from '@polkadot/types';
 import { assert, stringCamelCase } from '@polkadot/util';
 
 type ArgV = { _: [string, string] };
