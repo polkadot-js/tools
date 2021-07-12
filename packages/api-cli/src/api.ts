@@ -131,7 +131,6 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
       type: 'string'
     },
     assetId: {
-      default: 0,
       description: 'The asset id to add to the transaction for payment',
       type: 'number'
     }
@@ -229,7 +228,8 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
     signable = fn(...params);
   }
 
-  const extra = assetId > 0 ? { assetId } : {};
+  console.log(assetId);
+  const extra = assetId ? { assetId } : {};
 
   return signable.signAndSend(auth, extra, (result: SubmittableResult): void => {
     log(result);
