@@ -4,6 +4,7 @@
 import type { KeyringPair } from '@polkadot/keyring/types';
 import type { Hash } from '@polkadot/types/interfaces';
 import type { CallFunction, Codec } from '@polkadot/types/types';
+import type { KeypairType } from '@polkadot/util-crypto/types';
 
 import fs from 'fs';
 import yargs from 'yargs';
@@ -73,7 +74,7 @@ interface Params {
   ws: string;
 }
 
-const CRYPTO = ['ed25519', 'sr25519'];
+const CRYPTO = ['ed25519', 'sr25519', 'ethereum'];
 
 // retrieve and parse arguments - we do this globally, since this is a single command
 const argv = yargs
@@ -84,7 +85,8 @@ const argv = yargs
   .command('$0', `Usage: [options] <endpoint> <...params>
 Example: query.system.account 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB
 Example: query.substrate.code --info
-Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
+Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
+  )
   .middleware(hexMiddleware)
   .middleware(jsonMiddleware)
   .wrap(120)
@@ -151,10 +153,13 @@ async function getCallInfo (): Promise<CallInfo> {
 
   const provider = new WsProvider(ws);
   const api = await ApiPromise.create({ provider, types: readTypes() });
-  const apiExt = api as unknown as ApiExt;
+  const apiExt = (api as unknown) as ApiExt;
   const [type, section, method] = endpoint.split('.') as [keyof ApiExt, string, string];
 
-  assert(['consts', 'derive', 'query', 'rpc', 'tx'].includes(type), `Expected one of consts, derive, query, rpc, tx, found ${type}`);
+  assert(
+    ['consts', 'derive', 'query', 'rpc', 'tx'].includes(type),
+    `Expected one of consts, derive, query, rpc, tx, found ${type}`
+  );
   assert(apiExt[type][section], `Cannot find ${type}.${section}`);
   assert(apiExt[type][section][method], `Cannot find ${type}.${section}.${method}`);
 
@@ -163,14 +168,19 @@ async function getCallInfo (): Promise<CallInfo> {
   return {
     api,
     fn,
-    log: (result: SubmittableResult | Codec | ApiCallFn): void => console.log(
-      JSON.stringify({
-        // eslint-disable-next-line @typescript-eslint/unbound-method
-        [method]: isFunction((result as Codec).toHuman)
-          ? (result as Codec).toHuman()
-          : result
-      }, null, 2)
-    ),
+    log: (result: SubmittableResult | Codec | ApiCallFn): void =>
+      console.log(
+        JSON.stringify(
+          {
+            // eslint-disable-next-line @typescript-eslint/unbound-method
+            [method]: isFunction((result as Codec).toHuman)
+              ? (result as Codec).toHuman()
+              : result
+          },
+          null,
+          2
+        )
+      ),
     method,
     section,
     type
@@ -191,9 +201,7 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
   if (description) {
     console.log(description);
   } else if (meta) {
-    meta.documentation.forEach((doc: Text): void =>
-      console.log(doc.toString())
-    );
+    meta.documentation.forEach((doc: Text): void => console.log(doc.toString()));
   } else {
     console.log('No documentation available');
   }
@@ -204,13 +212,21 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
   process.exit(0);
 }
 
+function isCrypto (type: string): type is KeypairType {
+  if (CRYPTO.includes(type)) {
+    return true;
+  }
+
+  return false;
+}
+
 // send a transaction
 async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash> {
   assert(seed, 'You need to specify an account seed with tx.*');
   assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
   const keyring = new Keyring();
-  const auth = keyring.createFromUri(seed, {}, sign as 'ed25519');
+  const auth = keyring.createFromUri(seed, {}, isCrypto(sign) ? sign : undefined);
   let signable;
 
   if (sudo) {
@@ -235,15 +251,17 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
 // make a derive, query or rpc call
 // eslint-disable-next-line @typescript-eslint/require-await
 async function makeCall ({ fn, log, method, type }: CallInfo): Promise<void> {
-  const isRpcSub = (type === 'rpc') && method.startsWith('subscribe');
+  const isRpcSub = type === 'rpc' && method.startsWith('subscribe');
 
   return sub || isRpcSub
     ? fn(...params, log).then((): void => {
       // ignore, we keep trucking on
     })
-    : fn(...params).then(log).then((): void => {
-      process.exit(0);
-    });
+    : fn(...params)
+      .then(log)
+      .then((): void => {
+        process.exit(0);
+      });
 }
 
 // our main entry point - from here we call out
