@@ -11,7 +11,7 @@ import yargs from 'yargs';
 
 import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
-import { assert, isFunction } from '@polkadot/util';
+import { assert, isFunction, stringify } from '@polkadot/util';
 
 import { hexMiddleware, jsonMiddleware, parseParams } from './cli';
 
@@ -30,7 +30,7 @@ interface ApiCallFn {
   (...args: (string | LogFn)[]): CallFunction & ApiCallResult;
   description?: string;
   meta?: {
-    documentation: Text[];
+    docs: Text[];
   };
 }
 
@@ -170,16 +170,12 @@ async function getCallInfo (): Promise<CallInfo> {
     fn,
     log: (result: SubmittableResult | Codec | ApiCallFn): void =>
       console.log(
-        JSON.stringify(
-          {
-            // eslint-disable-next-line @typescript-eslint/unbound-method
-            [method]: isFunction((result as Codec).toHuman)
-              ? (result as Codec).toHuman()
-              : result
-          },
-          null,
-          2
-        )
+        stringify({
+          // eslint-disable-next-line @typescript-eslint/unbound-method
+          [method]: isFunction((result as Codec).toHuman)
+            ? (result as Codec).toHuman()
+            : result
+        }, 2)
       ),
     method,
     section,
@@ -201,7 +197,7 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
   if (description) {
     console.log(description);
   } else if (meta) {
-    meta.documentation.forEach((doc: Text): void => console.log(doc.toString()));
+    meta.docs.forEach((d) => console.log(d.toString()));
   } else {
     console.log('No documentation available');
   }
