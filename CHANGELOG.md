@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 0.44.1 Aug 2, 2021
+
+Upgrade priority: Low.
+
+Contributed:
+
+- Add Ethereum-compatible keypair support (Thanks to https://github.com/joelamouche)
+
+Changes:
+
+- Adjust documentation display to cater for current API series
+- Updated to `@polkadot/util` 7.1.1
+- Updated to `@polkadot/api` 5.3.1
+
+
 ## 0.43.1 Jul 26, 2021
 
 Upgrade priority: Low.
