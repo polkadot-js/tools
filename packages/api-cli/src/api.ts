@@ -70,6 +70,7 @@ interface Params {
   sign: string;
   sub: boolean;
   sudo: boolean;
+  sudoUncheckedWeight: string,
   types: string;
   ws: string;
 }
@@ -121,6 +122,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
       description: 'Run this tx as a wrapped sudo.sudo call',
       type: 'boolean'
     },
+    sudoUncheckedWeight: {
+      description: 'Run this tx as a wrapped sudo.sudoUncheckedWeight call with weight',
+      type: 'string'
+    },
     types: {
       description: 'Add this .json file as types to the API constructor',
       type: 'string'
@@ -134,7 +139,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
   })
   .argv;
 
-const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, types, ws } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, sudoUncheckedWeight, types, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
 function readTypes (): Record<string, string> {
@@ -225,12 +230,16 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
   const auth = keyring.createFromUri(seed, {}, isCrypto(sign) ? sign : undefined);
   let signable;
 
-  if (sudo) {
+  if (sudo || sudoUncheckedWeight) {
     const adminId = await api.query.sudo.key();
 
     assert(adminId.eq(auth.address), 'Supplied seed does not match on-chain sudo key');
 
-    signable = api.tx.sudo.sudo(fn(...params));
+    if (sudoUncheckedWeight) {
+      signable = api.tx.sudo.sudoUncheckedWeight(fn(...params), sudoUncheckedWeight);
+    } else {
+      signable = api.tx.sudo.sudo(fn(...params));
+    }
   } else {
     signable = fn(...params);
   }
