@@ -6,7 +6,8 @@ Upgrade priority: Low.
 
 Changes:
 
-- Updated to `@polkadot/api` 5.7.1
+- Updated to `@polkadot/util` 7.3.1
+- Updated to `@polkadot/api` 5.5.1
 
 
 ## 0.45.2 Aug 23, 2021
