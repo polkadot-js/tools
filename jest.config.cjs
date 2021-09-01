@@ -8,6 +8,5 @@ module.exports = {
   moduleNameMapper: {
     '@polkadot/api-cli(.*)$': '<rootDir>/packages/api-cli/src/$1',
     '@polkadot/monitor-rpc(.*)$': '<rootDir>/packages/monitor-rpc/src/$1'
-  },
-  transformIgnorePatterns: ['/node_modules/(?!@polkadot|@babel/runtime/helpers/esm/)']
+  }
 };
