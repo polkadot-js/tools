@@ -7,10 +7,10 @@
     "packages/*"
   ],
   "resolutions": {
-    "@polkadot/api": "^5.8.2",
-    "@polkadot/api-derive": "^5.8.2",
+    "@polkadot/api": "^5.9.1",
+    "@polkadot/api-derive": "^5.9.1",
     "@polkadot/keyring": "^7.3.1",
-    "@polkadot/types": "^5.8.2",
+    "@polkadot/types": "^5.9.1",
     "@polkadot/util": "^7.3.1",
     "@polkadot/util-crypto": "^7.3.1",
     "typescript": "^4.4.2"
@@ -38,6 +38,6 @@
     "@types/node": "^16.7.6",
     "@types/yargs": "^17.0.2"
   },
-  "version": "0.45.4",
+  "version": "0.45.5",
   "packageManager": "yarn@3.0.1"
 }
