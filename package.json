@@ -30,14 +30,14 @@
     "test": "echo \"no tests\""
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
+    "@babel/core": "^7.15.5",
     "@babel/register": "^7.15.3",
-    "@babel/runtime": "^7.15.3",
-    "@polkadot/dev": "^0.62.66",
-    "@polkadot/ts": "^0.4.7",
-    "@types/node": "^16.7.6",
+    "@babel/runtime": "^7.15.4",
+    "@polkadot/dev": "^0.62.67",
+    "@polkadot/ts": "^0.4.8",
+    "@types/node": "^16.9.2",
     "@types/yargs": "^17.0.2"
   },
-  "version": "0.45.4",
+  "version": "0.45.5-0",
   "packageManager": "yarn@3.0.1"
 }
