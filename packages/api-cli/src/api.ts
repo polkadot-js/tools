@@ -10,10 +10,14 @@ import fs from 'fs';
 import yargs from 'yargs';
 
 import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
+import { ApiOptions } from '@polkadot/api/types';
 import { Keyring } from '@polkadot/keyring';
 import { assert, isFunction, stringify } from '@polkadot/util';
 
 import { hexMiddleware, jsonMiddleware, parseParams } from './cli';
+
+type ApiOptionsTypes = ApiOptions['types'];
+type ApiOptionsRpc = ApiOptions['rpc'];
 
 // the function signature for our catch-any result logger
 // eslint-disable-next-line no-use-before-define
@@ -72,6 +76,7 @@ interface Params {
   sudo: boolean;
   sudoUncheckedWeight: string,
   types: string;
+  rpc: string;
   ws: string;
 }
 
@@ -102,6 +107,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
     },
     params: {
       description: 'Location of file containing space-separated transaction parameters (optional)',
+      type: 'string'
+    },
+    rpc: {
+      description: 'Add this .json file as rpc to the API constructor',
       type: 'string'
     },
     seed: {
@@ -139,25 +148,38 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
   })
   .argv;
 
-const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, sudoUncheckedWeight, types, ws } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, sudoUncheckedWeight, types, rpc, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
-function readTypes (): Record<string, string> {
+function readTypes (): ApiOptionsTypes {
   if (!types) {
     return {};
   }
 
   assert(fs.existsSync(types), `Unable to read .json file at ${types}`);
 
-  return JSON.parse(fs.readFileSync(types, 'utf8')) as Record<string, string>;
+  return JSON.parse(fs.readFileSync(types, 'utf8')) as ApiOptionsTypes;
+}
+
+function readRpc (): ApiOptionsRpc {
+  if (!rpc) {
+    return {};
+  }
+
+  assert(fs.existsSync(rpc), `Unable to read .json file at ${rpc}`);
+
+  return JSON.parse(fs.readFileSync(rpc, 'utf8')) as ApiOptionsRpc;
 }
 
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
+  const rpc: ApiOptionsRpc = readRpc();
+  const types: ApiOptionsTypes = readTypes();
+
   const provider = new WsProvider(ws);
-  const api = await ApiPromise.create({ provider, types: readTypes() });
+  const api = await ApiPromise.create({ provider, rpc, types });
   const apiExt = (api as unknown) as ApiExt;
   const [type, section, method] = endpoint.split('.') as [keyof ApiExt, string, string];
 
