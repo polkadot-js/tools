@@ -70,13 +70,13 @@ interface Params {
   info: boolean;
   noWait: boolean;
   params: string;
+  rpc: string;
   seed: string;
   sign: string;
   sub: boolean;
   sudo: boolean;
   sudoUncheckedWeight: string,
   types: string;
-  rpc: string;
   ws: string;
 }
 
@@ -148,7 +148,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
   })
   .argv;
 
-const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, sudoUncheckedWeight, types, rpc, ws } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, rpc, seed, sign, sub, sudo, sudoUncheckedWeight, types, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
 function readTypes (): ApiOptionsTypes {
