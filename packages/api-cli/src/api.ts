@@ -110,7 +110,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
       type: 'string'
     },
     rpc: {
-      description: 'Add this .json file as rpc to the API constructor',
+      description: 'Add this .json file as RPC types to the API constructor',
       type: 'string'
     },
     seed: {

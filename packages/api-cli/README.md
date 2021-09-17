@@ -63,4 +63,6 @@ The `--ws` param can be used to connect to other Websocket endpoints, when submi
 
 To specify types for a specific chain, you can use the `--types <types.json>` param, injecting the specified types into the API on construction.
 
+To specify RPC types for a specific chain, you can use the `--rpc <rpc.json>` param, injecting the specified RPC types into the API on construction.
+
 For a complete list of available commands, you can use `--help`
