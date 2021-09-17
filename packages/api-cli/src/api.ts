@@ -16,6 +16,9 @@ import { assert, isFunction, stringify } from '@polkadot/util';
 
 import { hexMiddleware, jsonMiddleware, parseParams } from './cli';
 
+type ApiOptionsTypes = ApiOptions['types'];
+type ApiOptionsRpc = ApiOptions['rpc'];
+
 // the function signature for our catch-any result logger
 // eslint-disable-next-line no-use-before-define
 type LogFn = (result: SubmittableResult | Codec | ApiCallFn) => void;
@@ -148,32 +151,32 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
 const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, sudoUncheckedWeight, types, rpc, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
-function readTypes (): ApiOptions['types'] {
+function readTypes (): ApiOptionsTypes {
   if (!types) {
     return {};
   }
 
   assert(fs.existsSync(types), `Unable to read .json file at ${types}`);
 
-  return JSON.parse(fs.readFileSync(types, 'utf8')) as ApiOptions['types'];
+  return JSON.parse(fs.readFileSync(types, 'utf8')) as ApiOptionsTypes;
 }
 
-function readRpc (): ApiOptions['rpc'] {
+function readRpc (): ApiOptionsRpc {
   if (!rpc) {
     return {};
   }
 
   assert(fs.existsSync(rpc), `Unable to read .json file at ${rpc}`);
 
-  return JSON.parse(fs.readFileSync(rpc, 'utf8')) as ApiOptions['rpc'];
+  return JSON.parse(fs.readFileSync(rpc, 'utf8')) as ApiOptionsRpc;
 }
 
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
-  const rpc: ApiOptions['rpc'] = readRpc();
-  const types: ApiOptions['types'] = readTypes();
+  const rpc: ApiOptionsRpc = readRpc();
+  const types: ApiOptionsTypes = readTypes();
 
   const provider = new WsProvider(ws);
   const api = await ApiPromise.create({ provider, rpc, types });
