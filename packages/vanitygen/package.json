@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/vanitygen",
-  "version": "0.45.6-0",
+  "version": "0.45.6-1",
   "description": "A vanity generator",
   "main": "index.cjs",
   "sideEffects": false,
