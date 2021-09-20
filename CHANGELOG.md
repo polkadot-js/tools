@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.46.1 Sep 20, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Cater for new metadata v14 compares
+- Updated to `@polkadot/util` 7.4.1
+- Updated to `@polkadot/api` 6.0.4
+
+
 ## 0.45.5 Sep 14, 2021
 
 Upgrade priority: Low.
