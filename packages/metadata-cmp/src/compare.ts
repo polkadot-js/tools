@@ -7,6 +7,8 @@ import yargs from 'yargs';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { expandMetadata, Metadata } from '@polkadot/types';
+import { getSiName } from '@polkadot/types/metadata/util';
+import { unwrapStorageType } from '@polkadot/types/primitive/StorageKey';
 import { assert, stringCamelCase } from '@polkadot/util';
 
 type ArgV = { _: [string, string] };
@@ -79,8 +81,8 @@ async function main (): Promise<number> {
   log(lvl1, 'Spec', 'version:', createCompare(verA.specVersion.toNumber(), verB.specVersion.toNumber()));
   log(lvl1, 'Metadata', 'version:', createCompare(metaA.version, metaB.version));
 
-  const mA = a.modules.map(({ name }) => name.toString());
-  const mB = b.modules.map(({ name }) => name.toString());
+  const mA = a.pallets.map(({ name }) => name.toString());
+  const mB = b.pallets.map(({ name }) => name.toString());
 
   log(lvl1, 'Modules', 'num:', createCompare(mA.length, mB.length));
 
@@ -156,66 +158,54 @@ async function main (): Promise<number> {
         .forEach((c): void => {
           const cA = decA.query[n][c];
           const cB = decB.query[n][c];
+          const tA = unwrapStorageType(metaA.registry, cA.meta.type, cA.meta.modifier.isOptional);
+          const tB = unwrapStorageType(metaB.registry, cB.meta.type, cB.meta.modifier.isOptional);
 
           // storage types differ
-          if (!cA.meta.type.eq(cB.meta.type)) {
+          if (tA !== tB) {
             if (cA.meta.type.isMap && cB.meta.type.isMap) {
               // diff map
               const mapA = cA.meta.type.asMap;
               const mapB = cB.meta.type.asMap;
               const diffs = [];
+              const hA = mapA.hashers.map((h) => h.toString()).join(', ');
+              const hB = mapB.hashers.map((h) => h.toString()).join(', ');
 
-              if (!mapA.hasher.eq(mapB.hasher)) {
-                diffs.push(`hasher: ${createCompare(mapA.hasher.toString(), mapB.hasher.toString())}`);
+              if (hA !== hB) {
+                diffs.push(`hashers: ${createCompare(hA, hB)}`);
               }
 
-              if (!mapA.key.eq(mapB.key)) {
-                diffs.push(`key: ${createCompare(mapA.key.toString(), mapB.key.toString())}`);
+              const kA = (
+                mapA.hashers.length === 1
+                  ? [mapA.key]
+                  : metaA.registry.lookup.getSiType(mapA.key).def.asTuple
+              ).map((t) => getSiName(metaA.registry.lookup, t)).join(', ');
+              const kB = (
+                mapB.hashers.length === 1
+                  ? [mapB.key]
+                  : metaB.registry.lookup.getSiType(mapB.key).def.asTuple
+              ).map((t) => getSiName(metaB.registry.lookup, t)).join(', ');
+
+              if (kA !== kB) {
+                diffs.push(`keys: ${createCompare(kA, kB)}`);
               }
 
-              if (!mapA.value.eq(mapB.value)) {
-                diffs.push(`value: ${createCompare(mapA.value.toString(), mapB.value.toString())}`);
-              }
+              const vA = getSiName(metaA.registry.lookup, mapA.value);
+              const vB = getSiName(metaB.registry.lookup, mapB.value);
 
-              logArray(lvl3, c, '', diffs, 1);
-            } else if (cA.meta.type.isDoubleMap && cB.meta.type.isDoubleMap) {
-              // diff double map
-              const mapA = cA.meta.type.asDoubleMap;
-              const mapB = cB.meta.type.asDoubleMap;
-              const diffs = [];
-
-              if (!mapA.hasher.eq(mapB.hasher)) {
-                diffs.push(`hasher: ${createCompare(mapA.hasher.toString(), mapB.hasher.toString())}`);
-              }
-
-              if (!mapA.key1.eq(mapB.key1)) {
-                diffs.push(`key1: ${createCompare(mapA.key1.toString(), mapB.key1.toString())}`);
-              }
-
-              if (!mapA.key2Hasher.eq(mapB.key2Hasher)) {
-                diffs.push(`key2Hasher: ${createCompare(mapA.key2Hasher.toString(), mapB.key2Hasher.toString())}`);
-              }
-
-              if (!mapA.key2.eq(mapB.key2)) {
-                diffs.push(`key2: ${createCompare(mapA.key2.toString(), mapB.key2.toString())}`);
-              }
-
-              if (!mapA.value.eq(mapB.value)) {
-                diffs.push(`value: ${createCompare(mapA.value.toString(), mapB.value.toString())}`);
+              if (vA !== vB) {
+                diffs.push(`value: ${createCompare(vA, vB)}`);
               }
 
               logArray(lvl3, c, '', diffs, 1);
             } else if (cA.meta.type.isPlain && cB.meta.type.isPlain) {
               // diff plain type
-              const tA = cA.meta.type.asPlain;
-              const tB = cB.meta.type.asPlain;
-
-              log(lvl3, c, 'type:', createCompare(tA.toString(), tB.toString()));
+              log(lvl3, c, 'type:', createCompare(tA, tB));
             } else {
               // fallback diff if types are completely different
-              log(lvl3, c, '', cA.meta.type.toString());
+              log(lvl3, c, '', tA);
               log(lvl5, '', '', '->');
-              log(lvl3, '', '', cB.meta.type.toString());
+              log(lvl3, '', '', tB);
             }
           }
         });
