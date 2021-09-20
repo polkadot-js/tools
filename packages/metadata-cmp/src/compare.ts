@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { RuntimeVersion } from '@polkadot/types/interfaces';
+import type { Registry } from '@polkadot/types/types';
 
 import yargs from 'yargs';
 
@@ -52,7 +53,7 @@ function logArray (pad: number, title: string, pre: string, arr: string[], chunk
   }
 }
 
-async function getMetadata (url: string): Promise<[Metadata, RuntimeVersion]> {
+async function getMetadata (url: string): Promise<[Registry, Metadata, RuntimeVersion]> {
   assert(url.startsWith('ws://') || url.startsWith('wss://'), `Invalid WebSocket endpoint ${url}, expected ws:// or wss://`);
 
   const provider = new WsProvider(url);
@@ -60,15 +61,19 @@ async function getMetadata (url: string): Promise<[Metadata, RuntimeVersion]> {
 
   provider.on('error', () => process.exit());
 
-  return Promise.all([api.rpc.state.getMetadata(), api.rpc.state.getRuntimeVersion()]);
+  return Promise.all([
+    Promise.resolve(api.registry),
+    api.rpc.state.getMetadata(),
+    api.rpc.state.getRuntimeVersion()
+  ]);
 }
 
 // our main entry point - from here we call out
 async function main (): Promise<number> {
-  const [metaA, verA] = await getMetadata(ws1);
-  const [metaB, verB] = await getMetadata(ws2);
+  const [[regA, metaA, verA], [regB, metaB, verB]] = await Promise.all([getMetadata(ws1), getMetadata(ws2)]);
   const a = metaA.asLatest;
   const b = metaB.asLatest;
+
   // configure padding
   const lvlInc = 14;
   const deltaInc = 4;
@@ -93,8 +98,8 @@ async function main (): Promise<number> {
   logArray(lvl1 + deltaInc, '-', 'modules:', mDel, chunkSize);
   console.log();
 
-  const decA = expandMetadata(metaA.registry, metaA);
-  const decB = expandMetadata(metaB.registry, metaB);
+  const decA = expandMetadata(regA, metaA);
+  const decB = expandMetadata(regB, metaB);
 
   mA
     .filter((m) => mB.includes(m))
@@ -158,8 +163,8 @@ async function main (): Promise<number> {
         .forEach((c): void => {
           const cA = decA.query[n][c];
           const cB = decB.query[n][c];
-          const tA = unwrapStorageType(metaA.registry, cA.meta.type, cA.meta.modifier.isOptional);
-          const tB = unwrapStorageType(metaB.registry, cB.meta.type, cB.meta.modifier.isOptional);
+          const tA = unwrapStorageType(regA, cA.meta.type, cA.meta.modifier.isOptional);
+          const tB = unwrapStorageType(regB, cB.meta.type, cB.meta.modifier.isOptional);
 
           // storage types differ
           if (tA !== tB) {
@@ -178,20 +183,20 @@ async function main (): Promise<number> {
               const kA = (
                 mapA.hashers.length === 1
                   ? [mapA.key]
-                  : metaA.registry.lookup.getSiType(mapA.key).def.asTuple
-              ).map((t) => getSiName(metaA.registry.lookup, t)).join(', ');
+                  : regA.lookup.getSiType(mapA.key).def.asTuple
+              ).map((t) => getSiName(regA.lookup, t)).join(', ');
               const kB = (
                 mapB.hashers.length === 1
                   ? [mapB.key]
-                  : metaB.registry.lookup.getSiType(mapB.key).def.asTuple
-              ).map((t) => getSiName(metaB.registry.lookup, t)).join(', ');
+                  : regB.lookup.getSiType(mapB.key).def.asTuple
+              ).map((t) => getSiName(regB.lookup, t)).join(', ');
 
               if (kA !== kB) {
                 diffs.push(`keys: ${createCompare(kA, kB)}`);
               }
 
-              const vA = getSiName(metaA.registry.lookup, mapA.value);
-              const vB = getSiName(metaB.registry.lookup, mapB.value);
+              const vA = getSiName(regA.lookup, mapA.value);
+              const vB = getSiName(regB.lookup, mapB.value);
 
               if (vA !== vB) {
                 diffs.push(`value: ${createCompare(vA, vB)}`);
