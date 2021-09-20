@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.46.2 Sep 20, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Adjust metadata compare for edge-case failures
+- Updated to `@polkadot/api` 6.0.5
+
+
 ## 0.46.1 Sep 20, 2021
 
 Upgrade priority: Low.
