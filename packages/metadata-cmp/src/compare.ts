@@ -1,7 +1,7 @@
 // Copyright 2018-2021 @polkadot/metadata-cmp authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { RuntimeVersion } from '@polkadot/types/interfaces';
+import type { RuntimeVersion, StorageEntryMetadataLatest } from '@polkadot/types/interfaces';
 import type { Registry } from '@polkadot/types/types';
 
 import yargs from 'yargs';
@@ -51,6 +51,31 @@ function logArray (pad: number, title: string, pre: string, arr: string[], chunk
       first = false;
     }
   }
+}
+
+function expandMapKey ({ lookup }: Registry, { type }: StorageEntryMetadataLatest): [string, string, string] {
+  const map = type.asMap;
+  const hashers = map.hashers.map((h) => h.toString()).join(', ');
+  let key = '<unknown>';
+  let result = '<unknown>';
+
+  try {
+    key = (
+      map.hashers.length === 1
+        ? [map.key]
+        : lookup.getSiType(map.key).def.asTuple
+    ).map((t) => getSiName(lookup, t)).join(', ');
+  } catch {
+    // ignore
+  }
+
+  try {
+    result = getSiName(lookup, map.value);
+  } catch {
+    // ingore
+  }
+
+  return [hashers, key, result];
 }
 
 async function getMetadata (url: string): Promise<[Registry, Metadata, RuntimeVersion]> {
@@ -169,34 +194,17 @@ async function main (): Promise<number> {
           // storage types differ
           if (tA !== tB) {
             if (cA.meta.type.isMap && cB.meta.type.isMap) {
-              // diff map
-              const mapA = cA.meta.type.asMap;
-              const mapB = cB.meta.type.asMap;
               const diffs = [];
-              const hA = mapA.hashers.map((h) => h.toString()).join(', ');
-              const hB = mapB.hashers.map((h) => h.toString()).join(', ');
+              const [hA, kA, vA] = expandMapKey(regA, cA.meta);
+              const [hB, kB, vB] = expandMapKey(regB, cB.meta);
 
               if (hA !== hB) {
                 diffs.push(`hashers: ${createCompare(hA, hB)}`);
               }
 
-              const kA = (
-                mapA.hashers.length === 1
-                  ? [mapA.key]
-                  : regA.lookup.getSiType(mapA.key).def.asTuple
-              ).map((t) => getSiName(regA.lookup, t)).join(', ');
-              const kB = (
-                mapB.hashers.length === 1
-                  ? [mapB.key]
-                  : regB.lookup.getSiType(mapB.key).def.asTuple
-              ).map((t) => getSiName(regB.lookup, t)).join(', ');
-
               if (kA !== kB) {
                 diffs.push(`keys: ${createCompare(kA, kB)}`);
               }
-
-              const vA = getSiName(regA.lookup, mapA.value);
-              const vB = getSiName(regB.lookup, mapB.value);
 
               if (vA !== vB) {
                 diffs.push(`value: ${createCompare(vA, vB)}`);
