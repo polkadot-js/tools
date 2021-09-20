@@ -55,27 +55,16 @@ function logArray (pad: number, title: string, pre: string, arr: string[], chunk
 
 function expandMapKey ({ lookup }: Registry, { type }: StorageEntryMetadataLatest): [string, string, string] {
   const map = type.asMap;
-  const hashers = map.hashers.map((h) => h.toString()).join(', ');
-  let key = '<unknown>';
-  let result = '<unknown>';
 
-  try {
-    key = (
+  return [
+    map.hashers.map((h) => h.toString()).join(', '),
+    (
       map.hashers.length === 1
         ? [map.key]
         : lookup.getSiType(map.key).def.asTuple
-    ).map((t) => getSiName(lookup, t)).join(', ');
-  } catch {
-    // ignore
-  }
-
-  try {
-    result = getSiName(lookup, map.value);
-  } catch {
-    // ingore
-  }
-
-  return [hashers, key, result];
+    ).map((t) => getSiName(lookup, t)).join(', '),
+    getSiName(lookup, map.value)
+  ];
 }
 
 async function getMetadata (url: string): Promise<[Registry, Metadata, RuntimeVersion]> {
@@ -177,6 +166,7 @@ async function main (): Promise<number> {
             }
           }
         });
+
       const sAdd = sB.filter((e) => !sA.includes(e));
       const sDel = sA.filter((e) => !sB.includes(e));
 
