@@ -1849,18 +1849,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/api-cli@^0.45.6-2, @polkadot/api-cli@workspace:packages/api-cli":
+"@polkadot/api-cli@^0.46.0, @polkadot/api-cli@workspace:packages/api-cli":
   version: 0.0.0-use.local
   resolution: "@polkadot/api-cli@workspace:packages/api-cli"
   dependencies:
     "@babel/core": ^7.15.5
     "@babel/register": ^7.15.3
     "@babel/runtime": ^7.15.4
-    "@polkadot/api": ^6.0.4-1
+    "@polkadot/api": ^6.0.4
     "@polkadot/keyring": ^7.4.1
-    "@polkadot/types": ^6.0.4-1
+    "@polkadot/types": ^6.0.4
     "@polkadot/util": ^7.4.1
-    "@types/node": ^16.9.1
+    "@types/node": ^16.9.4
     "@types/yargs": ^17.0.2
     yargs: ^17.1.1
   bin:
@@ -2003,13 +2003,13 @@ __metadata:
     "@babel/core": ^7.15.5
     "@babel/register": ^7.15.3
     "@babel/runtime": ^7.15.4
-    "@polkadot/api": ^6.0.4-1
-    "@polkadot/api-derive": ^6.0.4-1
-    "@polkadot/types": ^6.0.4-1
+    "@polkadot/api": ^6.0.4
+    "@polkadot/api-derive": ^6.0.4
+    "@polkadot/types": ^6.0.4
     "@types/bn.js": ^4.11.6
     "@types/koa": ^2.13.4
     "@types/koa-route": ^3.2.4
-    "@types/node": ^16.9.1
+    "@types/node": ^16.9.4
     "@types/yargs": ^17.0.2
     koa: ^2.13.1
     koa-route: ^3.2.0
@@ -2040,11 +2040,11 @@ __metadata:
     "@babel/core": ^7.15.5
     "@babel/register": ^7.15.3
     "@babel/runtime": ^7.15.4
-    "@polkadot/api": ^6.0.4-1
+    "@polkadot/api": ^6.0.4
     "@polkadot/keyring": ^7.4.1
-    "@polkadot/types": ^6.0.4-1
+    "@polkadot/types": ^6.0.4
     "@polkadot/util": ^7.4.1
-    "@types/node": ^16.9.1
+    "@types/node": ^16.9.4
     "@types/yargs": ^17.0.2
     yargs: ^17.1.1
   bin:
@@ -2059,11 +2059,11 @@ __metadata:
     "@babel/core": ^7.15.5
     "@babel/register": ^7.15.3
     "@babel/runtime": ^7.15.4
-    "@polkadot/api": ^6.0.4-1
-    "@polkadot/types": ^6.0.4-1
+    "@polkadot/api": ^6.0.4
+    "@polkadot/types": ^6.0.4
     "@types/koa": ^2.13.4
     "@types/koa-route": ^3.2.4
-    "@types/node": ^16.9.1
+    "@types/node": ^16.9.4
     "@types/yargs": ^17.0.2
     koa: ^2.13.1
     koa-route: ^3.2.0
@@ -2118,13 +2118,13 @@ __metadata:
     "@babel/core": ^7.15.5
     "@babel/register": ^7.15.3
     "@babel/runtime": ^7.15.4
-    "@polkadot/api": ^6.0.4-1
-    "@polkadot/api-cli": ^0.45.6-2
+    "@polkadot/api": ^6.0.4
+    "@polkadot/api-cli": ^0.46.0
     "@polkadot/keyring": ^7.4.1
-    "@polkadot/types": ^6.0.4-1
+    "@polkadot/types": ^6.0.4
     "@polkadot/util": ^7.4.1
     "@polkadot/util-crypto": ^7.4.1
-    "@types/node": ^16.9.1
+    "@types/node": ^16.9.4
     "@types/yargs": ^17.0.2
     yargs: ^17.1.1
   bin:
@@ -2216,7 +2216,7 @@ __metadata:
     "@babel/runtime": ^7.15.4
     "@polkadot/util": ^7.4.1
     "@polkadot/util-crypto": ^7.4.1
-    "@types/node": ^16.9.1
+    "@types/node": ^16.9.4
     "@types/yargs": ^17.0.2
     chalk: ^4.1.2
     yargs: ^17.1.1
@@ -2746,10 +2746,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^16.9.1":
-  version: 16.9.1
-  resolution: "@types/node@npm:16.9.1"
-  checksum: 41afcf183a22d59323a0199dd7e0f46591247f45fc08a4434edb26d56dc279ae4fdb80f37989ddd7a0f45e3857c4933e6e82057ede09c5a829f77e373e680375
+"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^16.9.4":
+  version: 16.9.4
+  resolution: "@types/node@npm:16.9.4"
+  checksum: ae281eec8e0ead86fd5fd76f56312db85dce27d0ac086d07bc917df98e16af792adc4f26dab099698509e2c3704cbd17224ec8138e822d569e3cadfc15569a71
   languageName: node
   linkType: hard
 
@@ -9994,7 +9994,7 @@ resolve@^2.0.0-next.3:
     "@babel/runtime": ^7.15.4
     "@polkadot/dev": ^0.62.67
     "@polkadot/ts": ^0.4.8
-    "@types/node": ^16.9.1
+    "@types/node": ^16.9.4
     "@types/yargs": ^17.0.2
   languageName: unknown
   linkType: soft
