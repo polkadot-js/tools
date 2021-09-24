@@ -31,6 +31,13 @@ To make a transfer from Alice to Bob, the following can be used -
 yarn run:api tx.balances.transfer 5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty 12345 --seed "//Alice"
 ```
 
+You can pass complex parameters as JSON which will be automatically parsed into the correct data structure
+
+```
+yarn run:api --sudo tx.validatorManager.registerValidators '["5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY","5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty"]'
+```
+
+
 ### Files as Parameters
 
 It is often desirable to include large binary blobs as transaction parameters. These blobs are often already present in the local filesystem. Therefore, the CLI has special syntax to make life easier: any transaction parameter whose initial character is `@` is treated as a path to a binary file; its contents are automatically converted into appropriate hex form before sending the tx.
