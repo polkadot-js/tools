@@ -90,6 +90,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
   .middleware(jsonMiddleware)
   .wrap(120)
   .options({
+    assetId: {
+      description: 'The asset id to add to the transaction for payment',
+      type: 'number'
+    },
     info: {
       description: 'Shows the meta information for the call',
       type: 'boolean'
@@ -129,10 +133,6 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
       description: 'The API endpoint to connect to, e.g. wss://kusama-rpc.polkadot.io',
       required: true,
       type: 'string'
-    },
-    assetId: {
-      description: 'The asset id to add to the transaction for payment',
-      type: 'number'
     }
   })
   .argv;
@@ -228,9 +228,9 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
     signable = fn(...params);
   }
 
-  console.log(assetId);
   const extra = assetId ? { assetId } : {};
 
+  console.log("extra", extra);
   return signable.signAndSend(auth, extra, (result: SubmittableResult): void => {
     log(result);
 
