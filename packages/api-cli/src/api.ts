@@ -4,15 +4,20 @@
 import type { KeyringPair } from '@polkadot/keyring/types';
 import type { Hash } from '@polkadot/types/interfaces';
 import type { CallFunction, Codec } from '@polkadot/types/types';
+import type { KeypairType } from '@polkadot/util-crypto/types';
 
 import fs from 'fs';
 import yargs from 'yargs';
 
 import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
+import { ApiOptions } from '@polkadot/api/types';
 import { Keyring } from '@polkadot/keyring';
-import { assert, isFunction } from '@polkadot/util';
+import { assert, isFunction, stringify } from '@polkadot/util';
 
 import { hexMiddleware, jsonMiddleware, parseParams } from './cli';
+
+type ApiOptionsTypes = ApiOptions['types'];
+type ApiOptionsRpc = ApiOptions['rpc'];
 
 // the function signature for our catch-any result logger
 // eslint-disable-next-line no-use-before-define
@@ -29,7 +34,7 @@ interface ApiCallFn {
   (...args: (string | LogFn)[]): CallFunction & ApiCallResult;
   description?: string;
   meta?: {
-    documentation: Text[];
+    docs: Text[];
   };
 }
 
@@ -65,16 +70,18 @@ interface Params {
   info: boolean;
   noWait: boolean;
   params: string;
+  rpc: string;
   seed: string;
   sign: string;
   sub: boolean;
   sudo: boolean;
+  sudoUncheckedWeight: string,
   types: string;
   ws: string;
   assetId: number;
 }
 
-const CRYPTO = ['ed25519', 'sr25519'];
+const CRYPTO = ['ed25519', 'sr25519', 'ethereum'];
 
 // retrieve and parse arguments - we do this globally, since this is a single command
 const argv = yargs
@@ -85,7 +92,8 @@ const argv = yargs
   .command('$0', `Usage: [options] <endpoint> <...params>
 Example: query.system.account 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB
 Example: query.substrate.code --info
-Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
+Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
+  )
   .middleware(hexMiddleware)
   .middleware(jsonMiddleware)
   .wrap(120)
@@ -106,6 +114,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
       description: 'Location of file containing space-separated transaction parameters (optional)',
       type: 'string'
     },
+    rpc: {
+      description: 'Add this .json file as RPC types to the API constructor',
+      type: 'string'
+    },
     seed: {
       description: 'The account seed to use (required for tx.* only)',
       type: 'string'
@@ -124,6 +136,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
       description: 'Run this tx as a wrapped sudo.sudo call',
       type: 'boolean'
     },
+    sudoUncheckedWeight: {
+      description: 'Run this tx as a wrapped sudo.sudoUncheckedWeight call with weight',
+      type: 'string'
+    },
     types: {
       description: 'Add this .json file as types to the API constructor',
       type: 'string'
@@ -137,29 +153,45 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`)
   })
   .argv;
 
-const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, seed, sign, sub, sudo, types, ws, assetId } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], assetId, info, noWait, params: paramsFile, rpc, seed, sign, sub, sudo, sudoUncheckedWeight, types, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
-function readTypes (): Record<string, string> {
+function readTypes (): ApiOptionsTypes {
   if (!types) {
     return {};
   }
 
   assert(fs.existsSync(types), `Unable to read .json file at ${types}`);
 
-  return JSON.parse(fs.readFileSync(types, 'utf8')) as Record<string, string>;
+  return JSON.parse(fs.readFileSync(types, 'utf8')) as ApiOptionsTypes;
+}
+
+function readRpc (): ApiOptionsRpc {
+  if (!rpc) {
+    return {};
+  }
+
+  assert(fs.existsSync(rpc), `Unable to read .json file at ${rpc}`);
+
+  return JSON.parse(fs.readFileSync(rpc, 'utf8')) as ApiOptionsRpc;
 }
 
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
+  const rpc: ApiOptionsRpc = readRpc();
+  const types: ApiOptionsTypes = readTypes();
+
   const provider = new WsProvider(ws);
-  const api = await ApiPromise.create({ provider, types: readTypes() });
-  const apiExt = api as unknown as ApiExt;
+  const api = await ApiPromise.create({ provider, rpc, types });
+  const apiExt = (api as unknown) as ApiExt;
   const [type, section, method] = endpoint.split('.') as [keyof ApiExt, string, string];
 
-  assert(['consts', 'derive', 'query', 'rpc', 'tx'].includes(type), `Expected one of consts, derive, query, rpc, tx, found ${type}`);
+  assert(
+    ['consts', 'derive', 'query', 'rpc', 'tx'].includes(type),
+    `Expected one of consts, derive, query, rpc, tx, found ${type}`
+  );
   assert(apiExt[type][section], `Cannot find ${type}.${section}`);
   assert(apiExt[type][section][method], `Cannot find ${type}.${section}.${method}`);
 
@@ -168,14 +200,15 @@ async function getCallInfo (): Promise<CallInfo> {
   return {
     api,
     fn,
-    log: (result: SubmittableResult | Codec | ApiCallFn): void => console.log(
-      JSON.stringify({
-        // eslint-disable-next-line @typescript-eslint/unbound-method
-        [method]: isFunction((result as Codec).toHuman)
-          ? (result as Codec).toHuman()
-          : result
-      }, null, 2)
-    ),
+    log: (result: SubmittableResult | Codec | ApiCallFn): void =>
+      console.log(
+        stringify({
+          // eslint-disable-next-line @typescript-eslint/unbound-method
+          [method]: isFunction((result as Codec).toHuman)
+            ? (result as Codec).toHuman()
+            : result
+        }, 2)
+      ),
     method,
     section,
     type
@@ -196,9 +229,7 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
   if (description) {
     console.log(description);
   } else if (meta) {
-    meta.documentation.forEach((doc: Text): void =>
-      console.log(doc.toString())
-    );
+    meta.docs.forEach((d) => console.log(d.toString()));
   } else {
     console.log('No documentation available');
   }
@@ -209,21 +240,33 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
   process.exit(0);
 }
 
+function isCrypto (type: string): type is KeypairType {
+  if (CRYPTO.includes(type)) {
+    return true;
+  }
+
+  return false;
+}
+
 // send a transaction
 async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash> {
   assert(seed, 'You need to specify an account seed with tx.*');
   assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
   const keyring = new Keyring();
-  const auth = keyring.createFromUri(seed, {}, sign as 'ed25519');
+  const auth = keyring.createFromUri(seed, {}, isCrypto(sign) ? sign : undefined);
   let signable;
 
-  if (sudo) {
+  if (sudo || sudoUncheckedWeight) {
     const adminId = await api.query.sudo.key();
 
     assert(adminId.eq(auth.address), 'Supplied seed does not match on-chain sudo key');
 
-    signable = api.tx.sudo.sudo(fn(...params));
+    if (sudoUncheckedWeight) {
+      signable = api.tx.sudo.sudoUncheckedWeight(fn(...params), sudoUncheckedWeight);
+    } else {
+      signable = api.tx.sudo.sudo(fn(...params));
+    }
   } else {
     signable = fn(...params);
   }
@@ -243,15 +286,17 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
 // make a derive, query or rpc call
 // eslint-disable-next-line @typescript-eslint/require-await
 async function makeCall ({ fn, log, method, type }: CallInfo): Promise<void> {
-  const isRpcSub = (type === 'rpc') && method.startsWith('subscribe');
+  const isRpcSub = type === 'rpc' && method.startsWith('subscribe');
 
   return sub || isRpcSub
     ? fn(...params, log).then((): void => {
       // ignore, we keep trucking on
     })
-    : fn(...params).then(log).then((): void => {
-      process.exit(0);
-    });
+    : fn(...params)
+      .then(log)
+      .then((): void => {
+        process.exit(0);
+      });
 }
 
 // our main entry point - from here we call out

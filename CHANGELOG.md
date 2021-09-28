@@ -1,5 +1,98 @@
 # CHANGELOG
 
+## 0.46.2 Sep 20, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Adjust metadata compare for edge-case failures
+- Updated to `@polkadot/api` 6.0.5
+
+
+## 0.46.1 Sep 20, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Cater for new metadata v14 compares
+- Updated to `@polkadot/util` 7.4.1
+- Updated to `@polkadot/api` 6.0.4
+
+
+## 0.45.5 Sep 14, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/api` 5.9.1
+
+
+## 0.45.4 Sep 6, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/api` 5.8.2
+
+
+## 0.45.3 Aug 30, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/util` 7.3.1
+- Updated to `@polkadot/api` 5.7.1
+
+
+## 0.45.2 Aug 23, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/api` 5.6.1
+
+
+## 0.45.1 Aug 15, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/util` 7.2.1
+- Updated to `@polkadot/api` 5.5.1
+
+
+## 0.44.1 Aug 2, 2021
+
+Upgrade priority: Low.
+
+Contributed:
+
+- Add Ethereum-compatible keypair support (Thanks to https://github.com/joelamouche)
+
+Changes:
+
+- Adjust documentation display to cater for current API series
+- Updated to `@polkadot/util` 7.1.1
+- Updated to `@polkadot/api` 5.3.1
+
+
+## 0.43.1 Jul 26, 2021
+
+Upgrade priority: Low.
+
+Changes:
+
+- Updated to `@polkadot/util` 7.0.3
+- Updated to `@polkadot/api` 5.2.1
+
+
 ## 0.42.1 Jul 11, 2021
 
 Upgrade priority: Low.

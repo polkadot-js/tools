@@ -1,12 +1,15 @@
 // Copyright 2018-2021 @polkadot/metadata-cmp authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { RuntimeVersion } from '@polkadot/types/interfaces';
+import type { RuntimeVersion, StorageEntryMetadataLatest } from '@polkadot/types/interfaces';
+import type { Registry } from '@polkadot/types/types';
 
 import yargs from 'yargs';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { expandMetadata, Metadata } from '@polkadot/types';
+import { getSiName } from '@polkadot/types/metadata/util';
+import { unwrapStorageType } from '@polkadot/types/primitive/StorageKey';
 import { assert, stringCamelCase } from '@polkadot/util';
 
 type ArgV = { _: [string, string] };
@@ -50,7 +53,21 @@ function logArray (pad: number, title: string, pre: string, arr: string[], chunk
   }
 }
 
-async function getMetadata (url: string): Promise<[Metadata, RuntimeVersion]> {
+function expandMapKey ({ lookup }: Registry, { type }: StorageEntryMetadataLatest): [string, string, string] {
+  const map = type.asMap;
+
+  return [
+    map.hashers.map((h) => h.toString()).join(', '),
+    (
+      map.hashers.length === 1
+        ? [map.key]
+        : lookup.getSiType(map.key).def.asTuple
+    ).map((t) => getSiName(lookup, t)).join(', '),
+    getSiName(lookup, map.value)
+  ];
+}
+
+async function getMetadata (url: string): Promise<[Registry, Metadata, RuntimeVersion]> {
   assert(url.startsWith('ws://') || url.startsWith('wss://'), `Invalid WebSocket endpoint ${url}, expected ws:// or wss://`);
 
   const provider = new WsProvider(url);
@@ -58,15 +75,19 @@ async function getMetadata (url: string): Promise<[Metadata, RuntimeVersion]> {
 
   provider.on('error', () => process.exit());
 
-  return Promise.all([api.rpc.state.getMetadata(), api.rpc.state.getRuntimeVersion()]);
+  return Promise.all([
+    Promise.resolve(api.registry),
+    api.rpc.state.getMetadata(),
+    api.rpc.state.getRuntimeVersion()
+  ]);
 }
 
 // our main entry point - from here we call out
 async function main (): Promise<number> {
-  const [metaA, verA] = await getMetadata(ws1);
-  const [metaB, verB] = await getMetadata(ws2);
+  const [[regA, metaA, verA], [regB, metaB, verB]] = await Promise.all([getMetadata(ws1), getMetadata(ws2)]);
   const a = metaA.asLatest;
   const b = metaB.asLatest;
+
   // configure padding
   const lvlInc = 14;
   const deltaInc = 4;
@@ -79,8 +100,8 @@ async function main (): Promise<number> {
   log(lvl1, 'Spec', 'version:', createCompare(verA.specVersion.toNumber(), verB.specVersion.toNumber()));
   log(lvl1, 'Metadata', 'version:', createCompare(metaA.version, metaB.version));
 
-  const mA = a.modules.map(({ name }) => name.toString());
-  const mB = b.modules.map(({ name }) => name.toString());
+  const mA = a.pallets.map(({ name }) => name.toString());
+  const mB = b.pallets.map(({ name }) => name.toString());
 
   log(lvl1, 'Modules', 'num:', createCompare(mA.length, mB.length));
 
@@ -91,8 +112,8 @@ async function main (): Promise<number> {
   logArray(lvl1 + deltaInc, '-', 'modules:', mDel, chunkSize);
   console.log();
 
-  const decA = expandMetadata(metaA.registry, metaA);
-  const decB = expandMetadata(metaB.registry, metaB);
+  const decA = expandMetadata(regA, metaA);
+  const decB = expandMetadata(regB, metaB);
 
   mA
     .filter((m) => mB.includes(m))
@@ -145,6 +166,7 @@ async function main (): Promise<number> {
             }
           }
         });
+
       const sAdd = sB.filter((e) => !sA.includes(e));
       const sDel = sA.filter((e) => !sB.includes(e));
 
@@ -156,66 +178,37 @@ async function main (): Promise<number> {
         .forEach((c): void => {
           const cA = decA.query[n][c];
           const cB = decB.query[n][c];
+          const tA = unwrapStorageType(regA, cA.meta.type, cA.meta.modifier.isOptional);
+          const tB = unwrapStorageType(regB, cB.meta.type, cB.meta.modifier.isOptional);
 
           // storage types differ
-          if (!cA.meta.type.eq(cB.meta.type)) {
+          if (tA !== tB) {
             if (cA.meta.type.isMap && cB.meta.type.isMap) {
-              // diff map
-              const mapA = cA.meta.type.asMap;
-              const mapB = cB.meta.type.asMap;
               const diffs = [];
+              const [hA, kA, vA] = expandMapKey(regA, cA.meta);
+              const [hB, kB, vB] = expandMapKey(regB, cB.meta);
 
-              if (!mapA.hasher.eq(mapB.hasher)) {
-                diffs.push(`hasher: ${createCompare(mapA.hasher.toString(), mapB.hasher.toString())}`);
+              if (hA !== hB) {
+                diffs.push(`hashers: ${createCompare(hA, hB)}`);
               }
 
-              if (!mapA.key.eq(mapB.key)) {
-                diffs.push(`key: ${createCompare(mapA.key.toString(), mapB.key.toString())}`);
+              if (kA !== kB) {
+                diffs.push(`keys: ${createCompare(kA, kB)}`);
               }
 
-              if (!mapA.value.eq(mapB.value)) {
-                diffs.push(`value: ${createCompare(mapA.value.toString(), mapB.value.toString())}`);
-              }
-
-              logArray(lvl3, c, '', diffs, 1);
-            } else if (cA.meta.type.isDoubleMap && cB.meta.type.isDoubleMap) {
-              // diff double map
-              const mapA = cA.meta.type.asDoubleMap;
-              const mapB = cB.meta.type.asDoubleMap;
-              const diffs = [];
-
-              if (!mapA.hasher.eq(mapB.hasher)) {
-                diffs.push(`hasher: ${createCompare(mapA.hasher.toString(), mapB.hasher.toString())}`);
-              }
-
-              if (!mapA.key1.eq(mapB.key1)) {
-                diffs.push(`key1: ${createCompare(mapA.key1.toString(), mapB.key1.toString())}`);
-              }
-
-              if (!mapA.key2Hasher.eq(mapB.key2Hasher)) {
-                diffs.push(`key2Hasher: ${createCompare(mapA.key2Hasher.toString(), mapB.key2Hasher.toString())}`);
-              }
-
-              if (!mapA.key2.eq(mapB.key2)) {
-                diffs.push(`key2: ${createCompare(mapA.key2.toString(), mapB.key2.toString())}`);
-              }
-
-              if (!mapA.value.eq(mapB.value)) {
-                diffs.push(`value: ${createCompare(mapA.value.toString(), mapB.value.toString())}`);
+              if (vA !== vB) {
+                diffs.push(`value: ${createCompare(vA, vB)}`);
               }
 
               logArray(lvl3, c, '', diffs, 1);
             } else if (cA.meta.type.isPlain && cB.meta.type.isPlain) {
               // diff plain type
-              const tA = cA.meta.type.asPlain;
-              const tB = cB.meta.type.asPlain;
-
-              log(lvl3, c, 'type:', createCompare(tA.toString(), tB.toString()));
+              log(lvl3, c, 'type:', createCompare(tA, tB));
             } else {
               // fallback diff if types are completely different
-              log(lvl3, c, '', cA.meta.type.toString());
+              log(lvl3, c, '', tA);
               log(lvl5, '', '', '->');
-              log(lvl3, '', '', cB.meta.type.toString());
+              log(lvl3, '', '', tB);
             }
           }
         });

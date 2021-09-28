@@ -4,7 +4,7 @@
 import type { SignerOptions } from '@polkadot/api/submittable/types';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { assert } from '@polkadot/util';
+import { assert, stringify } from '@polkadot/util';
 
 import RawSigner from './RawSigner';
 
@@ -13,7 +13,7 @@ function submitPreSignedTx (api: ApiPromise, tx: string): void {
 
   // eslint-disable-next-line @typescript-eslint/no-floating-promises
   api.rpc.author.submitAndWatchExtrinsic(extrinsic, (result) => {
-    console.log(JSON.stringify(result.toHuman(), null, 2));
+    console.log(stringify(result.toHuman(), 2));
 
     if (result.isInBlock || result.isFinalized) {
       process.exit(0);
@@ -48,7 +48,7 @@ export default async function cmdSubmit (account: string, blocks: number | undef
   }
 
   await api.tx[section][method](...params).signAndSend(account, options, (result): void => {
-    console.log(JSON.stringify(result.toHuman(), null, 2));
+    console.log(stringify(result.toHuman(), 2));
 
     if (result.isInBlock || result.isFinalized) {
       process.exit(0);
