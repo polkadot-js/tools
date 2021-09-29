@@ -2,8 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { RuntimeVersion, StorageEntryMetadataLatest } from '@polkadot/types/interfaces';
-import type { Registry } from '@polkadot/types/types';
+import type { Registry, RegistryTypes } from '@polkadot/types/types';
 
+import axios from 'axios';
 import yargs from 'yargs';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
@@ -12,9 +13,17 @@ import { getSiName } from '@polkadot/types/metadata/util';
 import { unwrapStorageType } from '@polkadot/types/primitive/StorageKey';
 import { assert, stringCamelCase } from '@polkadot/util';
 
-type ArgV = { _: [string, string] };
+type ArgV = { _: [string, string], typesUrl?: string };
 
-const [ws1, ws2] = (yargs.demandCommand(2).argv as unknown as ArgV)._;
+const { _: [ws1, ws2], typesUrl } = yargs
+  .demandCommand(2)
+  .options({
+    typesUrl: {
+      describe: 'URL to download custom types',
+      type: 'string'
+    }
+  })
+  .argv as unknown as ArgV;
 
 function chunk (array: string[], size: number): string[][] {
   const chunked = [];
@@ -67,11 +76,11 @@ function expandMapKey ({ lookup }: Registry, { type }: StorageEntryMetadataLates
   ];
 }
 
-async function getMetadata (url: string): Promise<[Registry, Metadata, RuntimeVersion]> {
+async function getMetadata (url: string, types?: RegistryTypes): Promise<[Registry, Metadata, RuntimeVersion]> {
   assert(url.startsWith('ws://') || url.startsWith('wss://'), `Invalid WebSocket endpoint ${url}, expected ws:// or wss://`);
 
   const provider = new WsProvider(url);
-  const api = await ApiPromise.create({ provider });
+  const api = await ApiPromise.create({ provider, types });
 
   provider.on('error', () => process.exit());
 
@@ -84,7 +93,8 @@ async function getMetadata (url: string): Promise<[Registry, Metadata, RuntimeVe
 
 // our main entry point - from here we call out
 async function main (): Promise<number> {
-  const [[regA, metaA, verA], [regB, metaB, verB]] = await Promise.all([getMetadata(ws1), getMetadata(ws2)]);
+  const types = typesUrl ? await axios.get(typesUrl).then((res) => res.data as RegistryTypes) : undefined;
+  const [[regA, metaA, verA], [regB, metaB, verB]] = await Promise.all([getMetadata(ws1, types), getMetadata(ws2, types)]);
   const a = metaA.asLatest;
   const b = metaB.asLatest;
 
