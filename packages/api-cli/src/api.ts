@@ -81,6 +81,7 @@ interface Params {
   types: string;
   ws: string;
   assetId: number;
+  tip: number;
 }
 
 const CRYPTO = ['ed25519', 'sr25519', 'ethereum'];
@@ -142,6 +143,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
       description: 'Run this tx as a wrapped sudo.sudoUncheckedWeight call with weight',
       type: 'string'
     },
+    tip: {
+      description: 'Add a tip to the transction for the block author',
+      type: 'number'
+    },
     types: {
       description: 'Add this .json file as types to the API constructor',
       type: 'string'
@@ -155,7 +160,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
   })
   .argv;
 
-const { _: [endpoint, ...paramsInline], assetId, info, noWait, params: paramsFile, rpc, seed, sign, sub, sudo, sudoUncheckedWeight, types, ws } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], assetId, info, noWait, params: paramsFile, rpc, seed, sign, sub, sudo, sudoUncheckedWeight, tip, types, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
 function readTypes (): ApiOptionsTypes {
@@ -273,7 +278,7 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
     signable = fn(...params);
   }
 
-  const options = assetId ? { assetId } : {};
+  const options = { assetId, tip };
 
   return signable.signAndSend(auth, options, (result: SubmittableResult): void => {
     log(result);
