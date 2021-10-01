@@ -10,7 +10,7 @@ import fs from 'fs';
 import yargs from 'yargs';
 
 import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
-import { ApiOptions } from '@polkadot/api/types';
+import { ApiOptions, SignerOptions } from '@polkadot/api/types';
 import { Keyring } from '@polkadot/keyring';
 import { assert, isFunction, stringify } from '@polkadot/util';
 
@@ -27,6 +27,8 @@ type LogFn = (result: SubmittableResult | Codec | ApiCallFn) => void;
 // that combines the Extrinsic and normal calls into one as a result
 interface ApiCallResult extends Promise<Codec> {
   signAndSend (addr: KeyringPair, cb: (result: SubmittableResult) => void): Promise<() => void>;
+
+  signAndSend (addr: KeyringPair, options: Partial<SignerOptions>, cb: (result: SubmittableResult) => void): Promise<() => void>;
 }
 
 // As above, combine the normal calls (meta) with stuff exposed on extrinsics (description)
@@ -271,10 +273,9 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
     signable = fn(...params);
   }
 
-  const extra = assetId ? { assetId } : {};
+  const options = assetId ? { assetId } : {};
 
-  console.log("extra", extra);
-  return signable.signAndSend(auth, extra, (result: SubmittableResult): void => {
+  return signable.signAndSend(auth, options, (result: SubmittableResult): void => {
     log(result);
 
     if (noWait || result.isInBlock || result.isFinalized) {
