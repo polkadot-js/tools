@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 0.47.1 Oct 4, 2021
+
+Upgrade priority: Low.
+
+Contributed:
+
+- Add support for `tip` and `assetId` payment options (Thanks to https://github.com/apopiak)
+- Add example for complex params to README (Thanks to https://github.com/PierreBesson)
+
+Changes:
+
+- Updated to `@polkadot/api` 6.2.1
+
+
 ## 0.46.2 Sep 20, 2021
 
 Upgrade priority: Low.
