@@ -18,9 +18,9 @@
     "@babel/core": "^7.15.5",
     "@babel/register": "^7.15.3",
     "@babel/runtime": "^7.15.4",
-    "@polkadot/api": "^6.0.5",
+    "@polkadot/api": "^6.2.1",
     "@polkadot/keyring": "^7.4.1",
-    "@polkadot/types": "^6.0.5",
+    "@polkadot/types": "^6.2.1",
     "@polkadot/util": "^7.4.1",
     "yargs": "^17.1.1"
   },
