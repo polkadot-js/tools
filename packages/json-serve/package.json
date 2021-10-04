@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/json-serve",
-  "version": "0.46.3-2",
+  "version": "0.47.0",
   "description": "A JSON API endpoint server",
   "main": "index.cjs",
   "sideEffects": false,
