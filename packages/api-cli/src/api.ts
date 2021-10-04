@@ -10,7 +10,7 @@ import fs from 'fs';
 import yargs from 'yargs';
 
 import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
-import { ApiOptions } from '@polkadot/api/types';
+import { ApiOptions, SignerOptions } from '@polkadot/api/types';
 import { Keyring } from '@polkadot/keyring';
 import { assert, isFunction, stringify } from '@polkadot/util';
 
@@ -27,6 +27,8 @@ type LogFn = (result: SubmittableResult | Codec | ApiCallFn) => void;
 // that combines the Extrinsic and normal calls into one as a result
 interface ApiCallResult extends Promise<Codec> {
   signAndSend (addr: KeyringPair, cb: (result: SubmittableResult) => void): Promise<() => void>;
+
+  signAndSend (addr: KeyringPair, options: Partial<SignerOptions>, cb: (result: SubmittableResult) => void): Promise<() => void>;
 }
 
 // As above, combine the normal calls (meta) with stuff exposed on extrinsics (description)
@@ -78,6 +80,8 @@ interface Params {
   sudoUncheckedWeight: string,
   types: string;
   ws: string;
+  assetId: number;
+  tip: number;
 }
 
 const CRYPTO = ['ed25519', 'sr25519', 'ethereum'];
@@ -97,6 +101,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
   .middleware(jsonMiddleware)
   .wrap(120)
   .options({
+    assetId: {
+      description: 'The asset id to add to the transaction for payment',
+      type: 'number'
+    },
     info: {
       description: 'Shows the meta information for the call',
       type: 'boolean'
@@ -135,6 +143,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
       description: 'Run this tx as a wrapped sudo.sudoUncheckedWeight call with weight',
       type: 'string'
     },
+    tip: {
+      description: 'Add a tip to the transction for the block author',
+      type: 'number'
+    },
     types: {
       description: 'Add this .json file as types to the API constructor',
       type: 'string'
@@ -148,7 +160,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
   })
   .argv;
 
-const { _: [endpoint, ...paramsInline], info, noWait, params: paramsFile, rpc, seed, sign, sub, sudo, sudoUncheckedWeight, types, ws } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], assetId, info, noWait, params: paramsFile, rpc, seed, sign, sub, sudo, sudoUncheckedWeight, tip, types, ws } = argv as unknown as Params;
 const params = parseParams(paramsInline, paramsFile);
 
 function readTypes (): ApiOptionsTypes {
@@ -266,7 +278,9 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
     signable = fn(...params);
   }
 
-  return signable.signAndSend(auth, (result: SubmittableResult): void => {
+  const options = { assetId, tip };
+
+  return signable.signAndSend(auth, options, (result: SubmittableResult): void => {
     log(result);
 
     if (noWait || result.isInBlock || result.isFinalized) {
