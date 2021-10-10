@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/monitor-rpc",
-  "version": "0.47.1",
+  "version": "0.47.2",
   "description": "A simple monitor via RPC",
   "main": "index.cjs",
   "sideEffects": false,
@@ -15,19 +15,19 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/monitor-rpc#readme",
   "dependencies": {
-    "@babel/core": "^7.15.5",
+    "@babel/core": "^7.15.8",
     "@babel/register": "^7.15.3",
     "@babel/runtime": "^7.15.4",
-    "@polkadot/api": "^6.2.1",
-    "@polkadot/types": "^6.2.1",
-    "koa": "^2.13.1",
+    "@polkadot/api": "^6.3.1",
+    "@polkadot/types": "^6.3.1",
+    "koa": "^2.13.3",
     "koa-route": "^3.2.0",
-    "yargs": "^17.1.1"
+    "yargs": "^17.2.1"
   },
   "devDependencies": {
     "@types/koa": "^2.13.4",
     "@types/koa-route": "^3.2.4",
-    "@types/node": "^16.9.4",
-    "@types/yargs": "^17.0.2"
+    "@types/node": "^16.10.3",
+    "@types/yargs": "^17.0.3"
   }
 }
