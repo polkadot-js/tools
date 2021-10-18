@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/monitor-rpc",
-  "version": "0.47.2",
+  "version": "0.47.3",
   "description": "A simple monitor via RPC",
   "main": "index.cjs",
   "sideEffects": false,
@@ -18,8 +18,8 @@
     "@babel/core": "^7.15.8",
     "@babel/register": "^7.15.3",
     "@babel/runtime": "^7.15.4",
-    "@polkadot/api": "^6.3.1",
-    "@polkadot/types": "^6.3.1",
+    "@polkadot/api": "^6.4.1",
+    "@polkadot/types": "^6.4.1",
     "koa": "^2.13.3",
     "koa-route": "^3.2.0",
     "yargs": "^17.2.1"
