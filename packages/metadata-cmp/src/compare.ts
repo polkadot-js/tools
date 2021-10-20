@@ -97,7 +97,10 @@ async function main (): Promise<number> {
   const lvl5 = lvl1 + 4 * lvlInc;
   const chunkSize = 5;
 
-  log(lvl1, 'Spec', 'version:', createCompare(verA.specVersion.toNumber(), verB.specVersion.toNumber()));
+  log(lvl1, 'Spec', 'name:', createCompare(verA.specName.toString(), verB.specName.toString()));
+  log(lvl1, '', 'spec_version:', createCompare(verA.specVersion.toNumber(), verB.specVersion.toNumber()));
+  log(lvl1, '', 'transaction_version:',
+    createCompare(verA.transactionVersion.toNumber(), verB.transactionVersion.toNumber()));
   log(lvl1, 'Metadata', 'version:', createCompare(metaA.version, metaB.version));
 
   const mA = a.pallets.map(({ name }) => name.toString());
