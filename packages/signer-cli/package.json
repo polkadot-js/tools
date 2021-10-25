@@ -1,19 +1,23 @@
 {
   "name": "@polkadot/signer-cli",
   "version": "0.48.1",
+  "license": "Apache-2.0",
   "description": "A commandline signer for offline signature generataion",
   "main": "index.cjs",
-  "sideEffects": false,
   "bin": {
     "polkadot-js-signer": "./index.cjs"
   },
   "author": "Jaco Greeff <jacogr@gmail.com>",
   "maintainers": [],
   "contributors": [],
-  "license": "Apache-2.0",
-  "repository": "github:polkadot-js/tools",
   "bugs": "https://github.com/polkadot-js/tools/issues",
-  "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/signer-cli#readme",
+  "homepage": "https://github.com/polkadot-js/tools#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polkadot-js/tools.git",
+    "directory": "packages/signer-cli"
+  },
+  "sideEffects": false,
   "dependencies": {
     "@babel/core": "^7.15.8",
     "@babel/register": "^7.15.3",

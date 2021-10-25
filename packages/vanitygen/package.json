@@ -1,19 +1,23 @@
 {
   "name": "@polkadot/vanitygen",
   "version": "0.48.1",
+  "license": "Apache-2.0",
   "description": "A vanity generator",
   "main": "index.cjs",
-  "sideEffects": false,
   "bin": {
     "polkadot-js-vanitygen": "./index.cjs"
   },
   "author": "Jaco Greeff <jacogr@gmail.com>",
   "maintainers": [],
   "contributors": [],
-  "license": "Apache-2.0",
-  "repository": "github:polkadot-js/tools",
   "bugs": "https://github.com/polkadot-js/tools/issues",
-  "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/vanitygen#readme",
+  "homepage": "https://github.com/polkadot-js/tools#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polkadot-js/tools.git",
+    "directory": "packages/vanitygen"
+  },
+  "sideEffects": false,
   "dependencies": {
     "@babel/core": "^7.15.8",
     "@babel/register": "^7.15.3",
