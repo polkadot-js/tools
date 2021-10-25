@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.48.1 Oct 25, 2021
+
+Contributed:
+
+- Add specName/Version diffs to metadata compares (Thanks to https://github.com/apopiak)
+
+Changes:
+
+- Updated to `@polkadot/api` 6.5.1
+
+
 ## 0.47.4 Oct 19, 2021
 
 Changes:
