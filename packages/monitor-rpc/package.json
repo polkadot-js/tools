@@ -1,6 +1,6 @@
 {
   "name": "@polkadot/monitor-rpc",
-  "version": "0.48.1",
+  "version": "0.48.2-0",
   "license": "Apache-2.0",
   "description": "A simple monitor via RPC",
   "main": "index.cjs",

@@ -38,6 +38,6 @@
     "@types/node": "^16.11.4",
     "@types/yargs": "^17.0.4"
   },
-  "version": "0.48.1",
+  "version": "0.48.2-0",
   "packageManager": "yarn@3.0.1"
 }
