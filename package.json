@@ -1,25 +1,26 @@
 {
-  "repository": "https://github.com/polkadot-js/tools",
   "author": "Jaco Greeff <jacogr@gmail.com>",
+  "bugs": "https://github.com/polkadot-js/tools/issues",
+  "engines": {},
+  "homepage": "https://github.com/polkadot-js/tools#readme",
   "license": "Apache-2",
+  "packageManager": "yarn@3.0.1",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polkadot-js/tools.git"
+  },
+  "sideEffects": false,
+  "version": "0.48.2-0",
   "workspaces": [
     "packages/*"
   ],
-  "resolutions": {
-    "@polkadot/api": "^6.5.1",
-    "@polkadot/api-derive": "^6.5.1",
-    "@polkadot/keyring": "^7.6.1",
-    "@polkadot/types": "^6.5.1",
-    "@polkadot/util": "^7.6.1",
-    "@polkadot/util-crypto": "^7.6.1",
-    "typescript": "^4.4.4"
-  },
+  "bin": {},
   "scripts": {
     "build": "polkadot-dev-build-ts",
     "build:release": "polkadot-ci-ghact-build",
-    "lint": "polkadot-dev-run-lint",
     "clean": "polkadot-dev-clean-build",
+    "lint": "polkadot-dev-run-lint",
     "postinstall": "polkadot-dev-yarn-only",
     "run:api": "./packages/api-cli/src/index.cjs",
     "run:json": "./packages/json-serve/src/index.cjs",
@@ -29,15 +30,25 @@
     "run:vanity": "./packages/vanitygen/src/index.cjs",
     "test": "echo \"no tests\""
   },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/register": "^7.15.3",
     "@babel/runtime": "^7.15.4",
-    "@polkadot/dev": "^0.63.6",
-    "@polkadot/ts": "^0.4.10",
+    "@polkadot/dev": "^0.63.8",
+    "@polkadot/ts": "^0.4.12",
     "@types/node": "^16.11.4",
     "@types/yargs": "^17.0.4"
   },
-  "version": "0.48.2-0",
-  "packageManager": "yarn@3.0.1"
+  "optionalDependencies": {},
+  "peerDependencies": {},
+  "resolutions": {
+    "@polkadot/api": "^6.5.1",
+    "@polkadot/api-derive": "^6.5.1",
+    "@polkadot/keyring": "^7.6.1",
+    "@polkadot/types": "^6.5.1",
+    "@polkadot/util": "^7.6.1",
+    "@polkadot/util-crypto": "^7.6.1",
+    "typescript": "^4.4.4"
+  }
 }
