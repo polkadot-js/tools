@@ -15,7 +15,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "bin": {},
   "scripts": {
     "build": "polkadot-dev-build-ts",
     "build:release": "polkadot-ci-ghact-build",
@@ -30,18 +29,15 @@
     "run:vanity": "./packages/vanitygen/src/index.cjs",
     "test": "echo \"no tests\""
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/register": "^7.15.3",
     "@babel/runtime": "^7.15.4",
-    "@polkadot/dev": "^0.63.8",
+    "@polkadot/dev": "^0.63.10",
     "@polkadot/ts": "^0.4.12",
-    "@types/node": "^16.11.4",
+    "@types/node": "^16.11.6",
     "@types/yargs": "^17.0.4"
   },
-  "optionalDependencies": {},
-  "peerDependencies": {},
   "resolutions": {
     "@polkadot/api": "^6.5.1",
     "@polkadot/api-derive": "^6.5.1",

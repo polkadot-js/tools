@@ -8,7 +8,6 @@
   "license": "Apache-2.0",
   "maintainers": [],
   "name": "@polkadot/monitor-rpc",
-  "private": false,
   "repository": {
     "directory": "packages/monitor-rpc",
     "type": "git",
@@ -20,7 +19,6 @@
   "bin": {
     "polkadot-js-monitor": "./index.cjs"
   },
-  "scripts": {},
   "dependencies": {
     "@babel/core": "^7.15.8",
     "@babel/register": "^7.15.3",
@@ -34,10 +32,7 @@
   "devDependencies": {
     "@types/koa": "^2.13.4",
     "@types/koa-route": "^3.2.5",
-    "@types/node": "^16.11.4",
+    "@types/node": "^16.11.6",
     "@types/yargs": "^17.0.4"
-  },
-  "optionalDependencies": {},
-  "peerDependencies": {},
-  "resolutions": {}
+  }
 }
