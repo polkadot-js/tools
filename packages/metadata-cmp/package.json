@@ -8,7 +8,6 @@
   "license": "Apache-2.0",
   "maintainers": [],
   "name": "@polkadot/metadata-cmp",
-  "private": false,
   "repository": {
     "directory": "packages/metadata-cmp",
     "type": "git",
@@ -20,7 +19,6 @@
   "bin": {
     "polkadot-js-metadata-cmp": "./index.cjs"
   },
-  "scripts": {},
   "dependencies": {
     "@babel/core": "^7.15.8",
     "@babel/register": "^7.15.3",
@@ -32,10 +30,7 @@
     "yargs": "^17.2.1"
   },
   "devDependencies": {
-    "@types/node": "^16.11.4",
+    "@types/node": "^16.11.6",
     "@types/yargs": "^17.0.4"
-  },
-  "optionalDependencies": {},
-  "peerDependencies": {},
-  "resolutions": {}
+  }
 }
