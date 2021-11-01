@@ -21,10 +21,12 @@ export default class RawSigner implements Signer {
         ? blake2AsHex(data)
         : data;
 
-      rl.question(`Payload: ${hashed}\nSignature> `, (signature) => {
+      rl.question(`Payload: ${hashed}\nSignature> `, (_signature) => {
+        const signature = _signature.trim();
+
         assert(isHex(signature), 'Supplied signature is not hex');
 
-        resolve({ id: 1, signature: signature.trim() });
+        resolve({ id: 1, signature });
         rl.close();
       });
     });
