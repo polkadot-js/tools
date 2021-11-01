@@ -3,7 +3,6 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "contributors": [],
   "description": "A vanity generator",
-  "engines": {},
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/vanitygen#readme",
   "license": "Apache-2.0",
   "maintainers": [],

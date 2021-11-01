@@ -3,7 +3,6 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "contributors": [],
   "description": "Compares metadata from 2 sources",
-  "engines": {},
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/metadata-cmp#readme",
   "license": "Apache-2.0",
   "maintainers": [],

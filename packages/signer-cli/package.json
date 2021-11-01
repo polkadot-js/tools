@@ -3,7 +3,6 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "contributors": [],
   "description": "A commandline signer for offline signature generataion",
-  "engines": {},
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/signer-cli#readme",
   "license": "Apache-2.0",
   "maintainers": [],

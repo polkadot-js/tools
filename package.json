@@ -1,7 +1,6 @@
 {
   "author": "Jaco Greeff <jacogr@gmail.com>",
   "bugs": "https://github.com/polkadot-js/tools/issues",
-  "engines": {},
   "homepage": "https://github.com/polkadot-js/tools#readme",
   "license": "Apache-2",
   "packageManager": "yarn@3.0.1",

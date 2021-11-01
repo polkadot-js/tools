@@ -3,7 +3,6 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "contributors": [],
   "description": "A commandline API interface for interacting with a chain",
-  "engines": {},
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/api-cli#readme",
   "license": "Apache-2.0",
   "maintainers": [],
