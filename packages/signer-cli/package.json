@@ -13,7 +13,7 @@
     "url": "https://github.com/polkadot-js/tools.git"
   },
   "sideEffects": false,
-  "version": "0.48.4-1",
+  "version": "0.48.4",
   "main": "index.cjs",
   "bin": {
     "polkadot-js-signer": "./index.cjs"
@@ -22,16 +22,16 @@
     "@babel/core": "^7.16.0",
     "@babel/register": "^7.16.0",
     "@babel/runtime": "^7.16.3",
-    "@polkadot/api": "^6.8.2-17",
-    "@polkadot/api-cli": "^0.48.4-1",
-    "@polkadot/keyring": "^7.8.3-32",
-    "@polkadot/types": "^6.8.2-17",
-    "@polkadot/util": "^7.8.3-32",
-    "@polkadot/util-crypto": "^7.8.3-32",
+    "@polkadot/api": "^6.9.1",
+    "@polkadot/api-cli": "^0.48.4",
+    "@polkadot/keyring": "^7.9.1",
+    "@polkadot/types": "^6.9.1",
+    "@polkadot/util": "^7.9.1",
+    "@polkadot/util-crypto": "^7.9.1",
     "yargs": "^17.2.1"
   },
   "devDependencies": {
-    "@types/node": "^16.11.7",
+    "@types/node": "^16.11.9",
     "@types/yargs": "^17.0.7"
   }
 }
