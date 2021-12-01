@@ -22,16 +22,16 @@
     "@babel/core": "^7.16.0",
     "@babel/register": "^7.16.0",
     "@babel/runtime": "^7.16.3",
-    "@polkadot/api": "^6.10.2",
-    "@polkadot/types": "^6.10.2",
+    "@polkadot/api": "^6.10.3",
+    "@polkadot/types": "^6.10.3",
     "koa": "^2.13.4",
     "koa-route": "^3.2.0",
-    "yargs": "^17.2.1"
+    "yargs": "^17.3.0"
   },
   "devDependencies": {
     "@types/koa": "^2.13.4",
     "@types/koa-route": "^3.2.5",
-    "@types/node": "^16.11.9",
+    "@types/node": "^16.11.11",
     "@types/yargs": "^17.0.7"
   }
 }

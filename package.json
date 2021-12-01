@@ -32,18 +32,18 @@
     "@babel/core": "^7.16.0",
     "@babel/register": "^7.16.0",
     "@babel/runtime": "^7.16.3",
-    "@polkadot/dev": "^0.63.33",
-    "@polkadot/ts": "^0.4.15",
-    "@types/node": "^16.11.9",
+    "@polkadot/dev": "^0.63.34",
+    "@polkadot/ts": "^0.4.16",
+    "@types/node": "^16.11.11",
     "@types/yargs": "^17.0.7"
   },
   "resolutions": {
-    "@polkadot/api": "^6.10.2",
-    "@polkadot/api-derive": "^6.10.2",
-    "@polkadot/keyring": "^8.0.4",
-    "@polkadot/types": "^6.10.2",
-    "@polkadot/util": "^8.0.4",
-    "@polkadot/util-crypto": "^8.0.4",
+    "@polkadot/api": "^6.10.3",
+    "@polkadot/api-derive": "^6.10.3",
+    "@polkadot/keyring": "^8.0.5",
+    "@polkadot/types": "^6.10.3",
+    "@polkadot/util": "^8.0.5",
+    "@polkadot/util-crypto": "^8.0.5",
     "typescript": "^4.5.2"
   }
 }

@@ -5,7 +5,6 @@
 import type { KeypairType } from '@polkadot/util-crypto/types';
 import type { GeneratorOptions } from './types';
 
-import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { u8aToHex } from '@polkadot/util';
@@ -109,7 +108,7 @@ function showProgress (): void {
 function showBest (): void {
   const { address, count, mnemonic, offset, seed } = best;
 
-  console.log(`\r::: ${address.slice(0, offset)}${chalk.cyan(address.slice(offset, count + offset))}${address.slice(count + offset)} <= ${u8aToHex(seed)} (count=${count}, offset=${offset})${mnemonic ? '\n                                                        ' + mnemonic : ''}`);
+  console.log(`\r::: ${address.slice(0, offset)}[${address.slice(offset, count + offset)}]${address.slice(count + offset)} <= ${u8aToHex(seed)} (count=${count}, offset=${offset})${mnemonic ? '\n                                                        ' + mnemonic : ''}`);
 }
 
 process.on('unhandledRejection', (error): void => {
