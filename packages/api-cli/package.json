@@ -22,14 +22,14 @@
     "@babel/core": "^7.16.0",
     "@babel/register": "^7.16.0",
     "@babel/runtime": "^7.16.3",
-    "@polkadot/api": "^6.10.2",
-    "@polkadot/keyring": "^8.0.4",
-    "@polkadot/types": "^6.10.2",
-    "@polkadot/util": "^8.0.4",
-    "yargs": "^17.2.1"
+    "@polkadot/api": "^6.10.3",
+    "@polkadot/keyring": "^8.0.5",
+    "@polkadot/types": "^6.10.3",
+    "@polkadot/util": "^8.0.5",
+    "yargs": "^17.3.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.9",
+    "@types/node": "^16.11.11",
     "@types/yargs": "^17.0.7"
   }
 }
