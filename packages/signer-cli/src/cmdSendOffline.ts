@@ -7,7 +7,7 @@ import type { Index } from '@polkadot/types/interfaces';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
 import RawSigner from './RawSigner';
-import { getTx } from './util';
+import { getTx, mortalityOpts } from './util';
 
 export default async function cmdSendOffline (account: string, blocks: number | undefined, endpoint = '', nonce: number | undefined | Index, [tx, ...params]: string[]): Promise<void> {
   const provider = new WsProvider(endpoint);
@@ -28,14 +28,7 @@ export default async function cmdSendOffline (account: string, blocks: number | 
     options.blockHash = api.genesisHash;
     options.era = 0;
   } else {
-    // Get current block if we want to modify the number of blocks we have to sign
-    const signedBlock = await api.rpc.chain.getBlock();
-
-    options.blockHash = signedBlock.block.header.hash;
-    options.era = api.createType('ExtrinsicEra', {
-      current: signedBlock.block.header.number,
-      period: blocks
-    });
+    await mortalityOpts(api, options, blocks);
   }
 
   const transaction = getTx(api, tx)(...params);
