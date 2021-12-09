@@ -9,7 +9,7 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 import { stringify } from '@polkadot/util';
 
 import RawSigner from './RawSigner';
-import { getTx } from './util';
+import { getTx, mortalityOpts } from './util';
 
 function watchResult (result: ExtrinsicStatus | ISubmittableResult): void {
   console.log(stringify(result.toHuman(), 2));
@@ -33,14 +33,7 @@ export default async function cmdSubmit (account: string, blocks: number | undef
   if (blocks === 0) {
     options.era = 0;
   } else if (blocks != null) {
-    // Get current block if we want to modify the number of blocks we have to sign
-    const signedBlock = await api.rpc.chain.getBlock();
-
-    options.blockHash = signedBlock.block.header.hash;
-    options.era = api.createType('ExtrinsicEra', {
-      current: signedBlock.block.header.number,
-      period: blocks
-    });
+    await mortalityOpts(api, options, blocks);
   }
 
   await getTx(api, txName)(...params).signAndSend(account, options, watchResult);
