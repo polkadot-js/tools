@@ -179,16 +179,12 @@ async function getCallInfo (): Promise<CallInfo> {
 
   const rpc: ApiOptionsRpc = readFile(argv.rpc);
   const types: ApiOptionsTypes = readFile(argv.types);
-
   const provider = new WsProvider(ws);
   const api = await ApiPromise.create({ provider, rpc, types });
   const apiExt = (api as unknown) as ApiExt;
   const [type, section, method] = endpoint.split('.') as [keyof ApiExt, string, string];
 
-  assert(
-    ['consts', 'derive', 'query', 'rpc', 'tx'].includes(type),
-    `Expected one of consts, derive, query, rpc, tx, found ${type}`
-  );
+  assert(['consts', 'derive', 'query', 'rpc', 'tx'].includes(type), `Expected one of consts, derive, query, rpc, tx, found ${type}`);
   assert(apiExt[type][section], `Cannot find ${type}.${section}`);
   assert(apiExt[type][section][method], `Cannot find ${type}.${section}.${method}`);
 
@@ -215,7 +211,6 @@ async function getCallInfo (): Promise<CallInfo> {
 // retrieve consts
 function logConst ({ fn, log }: CallInfo): void {
   log(fn);
-
   process.exit(0);
 }
 
@@ -233,44 +228,35 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
 
   // Empty line at the end to make it pretty
   console.log();
-
   process.exit(0);
 }
 
 function isCrypto (type: string): type is KeypairType {
-  if (CRYPTO.includes(type)) {
-    return true;
-  }
-
-  return false;
+  return CRYPTO.includes(type);
 }
 
 // send a transaction
 async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash> {
   assert(seed, 'You need to specify an account seed with tx.*');
-  assert(CRYPTO.includes(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
+  assert(isCrypto(sign), `The crypto type can only be one of ${CRYPTO.join(', ')} found '${sign}'`);
 
   const keyring = new Keyring();
-  const auth = keyring.createFromUri(seed, {}, isCrypto(sign) ? sign : undefined);
+  const signer = keyring.createFromUri(seed, {}, sign);
   let signable;
 
   if (sudo || sudoUncheckedWeight) {
     const adminId = await api.query.sudo.key();
 
-    assert(adminId.eq(auth.address), 'Supplied seed does not match on-chain sudo key');
+    assert(adminId.eq(signer.address), 'Supplied seed does not match on-chain sudo key');
 
-    if (sudoUncheckedWeight) {
-      signable = api.tx.sudo.sudoUncheckedWeight(fn(...params), sudoUncheckedWeight);
-    } else {
-      signable = api.tx.sudo.sudo(fn(...params));
-    }
+    signable = sudoUncheckedWeight
+      ? api.tx.sudo.sudoUncheckedWeight(fn(...params), sudoUncheckedWeight)
+      : api.tx.sudo.sudo(fn(...params));
   } else {
     signable = fn(...params);
   }
 
-  const options = { assetId, tip };
-
-  return signable.signAndSend(auth, options, (result: SubmittableResult): void => {
+  return signable.signAndSend(signer, { assetId, tip }, (result: SubmittableResult): void => {
     log(result);
 
     if (noWait || result.isInBlock || result.isFinalized) {

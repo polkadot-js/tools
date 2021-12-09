@@ -4,6 +4,7 @@
 import yargs from 'yargs';
 
 import { hexMiddleware, jsonMiddleware, parseParams } from '@polkadot/api-cli/cli';
+import { assert } from '@polkadot/util';
 
 import cmdSendOffline from './cmdSendOffline';
 import cmdSign from './cmdSign';
@@ -76,19 +77,17 @@ const params = parseParams(paramsInline, paramsFile);
 // our main entry point - from here we call out
 // eslint-disable-next-line @typescript-eslint/require-await
 async function main (): Promise<void> {
-  if (command === 'sign') {
-    return cmdSign(account as string, seed || '', type as 'ed25519', params);
-  } else if (command === 'submit') {
-    const mortality = minutes != null ? minutes * ONE_MINUTE : blocks;
+  assert(['sign', 'submit', 'sendOffline'].includes(command), `Unknown command '${command}' found, expected one of 'sign', 'submit' or 'sendOffline'`);
 
-    return cmdSubmit(account as string, mortality, ws || '', tx, params);
-  } else if (command === 'sendOffline') {
-    const mortality = minutes != null ? minutes * ONE_MINUTE : blocks;
+  const mortality = minutes != null
+    ? minutes * ONE_MINUTE
+    : blocks;
 
-    return cmdSendOffline(account as string, mortality, ws || '', nonce, params);
-  }
-
-  throw new Error(`Unknown command '${command}' found, expected one of 'sign', 'submit' or 'sendOffline'`);
+  return command === 'sign'
+    ? cmdSign(account as string, seed, type as 'ed25519', params)
+    : command === 'submit'
+      ? cmdSubmit(account as string, mortality, ws, tx, params)
+      : cmdSendOffline(account as string, mortality, ws, nonce, params);
 }
 
 process.on('unhandledRejection', (error): void => {
