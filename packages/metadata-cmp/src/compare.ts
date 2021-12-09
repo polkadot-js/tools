@@ -16,6 +16,15 @@ type ArgV = { _: [string, string] };
 
 const [ws1, ws2] = (yargs.demandCommand(2).argv as unknown as ArgV)._;
 
+// configure padding
+const lvlInc = 14;
+const deltaInc = 4;
+const lvl1 = 20;
+const lvl2 = lvl1 + lvlInc;
+const lvl3 = lvl1 + 2 * lvlInc;
+const lvl5 = lvl1 + 4 * lvlInc;
+const chunkSize = 5;
+
 function chunk (array: string[], size: number): string[][] {
   const chunked = [];
   const copied = [...array];
@@ -43,13 +52,9 @@ function createCompare (a: string | number = '-', b: string | number = '-'): str
 }
 
 function logArray (pad: number, title: string, pre: string, arr: string[], chunkSize: number) {
-  if (arr.length) {
-    let first = true;
-
-    for (const ch of chunk(arr, chunkSize)) {
-      console.log(createLog(pad, first ? title : '', first ? pre : '', ch.join(', ')));
-      first = false;
-    }
+  for (const ch of chunk(arr, chunkSize)) {
+    console.log(createLog(pad, title, pre, ch.join(', ')));
+    title = pre = '';
   }
 }
 
@@ -87,15 +92,6 @@ async function main (): Promise<number> {
   const [[regA, metaA, verA], [regB, metaB, verB]] = await Promise.all([getMetadata(ws1), getMetadata(ws2)]);
   const a = metaA.asLatest;
   const b = metaB.asLatest;
-
-  // configure padding
-  const lvlInc = 14;
-  const deltaInc = 4;
-  const lvl1 = 20;
-  const lvl2 = lvl1 + lvlInc;
-  const lvl3 = lvl1 + 2 * lvlInc;
-  const lvl5 = lvl1 + 4 * lvlInc;
-  const chunkSize = 5;
 
   log(lvl1, 'Spec', 'name:', createCompare(verA.specName.toString(), verB.specName.toString()));
   log(lvl1, '', 'spec_version:', createCompare(verA.specVersion.toNumber(), verB.specVersion.toNumber()));
