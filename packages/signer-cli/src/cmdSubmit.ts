@@ -4,9 +4,10 @@
 import type { SignerOptions } from '@polkadot/api/submittable/types';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { assert, stringify } from '@polkadot/util';
+import { stringify } from '@polkadot/util';
 
 import RawSigner from './RawSigner';
+import { getTx } from './util';
 
 function submitPreSignedTx (api: ApiPromise, tx: string): void {
   const extrinsic = api.createType('Extrinsic', tx);
@@ -28,10 +29,6 @@ export default async function cmdSubmit (account: string, blocks: number | undef
     return submitPreSignedTx(api, tx);
   }
 
-  const [section, method] = txName.split('.');
-
-  assert(api.tx[section] && api.tx[section][method], `Unable to find method ${section}.${method}`);
-
   const options: Partial<SignerOptions> = { signer: new RawSigner() };
 
   if (blocks === 0) {
@@ -47,7 +44,7 @@ export default async function cmdSubmit (account: string, blocks: number | undef
     });
   }
 
-  await api.tx[section][method](...params).signAndSend(account, options, (result): void => {
+  await getTx(api, txName)(...params).signAndSend(account, options, (result): void => {
     console.log(stringify(result.toHuman(), 2));
 
     if (result.isInBlock || result.isFinalized) {
