@@ -158,37 +158,27 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
       type: 'string'
     }
   })
-  .argv;
+  .argv as Params;
 
-const { _: [endpoint, ...paramsInline], assetId, info, noWait, params: paramsFile, rpc, seed, sign, sub, sudo, sudoUncheckedWeight, tip, types, ws } = argv as unknown as Params;
+const { _: [endpoint, ...paramsInline], assetId, info, noWait, params: paramsFile, seed, sign, sub, sudo, sudoUncheckedWeight, tip, ws } = argv;
 const params = parseParams(paramsInline, paramsFile);
 
-function readTypes (): ApiOptionsTypes {
-  if (!types) {
-    return {};
+function readFile <T> (src: string): T {
+  if (!src) {
+    return {} as T;
   }
 
-  assert(fs.existsSync(types), `Unable to read .json file at ${types}`);
+  assert(fs.existsSync(src), `Unable to read .json file at ${src}`);
 
-  return JSON.parse(fs.readFileSync(types, 'utf8')) as ApiOptionsTypes;
-}
-
-function readRpc (): ApiOptionsRpc {
-  if (!rpc) {
-    return {};
-  }
-
-  assert(fs.existsSync(rpc), `Unable to read .json file at ${rpc}`);
-
-  return JSON.parse(fs.readFileSync(rpc, 'utf8')) as ApiOptionsRpc;
+  return JSON.parse(fs.readFileSync(src, 'utf8')) as T;
 }
 
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
-  const rpc: ApiOptionsRpc = readRpc();
-  const types: ApiOptionsTypes = readTypes();
+  const rpc: ApiOptionsRpc = readFile(argv.rpc);
+  const types: ApiOptionsTypes = readFile(argv.types);
 
   const provider = new WsProvider(ws);
   const api = await ApiPromise.create({ provider, rpc, types });
