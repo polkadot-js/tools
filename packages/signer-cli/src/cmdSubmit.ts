@@ -19,7 +19,7 @@ function watchResult (result: ExtrinsicStatus | ISubmittableResult): void {
   }
 }
 
-export default async function cmdSubmit (account: string, blocks: number | undefined, endpoint: string, tx: string | undefined, [txName, ...params]: string[]): Promise<void> {
+export default async function cmdSubmit (account: string, blocks: number | undefined, endpoint = '', tx: string | undefined, [txName, ...params]: string[]): Promise<void> {
   const api = await ApiPromise.create({ provider: new WsProvider(endpoint) });
 
   if (tx) {

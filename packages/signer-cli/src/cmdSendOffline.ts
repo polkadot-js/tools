@@ -9,7 +9,7 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 import RawSigner from './RawSigner';
 import { getTx } from './util';
 
-export default async function cmdSendOffline (account: string, blocks: number | undefined, endpoint: string, nonce: number | undefined | Index, [tx, ...params]: string[]): Promise<void> {
+export default async function cmdSendOffline (account: string, blocks: number | undefined, endpoint = '', nonce: number | undefined | Index, [tx, ...params]: string[]): Promise<void> {
   const provider = new WsProvider(endpoint);
   const api = await ApiPromise.create({ provider });
   const options: Partial<SignerOptions> = { signer: new RawSigner() };

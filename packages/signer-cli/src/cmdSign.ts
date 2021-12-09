@@ -44,7 +44,7 @@ function createSignature (pair: KeyringPair, payload: string): void {
   process.exit(0);
 }
 
-export default async function cmdSign (_: string, suri: string, type: Curves, [payload]: string[]): Promise<void> {
+export default async function cmdSign (_: string, suri = '', type: Curves, [payload]: string[]): Promise<void> {
   validateSeed(suri);
 
   await cryptoWaitReady();

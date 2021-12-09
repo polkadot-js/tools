@@ -84,10 +84,10 @@ async function main (): Promise<void> {
     : blocks;
 
   return command === 'sign'
-    ? cmdSign(account as string, seed || '', type as 'ed25519', params)
+    ? cmdSign(account as string, seed, type as 'ed25519', params)
     : command === 'submit'
-      ? cmdSubmit(account as string, mortality, ws || '', tx, params)
-      : cmdSendOffline(account as string, mortality, ws || '', nonce, params);
+      ? cmdSubmit(account as string, mortality, ws, tx, params)
+      : cmdSendOffline(account as string, mortality, ws, nonce, params);
 }
 
 process.on('unhandledRejection', (error): void => {
