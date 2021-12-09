@@ -2,30 +2,29 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { SignerOptions } from '@polkadot/api/submittable/types';
+import type { ExtrinsicStatus } from '@polkadot/types/interfaces';
+import type { ISubmittableResult } from '@polkadot/types/types';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { assert, stringify } from '@polkadot/util';
 
 import RawSigner from './RawSigner';
 
-function submitPreSignedTx (api: ApiPromise, tx: string): void {
-  const extrinsic = api.createType('Extrinsic', tx);
+function watchResult (result: ExtrinsicStatus | ISubmittableResult): void {
+  console.log(stringify(result.toHuman(), 2));
 
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  api.rpc.author.submitAndWatchExtrinsic(extrinsic, (result) => {
-    console.log(stringify(result.toHuman(), 2));
-
-    if (result.isInBlock || result.isFinalized) {
-      process.exit(0);
-    }
-  });
+  if (result.isInBlock || result.isFinalized) {
+    process.exit(0);
+  }
 }
 
 export default async function cmdSubmit (account: string, blocks: number | undefined, endpoint: string, tx: string | undefined, [txName, ...params]: string[]): Promise<void> {
   const api = await ApiPromise.create({ provider: new WsProvider(endpoint) });
 
   if (tx) {
-    return submitPreSignedTx(api, tx);
+    await api.rpc.author.submitAndWatchExtrinsic(api.createType('Extrinsic', tx), watchResult);
+
+    return;
   }
 
   const [section, method] = txName.split('.');
@@ -47,11 +46,5 @@ export default async function cmdSubmit (account: string, blocks: number | undef
     });
   }
 
-  await api.tx[section][method](...params).signAndSend(account, options, (result): void => {
-    console.log(stringify(result.toHuman(), 2));
-
-    if (result.isInBlock || result.isFinalized) {
-      process.exit(0);
-    }
-  });
+  await api.tx[section][method](...params).signAndSend(account, options, watchResult);
 }
