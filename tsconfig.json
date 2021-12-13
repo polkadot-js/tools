@@ -1,23 +1,10 @@
 {
-  "extends": "@polkadot/dev/config/tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "exclude": [
     "build/**/*",
     "**/build/**/*"
   ],
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@polkadot/api-cli": [ "packages/api-cli/src" ],
-      "@polkadot/api-cli/*": [ "packages/api-cli/src/*" ],
-      "@polkadot/json-serve": [ "packages/json-serve/src" ],
-      "@polkadot/json-serve/*": [ "packages/json-serve/src/*" ],
-      "@polkadot/metadata-cmp": [ "packages/metadata-cmp/src" ],
-      "@polkadot/metadata-cmp/*": [ "packages/metadata-cmp/src/*" ],
-      "@polkadot/monitor-rpc": [ "packages/monitor-rpc/src" ],
-      "@polkadot/monitor-rpc/*": [ "packages/monitor-rpc/src/*" ],
-      "@polkadot/signer-cli": [ "packages/signer-cli/src" ],
-      "@polkadot/signer-cli/*": [ "packages/signer-cli/src/*" ]
-    },
-    "skipLibCheck": true
+    "baseUrl": "./packages"
   }
 }
