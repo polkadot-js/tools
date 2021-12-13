@@ -1,0 +1,19 @@
+{
+  "extends": "@polkadot/dev/config/tsconfig.json",
+	"compilerOptions": {
+		"composite": true,
+		"paths": {
+      "@polkadot/api-cli": [ "api-cli/src" ],
+      "@polkadot/api-cli/*": [ "api-cli/src/*" ],
+      "@polkadot/json-serve": [ "json-serve/src" ],
+      "@polkadot/json-serve/*": [ "json-serve/src/*" ],
+      "@polkadot/metadata-cmp": [ "metadata-cmp/src" ],
+      "@polkadot/metadata-cmp/*": [ "metadata-cmp/src/*" ],
+      "@polkadot/monitor-rpc": [ "monitor-rpc/src" ],
+      "@polkadot/monitor-rpc/*": [ "monitor-rpc/src/*" ],
+      "@polkadot/signer-cli": [ "signer-cli/src" ],
+      "@polkadot/signer-cli/*": [ "signer-cli/src/*" ]
+    },
+    "skipLibCheck": true
+	}
+ }

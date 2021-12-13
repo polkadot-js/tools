@@ -15,8 +15,9 @@ tmp/
 .pnp.*
 cc-test-reporter
 lerna-debug.log*
-package-lock.json
 npm-debug.log*
+package-lock.json
+tsconfig.*buildinfo
 yarn-debug.log*
 yarn-error.log*
 --remove-*
