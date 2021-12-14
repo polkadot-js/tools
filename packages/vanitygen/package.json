@@ -19,9 +19,9 @@
     "polkadot-js-vanitygen": "./index.cjs"
   },
   "dependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/register": "^7.16.0",
-    "@babel/runtime": "^7.16.3",
+    "@babel/core": "^7.16.5",
+    "@babel/register": "^7.16.5",
+    "@babel/runtime": "^7.16.5",
     "@polkadot/util": "^8.1.2",
     "@polkadot/util-crypto": "^8.1.2",
     "yargs": "^17.3.0"
