@@ -1,15 +1,17 @@
 // Copyright 2018-2021 @polkadot/json-serve authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import '@polkadot/api-augment';
+
 import type { DeriveStakingElected } from '@polkadot/api-derive/types';
 import type { Balance, BlockNumber, Header } from '@polkadot/types/interfaces';
 
-import BN from 'bn.js';
 import Koa from 'koa';
 import koaRoute from 'koa-route';
 import yargs from 'yargs';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
+import { BN } from '@polkadot/util';
 
 type ArgV = { port: number; ws: string };
 
