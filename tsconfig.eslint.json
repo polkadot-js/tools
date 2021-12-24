@@ -3,6 +3,10 @@
   "compilerOptions": {
     "baseUrl": "./packages"
   },
-  "include": ["packages/**/src/**/*"],
-  "exclue": ["**/node_modules/**/*"]
+  "include": [
+    "packages/**/src/**/*"
+  ],
+  "exclude": [
+    "**/node_modules/**/*"
+  ]
 }
