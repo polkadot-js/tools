@@ -26,6 +26,7 @@
     "@polkadot/keyring": "^8.2.2",
     "@polkadot/types": "^7.0.3-7",
     "@polkadot/util": "^8.2.2",
+    "@polkadot/util-crypto": "^8.2.2",
     "yargs": "^17.3.1"
   },
   "devDependencies": {
