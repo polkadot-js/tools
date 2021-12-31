@@ -1,4 +1,4 @@
-// Copyright 2017-2021 @polkadot/vanitygen authors & contributors
+// Copyright 2017-2022 @polkadot/vanitygen authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { GeneratorMatch, GeneratorOptions } from './types';

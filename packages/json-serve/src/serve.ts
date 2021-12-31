@@ -1,4 +1,4 @@
-// Copyright 2018-2021 @polkadot/json-serve authors & contributors
+// Copyright 2018-2022 @polkadot/json-serve authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import '@polkadot/api-augment';

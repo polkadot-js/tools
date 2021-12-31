@@ -1,4 +1,4 @@
-// Copyright 2018-2021 @polkadot/signer-cli authors & contributors
+// Copyright 2018-2022 @polkadot/signer-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { KeyringPair } from '@polkadot/keyring/types';
