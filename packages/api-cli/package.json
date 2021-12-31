@@ -19,9 +19,9 @@
     "polkadot-js-api": "./index.cjs"
   },
   "dependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/register": "^7.16.5",
-    "@babel/runtime": "^7.16.5",
+    "@babel/core": "^7.16.7",
+    "@babel/register": "^7.16.7",
+    "@babel/runtime": "^7.16.7",
     "@polkadot/api": "^7.1.1",
     "@polkadot/keyring": "^8.2.2",
     "@polkadot/types": "^7.1.1",

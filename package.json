@@ -29,10 +29,10 @@
     "test": "echo \"no tests\""
   },
   "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/register": "^7.16.5",
-    "@babel/runtime": "^7.16.5",
-    "@polkadot/dev": "^0.64.22",
+    "@babel/core": "^7.16.7",
+    "@babel/register": "^7.16.7",
+    "@babel/runtime": "^7.16.7",
+    "@polkadot/dev": "^0.64.27",
     "@types/node": "^16.11.17",
     "@types/yargs": "^17.0.8"
   },
