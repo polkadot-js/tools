@@ -10,7 +10,7 @@
     "url": "https://github.com/polkadot-js/tools.git"
   },
   "sideEffects": false,
-  "version": "0.48.11-1",
+  "version": "0.48.11-2",
   "workspaces": [
     "packages/*"
   ],
