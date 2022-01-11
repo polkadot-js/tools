@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "composite": true
+  },
+  "files": [],
+  "references": [
+    { "path": "./packages/api-cli" },
+    { "path": "./packages/json-serve" },
+    { "path": "./packages/metadata-cmp" },
+    { "path": "./packages/monitor-rpc" },
+    { "path": "./packages/signer-cli" },
+    { "path": "./packages/vanitygen" }
+  ]
+}

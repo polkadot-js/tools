@@ -1,14 +1,13 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "composite": true
+    "baseUrl": "./packages",
+    "composite": false
   },
-  "files": [],
-  "references": [
-    { "path": "./packages/api-cli" },
-    { "path": "./packages/json-serve" },
-    { "path": "./packages/metadata-cmp" },
-    { "path": "./packages/monitor-rpc" },
-    { "path": "./packages/signer-cli" },
-    { "path": "./packages/vanitygen" }
+  "include": [
+    "packages/**/src/**/*"
+  ],
+  "exclude": [
+    "**/node_modules/**/*"
   ]
 }
