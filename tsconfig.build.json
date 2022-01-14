@@ -4,23 +4,11 @@
   },
   "files": [],
   "references": [
-    {
-      "path": "./packages/api-cli/tsconfig.build.json"
-    },
-    {
-      "path": "./packages/json-serve/tsconfig.build.json"
-    },
-    {
-      "path": "./packages/metadata-cmp/tsconfig.build.json"
-    },
-    {
-      "path": "./packages/monitor-rpc/tsconfig.build.json"
-    },
-    {
-      "path": "./packages/signer-cli/tsconfig.build.json"
-    },
-    {
-      "path": "./packages/vanitygen/tsconfig.build.json"
-    }
+    { "path": "./packages/api-cli/tsconfig.build.json" },
+    { "path": "./packages/json-serve/tsconfig.build.json" },
+    { "path": "./packages/metadata-cmp/tsconfig.build.json" },
+    { "path": "./packages/monitor-rpc/tsconfig.build.json" },
+    { "path": "./packages/signer-cli/tsconfig.build.json" },
+    { "path": "./packages/vanitygen/tsconfig.build.json" }
   ]
 }
