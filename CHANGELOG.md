@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## master
+
+Changes:
+
+- Adjust error messages for not-exposed pallets and methods
+
+
 ## 0.48.13 Jan 23, 2022
 
 Changes:
