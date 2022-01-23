@@ -163,6 +163,8 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
 const { _: [endpoint, ...paramsInline], assetId, info, noWait, params: paramsFile, seed, sign, sub, sudo, sudoUncheckedWeight, tip, ws } = argv;
 const params = parseParams(paramsInline, paramsFile);
 
+const ALLOWED = ['consts', 'derive', 'query', 'rpc', 'tx'];
+
 function readFile <T> (src: string): T {
   if (!src) {
     return {} as T;
@@ -184,9 +186,9 @@ async function getCallInfo (): Promise<CallInfo> {
   const apiExt = (api as unknown) as ApiExt;
   const [type, section, method] = endpoint.split('.') as [keyof ApiExt, string, string];
 
-  assert(['consts', 'derive', 'query', 'rpc', 'tx'].includes(type), `Expected one of consts, derive, query, rpc, tx, found ${type}`);
-  assert(apiExt[type][section], `Cannot find ${type}.${section}`);
-  assert(apiExt[type][section][method], `Cannot find ${type}.${section}.${method}`);
+  assert(ALLOWED.includes(type), `Expected one of ${ALLOWED.join(', ')}, found ${type}`);
+  assert(apiExt[type][section], `Cannot find ${type}.${section}, your chain does not have the ${section} pallet exposed in the runtime`);
+  assert(apiExt[type][section][method], `Cannot find ${type}.${section}.${method}, your chain doesn't have the ${method} exposed in the ${section} pallet`);
 
   const fn = apiExt[type][section][method];
 
