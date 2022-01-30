@@ -1,10 +1,11 @@
 # CHANGELOG
 
-## master
+## 0.49.1 Jan 30, 2022
 
 Changes:
 
 - Adjust error messages for not-exposed pallets and methods
+- Updated to `@polkadot/api` 7.6.1
 
 
 ## 0.48.13 Jan 23, 2022
