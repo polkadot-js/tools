@@ -1,4 +1,4 @@
-     320	Jaco                          	Adjust error messages for not-exposed pallets and methods (#333)
+     321	Jaco                          	0.49.1 (#334)
        5	Peter Goodspeed-Niklaus       	Disable yargs behavior to optimistically parse number-seeming arguments (#108)
        3	Alexander Popiak              	add more spec diffing to the metadata comparison (#284)
        3	Bison Brandon                 	Signing-CLI: Add missing special case for immortal transactions (#62)
