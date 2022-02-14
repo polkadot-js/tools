@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       YARN_ENABLE_SCRIPTS: false
-       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+      DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
     steps:
     - uses: actions/checkout@v2
     - name: docker
