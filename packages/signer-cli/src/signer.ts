@@ -56,7 +56,7 @@ const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: 
       type: 'string'
     },
     type: {
-      choices: ['ed25519', 'sr25519'],
+      choices: ['ed25519', 'sr25519', 'ecdsa'],
       default: 'sr25519',
       description: 'The account crypto signature to use (sign only)',
       type: 'string'
