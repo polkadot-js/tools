@@ -9,7 +9,7 @@ import { Keyring } from '@polkadot/keyring';
 import { assert, hexToU8a, isHex, u8aToHex } from '@polkadot/util';
 import { cryptoWaitReady, keyExtractSuri, mnemonicValidate } from '@polkadot/util-crypto';
 
-type Curves = 'ed25519' | 'sr25519';
+type Curves = 'ed25519' | 'sr25519' | 'ecdsa';
 
 const SEED_LENGTHS = [12, 15, 18, 21, 24];
 
