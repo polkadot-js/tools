@@ -12,5 +12,6 @@
        1	Dmitry Selikhov               	Add RPC types (#271)
        1	Foy Savas                     	add support for sudoUncheckedWeight (#262)
        1	Keith Ingram                  	Allow passing tx params in file (#91)
+       1	Nathan Whitaker               	Accept ecdsa signatures in signer (#344)
        1	Pierre Besson                 	add example to explicit the automatic parsing of JSON arguments by the CLI fix fix #275 (#276)
        1	Stefanie Doll                 	Add support for v4 metadata (#23)
