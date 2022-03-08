@@ -1,6 +1,21 @@
 # CHANGELOG
 
+## 0.50.2 Mar 8, 2022
+
+Contributed:
+
+- Allow for ecdsa signatures in api cli (Thanks to https://github.com/nathanwhit)
+
+Changes:
+
+- Really bump to latest api (resolution fix)
+
+
 ## 0.50.1 Mar 7, 2022
+
+Contributed:
+
+- Allow for ecdsa signatures in signer cli (Thanks to https://github.com/nathanwhit)
 
 Changes:
 
