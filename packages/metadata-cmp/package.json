@@ -19,17 +19,17 @@
     "polkadot-js-metadata-cmp": "./index.cjs"
   },
   "dependencies": {
-    "@babel/core": "^7.17.7",
+    "@babel/core": "^7.17.8",
     "@babel/register": "^7.17.7",
-    "@babel/runtime": "^7.17.7",
+    "@babel/runtime": "^7.17.8",
     "@polkadot/api": "^7.13.1",
     "@polkadot/keyring": "^8.6.1",
     "@polkadot/types": "^7.13.1",
     "@polkadot/util": "^8.6.1",
-    "yargs": "^17.3.1"
+    "yargs": "^17.4.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.21",
-    "@types/yargs": "^17.0.9"
+    "@types/node": "^17.0.22",
+    "@types/yargs": "^17.0.10"
   }
 }
