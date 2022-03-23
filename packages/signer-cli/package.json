@@ -13,7 +13,7 @@
     "url": "https://github.com/polkadot-js/tools.git"
   },
   "sideEffects": false,
-  "version": "0.50.4",
+  "version": "0.50.5-0",
   "main": "index.cjs",
   "bin": {
     "polkadot-js-signer": "./index.cjs"
@@ -23,7 +23,7 @@
     "@babel/register": "^7.17.7",
     "@babel/runtime": "^7.17.8",
     "@polkadot/api": "^7.13.1",
-    "@polkadot/api-cli": "^0.50.4",
+    "@polkadot/api-cli": "^0.50.5-0",
     "@polkadot/keyring": "^8.6.1",
     "@polkadot/types": "^7.13.1",
     "@polkadot/util": "^8.6.1",
