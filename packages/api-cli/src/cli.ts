@@ -17,7 +17,7 @@ function asJson (_param: string | number): string {
   }
 }
 
-export function hexMiddleware (argv: ArgV): ArgV {
+export function hexMiddleware (argv: ArgV): void {
   // a parameter whose initial character is @ treated as a path and replaced
   // with the hexadecimal representation of the binary contents of that file
   argv._ = argv._.map((_param) => {
@@ -33,14 +33,10 @@ export function hexMiddleware (argv: ArgV): ArgV {
 
     return param;
   });
-
-  return argv;
 }
 
-export function jsonMiddleware (argv: ArgV): ArgV {
+export function jsonMiddleware (argv: ArgV): void {
   argv._ = argv._.map(asJson);
-
-  return argv;
 }
 
 export function parseParams (inline: string[], file?: string): string[] {
