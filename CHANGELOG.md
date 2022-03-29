@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.50.6 Mar 29, 2022
+
+Changes:
+
+- Updated to `@polkadot/api` 7.14.3 (fix CJS environment)
+
+
 ## 0.50.5 Mar 27, 2022
 
 Changes:
