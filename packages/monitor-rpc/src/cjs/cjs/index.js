@@ -7,9 +7,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const [compiled] = ['./monitor.cjs']
-  .map((file) => path.join(__dirname, file))
-  .filter((file) => fs.existsSync(file));
+const [compiled] = ['../runcli.js']
+  .map((f) => path.join(__dirname, f))
+  .filter((f) => fs.existsSync(f));
 
 if (compiled) {
   require(compiled);
@@ -23,5 +23,5 @@ if (compiled) {
       }]
     ]
   });
-  require('./monitor');
+  require('../../runcli');
 }

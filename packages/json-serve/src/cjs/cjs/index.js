@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Copyright 2018-2022 @polkadot/api-cli authors & contributors
+// Copyright 2018-2022 @polkadot/json-serve authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 /* eslint-disable header/header */
@@ -7,9 +7,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const [compiled] = ['./vanitygen.cjs']
-  .map((file) => path.join(__dirname, file))
-  .filter((file) => fs.existsSync(file));
+const [compiled] = ['../runcli.js']
+  .map((f) => path.join(__dirname, f))
+  .filter((f) => fs.existsSync(f));
 
 if (compiled) {
   require(compiled);
@@ -23,5 +23,5 @@ if (compiled) {
       }]
     ]
   });
-  require('./vanitygen');
+  require('../../runcli');
 }
