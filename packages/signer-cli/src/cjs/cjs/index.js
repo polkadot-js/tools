@@ -8,8 +8,8 @@ const fs = require('fs');
 const path = require('path');
 
 const [compiled] = ['../runcli.js']
-  .map((file) => path.join(__dirname, file))
-  .filter((file) => fs.existsSync(file));
+  .map((f) => path.join(__dirname, f))
+  .filter((f) => fs.existsSync(f));
 
 if (compiled) {
   require(compiled);
