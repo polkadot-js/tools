@@ -7,7 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const [compiled] = ['../monitor.js']
+const [compiled] = ['../runcli.js']
   .map((file) => path.join(__dirname, file))
   .filter((file) => fs.existsSync(file));
 
@@ -23,5 +23,5 @@ if (compiled) {
       }]
     ]
   });
-  require('../../monitor');
+  require('../../runcli');
 }

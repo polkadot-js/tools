@@ -7,7 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const [compiled] = ['../signer.js']
+const [compiled] = ['../runcli.js']
   .map((file) => path.join(__dirname, file))
   .filter((file) => fs.existsSync(file));
 
@@ -28,5 +28,5 @@ if (compiled) {
       }]
     ]
   });
-  require('../../signer');
+  require('../../runcli');
 }
