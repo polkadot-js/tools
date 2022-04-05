@@ -16,7 +16,7 @@
   "version": "0.50.7",
   "main": "index.js",
   "bin": {
-    "polkadot-js-monitor": "./cjs/index.js"
+    "polkadot-js-monitor": "./cjs/cjs/index.js"
   },
   "dependencies": {
     "@babel/core": "^7.17.8",
