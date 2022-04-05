@@ -7,7 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const [compiled] = ['./signer.cjs']
+const [compiled] = ['../signer.js']
   .map((file) => path.join(__dirname, file))
   .filter((file) => fs.existsSync(file));
 
@@ -28,5 +28,5 @@ if (compiled) {
       }]
     ]
   });
-  require('./signer');
+  require('../../signer');
 }

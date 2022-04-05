@@ -14,17 +14,17 @@
   },
   "sideEffects": false,
   "version": "0.50.7",
-  "main": "index.cjs",
+  "main": "index.js",
   "bin": {
-    "polkadot-js-monitor": "./index.cjs"
+    "polkadot-js-monitor": "./cjs/index.js"
   },
   "dependencies": {
     "@babel/core": "^7.17.8",
     "@babel/register": "^7.17.7",
     "@babel/runtime": "^7.17.8",
-    "@polkadot/api": "^7.15.1",
-    "@polkadot/types": "^7.15.1",
-    "@polkadot/util": "^8.7.1",
+    "@polkadot/api": "^7.15.2-0",
+    "@polkadot/types": "^7.15.2-0",
+    "@polkadot/util": "^8.7.2-1",
     "koa": "^2.13.4",
     "koa-route": "^3.2.0",
     "yargs": "^17.4.0"
