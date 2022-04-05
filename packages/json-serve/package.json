@@ -13,7 +13,7 @@
     "url": "https://github.com/polkadot-js/tools.git"
   },
   "sideEffects": false,
-  "version": "0.50.7",
+  "version": "0.50.8-0",
   "main": "index.js",
   "bin": {
     "polkadot-js-json-serve": "./cjs/cjs/index.js"
