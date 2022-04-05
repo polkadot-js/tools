@@ -1946,7 +1946,7 @@ __metadata:
     "@types/yargs": ^17.0.10
     yargs: ^17.4.0
   bin:
-    polkadot-js-api: ./index.cjs
+    polkadot-js-api: ./cjs/index.js
   languageName: unknown
   linkType: soft
 
@@ -2105,7 +2105,7 @@ __metadata:
     koa-route: ^3.2.0
     yargs: ^17.4.0
   bin:
-    polkadot-js-json-serve: ./index.cjs
+    polkadot-js-json-serve: ./cjs/index.js
   languageName: unknown
   linkType: soft
 
@@ -2138,7 +2138,7 @@ __metadata:
     "@types/yargs": ^17.0.10
     yargs: ^17.4.0
   bin:
-    polkadot-js-metadata-cmp: ./index.cjs
+    polkadot-js-metadata-cmp: ./cjs/index.js
   languageName: unknown
   linkType: soft
 
@@ -2160,7 +2160,7 @@ __metadata:
     koa-route: ^3.2.0
     yargs: ^17.4.0
   bin:
-    polkadot-js-monitor: ./index.cjs
+    polkadot-js-monitor: ./cjs/index.js
   languageName: unknown
   linkType: soft
 
@@ -2240,7 +2240,7 @@ __metadata:
     "@types/yargs": ^17.0.10
     yargs: ^17.4.0
   bin:
-    polkadot-js-signer: ./index.cjs
+    polkadot-js-signer: ./cjs/index.js
   languageName: unknown
   linkType: soft
 
@@ -2367,7 +2367,7 @@ __metadata:
     "@types/yargs": ^17.0.10
     yargs: ^17.4.0
   bin:
-    polkadot-js-vanitygen: ./index.cjs
+    polkadot-js-vanitygen: ./cjs/index.js
   languageName: unknown
   linkType: soft
 
