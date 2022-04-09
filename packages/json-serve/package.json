@@ -19,9 +19,9 @@
     "polkadot-js-json-serve": "./cjs/cjs/index.js"
   },
   "dependencies": {
-    "@babel/core": "^7.17.8",
+    "@babel/core": "^7.17.9",
     "@babel/register": "^7.17.7",
-    "@babel/runtime": "^7.17.8",
+    "@babel/runtime": "^7.17.9",
     "@polkadot/api": "^7.15.2-14",
     "@polkadot/api-augment": "^7.15.2-14",
     "@polkadot/api-derive": "^7.15.2-14",

@@ -19,9 +19,9 @@
     "polkadot-js-metadata-cmp": "./cjs/cjs/index.js"
   },
   "dependencies": {
-    "@babel/core": "^7.17.8",
+    "@babel/core": "^7.17.9",
     "@babel/register": "^7.17.7",
-    "@babel/runtime": "^7.17.8",
+    "@babel/runtime": "^7.17.9",
     "@polkadot/api": "^7.15.2-14",
     "@polkadot/keyring": "^9.0.1",
     "@polkadot/types": "^7.15.2-14",

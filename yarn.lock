@@ -58,7 +58,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.17.8, @babel/core@npm:^7.17.9, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.17.9, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
   version: 7.17.9
   resolution: "@babel/core@npm:7.17.9"
   dependencies:
@@ -1376,7 +1376,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.17.9, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.17.9, @babel/runtime@npm:^7.8.4":
   version: 7.17.9
   resolution: "@babel/runtime@npm:7.17.9"
   dependencies:
@@ -1924,9 +1924,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/api-cli@workspace:packages/api-cli"
   dependencies:
-    "@babel/core": ^7.17.8
+    "@babel/core": ^7.17.9
     "@babel/register": ^7.17.7
-    "@babel/runtime": ^7.17.8
+    "@babel/runtime": ^7.17.9
     "@polkadot/api": ^7.15.2-14
     "@polkadot/keyring": ^9.0.1
     "@polkadot/types": ^7.15.2-14
@@ -2079,9 +2079,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/json-serve@workspace:packages/json-serve"
   dependencies:
-    "@babel/core": ^7.17.8
+    "@babel/core": ^7.17.9
     "@babel/register": ^7.17.7
-    "@babel/runtime": ^7.17.8
+    "@babel/runtime": ^7.17.9
     "@polkadot/api": ^7.15.2-14
     "@polkadot/api-augment": ^7.15.2-14
     "@polkadot/api-derive": ^7.15.2-14
@@ -2117,9 +2117,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/metadata-cmp@workspace:packages/metadata-cmp"
   dependencies:
-    "@babel/core": ^7.17.8
+    "@babel/core": ^7.17.9
     "@babel/register": ^7.17.7
-    "@babel/runtime": ^7.17.8
+    "@babel/runtime": ^7.17.9
     "@polkadot/api": ^7.15.2-14
     "@polkadot/keyring": ^9.0.1
     "@polkadot/types": ^7.15.2-14
@@ -2136,9 +2136,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/monitor-rpc@workspace:packages/monitor-rpc"
   dependencies:
-    "@babel/core": ^7.17.8
+    "@babel/core": ^7.17.9
     "@babel/register": ^7.17.7
-    "@babel/runtime": ^7.17.8
+    "@babel/runtime": ^7.17.9
     "@polkadot/api": ^7.15.2-14
     "@polkadot/types": ^7.15.2-14
     "@polkadot/util": ^9.0.1
@@ -2217,9 +2217,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/signer-cli@workspace:packages/signer-cli"
   dependencies:
-    "@babel/core": ^7.17.8
+    "@babel/core": ^7.17.9
     "@babel/register": ^7.17.7
-    "@babel/runtime": ^7.17.8
+    "@babel/runtime": ^7.17.9
     "@polkadot/api": ^7.15.2-14
     "@polkadot/api-cli": ^0.50.8-1
     "@polkadot/keyring": ^9.0.1
@@ -2348,9 +2348,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/vanitygen@workspace:packages/vanitygen"
   dependencies:
-    "@babel/core": ^7.17.8
+    "@babel/core": ^7.17.9
     "@babel/register": ^7.17.7
-    "@babel/runtime": ^7.17.8
+    "@babel/runtime": ^7.17.9
     "@polkadot/util": ^9.0.1
     "@polkadot/util-crypto": ^9.0.1
     "@types/node": ^17.0.23
@@ -9437,9 +9437,9 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@babel/core": ^7.17.8
+    "@babel/core": ^7.17.9
     "@babel/register": ^7.17.7
-    "@babel/runtime": ^7.17.8
+    "@babel/runtime": ^7.17.9
     "@polkadot/dev": ^0.66.1
     "@types/node": ^17.0.23
     "@types/yargs": ^17.0.10
