@@ -19,14 +19,14 @@
     "polkadot-js-api": "./cjs/cjs/index.js"
   },
   "dependencies": {
-    "@babel/core": "^7.17.8",
+    "@babel/core": "^7.17.9",
     "@babel/register": "^7.17.7",
-    "@babel/runtime": "^7.17.8",
-    "@polkadot/api": "^7.15.2-2",
-    "@polkadot/keyring": "^8.7.2-3",
-    "@polkadot/types": "^7.15.2-2",
-    "@polkadot/util": "^8.7.2-3",
-    "@polkadot/util-crypto": "^8.7.2-3",
+    "@babel/runtime": "^7.17.9",
+    "@polkadot/api": "^7.15.2-14",
+    "@polkadot/keyring": "^9.0.1",
+    "@polkadot/types": "^7.15.2-14",
+    "@polkadot/util": "^9.0.1",
+    "@polkadot/util-crypto": "^9.0.1",
     "yargs": "^17.4.0"
   },
   "devDependencies": {
