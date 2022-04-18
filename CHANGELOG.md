@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.51.2 Apr 18, 2022
+
+Changes:
+
+- Updated to `@polkadot/api` 8.1.1
+
+
 ## 0.51.1 Apr 10, 2022
 
 - **Breaking change** In this version the commonjs outputs are moved to a sub-folder. Since the export map and main field in package.json does reflect this change, there should be no usage changes. However the packages here will all need to be on the same version for internal linkage.
