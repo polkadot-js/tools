@@ -8,7 +8,7 @@ import yargs from 'yargs';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { expandMetadata, Metadata } from '@polkadot/types';
-import { getSiName } from '@polkadot/types/metadata/util/index';
+import { getSiName } from '@polkadot/types/metadata/util';
 import { unwrapStorageType } from '@polkadot/types/primitive/StorageKey';
 import { assert, stringCamelCase } from '@polkadot/util';
 
