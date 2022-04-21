@@ -1,6 +1,7 @@
 // Copyright 2018-2022 @polkadot/api-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import type { ApiOptions, SignerOptions } from '@polkadot/api/types';
 import type { KeyringPair } from '@polkadot/keyring/types';
 import type { Hash } from '@polkadot/types/interfaces';
 import type { CallFunction, Codec } from '@polkadot/types/types';
@@ -10,7 +11,6 @@ import fs from 'fs';
 import yargs from 'yargs';
 
 import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
-import { ApiOptions, SignerOptions } from '@polkadot/api/types';
 import { Keyring } from '@polkadot/keyring';
 import { assert, isFunction, stringify } from '@polkadot/util';
 
