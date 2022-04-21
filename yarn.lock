@@ -1932,7 +1932,7 @@ __metadata:
     "@polkadot/types": ^8.1.1
     "@polkadot/util": ^9.0.1
     "@polkadot/util-crypto": ^9.0.1
-    "@types/node": ^17.0.24
+    "@types/node": ^17.0.25
     "@types/yargs": ^17.0.10
     yargs: ^17.4.1
   bin:
@@ -1983,9 +1983,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/dev@npm:^0.66.5":
-  version: 0.66.5
-  resolution: "@polkadot/dev@npm:0.66.5"
+"@polkadot/dev@npm:^0.66.6":
+  version: 0.66.6
+  resolution: "@polkadot/dev@npm:0.66.6"
   dependencies:
     "@babel/cli": ^7.17.6
     "@babel/core": ^7.17.9
@@ -2071,7 +2071,7 @@ __metadata:
     polkadot-exec-rollup: scripts/polkadot-exec-rollup.mjs
     polkadot-exec-tsc: scripts/polkadot-exec-tsc.mjs
     polkadot-exec-webpack: scripts/polkadot-exec-webpack.mjs
-  checksum: 18980f70bc4d59c682042d0c83a39330c3f891eaaf0b87f9b213c8ae7fdbe90130ae13ed7131db92e6ccfc927fa9e8d0eebfc0799e66e1184a1629ee33e48d18
+  checksum: f0c3e8f0f7fee6e7f0b5f5b925605bf23764ad0cb6970216ba5066bb944a73aa460bb136d697e1786716f17f810a76ffe6620bda6bd7a94d1485787b03e82ee8
   languageName: node
   linkType: hard
 
@@ -2089,7 +2089,7 @@ __metadata:
     "@polkadot/util": ^9.0.1
     "@types/koa": ^2.13.4
     "@types/koa-route": ^3.2.5
-    "@types/node": ^17.0.24
+    "@types/node": ^17.0.25
     "@types/yargs": ^17.0.10
     koa: ^2.13.4
     koa-route: ^3.2.0
@@ -2124,7 +2124,7 @@ __metadata:
     "@polkadot/keyring": ^9.0.1
     "@polkadot/types": ^8.1.1
     "@polkadot/util": ^9.0.1
-    "@types/node": ^17.0.24
+    "@types/node": ^17.0.25
     "@types/yargs": ^17.0.10
     yargs: ^17.4.1
   bin:
@@ -2144,7 +2144,7 @@ __metadata:
     "@polkadot/util": ^9.0.1
     "@types/koa": ^2.13.4
     "@types/koa-route": ^3.2.5
-    "@types/node": ^17.0.24
+    "@types/node": ^17.0.25
     "@types/yargs": ^17.0.10
     koa: ^2.13.4
     koa-route: ^3.2.0
@@ -2226,7 +2226,7 @@ __metadata:
     "@polkadot/types": ^8.1.1
     "@polkadot/util": ^9.0.1
     "@polkadot/util-crypto": ^9.0.1
-    "@types/node": ^17.0.24
+    "@types/node": ^17.0.25
     "@types/yargs": ^17.0.10
     yargs: ^17.4.1
   bin:
@@ -2353,7 +2353,7 @@ __metadata:
     "@babel/runtime": ^7.17.9
     "@polkadot/util": ^9.0.1
     "@polkadot/util-crypto": ^9.0.1
-    "@types/node": ^17.0.24
+    "@types/node": ^17.0.25
     "@types/yargs": ^17.0.10
     yargs: ^17.4.1
   bin:
@@ -2906,10 +2906,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^17.0.24":
-  version: 17.0.24
-  resolution: "@types/node@npm:17.0.24"
-  checksum: 9e7c4f863601b2430b4c2429a89935f22eba692956f5013c90a4c7fb0e1401ed8add8c4307453c5d6b8b985384500f8c3f644427ab88632640cc396159af479a
+"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^17.0.25":
+  version: 17.0.25
+  resolution: "@types/node@npm:17.0.25"
+  checksum: 6a820bd624e69ea772f52a6cdb326484eff5829443dc981939373929ade109f58c21698b9f0a831bd6ceea799e722a75dc49c5fa7a6bc32a81e1cbdfc6507b64
   languageName: node
   linkType: hard
 
@@ -9454,8 +9454,8 @@ resolve@^2.0.0-next.3:
     "@babel/core": ^7.17.9
     "@babel/register": ^7.17.7
     "@babel/runtime": ^7.17.9
-    "@polkadot/dev": ^0.66.5
-    "@types/node": ^17.0.24
+    "@polkadot/dev": ^0.66.6
+    "@types/node": ^17.0.25
     "@types/yargs": ^17.0.10
   languageName: unknown
   linkType: soft
