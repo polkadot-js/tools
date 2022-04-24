@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.51.3 Apr 24, 2022
+
+Changes:
+
+- Fix metadata-cmp import location for `creatSiName`
+- Updated to `@polkadot/api` 8.2.1
+
+
 ## 0.51.2 Apr 18, 2022
 
 Changes:
