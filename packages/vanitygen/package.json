@@ -13,7 +13,7 @@
     "url": "https://github.com/polkadot-js/tools.git"
   },
   "sideEffects": false,
-  "version": "0.51.4",
+  "version": "0.51.5",
   "main": "index.js",
   "bin": {
     "polkadot-js-vanitygen": "./cjs/cjs/index.js"
@@ -27,7 +27,7 @@
     "yargs": "^17.4.1"
   },
   "devDependencies": {
-    "@types/node": "^17.0.30",
+    "@types/node": "^17.0.31",
     "@types/yargs": "^17.0.10"
   }
 }
