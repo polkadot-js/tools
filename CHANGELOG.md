@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.51.8 May 30, 2022
+
+Changes:
+
+- Upgrade to `@polkadot/api` 8.6.1
+- Upgrade to `@polkadot/util` 9.3.1
+
+
 ## 0.51.7 May 22, 2022
 
 Changes:
@@ -12,7 +20,7 @@ Changes:
 Changes:
 
 - Upgrade to `@polkadot/api` 8.4.1
-- Updated to `@polkadot/util` 9.2.1
+- Upgrade to `@polkadot/util` 9.2.1
 
 
 ## 0.51.5 May 9, 2022
@@ -27,7 +35,7 @@ Changes:
 Changes:
 
 - Upgrade to `@polkadot/api` 8.3.1
-- Updated to `@polkadot/util` 9.1.1
+- Upgrade to `@polkadot/util` 9.1.1
 
 
 ## 0.51.3 Apr 24, 2022
@@ -53,7 +61,7 @@ Changes:
 
 - Output commonjs files under the `cjs/**` root
 - Upgrade to `@polkadot/api` 8.0.1
-- Updated to `@polkadot/util` 9.0.1
+- Upgrade to `@polkadot/util` 9.0.1
 
 
 ## 0.50.7 Apr 3, 2022
