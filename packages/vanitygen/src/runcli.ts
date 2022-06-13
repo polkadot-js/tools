@@ -5,7 +5,7 @@
 import type { KeypairType } from '@polkadot/util-crypto/types';
 import type { GeneratorOptions } from './types';
 
-import yargs from 'yargs';
+import * as yargs from 'yargs';
 
 import { u8aToHex } from '@polkadot/util';
 import { cryptoWaitReady } from '@polkadot/util-crypto';

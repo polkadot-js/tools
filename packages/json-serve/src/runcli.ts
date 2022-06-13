@@ -6,9 +6,9 @@ import '@polkadot/api-augment';
 import type { DeriveStakingElected } from '@polkadot/api-derive/types';
 import type { Balance, BlockNumber, Header } from '@polkadot/types/interfaces';
 
-import Koa from 'koa';
-import koaRoute from 'koa-route';
-import yargs from 'yargs';
+import * as Koa from 'koa';
+import * as koaRoute from 'koa-route';
+import * as yargs from 'yargs';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { BN } from '@polkadot/util';

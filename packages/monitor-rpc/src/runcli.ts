@@ -3,9 +3,9 @@
 
 import type { BlockNumber, Header } from '@polkadot/types/interfaces';
 
-import Koa from 'koa';
-import koaRoute from 'koa-route';
-import yargs from 'yargs';
+import * as Koa from 'koa';
+import * as koaRoute from 'koa-route';
+import * as yargs from 'yargs';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 

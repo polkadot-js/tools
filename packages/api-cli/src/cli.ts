@@ -3,7 +3,7 @@
 
 import type { ArgV } from './types';
 
-import fs from 'fs';
+import * as fs from 'fs';
 
 import { assert } from '@polkadot/util';
 

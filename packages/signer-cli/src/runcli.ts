@@ -1,7 +1,7 @@
 // Copyright 2018-2022 @polkadot/signer-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import yargs from 'yargs';
+import * as yargs from 'yargs';
 
 import { hexMiddleware, jsonMiddleware, parseParams } from '@polkadot/api-cli/cli';
 import { assert } from '@polkadot/util';
