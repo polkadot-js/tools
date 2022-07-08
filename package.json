@@ -9,9 +9,9 @@
     "type": "git",
     "url": "https://github.com/polkadot-js/tools.git"
   },
-  "type": "module",
   "sideEffects": false,
-  "version": "0.51.15-0-x",
+  "type": "module",
+  "version": "0.51.15-1-x",
   "workspaces": [
     "packages/*"
   ],
