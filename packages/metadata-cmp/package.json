@@ -22,10 +22,10 @@
     "@babel/core": "^7.18.6",
     "@babel/register": "^7.18.6",
     "@babel/runtime": "^7.18.6",
-    "@polkadot/api": "^8.12.1",
-    "@polkadot/keyring": "^10.0.1",
-    "@polkadot/types": "^8.12.1",
-    "@polkadot/util": "^10.0.1",
+    "@polkadot/api": "^8.12.2",
+    "@polkadot/keyring": "^10.0.2",
+    "@polkadot/types": "^8.12.2",
+    "@polkadot/util": "^10.0.2",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
