@@ -26,7 +26,7 @@
     "@polkadot/api-augment": "^8.12.1",
     "@polkadot/api-derive": "^8.12.1",
     "@polkadot/types": "^8.12.1",
-    "@polkadot/util": "^10.0.1",
+    "@polkadot/util": "^10.0.2",
     "koa": "^2.13.4",
     "koa-route": "^3.2.0",
     "yargs": "^17.5.1"
