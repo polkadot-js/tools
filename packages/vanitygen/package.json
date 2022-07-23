@@ -13,21 +13,21 @@
     "url": "https://github.com/polkadot-js/tools.git"
   },
   "sideEffects": false,
-  "version": "0.51.16",
+  "version": "0.51.17",
   "main": "index.js",
   "bin": {
     "polkadot-js-vanitygen": "./cjs/cjs/index.js"
   },
   "dependencies": {
-    "@babel/core": "^7.18.6",
-    "@babel/register": "^7.18.6",
-    "@babel/runtime": "^7.18.6",
-    "@polkadot/util": "^10.0.2",
-    "@polkadot/util-crypto": "^10.0.2",
+    "@babel/core": "^7.18.9",
+    "@babel/register": "^7.18.9",
+    "@babel/runtime": "^7.18.9",
+    "@polkadot/util": "^10.1.1",
+    "@polkadot/util-crypto": "^10.1.1",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "@types/node": "^18.0.3",
+    "@types/node": "^18.0.6",
     "@types/yargs": "^17.0.10"
   }
 }
