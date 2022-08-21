@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.52.4 Aug 21, 2022
+
+Changes:
+
+- Upgrade to `@polkadot/api` 9.2.3
+- Upgrade to `@polkadot/util` 10.1.5
+
+
 ## 0.52.3 Aug 13, 2022
 
 Changes:
