@@ -24,7 +24,7 @@
     "@babel/runtime": "^7.18.9",
     "@polkadot/api": "^9.2.3",
     "@polkadot/types": "^9.2.3",
-    "@polkadot/util": "^10.1.5",
+    "@polkadot/util": "^10.1.6",
     "koa": "^2.13.4",
     "koa-route": "^3.2.0",
     "yargs": "^17.5.1"
