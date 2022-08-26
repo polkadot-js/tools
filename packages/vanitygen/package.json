@@ -22,8 +22,8 @@
     "@babel/core": "^7.18.10",
     "@babel/register": "^7.18.9",
     "@babel/runtime": "^7.18.9",
-    "@polkadot/util": "^10.1.5",
-    "@polkadot/util-crypto": "^10.1.5",
+    "@polkadot/util": "^10.1.6",
+    "@polkadot/util-crypto": "^10.1.6",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
