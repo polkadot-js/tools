@@ -13,17 +13,17 @@
     "url": "https://github.com/polkadot-js/tools.git"
   },
   "sideEffects": false,
-  "version": "0.52.5-1-x",
+  "version": "0.52.5",
   "main": "index.js",
   "bin": {
     "polkadot-js-monitor": "./cjs/cjs/index.js"
   },
   "dependencies": {
-    "@babel/core": "^7.18.10",
+    "@babel/core": "^7.18.13",
     "@babel/register": "^7.18.9",
     "@babel/runtime": "^7.18.9",
-    "@polkadot/api": "^9.2.3",
-    "@polkadot/types": "^9.2.3",
+    "@polkadot/api": "^9.2.4",
+    "@polkadot/types": "^9.2.4",
     "@polkadot/util": "^10.1.6",
     "koa": "^2.13.4",
     "koa-route": "^3.2.0",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/koa": "^2.13.5",
     "@types/koa-route": "^3.2.5",
-    "@types/node": "^18.7.8",
+    "@types/node": "^18.7.13",
     "@types/yargs": "^17.0.11"
   }
 }
