@@ -19,7 +19,7 @@
     "polkadot-js-vanitygen": "./cjs/cjs/index.js"
   },
   "dependencies": {
-    "@babel/core": "^7.19.1",
+    "@babel/core": "^7.19.3",
     "@babel/register": "^7.18.9",
     "@babel/runtime": "^7.19.0",
     "@polkadot/util": "^10.1.9",
@@ -27,7 +27,7 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "@types/node": "^18.7.19",
+    "@types/node": "^18.7.23",
     "@types/yargs": "^17.0.13"
   }
 }

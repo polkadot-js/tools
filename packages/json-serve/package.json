@@ -19,7 +19,7 @@
     "polkadot-js-json-serve": "./cjs/cjs/index.js"
   },
   "dependencies": {
-    "@babel/core": "^7.19.1",
+    "@babel/core": "^7.19.3",
     "@babel/register": "^7.18.9",
     "@babel/runtime": "^7.19.0",
     "@polkadot/api": "^9.4.2",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@types/koa": "^2.13.5",
     "@types/koa-route": "^3.2.5",
-    "@types/node": "^18.7.19",
+    "@types/node": "^18.7.23",
     "@types/yargs": "^17.0.13"
   }
 }
