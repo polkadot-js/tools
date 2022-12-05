@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.52.19 Dec 5, 2022
+
+Changes:
+
+- Fix for 0.52.18 publish (now on latest API)
+
+
 ## 0.52.18 Dec 5, 2022
 
 Changes:
