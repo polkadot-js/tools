@@ -1,9 +1,3 @@
-[![polkadotjs](https://img.shields.io/badge/polkadot-js-orange?style=flat-square)](https://polkadot.js.org)
-![license](https://img.shields.io/badge/License-Apache%202.0-blue?logo=apache&style=flat-square)
-[![npm](https://img.shields.io/npm/v/@polkadot/api-cli?logo=npm&style=flat-square)](https://www.npmjs.com/package/@polkadot/api-cli)
-[![beta](https://img.shields.io/npm/v/@polkadot/api-cli/beta?label=beta&logo=npm&style=flat-square)](https://www.npmjs.com/package/@polkadot/api-cli)
-[![maintainability](https://img.shields.io/codeclimate/maintainability-percentage/polkadot-js/tools?logo=code-climate&style=flat-square)](https://codeclimate.com/github/polkadot-js/tools/maintainability)
-
 # @polkadot/tools
 
 This is a collection of cli tools to use on Polkadot and Substrate chains.
