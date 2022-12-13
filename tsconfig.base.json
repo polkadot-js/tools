@@ -14,6 +14,7 @@
       "@polkadot/signer-cli": ["signer-cli/src"],
       "@polkadot/signer-cli/*": ["signer-cli/src/*"]
     },
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "target": "es2015"
 	}
  }
