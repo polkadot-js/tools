@@ -11,7 +11,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.52.20",
+  "version": "0.52.21",
   "versions": {
     "git": "0.52.20",
     "npm": "0.52.20"
@@ -34,18 +34,18 @@
     "test": "yarn run:api --help && yarn run:json --help && yarn run:metadata --help && yarn run:monitor --help && yarn run:signer --help && yarn run:vanity --help"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.5",
+    "@babel/core": "^7.20.7",
     "@babel/register": "^7.18.9",
-    "@babel/runtime": "^7.20.6",
-    "@polkadot/dev": "^0.67.173",
-    "@types/node": "^18.11.16",
+    "@babel/runtime": "^7.20.7",
+    "@polkadot/dev": "^0.67.175",
+    "@types/node": "^18.11.17",
     "@types/yargs": "^17.0.17"
   },
   "resolutions": {
-    "@polkadot/api": "^9.10.3",
-    "@polkadot/api-derive": "^9.10.3",
+    "@polkadot/api": "^9.10.4",
+    "@polkadot/api-derive": "^9.10.4",
     "@polkadot/keyring": "^10.2.1",
-    "@polkadot/types": "^9.10.3",
+    "@polkadot/types": "^9.10.4",
     "@polkadot/util": "^10.2.1",
     "@polkadot/util-crypto": "^10.2.1",
     "typescript": "^4.9.4"
