@@ -1,4 +1,4 @@
-// Copyright 2018-2022 @polkadot/signer-cli authors & contributors
+// Copyright 2018-2023 @polkadot/signer-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ApiPromise } from '@polkadot/api';

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Copyright 2018-2022 @polkadot/signer-cli authors & contributors
+// Copyright 2018-2023 @polkadot/signer-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 /* eslint-disable header/header */
