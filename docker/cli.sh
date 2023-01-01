@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2018-2022 @polkadot/tools authors & contributors
+# Copyright 2018-2023 @polkadot/tools authors & contributors
 # SPDX-License-Identifier: Apache-2.0
 
 # fail fast on any non-zero exits
