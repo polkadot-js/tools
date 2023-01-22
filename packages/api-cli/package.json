@@ -21,7 +21,7 @@
   "dependencies": {
     "@babel/core": "^7.20.12",
     "@babel/register": "^7.18.9",
-    "@babel/runtime": "^7.20.7",
+    "@babel/runtime": "^7.20.13",
     "@polkadot/api": "^9.11.3",
     "@polkadot/keyring": "^10.2.6",
     "@polkadot/types": "^9.11.3",
@@ -31,6 +31,6 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
-    "@types/yargs": "^17.0.19"
+    "@types/yargs": "^17.0.20"
   }
 }

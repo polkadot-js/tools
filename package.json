@@ -36,10 +36,10 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/register": "^7.18.9",
-    "@babel/runtime": "^7.20.7",
-    "@polkadot/dev": "^0.67.181",
+    "@babel/runtime": "^7.20.13",
+    "@polkadot/dev": "^0.67.184",
     "@types/node": "^18.11.18",
-    "@types/yargs": "^17.0.19"
+    "@types/yargs": "^17.0.20"
   },
   "resolutions": {
     "@polkadot/api": "^9.11.3",
