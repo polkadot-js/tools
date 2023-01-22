@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.52.24 Jan 22, 2023
+
+Changes:
+
+- Upgrade to `@polkadot/api` 9.12.1
+
+
 ## 0.52.23 Jan 16, 2023
 
 Changes:
