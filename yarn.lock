@@ -2029,7 +2029,7 @@ __metadata:
     "@polkadot/util": ^10.3.1
     "@polkadot/util-crypto": ^10.3.1
     "@types/node": ^18.11.18
-    "@types/yargs": ^17.0.20
+    "@types/yargs": ^17.0.22
     yargs: ^17.6.2
   bin:
     polkadot-js-api: ./cjs/cjs/index.js
@@ -2193,7 +2193,7 @@ __metadata:
     "@types/koa": ^2.13.5
     "@types/koa-route": ^3.2.5
     "@types/node": ^18.11.18
-    "@types/yargs": ^17.0.20
+    "@types/yargs": ^17.0.22
     koa: ^2.14.1
     koa-route: ^3.2.0
     yargs: ^17.6.2
@@ -2228,7 +2228,7 @@ __metadata:
     "@polkadot/types": ^9.13.4
     "@polkadot/util": ^10.3.1
     "@types/node": ^18.11.18
-    "@types/yargs": ^17.0.20
+    "@types/yargs": ^17.0.22
     yargs: ^17.6.2
   bin:
     polkadot-js-metadata-cmp: ./cjs/cjs/index.js
@@ -2248,7 +2248,7 @@ __metadata:
     "@types/koa": ^2.13.5
     "@types/koa-route": ^3.2.5
     "@types/node": ^18.11.18
-    "@types/yargs": ^17.0.20
+    "@types/yargs": ^17.0.22
     koa: ^2.14.1
     koa-route: ^3.2.0
     yargs: ^17.6.2
@@ -2333,7 +2333,7 @@ __metadata:
     "@polkadot/util": ^10.3.1
     "@polkadot/util-crypto": ^10.3.1
     "@types/node": ^18.11.18
-    "@types/yargs": ^17.0.20
+    "@types/yargs": ^17.0.22
     yargs: ^17.6.2
   bin:
     polkadot-js-signer: ./cjs/cjs/index.js
@@ -2460,7 +2460,7 @@ __metadata:
     "@polkadot/util": ^10.3.1
     "@polkadot/util-crypto": ^10.3.1
     "@types/node": ^18.11.18
-    "@types/yargs": ^17.0.20
+    "@types/yargs": ^17.0.22
     yargs: ^17.6.2
   bin:
     polkadot-js-vanitygen: ./cjs/cjs/index.js
@@ -3278,12 +3278,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:^17.0.20, @types/yargs@npm:^17.0.8":
-  version: 17.0.20
-  resolution: "@types/yargs@npm:17.0.20"
+"@types/yargs@npm:^17.0.22, @types/yargs@npm:^17.0.8":
+  version: 17.0.22
+  resolution: "@types/yargs@npm:17.0.22"
   dependencies:
     "@types/yargs-parser": "*"
-  checksum: dc2edbb0e4b6bfe5189b86c057bb6991139af02372b1d3591083e4ce8f9605b19d598e56413e30f41453733f7a048f732f899cb637f3938f90ed3eb13f23cc90
+  checksum: 0773523fda71bafdc52f13f5970039e535a353665a60ba9261149a5c9c2b908242e6e77fbb7a8c06931ec78ce889d64d09673c68ba23eb5f5742d5385d0d1982
   languageName: node
   linkType: hard
 
@@ -10915,7 +10915,7 @@ __metadata:
     "@babel/runtime": ^7.20.13
     "@polkadot/dev": ^0.68.3
     "@types/node": ^18.11.18
-    "@types/yargs": ^17.0.20
+    "@types/yargs": ^17.0.22
   languageName: unknown
   linkType: soft
 

@@ -39,7 +39,7 @@
     "@babel/runtime": "^7.20.13",
     "@polkadot/dev": "^0.68.3",
     "@types/node": "^18.11.18",
-    "@types/yargs": "^17.0.20"
+    "@types/yargs": "^17.0.22"
   },
   "resolutions": {
     "@polkadot/api": "^9.13.4",
