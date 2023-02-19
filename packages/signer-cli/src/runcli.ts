@@ -15,7 +15,7 @@ const ONE_MINUTE = 60 / BLOCKTIME;
 
 type ArgV = { _: string[]; account?: string; blocks?: number; minutes?: number; nonce?: number; params?: string; seed?: string; type?: string; ws?: string; tx?: string; };
 
-const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: paramsFile, seed, type, ws, tx } = yargs
+const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: paramsFile, seed, tx, type, ws } = yargs
   .usage('Usage: [options] <endpoint> <...params>')
   .usage('Example: submit --account D3AhD...wrx --ws wss://... balances.transfer F7Gh 10000 ')
   .usage('Example: sign --seed "..." --account D3AhD...wrx --type ed25519 0x123...789')
