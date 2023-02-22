@@ -37,7 +37,7 @@
     "@babel/core": "^7.20.12",
     "@babel/register": "^7.18.9",
     "@babel/runtime": "^7.20.13",
-    "@polkadot/dev": "^0.68.38",
+    "@polkadot/dev": "^0.69.5",
     "@types/node": "^18.14.0",
     "@types/yargs": "^17.0.22"
   },
