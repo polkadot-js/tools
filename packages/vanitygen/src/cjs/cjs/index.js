@@ -16,12 +16,7 @@ if (compiled) {
 } else {
   require('@babel/register')({
     extensions: ['.js', '.ts'],
-    plugins: [
-      ['babel-plugin-module-extension-resolver', {
-        dstExtension: '',
-        srcExtensions: ['.ts']
-      }]
-    ]
+    plugins: []
   });
   require('../../runcli');
 }

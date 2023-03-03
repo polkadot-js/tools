@@ -21,10 +21,6 @@ if (compiled) {
         alias: {
           '^@polkadot/api-cli(.*)': './packages/api-cli/src\\1'
         }
-      }],
-      ['babel-plugin-module-extension-resolver', {
-        dstExtension: '',
-        srcExtensions: ['.ts']
       }]
     ]
   });
