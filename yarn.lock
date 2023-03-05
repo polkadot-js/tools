@@ -1794,7 +1794,7 @@ __metadata:
     tslib: ^2.5.0
     yargs: ^17.7.1
   bin:
-    polkadot-js-api: ./cjs/cjs/index.js
+    polkadot-js-api: ./runcli.js
   languageName: unknown
   linkType: soft
 
@@ -1951,7 +1951,7 @@ __metadata:
     tslib: ^2.5.0
     yargs: ^17.7.1
   bin:
-    polkadot-js-json-serve: ./cjs/cjs/index.js
+    polkadot-js-json-serve: ./runcli.js
   languageName: unknown
   linkType: soft
 
@@ -1982,7 +1982,7 @@ __metadata:
     tslib: ^2.5.0
     yargs: ^17.7.1
   bin:
-    polkadot-js-metadata-cmp: ./cjs/cjs/index.js
+    polkadot-js-metadata-cmp: ./runcli.js
   languageName: unknown
   linkType: soft
 
@@ -2002,7 +2002,7 @@ __metadata:
     tslib: ^2.5.0
     yargs: ^17.7.1
   bin:
-    polkadot-js-monitor: ./cjs/cjs/index.js
+    polkadot-js-monitor: ./runcli.js
   languageName: unknown
   linkType: soft
 
@@ -2083,7 +2083,7 @@ __metadata:
     tslib: ^2.5.0
     yargs: ^17.7.1
   bin:
-    polkadot-js-signer: ./cjs/cjs/index.js
+    polkadot-js-signer: ./runcli.js
   languageName: unknown
   linkType: soft
 
@@ -2208,7 +2208,7 @@ __metadata:
     tslib: ^2.5.0
     yargs: ^17.7.1
   bin:
-    polkadot-js-vanitygen: ./cjs/cjs/index.js
+    polkadot-js-vanitygen: ./runcli.js
   languageName: unknown
   linkType: soft
 
