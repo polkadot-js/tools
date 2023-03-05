@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.53.1 Mar 5, 2023
+
+Changes:
+
+- Swap TS -> JS compiler to use tsc (from babel)
+- Adjust all tests to use `node:test` runner (ESM variants)
+- Upgrade to `@polkadot/api` 10.0.1
+- Upgrade to `@polkadot/util` 11.0.1
+
+
 ## 0.52.29 Feb 19, 2023
 
 Changes:

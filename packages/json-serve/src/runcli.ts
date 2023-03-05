@@ -9,13 +9,14 @@ import type { Balance, BlockNumber, Header } from '@polkadot/types/interfaces';
 import Koa from 'koa';
 import koaRoute from 'koa-route';
 import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { BN } from '@polkadot/util';
 
 type ArgV = { port: number; ws: string };
 
-const { port, ws } = yargs
+const { port, ws } = yargs(hideBin(process.argv))
   .options({
     port: {
       default: 9099,
