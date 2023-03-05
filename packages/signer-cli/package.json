@@ -16,7 +16,7 @@
   "version": "0.53.0",
   "main": "index.js",
   "bin": {
-    "polkadot-js-signer": "./cjs/cjs/index.js"
+    "polkadot-js-signer": "./runcli.js"
   },
   "dependencies": {
     "@polkadot/api": "^10.0.1",

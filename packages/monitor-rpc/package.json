@@ -16,7 +16,7 @@
   "version": "0.53.0",
   "main": "index.js",
   "bin": {
-    "polkadot-js-monitor": "./cjs/cjs/index.js"
+    "polkadot-js-monitor": "./runcli.js"
   },
   "dependencies": {
     "@polkadot/api": "^10.0.1",

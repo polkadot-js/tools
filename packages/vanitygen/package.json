@@ -16,7 +16,7 @@
   "version": "0.53.0",
   "main": "index.js",
   "bin": {
-    "polkadot-js-vanitygen": "./cjs/cjs/index.js"
+    "polkadot-js-vanitygen": "./runcli.js"
   },
   "dependencies": {
     "@polkadot/util": "^11.0.1",

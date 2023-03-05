@@ -16,7 +16,7 @@
   "version": "0.53.0",
   "main": "index.js",
   "bin": {
-    "polkadot-js-metadata-cmp": "./cjs/cjs/index.js"
+    "polkadot-js-metadata-cmp": "./runcli.js"
   },
   "dependencies": {
     "@polkadot/api": "^10.0.1",
