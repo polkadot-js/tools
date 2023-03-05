@@ -1841,9 +1841,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/dev@npm:^0.69.27":
-  version: 0.69.27
-  resolution: "@polkadot/dev@npm:0.69.27"
+"@polkadot/dev@npm:^0.69.28":
+  version: 0.69.28
+  resolution: "@polkadot/dev@npm:0.69.28"
   dependencies:
     "@babel/cli": ^7.21.0
     "@babel/core": ^7.21.0
@@ -1929,7 +1929,7 @@ __metadata:
     polkadot-exec-rollup: scripts/polkadot-exec-rollup.mjs
     polkadot-exec-tsc: scripts/polkadot-exec-tsc.mjs
     polkadot-exec-webpack: scripts/polkadot-exec-webpack.mjs
-  checksum: d77a51435eca420febbf310180ddc107b72b42158c079dc964dcc0450c2edcd5ec3a9d5e220deebcd43627b72d954d4c8993f37905a2f2da04ab0af227382ed1
+  checksum: edcd322e97ffe2acc4e1b5a9ff70518ec8fe041db71161b15dfee638c03f75f180c4936619ad48128e53e3051046db186bb769161957319077c823ae6c1f5770
   languageName: node
   linkType: hard
 
@@ -9560,7 +9560,7 @@ fsevents@~2.3.2:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@polkadot/dev": ^0.69.27
+    "@polkadot/dev": ^0.69.28
     "@types/node": ^18.14.6
     "@types/yargs": ^17.0.22
   languageName: unknown
