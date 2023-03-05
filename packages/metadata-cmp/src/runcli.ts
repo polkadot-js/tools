@@ -5,6 +5,7 @@ import type { RuntimeVersion, StorageEntryMetadataLatest } from '@polkadot/types
 import type { Registry } from '@polkadot/types/types';
 
 import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { expandMetadata, Metadata } from '@polkadot/types';
@@ -14,7 +15,7 @@ import { assert, stringCamelCase } from '@polkadot/util';
 
 type ArgV = { _: [string, string] };
 
-const [ws1, ws2] = (yargs.demandCommand(2).argv as unknown as ArgV)._;
+const [ws1, ws2] = (yargs(hideBin(process.argv)).demandCommand(2).argv as unknown as ArgV)._;
 
 // configure padding
 const lvlInc = 14;

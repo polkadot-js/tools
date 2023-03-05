@@ -11,7 +11,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.52.30-2-x",
+  "version": "0.53.0",
   "versions": {
     "git": "0.52.30-2-x",
     "npm": "0.52.29"
@@ -25,29 +25,26 @@
     "clean": "polkadot-dev-clean-build",
     "lint": "polkadot-dev-run-lint",
     "postinstall": "polkadot-dev-yarn-only",
-    "run:api": "./packages/api-cli/src/cjs/cjs/index.js",
-    "run:json": "./packages/json-serve/src/cjs/cjs/index.js",
-    "run:metadata": "./packages/metadata-cmp/src/cjs/cjs/index.js",
-    "run:monitor": "./packages/monitor-rpc/src/cjs/cjs/index.js",
-    "run:signer": "./packages/signer-cli/src/cjs/cjs/index.js",
-    "run:vanity": "./packages/vanitygen/src/cjs/cjs/index.js",
+    "run:api": "node --loader @polkadot/dev/node/ts ./packages/api-cli/src/runcli.ts",
+    "run:json": "node --loader @polkadot/dev/node/ts ./packages/json-serve/src/runcli.ts",
+    "run:metadata": "node --loader @polkadot/dev/node/ts ./packages/metadata-cmp/src/runcli.ts",
+    "run:monitor": "node --loader @polkadot/dev/node/ts ./packages/monitor-rpc/src/runcli.ts",
+    "run:signer": "node --loader @polkadot/dev/node/ts ./packages/signer-cli/src/runcli.ts",
+    "run:vanity": "node --loader @polkadot/dev/node/ts ./packages/vanitygen/src/runcli.ts",
     "test": "yarn run:api --help && yarn run:json --help && yarn run:metadata --help && yarn run:monitor --help && yarn run:signer --help && yarn run:vanity --help"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.0",
-    "@babel/register": "^7.21.0",
-    "@babel/runtime": "^7.21.0",
-    "@polkadot/dev": "^0.69.25",
-    "@types/node": "^18.14.5",
+    "@polkadot/dev": "^0.69.27",
+    "@types/node": "^18.14.6",
     "@types/yargs": "^17.0.22"
   },
   "resolutions": {
-    "@polkadot/api": "^9.14.2",
-    "@polkadot/api-derive": "^9.14.2",
-    "@polkadot/keyring": "^10.4.2",
-    "@polkadot/types": "^9.14.2",
-    "@polkadot/util": "^10.4.2",
-    "@polkadot/util-crypto": "^10.4.2",
+    "@polkadot/api": "^10.0.1",
+    "@polkadot/api-derive": "^10.0.1",
+    "@polkadot/keyring": "^11.0.1",
+    "@polkadot/types": "^10.0.1",
+    "@polkadot/util": "^11.0.1",
+    "@polkadot/util-crypto": "^11.0.1",
     "typescript": "^4.9.5"
   }
 }

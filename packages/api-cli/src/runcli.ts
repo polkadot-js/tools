@@ -9,6 +9,7 @@ import type { KeypairType } from '@polkadot/util-crypto/types';
 
 import fs from 'fs';
 import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
 import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
@@ -87,7 +88,7 @@ interface Params {
 const CRYPTO = ['ed25519', 'sr25519', 'ethereum', 'ecdsa'];
 
 // retrieve and parse arguments - we do this globally, since this is a single command
-const argv = yargs
+const argv = yargs(hideBin(process.argv))
   .parserConfiguration({
     'parse-numbers': false,
     'parse-positional-numbers': false

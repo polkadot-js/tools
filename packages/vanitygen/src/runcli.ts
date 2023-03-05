@@ -6,6 +6,7 @@ import type { KeypairType } from '@polkadot/util-crypto/types';
 import type { GeneratorOptions } from './types';
 
 import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
 import { u8aToHex } from '@polkadot/util';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
@@ -24,7 +25,7 @@ interface Best {
 
 type ArgV = { match: string; mnemonic: boolean; network: string; type: string; withCase: boolean };
 
-const { match, mnemonic, network, type, withCase } = yargs
+const { match, mnemonic, network, type, withCase } = yargs(hideBin(process.argv))
   .wrap(120)
   .option('match', {
     default: 'Test',
