@@ -1,4 +1,4 @@
-     436	Jaco                          	Update dev (#453)
+     437	Jaco                          	Bump dev deps (#454)
        5	Peter Goodspeed-Niklaus       	Disable yargs behavior to optimistically parse number-seeming arguments (#108)
        3	Alexander Popiak              	add more spec diffing to the metadata comparison (#284)
        3	Bison Brandon                 	Signing-CLI: Add missing special case for immortal transactions (#62)
