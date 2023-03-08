@@ -13,10 +13,10 @@
     "url": "https://github.com/polkadot-js/tools.git"
   },
   "sideEffects": false,
-  "version": "0.53.2-1-x",
+  "version": "0.53.2",
   "main": "index.js",
   "bin": {
-    "polkadot-js-metadata-cmp": "./runcli.js"
+    "polkadot-js-metadata-cmp": "./runcli.mjs"
   },
   "dependencies": {
     "@polkadot/api": "^10.0.1",
