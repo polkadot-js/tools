@@ -7,7 +7,7 @@ import type { Hash } from '@polkadot/types/interfaces';
 import type { CallFunction, Codec } from '@polkadot/types/types';
 import type { KeypairType } from '@polkadot/util-crypto/types';
 
-import fs from 'fs';
+import fs from 'node:fs';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -15,7 +15,7 @@ import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
 import { assert, isFunction, stringify } from '@polkadot/util';
 
-import { hexMiddleware, jsonMiddleware, parseParams } from './cli';
+import { hexMiddleware, jsonMiddleware, parseParams } from './cli.js';
 
 type ApiOptionsTypes = ApiOptions['types'];
 type ApiOptionsRpc = ApiOptions['rpc'];

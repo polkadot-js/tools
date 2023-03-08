@@ -5,7 +5,7 @@ import type { GeneratorMatch, GeneratorOptions } from './types';
 
 import { ed25519PairFromSeed, encodeAddress, mnemonicGenerate, mnemonicToMiniSecret, randomAsU8a, sr25519PairFromSeed } from '@polkadot/util-crypto';
 
-import calculate from './calculate';
+import calculate from './calculate.js';
 
 export default function generator (test: string[][], options: GeneratorOptions): GeneratorMatch {
   const mnemonic = options.withHex

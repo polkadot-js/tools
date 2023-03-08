@@ -6,8 +6,8 @@ import type { Index } from '@polkadot/types/interfaces';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
-import RawSigner from './RawSigner';
-import { getTx, mortalityOpts } from './util';
+import RawSigner from './RawSigner.js';
+import { getTx, mortalityOpts } from './util.js';
 
 export default async function cmdSendOffline (account: string, blocks: number | undefined, endpoint = '', nonce: number | undefined | Index, [tx, ...params]: string[]): Promise<void> {
   const provider = new WsProvider(endpoint);

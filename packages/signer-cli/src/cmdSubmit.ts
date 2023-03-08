@@ -8,8 +8,8 @@ import type { ISubmittableResult } from '@polkadot/types/types';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { stringify } from '@polkadot/util';
 
-import RawSigner from './RawSigner';
-import { getTx, mortalityOpts } from './util';
+import RawSigner from './RawSigner.js';
+import { getTx, mortalityOpts } from './util.js';
 
 function watchResult (result: ExtrinsicStatus | ISubmittableResult): void {
   console.log(stringify(result.toHuman(), 2));

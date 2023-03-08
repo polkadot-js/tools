@@ -11,8 +11,8 @@ import { hideBin } from 'yargs/helpers';
 import { u8aToHex } from '@polkadot/util';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 
-import generator from './generator';
-import matchRegex from './regex';
+import generator from './generator.js';
+import matchRegex from './regex.js';
 
 interface Best {
   address: string;
