@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.53.2 Mar 8, 2023
+
+Changes:
+
+- Add executable header to script files (& move to explicit script .mjs)
+
+
 ## 0.53.1 Mar 5, 2023
 
 Changes:
