@@ -39,6 +39,7 @@ function publish () {
 
   echo "*** Tagging $REPO/$NAME"
   docker tag $NAME $REPO/$NAME
+  docker tag $NAME $REPO/$NAME:$VERSION
 
   echo "*** Publishing $NAME"
   docker push $REPO/$NAME
