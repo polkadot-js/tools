@@ -16,7 +16,7 @@
   "version": "0.53.2-1-x",
   "main": "index.js",
   "bin": {
-    "polkadot-js-json-serve": "./runcli.js"
+    "polkadot-js-json-serve": "./runcli.mjs"
   },
   "dependencies": {
     "@polkadot/api": "^10.0.1",
