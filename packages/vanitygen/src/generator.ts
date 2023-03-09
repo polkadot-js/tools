@@ -3,7 +3,7 @@
 
 import type { GeneratorMatches, GeneratorOptions, GeneratorResult } from './types';
 
-import generate from './generate';
+import generate from './generate.js';
 
 export default function generator (options: GeneratorOptions): GeneratorResult {
   const { match, runs = 10, withCase = false } = options;

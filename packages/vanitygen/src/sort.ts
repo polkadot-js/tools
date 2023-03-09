@@ -1,7 +1,7 @@
 // Copyright 2017-2023 @polkadot/vanitygen authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { GeneratorMatch } from './types';
+import type { GeneratorMatch } from './types.js';
 
 function numberSort (a: number, b: number): number {
   if (a > b) {

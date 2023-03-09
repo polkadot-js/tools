@@ -7,9 +7,9 @@ import { hideBin } from 'yargs/helpers';
 import { hexMiddleware, jsonMiddleware, parseParams } from '@polkadot/api-cli/cli';
 import { assert } from '@polkadot/util';
 
-import cmdSendOffline from './cmdSendOffline';
-import cmdSign from './cmdSign';
-import cmdSubmit from './cmdSubmit';
+import cmdSendOffline from './cmdSendOffline.js';
+import cmdSign from './cmdSign.js';
+import cmdSubmit from './cmdSubmit.js';
 
 const BLOCKTIME = 6;
 const ONE_MINUTE = 60 / BLOCKTIME;
