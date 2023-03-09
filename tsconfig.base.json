@@ -2,7 +2,6 @@
   "extends": "@polkadot/dev/config/tsconfig.json",
 	"compilerOptions": {
 		"composite": true,
-    "moduleResolution": "nodenext",
 		"paths": {
       "@polkadot/api-cli": ["api-cli/src/index.ts"],
       "@polkadot/api-cli/*": ["api-cli/src/*.ts"],
