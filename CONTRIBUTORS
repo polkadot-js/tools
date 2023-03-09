@@ -15,3 +15,4 @@
        1	Keith Ingram                  	Allow passing tx params in file (#91)
        1	Pierre Besson                 	add example to explicit the automatic parsing of JSON arguments by the CLI fix fix #275 (#276)
        1	Stefanie Doll                 	Add support for v4 metadata (#23)
+       1	Wil Wade                      	Tag with version as well as latest (#459)
