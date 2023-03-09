@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { KeypairType } from '@polkadot/util-crypto/types';
-import type { GeneratorOptions } from './types';
+import type { GeneratorOptions } from './types.js';
 
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';

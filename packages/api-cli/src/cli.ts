@@ -1,7 +1,7 @@
 // Copyright 2018-2023 @polkadot/api-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { ArgV } from './types';
+import type { ArgV } from './types.js';
 
 import fs from 'node:fs';
 

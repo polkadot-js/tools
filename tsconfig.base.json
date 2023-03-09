@@ -2,19 +2,19 @@
   "extends": "@polkadot/dev/config/tsconfig.json",
 	"compilerOptions": {
 		"composite": true,
+    "moduleResolution": "nodenext",
 		"paths": {
-      "@polkadot/api-cli": ["api-cli/src"],
-      "@polkadot/api-cli/*": ["api-cli/src/*"],
-      "@polkadot/json-serve": ["json-serve/src"],
-      "@polkadot/json-serve/*": ["json-serve/src/*"],
-      "@polkadot/metadata-cmp": ["metadata-cmp/src"],
-      "@polkadot/metadata-cmp/*": ["metadata-cmp/src/*"],
-      "@polkadot/monitor-rpc": ["monitor-rpc/src"],
-      "@polkadot/monitor-rpc/*": ["monitor-rpc/src/*"],
-      "@polkadot/signer-cli": ["signer-cli/src"],
-      "@polkadot/signer-cli/*": ["signer-cli/src/*"]
+      "@polkadot/api-cli": ["api-cli/src/index.ts"],
+      "@polkadot/api-cli/*": ["api-cli/src/*.ts"],
+      "@polkadot/json-serve": ["json-serve/src/index.ts"],
+      "@polkadot/json-serve/*": ["json-serve/src/*.ts"],
+      "@polkadot/metadata-cmp": ["metadata-cmp/src/index.ts"],
+      "@polkadot/metadata-cmp/*": ["metadata-cmp/src/*.ts"],
+      "@polkadot/monitor-rpc": ["monitor-rpc/src/index.ts"],
+      "@polkadot/monitor-rpc/*": ["monitor-rpc/src/*.ts"],
+      "@polkadot/signer-cli": ["signer-cli/src/index.ts"],
+      "@polkadot/signer-cli/*": ["signer-cli/src/*.ts"]
     },
-    "skipLibCheck": true,
-    "target": "es2020"
+    "skipLibCheck": true
 	}
  }
