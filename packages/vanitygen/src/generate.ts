@@ -1,7 +1,7 @@
 // Copyright 2017-2023 @polkadot/vanitygen authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { GeneratorMatch, GeneratorOptions } from './types';
+import type { GeneratorMatch, GeneratorOptions } from './types.js';
 
 import { ed25519PairFromSeed, encodeAddress, mnemonicGenerate, mnemonicToMiniSecret, randomAsU8a, sr25519PairFromSeed } from '@polkadot/util-crypto';
 
