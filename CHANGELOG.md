@@ -4,7 +4,7 @@
 
 Contributed:
 
-- Tag specific docker version in addition to latest (Thanks to https://github.com/polkadot-js/)
+- Tag specific docker version in addition to latest (Thanks to https://github.com/wilwade)
 
 
 ## 0.53.2 Mar 8, 2023
