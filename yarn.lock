@@ -435,9 +435,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/dev@npm:^0.70.5":
-  version: 0.70.5
-  resolution: "@polkadot/dev@npm:0.70.5"
+"@polkadot/dev@npm:^0.71.1":
+  version: 0.71.1
+  resolution: "@polkadot/dev@npm:0.71.1"
   dependencies:
     "@eslint/js": ^8.35.0
     "@rollup/plugin-alias": ^4.0.3
@@ -502,7 +502,7 @@ __metadata:
     polkadot-exec-rollup: scripts/polkadot-exec-rollup.mjs
     polkadot-exec-tsc: scripts/polkadot-exec-tsc.mjs
     polkadot-exec-webpack: scripts/polkadot-exec-webpack.mjs
-  checksum: 3e48df17b1f6ad62491cada98eb40fd4f38bbe7303aa3a16bda2d60c865e4c17a3a82b2f8aa9731787d37236ae561d5e7503da070887e58bfeed6d7ea07b5233
+  checksum: 18505f604cd99a6fa858fe0dd6f9f09f6ae46bc3428616dd8df6f4533b4854de1c517f1c0ede5f7c11a881ffea2175ffd48c8526ea16f7da3320595d0ae67cf8
   languageName: node
   linkType: hard
 
@@ -7694,7 +7694,7 @@ fsevents@~2.3.2:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@polkadot/dev": ^0.70.5
+    "@polkadot/dev": ^0.71.1
     "@types/node": ^18.14.6
     "@types/yargs": ^17.0.22
   languageName: unknown
