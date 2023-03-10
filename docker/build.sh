@@ -43,6 +43,7 @@ function publish () {
 
   echo "*** Publishing $NAME"
   docker push $REPO/$NAME
+  docker push $REPO/$NAME:$VERSION
 
   exit 0
 }
