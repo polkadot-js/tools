@@ -10,12 +10,12 @@ FROM ubuntu:latest
 
 # Run package updates
 RUN apt-get update && \
-  apt-get install -y build-essential curl gcc g++ gnupg make python git
+  apt-get install -y build-essential curl gcc g++ gnupg make git
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get install -y nodejs
 
 # env variable works around gyp install (secp256k1) with root permissions
-RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@0.53.2 @polkadot/json-serve@0.53.2 @polkadot/metadata-cmp@0.53.2 @polkadot/monitor-rpc@0.53.2 @polkadot/signer-cli@0.53.2 @polkadot/vanitygen@0.53.2
+RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@0.53.3 @polkadot/json-serve@0.53.3 @polkadot/metadata-cmp@0.53.3 @polkadot/monitor-rpc@0.53.3 @polkadot/signer-cli@0.53.3 @polkadot/vanitygen@0.53.3
 
 # copy the cli wrapper to this container
 COPY cli.sh .
