@@ -14,14 +14,14 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.53.5-0-x",
+  "version": "0.53.5-1-x",
   "main": "index.js",
   "bin": {
     "polkadot-js-signer": "./runcli.mjs"
   },
   "dependencies": {
     "@polkadot/api": "^10.0.1",
-    "@polkadot/api-cli": "^0.53.5-0-x",
+    "@polkadot/api-cli": "^0.53.5-1-x",
     "@polkadot/keyring": "^11.0.1",
     "@polkadot/types": "^10.0.1",
     "@polkadot/util": "^11.0.1",
