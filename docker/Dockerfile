@@ -6,20 +6,16 @@
 # from npm to do the the actual versioned build
 
 # base image
-FROM ubuntu:18.04
+FROM ubuntu:latest
 
 # Run package updates
 RUN apt-get update && \
-  apt-get install --no-install-recommends -y curl gcc g++ make python git
-
-# install node
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install --no-install-recommends -y nodejs npm && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/*
+  apt-get install -y build-essential curl gcc g++ gnupg make python git
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+RUN apt-get install -y nodejs
 
 # env variable works around gyp install (secp256k1) with root permissions
-RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@0.37.2 @polkadot/json-serve@0.37.2 @polkadot/metadata-cmp@0.37.2 @polkadot/monitor-rpc@0.37.2 @polkadot/signer-cli@0.37.2 @polkadot/vanitygen@0.37.2
+RUN NPM_CONFIG_USER=root npm install -g @polkadot/api-cli@0.53.2 @polkadot/json-serve@0.53.2 @polkadot/metadata-cmp@0.53.2 @polkadot/monitor-rpc@0.53.2 @polkadot/signer-cli@0.53.2 @polkadot/vanitygen@0.53.2
 
 # copy the cli wrapper to this container
 COPY cli.sh .
