@@ -14,7 +14,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.53.3-3-x",
+  "version": "0.53.3-4-x",
   "main": "index.js",
   "bin": {
     "polkadot-js-json-serve": "./runcli.mjs"
