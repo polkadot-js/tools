@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.53.4 Mar 10, 2023
+
+Changes:
+
+- Remove python dep from docker (attempt to fix docker build)
+
+
 ## 0.53.3 Mar 10, 2023
 
 Contributed:
