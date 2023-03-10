@@ -1,10 +1,15 @@
 # CHANGELOG
 
-## master
+## 0.53.3 Mar 10, 2023
 
 Contributed:
 
-- Tag specific docker version in addition to latest (Thanks to https://github.com/wilwade)
+- Tag specific docker image version in addition to latest (Thanks to https://github.com/wilwade)
+
+Changes:
+
+- Swap docker image to `ubunto:latest` & `node:lts`
+- Prepare sources for future TS `moduleResolution: nodenext`
 
 
 ## 0.53.2 Mar 8, 2023
