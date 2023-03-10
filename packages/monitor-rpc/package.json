@@ -14,7 +14,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.53.3-4-x",
+  "version": "0.53.3",
   "main": "index.js",
   "bin": {
     "polkadot-js-monitor": "./runcli.mjs"
