@@ -6,11 +6,11 @@
 # from npm to do the the actual versioned build
 
 # base image
-FROM ubuntu:22.10
+FROM ubuntu:latest
 
 # Run package updates
 RUN apt-get update && \
-  apt-get install -y curl gcc g++ gnupg make python git
+  apt-get install -y build-essential curl gcc g++ gnupg make python git
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get install -y nodejs
 
