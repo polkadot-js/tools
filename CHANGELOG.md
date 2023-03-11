@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.53.5 Mar 11, 2023
+
+Contributed:
+
+- Push all created docker tags to dockerhub (Thanks to https://github.com/wilwade)
+
+Changes:
+
+- Upgrade to `@polkadot/api` 10.1.1
+- Upgrade to `@polkadot/util` 11.0.2
+
+
 ## 0.53.4 Mar 10, 2023
 
 Changes:
