@@ -13,8 +13,8 @@
   "type": "module",
   "version": "0.53.5",
   "versions": {
-    "git": "0.53.5-1-x",
-    "npm": "0.53.4"
+    "git": "0.53.5",
+    "npm": "0.53.5"
   },
   "workspaces": [
     "packages/*"
