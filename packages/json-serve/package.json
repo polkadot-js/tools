@@ -1,11 +1,12 @@
 {
   "author": "Jaco Greeff <jacogr@gmail.com>",
   "bugs": "https://github.com/polkadot-js/tools/issues",
-  "contributors": [],
   "description": "A JSON API endpoint server",
+  "engines": {
+    "node": ">=14"
+  },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/json-serve#readme",
   "license": "Apache-2.0",
-  "maintainers": [],
   "name": "@polkadot/json-serve",
   "repository": {
     "directory": "packages/json-serve",
@@ -14,7 +15,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.53.6-1-x",
+  "version": "0.53.6-2-x",
   "main": "index.js",
   "bin": {
     "polkadot-js-json-serve": "./runcli.mjs"

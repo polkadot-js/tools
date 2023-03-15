@@ -1,11 +1,12 @@
 {
   "author": "Jaco Greeff <jacogr@gmail.com>",
   "bugs": "https://github.com/polkadot-js/tools/issues",
-  "contributors": [],
   "description": "A simple monitor via RPC",
+  "engines": {
+    "node": ">=14"
+  },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/monitor-rpc#readme",
   "license": "Apache-2.0",
-  "maintainers": [],
   "name": "@polkadot/monitor-rpc",
   "repository": {
     "directory": "packages/monitor-rpc",
@@ -14,7 +15,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.53.6-1-x",
+  "version": "0.53.6-2-x",
   "main": "index.js",
   "bin": {
     "polkadot-js-monitor": "./runcli.mjs"

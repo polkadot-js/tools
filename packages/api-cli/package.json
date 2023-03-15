@@ -1,11 +1,12 @@
 {
   "author": "Jaco Greeff <jacogr@gmail.com>",
   "bugs": "https://github.com/polkadot-js/tools/issues",
-  "contributors": [],
   "description": "A commandline API interface for interacting with a chain",
+  "engines": {
+    "node": ">=14"
+  },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/api-cli#readme",
   "license": "Apache-2.0",
-  "maintainers": [],
   "name": "@polkadot/api-cli",
   "repository": {
     "directory": "packages/api-cli",
@@ -14,7 +15,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.53.6-1-x",
+  "version": "0.53.6-2-x",
   "main": "index.js",
   "bin": {
     "polkadot-js-api": "./runcli.mjs"
