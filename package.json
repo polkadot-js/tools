@@ -25,12 +25,12 @@
     "clean": "polkadot-dev-clean-build",
     "lint": "polkadot-dev-run-lint",
     "postinstall": "polkadot-dev-yarn-only",
-    "run:api": "node --loader @polkadot/dev/node/ts ./packages/api-cli/src/runcli.ts",
-    "run:json": "node --loader @polkadot/dev/node/ts ./packages/json-serve/src/runcli.ts",
-    "run:metadata": "node --loader @polkadot/dev/node/ts ./packages/metadata-cmp/src/runcli.ts",
-    "run:monitor": "node --loader @polkadot/dev/node/ts ./packages/monitor-rpc/src/runcli.ts",
-    "run:signer": "node --loader @polkadot/dev/node/ts ./packages/signer-cli/src/runcli.ts",
-    "run:vanity": "node --loader @polkadot/dev/node/ts ./packages/vanitygen/src/runcli.ts",
+    "run:api": "node --loader @polkadot/dev-ts ./packages/api-cli/src/runcli.ts",
+    "run:json": "node --loader @polkadot/dev-ts ./packages/json-serve/src/runcli.ts",
+    "run:metadata": "node --loader @polkadot/dev-ts ./packages/metadata-cmp/src/runcli.ts",
+    "run:monitor": "node --loader @polkadot/dev-ts ./packages/monitor-rpc/src/runcli.ts",
+    "run:signer": "node --loader @polkadot/dev-ts ./packages/signer-cli/src/runcli.ts",
+    "run:vanity": "node --loader @polkadot/dev-ts ./packages/vanitygen/src/runcli.ts",
     "test": "yarn run:api --help && yarn run:json --help && yarn run:metadata --help && yarn run:monitor --help && yarn run:signer --help && yarn run:vanity --help"
   },
   "devDependencies": {
