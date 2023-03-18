@@ -12,7 +12,7 @@ function asJson (_param: string | number): string {
 
   try {
     return JSON.parse(param) as string;
-  } catch (error) {
+  } catch {
     return param;
   }
 }
@@ -45,7 +45,7 @@ export function parseParams (inline: string[], file?: string): string[] {
 
     try {
       return fs.readFileSync(file, 'utf8').split(' ').map(asJson);
-    } catch (e) {
+    } catch {
       assert(false, 'Error loading supplied transaction parameters file');
     }
   }

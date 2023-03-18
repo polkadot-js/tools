@@ -13,7 +13,6 @@
       "@polkadot/monitor-rpc/*": ["monitor-rpc/src/*.ts"],
       "@polkadot/signer-cli": ["signer-cli/src/index.ts"],
       "@polkadot/signer-cli/*": ["signer-cli/src/*.ts"]
-    },
-    "skipLibCheck": true
+    }
 	}
  }
