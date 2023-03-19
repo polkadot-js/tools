@@ -15,14 +15,14 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.53.6-4-x",
+  "version": "0.53.6",
   "main": "index.js",
   "bin": {
     "polkadot-js-vanitygen": "./runcli.mjs"
   },
   "dependencies": {
-    "@polkadot/util": "^11.0.2",
-    "@polkadot/util-crypto": "^11.0.2",
+    "@polkadot/util": "^11.1.1",
+    "@polkadot/util-crypto": "^11.1.1",
     "tslib": "^2.5.0",
     "yargs": "^17.7.1"
   },
