@@ -29,7 +29,7 @@ function build () {
   docker build -t $NAME docker
 
   echo "*** Testing $NAME:$VERSION"
-  docker run $REPO/$NAME api --help
+  docker run $NAME api --help
 
   exit 0
 }
