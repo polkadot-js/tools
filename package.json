@@ -26,6 +26,8 @@
     "build": "polkadot-dev-build-ts",
     "build:release": "polkadot-ci-ghact-build",
     "clean": "polkadot-dev-clean-build",
+    "docker:build": "./docker/build.sh build",
+    "docker:publish": "./docker/build.sh publish",
     "lint": "polkadot-dev-run-lint",
     "postinstall": "polkadot-dev-yarn-only",
     "run:api": "node --loader @polkadot/dev-ts ./packages/api-cli/src/runcli.ts",
