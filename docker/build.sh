@@ -14,7 +14,7 @@ REPO="jacogr"
 
 # extract the current npm version from package.json
 VERSION=$(cat package.json \
-  | grep version \
+  | grep npm \
   | head -1 \
   | awk -F: '{ print $2 }' \
   | sed 's/[",]//g' \
