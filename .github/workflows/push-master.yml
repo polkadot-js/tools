@@ -43,5 +43,6 @@ jobs:
         node-version: 'lts/*'
     - name: docker
       run: |
+        yarn install --immutable | grep -v 'YN0013'
         yarn docker:build
         yarn docker:publish
