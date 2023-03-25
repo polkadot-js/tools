@@ -14,7 +14,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.53.6",
+  "version": "0.53.7",
   "versions": {
     "git": "0.53.6",
     "npm": "0.53.6"
@@ -26,6 +26,8 @@
     "build": "polkadot-dev-build-ts",
     "build:release": "polkadot-ci-ghact-build",
     "clean": "polkadot-dev-clean-build",
+    "docker:build": "./docker/build.sh build",
+    "docker:publish": "./docker/build.sh publish",
     "lint": "polkadot-dev-run-lint",
     "postinstall": "polkadot-dev-yarn-only",
     "run:api": "node --loader @polkadot/dev-ts ./packages/api-cli/src/runcli.ts",
@@ -37,17 +39,17 @@
     "test": "yarn run:api --help && yarn run:json --help && yarn run:metadata --help && yarn run:monitor --help && yarn run:signer --help && yarn run:vanity --help"
   },
   "devDependencies": {
-    "@polkadot/dev": "^0.72.15",
-    "@types/node": "^18.15.3",
-    "@types/yargs": "^17.0.22"
+    "@polkadot/dev": "^0.72.24",
+    "@types/node": "^18.15.9",
+    "@types/yargs": "^17.0.23"
   },
   "resolutions": {
-    "@polkadot/api": "^10.1.4",
-    "@polkadot/api-derive": "^10.1.4",
-    "@polkadot/keyring": "^11.1.1",
-    "@polkadot/types": "^10.1.4",
-    "@polkadot/util": "^11.1.1",
-    "@polkadot/util-crypto": "^11.1.1",
+    "@polkadot/api": "^10.2.1",
+    "@polkadot/api-derive": "^10.2.1",
+    "@polkadot/keyring": "^11.1.2",
+    "@polkadot/types": "^10.2.1",
+    "@polkadot/util": "^11.1.2",
+    "@polkadot/util-crypto": "^11.1.2",
     "typescript": "^5.0.2"
   }
 }

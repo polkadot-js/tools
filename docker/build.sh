@@ -14,7 +14,7 @@ REPO="jacogr"
 
 # extract the current npm version from package.json
 VERSION=$(cat package.json \
-  | grep version \
+  | grep npm \
   | head -1 \
   | awk -F: '{ print $2 }' \
   | sed 's/[",]//g' \
@@ -22,11 +22,14 @@ VERSION=$(cat package.json \
 
 # helper function for the build logic
 function build () {
-  echo "*** Creating Dockerfile from latest npm version"
+  echo "*** Creating Dockerfile from npm version $VERSION"
   sed "s/VERSION/$VERSION/g" docker/Dockerfile.tmpl > docker/Dockerfile
 
-  echo "*** Building $NAME"
+  echo "*** Building $NAME:$VERSION"
   docker build -t $NAME docker
+
+  echo "*** Testing $NAME:$VERSION"
+  docker run $NAME api --help
 
   exit 0
 }

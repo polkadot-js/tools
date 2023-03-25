@@ -1,6 +1,7 @@
 build/
 build-*/
 coverage/
+docker/Dockerfile
 node_modules/
 tmp/
 .DS_Store

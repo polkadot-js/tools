@@ -43,5 +43,5 @@ jobs:
         node-version: 'lts/*'
     - name: docker
       run: |
-        ./docker/build.sh build
-        ./docker/build.sh publish
+        yarn docker:build
+        yarn docker:publish
