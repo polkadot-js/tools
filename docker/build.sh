@@ -12,13 +12,32 @@ CMD="$1"
 NAME="polkadot-js-tools"
 REPO="jacogr"
 
+if ! jq --help 2>&1 1>/dev/null
+then
+  echo ""
+  echo "FATAL: 'jq' was not found in your PATH. Please install it."
+  echo ""
+  echo "       This script uses the 'jq' binary to extract the latest"
+  echo "       published npm version and then installs that version to"
+  echo "       build the docker image"
+  echo ""
+  exit 1
+fi
+
+if ! docker --help 2>&1 1>/dev/null
+then
+  echo ""
+  echo "FATAL: 'docker' was not found in your PATH. Please install it."
+  echo ""
+  echo "       This script builds images using the 'docker' binary and as"
+  echo "       such it requires the binary for any image build and publish"
+  echo "       operations"
+  echo ""
+  exit 1
+fi
+
 # extract the current npm version from package.json
-VERSION=$(cat package.json \
-  | grep npm \
-  | head -1 \
-  | awk -F: '{ print $2 }' \
-  | sed 's/[",]//g' \
-  | sed 's/ //g')
+VERSION=$(cat package.json | jq .versions.npm --raw-output)
 
 # helper function for the build logic
 function build () {
@@ -53,10 +72,11 @@ function publish () {
 
 # helper function for the usage logic
 function usage () {
+  echo ""
   echo "This builds a docker image for the latest npm published version."
   echo "For maintainers publishing functionality is also provided."
   echo ""
-  echo "Usage: docker.sh <build|publish>"
+  echo "Usage: build.sh <build|publish>"
   echo "Commands:"
   echo "  build: builds a $NAME docker image"
   echo "  publish: publishes a built image to dockerhub"
