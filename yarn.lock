@@ -392,7 +392,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/api-cli@^0.53.8, @polkadot/api-cli@workspace:packages/api-cli":
+"@polkadot/api-cli@^0.53.9-0-x, @polkadot/api-cli@workspace:packages/api-cli":
   version: 0.0.0-use.local
   resolution: "@polkadot/api-cli@workspace:packages/api-cli"
   dependencies:
@@ -685,7 +685,7 @@ __metadata:
   resolution: "@polkadot/signer-cli@workspace:packages/signer-cli"
   dependencies:
     "@polkadot/api": ^10.2.2
-    "@polkadot/api-cli": ^0.53.8
+    "@polkadot/api-cli": ^0.53.9-0-x
     "@polkadot/keyring": ^11.1.3
     "@polkadot/types": ^10.2.2
     "@polkadot/util": ^11.1.3
