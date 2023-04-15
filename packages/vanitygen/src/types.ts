@@ -11,7 +11,7 @@ export interface GeneratorCalculation {
 export interface GeneratorMatch extends GeneratorCalculation {
   address: string;
   mnemonic?: string;
-  seed: Uint8Array;
+  seed?: Uint8Array;
 }
 
 export type GeneratorMatches = GeneratorMatch[];
