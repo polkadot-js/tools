@@ -13,12 +13,9 @@ import { hideBin } from 'yargs/helpers';
 
 import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
-import { assert, isFunction, stringify } from '@polkadot/util';
+import { assert, isCodec, stringify } from '@polkadot/util';
 
 import { hexMiddleware, jsonMiddleware, parseParams } from './cli.js';
-
-type ApiOptionsTypes = ApiOptions['types'];
-type ApiOptionsRpc = ApiOptions['rpc'];
 
 // the function signature for our catch-any result logger
 // eslint-disable-next-line no-use-before-define
@@ -166,22 +163,22 @@ const params = parseParams(paramsInline, paramsFile);
 
 const ALLOWED = ['consts', 'derive', 'query', 'rpc', 'tx'];
 
-function readFile <T> (src: string): T {
+function readFile <T> (src: string): NonNullable<T> {
   if (!src) {
-    return {} as T;
+    return {} as NonNullable<T>;
   }
 
   assert(fs.existsSync(src), `Unable to read .json file at ${src}`);
 
-  return JSON.parse(fs.readFileSync(src, 'utf8')) as T;
+  return JSON.parse(fs.readFileSync(src, 'utf8')) as NonNullable<T>;
 }
 
 // parse the arguments and retrieve the details of what we want to do
 async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
-  const rpc: ApiOptionsRpc = readFile(argv.rpc);
-  const types: ApiOptionsTypes = readFile(argv.types);
+  const rpc = readFile<ApiOptions['rpc']>(argv.rpc);
+  const types = readFile<ApiOptions['types']>(argv.types);
   const provider = new WsProvider(ws);
   const api = await ApiPromise.create({ provider, rpc, types });
   const apiExt = (api as unknown) as ApiExt;
@@ -189,22 +186,20 @@ async function getCallInfo (): Promise<CallInfo> {
 
   assert(ALLOWED.includes(type), `Expected one of ${ALLOWED.join(', ')}, found ${type}`);
   assert(apiExt[type][section], `Cannot find ${type}.${section}, your chain does not have the ${section} pallet exposed in the runtime`);
-  assert(apiExt[type][section][method], `Cannot find ${type}.${section}.${method}, your chain doesn't have the ${method} exposed in the ${section} pallet`);
 
   const fn = apiExt[type][section][method];
+
+  assert(fn, `Cannot find ${type}.${section}.${method}, your chain doesn't have the ${method} exposed in the ${section} pallet`);
 
   return {
     api,
     fn,
     log: (result: SubmittableResult | Codec | ApiCallFn): void =>
-      console.log(
-        stringify({
-          // eslint-disable-next-line @typescript-eslint/unbound-method
-          [method]: isFunction((result as Codec).toHuman)
-            ? (result as Codec).toHuman()
-            : result
-        }, 2)
-      ),
+      console.log(stringify({
+        [method]: isCodec(result)
+          ? (result as Codec).toHuman()
+          : result
+      }, 2)),
     method,
     section,
     type

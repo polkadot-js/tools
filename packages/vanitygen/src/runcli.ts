@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { KeypairType } from '@polkadot/util-crypto/types';
-import type { GeneratorOptions } from './types.js';
+import type { GeneratorMatch, GeneratorOptions } from './types.js';
 
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
@@ -14,12 +14,7 @@ import { cryptoWaitReady } from '@polkadot/util-crypto';
 import generator from './generator.js';
 import matchRegex from './regex.js';
 
-interface Best {
-  address: string;
-  count: number;
-  mnemonic?: string;
-  offset: number;
-  seed?: Uint8Array;
+interface Best extends GeneratorMatch {
   withCase?: boolean;
 }
 
