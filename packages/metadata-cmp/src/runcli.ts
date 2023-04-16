@@ -9,7 +9,7 @@ import { hideBin } from 'yargs/helpers';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { expandMetadata, Metadata } from '@polkadot/types';
-import { getSiName } from '@polkadot/types/metadata/util/getSiName';
+import { getSiName } from '@polkadot/types/metadata/util';
 import { unwrapStorageType } from '@polkadot/types/util';
 import { assert, stringCamelCase } from '@polkadot/util';
 
