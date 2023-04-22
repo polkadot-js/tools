@@ -3,7 +3,7 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "description": "A JSON API endpoint server",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/json-serve#readme",
   "license": "Apache-2.0",

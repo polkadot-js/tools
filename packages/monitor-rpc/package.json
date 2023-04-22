@@ -3,7 +3,7 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "description": "A simple monitor via RPC",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/monitor-rpc#readme",
   "license": "Apache-2.0",

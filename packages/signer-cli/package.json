@@ -3,7 +3,7 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "description": "A commandline signer for offline signature generataion",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/signer-cli#readme",
   "license": "Apache-2.0",

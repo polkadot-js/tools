@@ -3,7 +3,7 @@
 
 import type { KeyringPair } from '@polkadot/keyring/types';
 
-import * as readline from 'readline';
+import * as readline from 'node:readline';
 
 import { Keyring } from '@polkadot/keyring';
 import { assert, hexToU8a, isHex, u8aToHex } from '@polkadot/util';
