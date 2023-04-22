@@ -1,6 +1,7 @@
 // Copyright 2018-2023 @polkadot/api-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import type { SubmittableResult } from '@polkadot/api';
 import type { ApiOptions, SignerOptions } from '@polkadot/api/types';
 import type { KeyringPair } from '@polkadot/keyring/types';
 import type { Hash } from '@polkadot/types/interfaces';
@@ -11,7 +12,7 @@ import fs from 'node:fs';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-import { ApiPromise, SubmittableResult, WsProvider } from '@polkadot/api';
+import { ApiPromise, WsProvider } from '@polkadot/api';
 import { Keyring } from '@polkadot/keyring';
 import { assert, isCodec, stringify } from '@polkadot/util';
 
@@ -197,7 +198,7 @@ async function getCallInfo (): Promise<CallInfo> {
     log: (result: SubmittableResult | Codec | ApiCallFn): void =>
       console.log(stringify({
         [method]: isCodec(result)
-          ? (result as Codec).toHuman()
+          ? result.toHuman()
           : result
       }, 2)),
     method,

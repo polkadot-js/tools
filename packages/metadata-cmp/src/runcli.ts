@@ -1,6 +1,7 @@
 // Copyright 2018-2023 @polkadot/metadata-cmp authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import type { Metadata } from '@polkadot/types';
 import type { RuntimeVersion, StorageEntryMetadataLatest } from '@polkadot/types/interfaces';
 import type { Registry } from '@polkadot/types/types';
 
@@ -8,7 +9,7 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { expandMetadata, Metadata } from '@polkadot/types';
+import { expandMetadata } from '@polkadot/types';
 import { getSiName } from '@polkadot/types/metadata/util';
 import { unwrapStorageType } from '@polkadot/types/util';
 import { assert, stringCamelCase } from '@polkadot/util';

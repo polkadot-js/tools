@@ -4,7 +4,7 @@
 import type { Signer, SignerResult } from '@polkadot/api/types';
 import type { SignerPayloadRaw } from '@polkadot/types/types';
 
-import * as readline from 'readline';
+import * as readline from 'node:readline';
 
 import { assert, isHex } from '@polkadot/util';
 import { blake2AsHex } from '@polkadot/util-crypto';

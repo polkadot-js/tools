@@ -3,7 +3,7 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "description": "A vanity generator",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/vanitygen#readme",
   "license": "Apache-2.0",
@@ -15,19 +15,19 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.53.11",
+  "version": "0.54.0",
   "main": "index.js",
   "bin": {
     "polkadot-js-vanitygen": "./runcli.mjs"
   },
   "dependencies": {
-    "@polkadot/util": "^11.1.3",
-    "@polkadot/util-crypto": "^11.1.3",
+    "@polkadot/util": "^12.0.1",
+    "@polkadot/util-crypto": "^12.0.1",
     "tslib": "^2.5.0",
     "yargs": "^17.7.1"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11",
+    "@types/node": "^18.15.13",
     "@types/yargs": "^17.0.24"
   }
 }
