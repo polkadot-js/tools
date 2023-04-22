@@ -4,7 +4,7 @@
 
 Changes:
 
-- Upgrade to `@polkadot/api` 12.0.1
+- Upgrade to `@polkadot/util` 12.0.1
 - Upgrade to `@polkadot/api` 10.4.1
 - Drop support for Node 14 (EOL 30 Apr 2023)
 
