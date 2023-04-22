@@ -198,7 +198,7 @@ async function getCallInfo (): Promise<CallInfo> {
     log: (result: SubmittableResult | Codec | ApiCallFn): void =>
       console.log(stringify({
         [method]: isCodec(result)
-          ? (result as Codec).toHuman()
+          ? result.toHuman()
           : result
       }, 2)),
     method,
