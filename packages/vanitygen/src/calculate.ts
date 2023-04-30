@@ -22,7 +22,7 @@ function calculateAt (atOffset: number, test: string[][], address: string): Gene
   let bestCount = 0;
   let bestOffset = 1;
 
-  for (let i = 0; i < test.length; i++) {
+  for (let i = 0, count = test.length; i < count; i++) {
     const { count, offset } = calculateAtOne(atOffset, test[i], address);
 
     if (count > bestCount) {
