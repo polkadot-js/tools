@@ -27,7 +27,7 @@ jobs:
         node-version: 'lts/*'
     - name: ${{ matrix.step }}
       run: |
-        yarn install --immutable | grep -v 'YN0013'
+        yarn install --immutable
         yarn ${{ matrix.step }}
 
   docker:
@@ -43,6 +43,6 @@ jobs:
         node-version: 'lts/*'
     - name: docker
       run: |
-        yarn install --immutable | grep -v 'YN0013'
+        yarn install --immutable
         yarn docker:build
         yarn docker:publish
