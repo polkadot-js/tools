@@ -136,7 +136,7 @@ async function main (): Promise<number> {
       const count = createCompare(eA.length, eB.length);
       const storage = createCompare(sA.length, sB.length);
       const post = `calls: ${count}, storage: ${storage}`;
-      const index = createCompare(decA.tx[n][eA[0]]?.callIndex[0], decB.tx[n][eB[0]]?.callIndex[0]);
+      const index = createCompare(decA.tx[n]?.[eA[0]]?.callIndex[0], decB.tx[n]?.[eB[0]]?.callIndex[0]);
 
       log(lvl2, m, 'idx:', index, post);
 
