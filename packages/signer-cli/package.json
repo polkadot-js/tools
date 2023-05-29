@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@polkadot/api": "^10.7.3",
-    "@polkadot/api-cli": "^0.54.4",
+    "@polkadot/api-cli": "^0.55.0",
     "@polkadot/keyring": "^12.2.1",
     "@polkadot/types": "^10.7.3",
     "@polkadot/util": "^12.2.1",
