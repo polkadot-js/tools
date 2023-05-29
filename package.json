@@ -14,7 +14,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.54.5-3-x",
+  "version": "0.55.0",
   "versions": {
     "git": "0.54.5-3-x",
     "npm": "0.54.4"
@@ -39,15 +39,15 @@
     "test": "yarn run:api --help && yarn run:json --help && yarn run:metadata --help && yarn run:monitor --help && yarn run:signer --help && yarn run:vanity --help"
   },
   "devDependencies": {
-    "@polkadot/dev": "^0.75.8",
-    "@types/node": "^20.2.3",
+    "@polkadot/dev": "^0.75.10",
+    "@types/node": "^20.2.5",
     "@types/yargs": "^17.0.24"
   },
   "resolutions": {
-    "@polkadot/api": "^10.7.2",
-    "@polkadot/api-derive": "^10.7.2",
+    "@polkadot/api": "^10.7.3",
+    "@polkadot/api-derive": "^10.7.3",
     "@polkadot/keyring": "^12.2.1",
-    "@polkadot/types": "^10.7.2",
+    "@polkadot/types": "^10.7.3",
     "@polkadot/util": "^12.2.1",
     "@polkadot/util-crypto": "^12.2.1",
     "typescript": "^5.0.4"

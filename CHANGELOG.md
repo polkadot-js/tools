@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.55.1 May 29, 2023
+
+Contributed:
+
+- Properly compare modules without extrinsics (Thanks to https://github.com/nathanwhit)
+
+Changes:
+
+- Upgrade to `@polkadot/api` 10.7.3
+
+
 ## 0.54.4 May 13, 2023
 
 Changes:
