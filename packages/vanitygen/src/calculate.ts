@@ -49,8 +49,8 @@ export default function calculate (test: string[][], _address: string, { atOffse
   let bestCount = 0;
   let bestOffset = 1;
 
-  for (let index = 0; index < MAX_OFFSET; index++) {
-    const { count, offset } = calculateAt(index, test, address);
+  for (let i = 0; i < MAX_OFFSET; i++) {
+    const { count, offset } = calculateAt(i, test, address);
 
     if (count > bestCount) {
       bestCount = count;
