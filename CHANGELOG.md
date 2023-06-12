@@ -5,7 +5,7 @@
 Changes:
 
 - Adjust object index access for stricter tsconfig settings
-- Upgrade to `@polkadot/util` 12.3.1
+- Upgrade to `@polkadot/util` 12.3.2
 - Upgrade to `@polkadot/api` 10.9.1
 
 
