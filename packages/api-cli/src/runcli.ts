@@ -1,6 +1,8 @@
 // Copyright 2018-2023 @polkadot/api-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import '@polkadot/api-augment/substrate';
+
 import type { SubmittableResult } from '@polkadot/api';
 import type { ApiOptions, SignerOptions } from '@polkadot/api/types';
 import type { KeyringPair } from '@polkadot/keyring/types';
