@@ -80,8 +80,7 @@ function onTotalInsurance (_totalInsurance: Balance): void {
 }
 
 function jsonApi (ctx: Koa.Context): void {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  switch (ctx.query.q) {
+  switch (ctx.query['q']) {
     case 'bondedpercentage':
       ctx.body = percentageFormat(totalBonded, totalInsurance);
       break;
