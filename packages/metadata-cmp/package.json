@@ -25,11 +25,11 @@
     "@polkadot/keyring": "^12.3.2",
     "@polkadot/types": "^10.9.1",
     "@polkadot/util": "^12.3.2",
-    "tslib": "^2.5.3",
+    "tslib": "^2.6.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@types/node": "^20.2.5",
+    "@types/node": "^20.4.0",
     "@types/yargs": "^17.0.24"
   }
 }
