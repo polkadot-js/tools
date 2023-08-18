@@ -14,7 +14,10 @@ import { hideBin } from 'yargs/helpers';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { BN } from '@polkadot/util';
 
-interface ArgV { port: number; ws: string }
+interface ArgV {
+  port: number;
+  ws: string
+}
 
 const { port, ws } = yargs(hideBin(process.argv))
   .options({

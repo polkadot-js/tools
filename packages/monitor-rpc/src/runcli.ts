@@ -10,9 +10,12 @@ import { hideBin } from 'yargs/helpers';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
-const MAX_ELAPSED = 60000;
+interface ArgV {
+  port: number;
+  ws: string
+}
 
-interface ArgV { port: number; ws: string }
+const MAX_ELAPSED = 60000;
 
 const { port, ws } = yargs(hideBin(process.argv))
   .options({

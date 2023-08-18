@@ -14,7 +14,9 @@ import { getSiName } from '@polkadot/types/metadata/util';
 import { unwrapStorageType } from '@polkadot/types/util';
 import { assert, stringCamelCase } from '@polkadot/util';
 
-interface ArgV { _: [string, string] }
+interface ArgV {
+  _: [string, string]
+}
 
 const [ws1, ws2] = (yargs(hideBin(process.argv)).demandCommand(2).argv as unknown as ArgV)._;
 

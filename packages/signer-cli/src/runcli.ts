@@ -11,10 +11,21 @@ import cmdSendOffline from './cmdSendOffline.js';
 import cmdSign from './cmdSign.js';
 import cmdSubmit from './cmdSubmit.js';
 
+interface ArgV {
+  _: string[];
+  account?: string;
+  blocks?: number;
+  minutes?: number;
+  nonce?: number;
+  params?: string;
+  seed?: string;
+  type?: string;
+  ws?: string;
+  tx?: string;
+}
+
 const BLOCKTIME = 6;
 const ONE_MINUTE = 60 / BLOCKTIME;
-
-interface ArgV { _: string[]; account?: string; blocks?: number; minutes?: number; nonce?: number; params?: string; seed?: string; type?: string; ws?: string; tx?: string; }
 
 const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: paramsFile, seed, tx, type, ws } = yargs(hideBin(process.argv))
   .usage('Usage: [options] <endpoint> <...params>')
