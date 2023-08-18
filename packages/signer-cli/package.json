@@ -23,10 +23,10 @@
   "dependencies": {
     "@polkadot/api": "^10.9.1",
     "@polkadot/api-cli": "^0.55.4-0-x",
-    "@polkadot/keyring": "^12.3.2",
+    "@polkadot/keyring": "^12.4.1",
     "@polkadot/types": "^10.9.1",
-    "@polkadot/util": "^12.3.2",
-    "@polkadot/util-crypto": "^12.3.2",
+    "@polkadot/util": "^12.4.1",
+    "@polkadot/util-crypto": "^12.4.1",
     "tslib": "^2.6.0",
     "yargs": "^17.7.2"
   },

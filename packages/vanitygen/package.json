@@ -21,8 +21,8 @@
     "polkadot-js-vanitygen": "./runcli.mjs"
   },
   "dependencies": {
-    "@polkadot/util": "^12.3.2",
-    "@polkadot/util-crypto": "^12.3.2",
+    "@polkadot/util": "^12.4.1",
+    "@polkadot/util-crypto": "^12.4.1",
     "tslib": "^2.6.0",
     "yargs": "^17.7.2"
   },

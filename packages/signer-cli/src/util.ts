@@ -10,7 +10,7 @@ import { assert } from '@polkadot/util';
 export function getTx (api: ApiPromise, name: string): SubmittableExtrinsicFunction<'promise'> {
   const [section, method] = name.split('.');
 
-  assert(api.tx[section] && api.tx[section][method], `Unable to find method ${section}.${method}`);
+  assert(api.tx[section]?.[method], `Unable to find method ${section}.${method}`);
 
   return api.tx[section][method];
 }
