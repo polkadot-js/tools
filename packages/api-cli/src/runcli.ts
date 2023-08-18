@@ -42,11 +42,7 @@ interface ApiCallFn {
 }
 
 // interface ApiExtSection
-interface ApiExtSection {
-  [index: string]: {
-    [index: string]: ApiCallFn;
-  };
-}
+type ApiExtSection = Record<string, Record<string, ApiCallFn>>;
 
 // extend our API definition to know about how we decorate the methods - we are really hacking
 // into the API definitions here a bit since we want to dynamically access the endpoints
@@ -222,6 +218,10 @@ function logDetails ({ fn: { description, meta }, method, section }: CallInfo): 
   if (description) {
     console.log(description);
   } else if (meta) {
+    // We actually override all toString() methods inside the API, so this
+    // is safe, aka won't display `[Object object]`
+    //
+    // eslint-disable-next-line @typescript-eslint/no-base-to-string
     meta.docs.forEach((d) => console.log(d.toString()));
   } else {
     console.log('No documentation available');

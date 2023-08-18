@@ -12,7 +12,7 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 
 const MAX_ELAPSED = 60000;
 
-type ArgV = { port: number; ws: string };
+interface ArgV { port: number; ws: string }
 
 const { port, ws } = yargs(hideBin(process.argv))
   .options({

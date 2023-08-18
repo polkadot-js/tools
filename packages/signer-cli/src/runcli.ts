@@ -14,7 +14,7 @@ import cmdSubmit from './cmdSubmit.js';
 const BLOCKTIME = 6;
 const ONE_MINUTE = 60 / BLOCKTIME;
 
-type ArgV = { _: string[]; account?: string; blocks?: number; minutes?: number; nonce?: number; params?: string; seed?: string; type?: string; ws?: string; tx?: string; };
+interface ArgV { _: string[]; account?: string; blocks?: number; minutes?: number; nonce?: number; params?: string; seed?: string; type?: string; ws?: string; tx?: string; }
 
 const { _: [command, ...paramsInline], account, blocks, minutes, nonce, params: paramsFile, seed, tx, type, ws } = yargs(hideBin(process.argv))
   .usage('Usage: [options] <endpoint> <...params>')
@@ -84,11 +84,15 @@ async function main (): Promise<void> {
     ? minutes * ONE_MINUTE
     : blocks;
 
+  if (!account) {
+    throw new Error('No account has been specified, unable to sign');
+  }
+
   return command === 'sign'
-    ? cmdSign(account as string, seed, type as 'ed25519', params)
+    ? cmdSign(account, seed, type as 'ed25519', params)
     : command === 'submit'
-      ? cmdSubmit(account as string, mortality, ws, tx, params)
-      : cmdSendOffline(account as string, mortality, ws, nonce, params);
+      ? cmdSubmit(account, mortality, ws, tx, params)
+      : cmdSendOffline(account, mortality, ws, nonce, params);
 }
 
 process.on('unhandledRejection', (error): void => {

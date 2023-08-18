@@ -18,7 +18,7 @@ interface Best extends GeneratorMatch {
   withCase?: boolean;
 }
 
-type ArgV = { match: string; mnemonic: boolean; network: string; type: string; withCase: boolean };
+interface ArgV { match: string; mnemonic: boolean; network: string; type: string; withCase: boolean }
 
 const { match, mnemonic, network, type, withCase } = yargs(hideBin(process.argv))
   .wrap(120)
