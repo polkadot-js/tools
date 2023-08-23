@@ -23,15 +23,15 @@
   "dependencies": {
     "@polkadot/api": "^10.9.1",
     "@polkadot/api-cli": "^0.55.4-2-x",
-    "@polkadot/keyring": "^12.4.1",
+    "@polkadot/keyring": "^12.4.2",
     "@polkadot/types": "^10.9.1",
-    "@polkadot/util": "^12.4.1",
-    "@polkadot/util-crypto": "^12.4.1",
+    "@polkadot/util": "^12.4.2",
+    "@polkadot/util-crypto": "^12.4.2",
     "tslib": "^2.6.2",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@types/node": "^20.5.1",
+    "@types/node": "^20.5.3",
     "@types/yargs": "^17.0.24"
   }
 }
