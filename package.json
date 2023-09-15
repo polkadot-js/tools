@@ -39,8 +39,8 @@
     "test": "yarn run:api --help && yarn run:json --help && yarn run:metadata --help && yarn run:monitor --help && yarn run:signer --help && yarn run:vanity --help"
   },
   "devDependencies": {
-    "@polkadot/dev": "^0.76.18",
-    "@types/node": "^20.5.3",
+    "@polkadot/dev": "^0.76.25",
+    "@types/node": "^20.6.0",
     "@types/yargs": "^17.0.24"
   },
   "resolutions": {
