@@ -15,26 +15,26 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.55.4-5-x",
+  "version": "0.56.0",
   "main": "index.js",
   "bin": {
     "polkadot-js-json-serve": "./runcli.mjs"
   },
   "dependencies": {
-    "@polkadot/api": "^10.10.1",
-    "@polkadot/api-augment": "^10.10.1",
-    "@polkadot/api-derive": "^10.10.1",
-    "@polkadot/types": "^10.10.1",
-    "@polkadot/util": "^12.5.1",
+    "@polkadot/api": "^10.11.1",
+    "@polkadot/api-augment": "^10.11.1",
+    "@polkadot/api-derive": "^10.11.1",
+    "@polkadot/types": "^10.11.1",
+    "@polkadot/util": "^12.6.1",
     "koa": "^2.14.2",
     "koa-route": "^3.2.0",
     "tslib": "^2.6.2",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@types/koa": "^2.13.9",
-    "@types/koa-route": "^3.2.6",
-    "@types/node": "^20.8.4",
-    "@types/yargs": "^17.0.28"
+    "@types/koa": "^2.13.11",
+    "@types/koa-route": "^3.2.8",
+    "@types/node": "^20.9.1",
+    "@types/yargs": "^17.0.31"
   }
 }
