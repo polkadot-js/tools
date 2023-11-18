@@ -3,7 +3,7 @@
   "bugs": "https://github.com/polkadot-js/tools/issues",
   "description": "A simple monitor via RPC",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "homepage": "https://github.com/polkadot-js/tools/tree/master/packages/monitor-rpc#readme",
   "license": "Apache-2.0",
@@ -15,7 +15,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.56.0",
+  "version": "0.56.1",
   "main": "index.js",
   "bin": {
     "polkadot-js-monitor": "./runcli.mjs"
