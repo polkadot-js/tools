@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.56.1 Nov 18, 2023
+
+Changes:
+
+- Upgrade to `@polkadot/util` 12.6.1
+- Upgrade to `@polkadot/api` 10.11.1
+- Drop support for Node 16 (EOL 11 Sep 2023)
+
+
 ## 0.55.3 Jun 12, 2023
 
 Changes:
