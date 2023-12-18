@@ -14,7 +14,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.56.2-1-x",
+  "version": "0.56.2",
   "versions": {
     "git": "0.56.2-1-x",
     "npm": "0.56.1"
@@ -44,12 +44,12 @@
     "@types/yargs": "^17.0.32"
   },
   "resolutions": {
-    "@polkadot/api": "^10.11.1",
-    "@polkadot/api-derive": "^10.11.1",
-    "@polkadot/keyring": "^12.6.1",
-    "@polkadot/types": "^10.11.1",
-    "@polkadot/util": "^12.6.1",
-    "@polkadot/util-crypto": "^12.6.1",
-    "typescript": "^5.2.2"
+    "@polkadot/api": "^10.11.2",
+    "@polkadot/api-derive": "^10.11.2",
+    "@polkadot/keyring": "^12.6.2",
+    "@polkadot/types": "^10.11.2",
+    "@polkadot/util": "^12.6.2",
+    "@polkadot/util-crypto": "^12.6.2",
+    "typescript": "^5.3.3"
   }
 }
