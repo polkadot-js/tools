@@ -263,7 +263,7 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
     signable = fn(...params);
   }
 
-  return signable.signAndSend(signer, { assetId, tip, nonce }, (result: SubmittableResult): void => {
+  return signable.signAndSend(signer, { assetId, nonce, tip }, (result: SubmittableResult): void => {
     log(result);
 
     if (noWait || result.isInBlock || result.isFinalized) {
