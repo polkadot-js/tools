@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.56.2 Dec 18, 2023
+
+Contributed:
+
+- Add nonce argument to cli (Thanks to https://github.com/svyatonik)
+
+Changes:
+
+- Upgrade to `@polkadot/util` 12.6.2
+- Upgrade to `@polkadot/api` 10.11.2
+
+
 ## 0.56.1 Nov 18, 2023
 
 Changes:
