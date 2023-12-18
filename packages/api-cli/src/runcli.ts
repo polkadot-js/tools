@@ -68,6 +68,7 @@ interface Params {
   _: string[];
   info: boolean;
   noWait: boolean;
+  nonce: number;
   params: string;
   rpc: string;
   seed: string;
@@ -92,7 +93,8 @@ const argv = yargs(hideBin(process.argv))
   .command('$0', `Usage: [options] <endpoint> <...params>
 Example: query.system.account 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKv3gB
 Example: query.substrate.code --info
-Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
+Example: --seed "//Alice" tx.balances.transfer F7Gh 10000
+Example: --seed "//Alice" --noWait --nonce -1 tx.balances.transfer F7Gh 10000`
   )
   .middleware(hexMiddleware)
   .middleware(jsonMiddleware)
@@ -109,6 +111,10 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
     noWait: {
       description: 'After sending a tx return immediately and don\'t wait until it is included in a block',
       type: 'boolean'
+    },
+    nonce: {
+      description: 'An account nonce to be used when signing tx. -1 means to read it from node (including tx pool)',
+      type: 'number'
     },
     params: {
       description: 'Location of file containing space-separated transaction parameters (optional)',
@@ -157,7 +163,7 @@ Example: --seed "//Alice" tx.balances.transfer F7Gh 10000`
   })
   .argv as Params;
 
-const { _: [endpoint, ...paramsInline], assetId, info, noWait, params: paramsFile, seed, sign, sub, sudo, sudoUncheckedWeight, tip, ws } = argv;
+const { _: [endpoint, ...paramsInline], assetId, info, noWait, nonce, params: paramsFile, seed, sign, sub, sudo, sudoUncheckedWeight, tip, ws } = argv;
 const params = parseParams(paramsInline, paramsFile);
 
 const ALLOWED = ['consts', 'derive', 'query', 'rpc', 'tx'];
@@ -257,7 +263,7 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
     signable = fn(...params);
   }
 
-  return signable.signAndSend(signer, { assetId, tip }, (result: SubmittableResult): void => {
+  return signable.signAndSend(signer, { assetId, nonce, tip }, (result: SubmittableResult): void => {
     log(result);
 
     if (noWait || result.isInBlock || result.isFinalized) {
