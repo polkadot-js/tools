@@ -1,4 +1,4 @@
-// Copyright 2017-2023 @polkadot/vanitygen authors & contributors
+// Copyright 2017-2024 @polkadot/vanitygen authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 // eslint-disable-next-line prefer-regex-literals

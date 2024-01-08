@@ -1,4 +1,4 @@
-// Copyright 2018-2023 @polkadot/metadata-cmp authors & contributors
+// Copyright 2018-2024 @polkadot/metadata-cmp authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { Metadata } from '@polkadot/types';
