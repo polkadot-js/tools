@@ -269,6 +269,10 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
     if (noWait || result.isInBlock || result.isFinalized) {
       process.exit(0);
     }
+
+    if (result.isError) {
+      process.exit(1);
+    }
   });
 }
 
