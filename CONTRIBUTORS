@@ -17,3 +17,4 @@
        1	Pierre Besson                 	add example to explicit the automatic parsing of JSON arguments by the CLI fix fix #275 (#276)
        1	Stefanie Doll                 	Add support for v4 metadata (#23)
        1	Svyatoslav Nikolsky           	Added nonce argument to polkadot-js-api (#511)
+       1	Tarik Gul                     	ci: add user (TarikGul) to auto-approve (#517)
