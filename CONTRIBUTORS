@@ -6,6 +6,7 @@
        2	Ben                           	Bump the version of @polkadot/api (#64)
        2	joe petrowski                 	Fix readline import (#73)
        2	Marcin Żółkiewski             	fixed missing nonce (#81)
+       2	Tarik Gul                     	chore(yarn): update yarn to 4.1.0 (#516)
        2	Wil Wade                      	Push the version tag (#467)
        2	YJ                            	fix(#41): validate account seed before signing (#144)
        1	André Silva                   	api-cli: add option to skip waiting for tx inclusion (#224)
@@ -17,4 +18,3 @@
        1	Pierre Besson                 	add example to explicit the automatic parsing of JSON arguments by the CLI fix fix #275 (#276)
        1	Stefanie Doll                 	Add support for v4 metadata (#23)
        1	Svyatoslav Nikolsky           	Added nonce argument to polkadot-js-api (#511)
-       1	Tarik Gul                     	ci: add user (TarikGul) to auto-approve (#517)
