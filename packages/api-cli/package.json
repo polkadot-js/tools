@@ -21,10 +21,10 @@
     "polkadot-js-api": "./runcli.mjs"
   },
   "dependencies": {
-    "@polkadot/api": "^10.11.2",
-    "@polkadot/api-augment": "^10.11.2",
+    "@polkadot/api": "^10.11.3",
+    "@polkadot/api-augment": "^10.11.3",
     "@polkadot/keyring": "^12.6.2",
-    "@polkadot/types": "^10.11.2",
+    "@polkadot/types": "^10.11.3",
     "@polkadot/util": "^12.6.2",
     "@polkadot/util-crypto": "^12.6.2",
     "tslib": "^2.6.2",
