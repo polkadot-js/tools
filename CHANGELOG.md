@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.56.3 Feb 28, 2023
+
+Contributed:
+
+- Avoid infinite wait on failed txs (Thanks to https://github.com/serban300)
+
+Changes:
+
+- Upgrade to `@polkadot/api` 10.11.3
+- Bump yarn to 4.1.0
+
+
 ## 0.56.2 Dec 18, 2023
 
 Contributed:
