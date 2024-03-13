@@ -476,7 +476,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/api-cli@workspace:packages/api-cli"
   dependencies:
-    "@polkadot/api": "npm:^10.11.3"
+    "@polkadot/api": "npm:^10.12.2"
     "@polkadot/api-augment": "npm:^10.11.3"
     "@polkadot/keyring": "npm:^12.6.2"
     "@polkadot/types": "npm:^10.11.3"
@@ -634,7 +634,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/json-serve@workspace:packages/json-serve"
   dependencies:
-    "@polkadot/api": "npm:^10.11.3"
+    "@polkadot/api": "npm:^10.12.2"
     "@polkadot/api-augment": "npm:^10.11.3"
     "@polkadot/api-derive": "npm:^10.11.3"
     "@polkadot/types": "npm:^10.11.3"
@@ -670,7 +670,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/metadata-cmp@workspace:packages/metadata-cmp"
   dependencies:
-    "@polkadot/api": "npm:^10.11.3"
+    "@polkadot/api": "npm:^10.12.2"
     "@polkadot/keyring": "npm:^12.6.2"
     "@polkadot/types": "npm:^10.11.3"
     "@polkadot/util": "npm:^12.6.2"
@@ -687,7 +687,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/monitor-rpc@workspace:packages/monitor-rpc"
   dependencies:
-    "@polkadot/api": "npm:^10.11.3"
+    "@polkadot/api": "npm:^10.12.2"
     "@polkadot/types": "npm:^10.11.3"
     "@polkadot/util": "npm:^12.6.2"
     "@types/koa": "npm:^2.13.12"
@@ -769,7 +769,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/signer-cli@workspace:packages/signer-cli"
   dependencies:
-    "@polkadot/api": "npm:^10.11.3"
+    "@polkadot/api": "npm:^10.12.2"
     "@polkadot/api-cli": "npm:^0.56.3"
     "@polkadot/keyring": "npm:^12.6.2"
     "@polkadot/types": "npm:^10.11.3"
