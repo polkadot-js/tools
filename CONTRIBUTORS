@@ -1,6 +1,6 @@
      483	Jaco                          	2024 (#514)
+       6	Tarik Gul                     	0.56.4 (#521)
        5	Peter Goodspeed-Niklaus       	Disable yargs behavior to optimistically parse number-seeming arguments (#108)
-       5	Tarik Gul                     	Bump @polkadot/api to 10.12.2 (#520)
        3	Alexander Popiak              	add more spec diffing to the metadata comparison (#284)
        3	Bison Brandon                 	Signing-CLI: Add missing special case for immortal transactions (#62)
        3	Nathan Whitaker               	Properly handle pallets with no extrinsics (#496)
