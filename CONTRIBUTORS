@@ -1,5 +1,5 @@
      483	Jaco                          	2024 (#514)
-       7	Tarik Gul                     	Bump all polkadot/* packages (#522)
+       8	Tarik Gul                     	0.56.5 (#523)
        5	Peter Goodspeed-Niklaus       	Disable yargs behavior to optimistically parse number-seeming arguments (#108)
        3	Alexander Popiak              	add more spec diffing to the metadata comparison (#284)
        3	Bison Brandon                 	Signing-CLI: Add missing special case for immortal transactions (#62)
