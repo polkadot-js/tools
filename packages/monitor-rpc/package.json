@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@polkadot/api": "^10.12.2",
-    "@polkadot/types": "^10.11.3",
+    "@polkadot/types": "^10.12.2",
     "@polkadot/util": "^12.6.2",
     "koa": "^2.14.2",
     "koa-route": "^3.2.0",

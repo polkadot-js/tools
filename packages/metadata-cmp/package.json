@@ -23,7 +23,7 @@
   "dependencies": {
     "@polkadot/api": "^10.12.2",
     "@polkadot/keyring": "^12.6.2",
-    "@polkadot/types": "^10.11.3",
+    "@polkadot/types": "^10.12.2",
     "@polkadot/util": "^12.6.2",
     "tslib": "^2.6.2",
     "yargs": "^17.7.2"
