@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.56.6 Mar 20, 2024
+
+Changes:
+
+- Upgrade to `@polkadot/*` api packages to 10.12.4
+
+
 ## 0.56.5 Mar 13, 2024
 
 Changes:
