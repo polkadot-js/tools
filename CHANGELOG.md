@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.56.7 Apr 17, 2024
+
+Changes:
+
+- Update polkadot/dev to 0.78.13
+- Update polkadot/api to 10.13.1
+- Update CI checkout and setup_node to v4
+- Bump yarn to 4.1.1
+
+
 ## 0.56.6 Mar 20, 2024
 
 Changes:
