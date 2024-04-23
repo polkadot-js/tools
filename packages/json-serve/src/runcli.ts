@@ -62,8 +62,8 @@ function percentageFormat (top: BN, bottom: BN): string {
 }
 
 function onElectedInfo (info: DeriveStakingElected): void {
-  totalBonded = info.info.reduce((totalBonded, { exposure }): BN => {
-    return totalBonded.add(exposure?.total.unwrap() || new BN(0));
+  totalBonded = info.info.reduce((totalBonded, { exposurePaged }): BN => {
+    return totalBonded.add((exposurePaged.isSome && exposurePaged?.unwrap().pageTotal.unwrap()) || new BN(0));
   }, new BN(0));
 }
 
@@ -116,7 +116,7 @@ async function main (): Promise<void> {
 
   await api.rpc.chain.subscribeNewHeads(onNewHead);
   await api.query.balances.totalIssuance(onTotalInsurance);
-  await api.derive.staking.electedInfo(undefined, onElectedInfo);
+  await api.derive.staking.electedInfo(undefined, undefined, onElectedInfo);
 }
 
 process.on('unhandledRejection', (error): void => {
