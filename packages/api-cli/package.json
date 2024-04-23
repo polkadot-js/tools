@@ -15,7 +15,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.56.8-0-x",
+  "version": "0.56.8",
   "main": "index.js",
   "bin": {
     "polkadot-js-api": "./runcli.mjs"
