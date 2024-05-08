@@ -21,10 +21,10 @@
     "polkadot-js-signer": "./runcli.mjs"
   },
   "dependencies": {
-    "@polkadot/api": "^11.0.2",
+    "@polkadot/api": "^11.0.3",
     "@polkadot/api-cli": "^0.56.9",
     "@polkadot/keyring": "^12.6.2",
-    "@polkadot/types": "^11.0.2",
+    "@polkadot/types": "^11.0.3",
     "@polkadot/util": "^12.6.2",
     "@polkadot/util-crypto": "^12.6.2",
     "tslib": "^2.6.2",
