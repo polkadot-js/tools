@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.56.10 May 8, 2024
+
+Changes:
+
+- Bump polkadot/api to 11.0.3
+
+
 ## 0.56.9 Apr 27, 2024
 
 Changes:

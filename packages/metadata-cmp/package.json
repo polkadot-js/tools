@@ -15,7 +15,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.56.10-0-x",
+  "version": "0.56.10",
   "main": "index.js",
   "bin": {
     "polkadot-js-metadata-cmp": "./runcli.mjs"
