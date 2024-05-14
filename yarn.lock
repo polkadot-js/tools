@@ -534,34 +534,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/dev-test@npm:^0.78.13":
-  version: 0.78.13
-  resolution: "@polkadot/dev-test@npm:0.78.13"
+"@polkadot/dev-test@npm:^0.79.2":
+  version: 0.79.2
+  resolution: "@polkadot/dev-test@npm:0.79.2"
   dependencies:
     jsdom: "npm:^24.0.0"
     tslib: "npm:^2.6.2"
-  checksum: 10/7392e76845d50f1eb9674c94c95c8bcb7bf95ea0ba559d2be04a77e545e8fc2c5954e878228eb33624901bf5f3b1eea59d2557233b6f5d2306dfec49eefc1a7a
+  checksum: 10/44994a3d34afb3b240c1e6f50bae0c5308021de215057e95df5fad79119a2397146a186091ab83832bd9e3889e39fed25adaa9cff87125dc22587fda410a270d
   languageName: node
   linkType: hard
 
-"@polkadot/dev-ts@npm:^0.78.13":
-  version: 0.78.13
-  resolution: "@polkadot/dev-ts@npm:0.78.13"
+"@polkadot/dev-ts@npm:^0.79.2":
+  version: 0.79.2
+  resolution: "@polkadot/dev-ts@npm:0.79.2"
   dependencies:
     json5: "npm:^2.2.3"
     tslib: "npm:^2.6.2"
     typescript: "npm:^5.3.3"
-  checksum: 10/2dd5552394f2bb40e99cbe9bd038adef97730b4a30360e68e9e0679e9af1065cb8a0e324bb90b42c449fb8273ef492335f3d204f02047d444d79ca18f97d67f0
+  checksum: 10/4488553b3fde674e3b41c3d3e53817bcc16eb6c6d4aecf942cbce4d0cb09e358d7a9c298abd94b9a6c43b12b1fba0dedfad1b1a68b76ca357fadbbad83cfb437
   languageName: node
   linkType: hard
 
-"@polkadot/dev@npm:^0.78.13":
-  version: 0.78.13
-  resolution: "@polkadot/dev@npm:0.78.13"
+"@polkadot/dev@npm:^0.79.2":
+  version: 0.79.2
+  resolution: "@polkadot/dev@npm:0.79.2"
   dependencies:
     "@eslint/js": "npm:^8.56.0"
-    "@polkadot/dev-test": "npm:^0.78.13"
-    "@polkadot/dev-ts": "npm:^0.78.13"
+    "@polkadot/dev-test": "npm:^0.79.2"
+    "@polkadot/dev-ts": "npm:^0.79.2"
     "@rollup/plugin-alias": "npm:^5.1.0"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-dynamic-import-vars": "npm:^2.1.2"
@@ -626,7 +626,7 @@ __metadata:
     polkadot-exec-rollup: scripts/polkadot-exec-rollup.mjs
     polkadot-exec-tsc: scripts/polkadot-exec-tsc.mjs
     polkadot-exec-webpack: scripts/polkadot-exec-webpack.mjs
-  checksum: 10/21322081631f86d91b9796e28a1753bd14f25e2439b3c770a4a304db78eaa466e99a0ba1c541d3c71135c1be15eab496fa0f22c830c8b761d5c36b40bbfb2568
+  checksum: 10/cd182d5a7eca324f65725b688ed5b866e13fd0ad53bc1b2354bd25986431e34b9e112866eeee619483ed6222e8f351332c319af5f29acd88a62f3f911972b027
   languageName: node
   linkType: hard
 
@@ -8265,7 +8265,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@polkadot/dev": "npm:^0.78.13"
+    "@polkadot/dev": "npm:^0.79.2"
     "@types/node": "npm:^20.10.5"
     "@types/yargs": "npm:^17.0.32"
   languageName: unknown
