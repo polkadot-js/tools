@@ -1,5 +1,5 @@
      483	Jaco                          	2024 (#514)
-      22	Tarik Gul                     	0.56.10 (#538)
+      23	Tarik Gul                     	Bump @polkadot/dev to 0.79.3 w/ topo sort (#539)
        5	Peter Goodspeed-Niklaus       	Disable yargs behavior to optimistically parse number-seeming arguments (#108)
        3	Alexander Popiak              	add more spec diffing to the metadata comparison (#284)
        3	Bison Brandon                 	Signing-CLI: Add missing special case for immortal transactions (#62)
