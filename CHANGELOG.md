@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.56.11 May 22, 2024
+
+Changes:
+
+- Bump polkadot/api to 11.1.1
+- Bump yarn to 4.2.2
+- Bump polkadot/dev to 0.79.3 w/ topo sort
+
+
 ## 0.56.10 May 8, 2024
 
 Changes:
