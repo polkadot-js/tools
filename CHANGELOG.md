@@ -6,7 +6,7 @@ Changes:
 
 - Upgrade polkadot/api to 12.2.1
 - Upgrade polkadot/common to 13.0.2
-- BUmp yarn to 4.3.1
+- Bump yarn to 4.3.1
 
 
 ## 0.56.14 June 27, 2024
