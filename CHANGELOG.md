@@ -1,8 +1,17 @@
 # CHANGELOG
 
+## 0.57.1 July 13, 2024
+
+Changes:
+
+- Bump polkadot/api to 12.2.1
+- Bump polkadot/common to 13.0.2
+- BUmp yarn to 4.3.1
+
+
 ## 0.56.14 June 27, 2024
 
-Changes
+Changes:
 
 - Bump polkadot/api to 12.0.2
 
