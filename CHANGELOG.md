@@ -4,8 +4,8 @@
 
 Changes:
 
-- Bump polkadot/api to 12.2.1
-- Bump polkadot/common to 13.0.2
+- Upgrade polkadot/api to 12.2.1
+- Upgrade polkadot/common to 13.0.2
 - BUmp yarn to 4.3.1
 
 
