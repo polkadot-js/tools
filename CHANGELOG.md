@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.57.2 July 29, 2024
+
+Changes:
+
+- Upgrade polkadot/api to 12.2.3
+
+
 ## 0.57.1 July 13, 2024
 
 Changes:
