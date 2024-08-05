@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.57.3 Aug 5, 2024
+
+Changes:
+
+- Upgrade polkadot/api to 12.3.1 ([#555](https://github.com/polkadot-js/tools/pull/555))
+
+
 ## 0.57.2 July 29, 2024
 
 Changes:
