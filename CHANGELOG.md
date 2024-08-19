@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.57.4 Aug 19, 2024
+
+Changes:
+
+- Bump yarn to 4.4.0
+- Upgrade polkadot-js/api to 12.4.1
+
+
 ## 0.57.3 Aug 5, 2024
 
 Changes:
