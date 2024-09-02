@@ -1,5 +1,5 @@
      483	Jaco                          	2024 (#514)
-      41	Tarik Gul                     	Bump dev, and typescript (#560)
+      42	Tarik Gul                     	Bump yarn to 4.4.1 (#561)
        5	Peter Goodspeed-Niklaus       	Disable yargs behavior to optimistically parse number-seeming arguments (#108)
        3	Alexander Popiak              	add more spec diffing to the metadata comparison (#284)
        3	Bison Brandon                 	Signing-CLI: Add missing special case for immortal transactions (#62)
