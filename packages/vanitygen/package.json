@@ -23,7 +23,7 @@
   "dependencies": {
     "@polkadot/util": "^13.0.2",
     "@polkadot/util-crypto": "^13.0.2",
-    "tslib": "^2.6.2",
+    "tslib": "^2.7.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {

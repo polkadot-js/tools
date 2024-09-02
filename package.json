@@ -39,7 +39,7 @@
     "test": "yarn run:api --help && yarn run:json --help && yarn run:metadata --help && yarn run:monitor --help && yarn run:signer --help && yarn run:vanity --help"
   },
   "devDependencies": {
-    "@polkadot/dev": "^0.79.3",
+    "@polkadot/dev": "^0.80.1",
     "@types/node": "^20.10.5",
     "@types/yargs": "^17.0.32"
   },
@@ -50,6 +50,6 @@
     "@polkadot/types": "^12.4.1",
     "@polkadot/util": "^13.0.2",
     "@polkadot/util-crypto": "^13.0.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.5.4"
   }
 }
