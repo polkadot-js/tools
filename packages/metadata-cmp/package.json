@@ -21,10 +21,10 @@
     "polkadot-js-metadata-cmp": "./runcli.mjs"
   },
   "dependencies": {
-    "@polkadot/api": "^12.4.1",
-    "@polkadot/keyring": "^13.0.2",
-    "@polkadot/types": "^12.4.1",
-    "@polkadot/util": "^13.0.2",
+    "@polkadot/api": "^13.1.1",
+    "@polkadot/keyring": "^13.1.1",
+    "@polkadot/types": "^13.1.1",
+    "@polkadot/util": "^13.1.1",
     "tslib": "^2.7.0",
     "yargs": "^17.7.2"
   },
