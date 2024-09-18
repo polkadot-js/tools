@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.58.1 Sep 18, 2024
+
+Changes:
+
+- Upgrade polkadot-js/api to 13.1.1, and polkadot-js/common to 13.1.1 ([#562](https://github.com/polkadot-js/tools/pull/562))
+- Bump Dev and Typescript ([#560](https://github.com/polkadot-js/tools/pull/560))
+- Bump yarn to 4.5.0 ([#563](https://github.com/polkadot-js/tools/pull/563))
+
+
 ## 0.57.4 Aug 19, 2024
 
 Changes:
