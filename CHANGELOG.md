@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.58.2 Sep 18, 2024
+
+- Ensure resolutions are set for polkadot-js repos ([#565](https://github.com/polkadot-js/tools/pull/565))
+
+
 ## 0.58.1 Sep 18, 2024
 
 Changes:
