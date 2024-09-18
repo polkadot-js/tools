@@ -115,7 +115,7 @@ async function main (): Promise<void> {
   tokenDecimals = chainProperties.tokenDecimals.unwrapOr([new BN(12)])[0].toNumber();
 
   await api.rpc.chain.subscribeNewHeads(onNewHead);
-  await api.query['balances']['totalIssuance'](onTotalInsurance);
+  await api.query.balances.totalIssuance(onTotalInsurance);
   await api.derive.staking.electedInfo(undefined, undefined, onElectedInfo);
 }
 

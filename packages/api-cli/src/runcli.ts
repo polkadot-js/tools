@@ -252,13 +252,13 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
   let signable;
 
   if (sudo || sudoUncheckedWeight) {
-    const adminId = await api.query['sudo']['key']();
+    const adminId = await api.query.sudo.key();
 
     assert(adminId.eq(signer.address), 'Supplied seed does not match on-chain sudo key');
 
     signable = sudoUncheckedWeight
-      ? api.tx['sudo']['sudoUncheckedWeight'](fn(...params), sudoUncheckedWeight)
-      : api.tx['sudo']['sudo'](fn(...params));
+      ? api.tx.sudo.sudoUncheckedWeight(fn(...params), sudoUncheckedWeight)
+      : api.tx.sudo.sudo(fn(...params));
   } else {
     signable = fn(...params);
   }
