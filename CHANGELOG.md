@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.58.3 Sep 23, 2024
+
+- Upgrade polkadot-js to 13.2.1 ([#567](https://github.com/polkadot-js/tools/pull/567))
+
+
 ## 0.58.2 Sep 18, 2024
 
 - Ensure resolutions are set for polkadot-js repos ([#565](https://github.com/polkadot-js/tools/pull/565))
