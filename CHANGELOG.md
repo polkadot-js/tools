@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.59.1 Oct 3, 2024
+
+- Upgrade polkadot-js to 14.0.1 ([#569](https://github.com/polkadot-js/tools/pull/569))
+    - This is an important upgrade since it gives support for extrinsic v5.
+
+
 ## 0.58.3 Sep 23, 2024
 
 - Upgrade polkadot-js to 13.2.1 ([#567](https://github.com/polkadot-js/tools/pull/567))
