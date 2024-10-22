@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.60.1 Oct 22, 2024
+
+Changes:
+
+- Bump yarn to 4.5.1 ([#573](https://github.com/polkadot-js/tools/pull/573))
+- Upgrade polkadot/api to 14.1.1 ([#572](https://github.com/polkadot-js/tools/pull/572))
+- Upgrade polkadot/common to 13.2.2 ([#572](https://github.com/polkadot-js/tools/pull/572))
+- Bump dev to 0.81.2 ([#571](https://github.com/polkadot-js/tools/pull/571))
+    - This allows for correct CJS and ESM targetting
+
+
 ## 0.59.1 Oct 3, 2024
 
 - Upgrade polkadot-js to 14.0.1 ([#569](https://github.com/polkadot-js/tools/pull/569))
