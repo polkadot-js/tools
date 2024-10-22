@@ -21,12 +21,12 @@
     "polkadot-js-signer": "./runcli.mjs"
   },
   "dependencies": {
-    "@polkadot/api": "^14.0.1",
+    "@polkadot/api": "^14.1.1",
     "@polkadot/api-cli": "^0.59.2-0-x",
-    "@polkadot/keyring": "^13.1.1",
-    "@polkadot/types": "^14.0.1",
-    "@polkadot/util": "^13.1.1",
-    "@polkadot/util-crypto": "^13.1.1",
+    "@polkadot/keyring": "^13.2.1",
+    "@polkadot/types": "^14.1.1",
+    "@polkadot/util": "^13.2.1",
+    "@polkadot/util-crypto": "^13.2.1",
     "tslib": "^2.7.0",
     "yargs": "^17.7.2"
   },
