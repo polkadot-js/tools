@@ -21,9 +21,9 @@
     "polkadot-js-monitor": "./runcli.mjs"
   },
   "dependencies": {
-    "@polkadot/api": "^14.0.1",
-    "@polkadot/types": "^14.0.1",
-    "@polkadot/util": "^13.1.1",
+    "@polkadot/api": "^14.1.1",
+    "@polkadot/types": "^14.1.1",
+    "@polkadot/util": "^13.2.1",
     "koa": "^2.14.2",
     "koa-route": "^3.2.0",
     "tslib": "^2.7.0",
