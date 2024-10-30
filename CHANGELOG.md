@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.60.2 Oct 30, 2024
+
+Changes:
+
+- Upgrade common to 13.2.2, and api to 14.2.1 ([#575](https://github.com/polkadot-js/tools/pull/575))
+
+
 ## 0.60.1 Oct 22, 2024
 
 Changes:
