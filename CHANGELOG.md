@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.60.3 Nov 11, 2024
+
+Changes:
+
+- Bump dev to 0.82.1 w/ tslib ([#577](https://github.com/polkadot-js/tools/pull/577))
+- Upgrade common to 13.2.3 and api to 14.3.1 ([#578](https://github.com/polkadot-js/tools/pull/578))
+
+
 ## 0.60.2 Oct 30, 2024
 
 Changes:
