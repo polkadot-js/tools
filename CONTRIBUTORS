@@ -1,5 +1,5 @@
      483	Jaco                          	2024 (#514)
-      59	Tarik Gul                     	Upgrade common to 13.2.3 and api to 14.3.1 (#578)
+      60	Tarik Gul                     	0.60.3 (#579)
        5	Peter Goodspeed-Niklaus       	Disable yargs behavior to optimistically parse number-seeming arguments (#108)
        3	Alexander Popiak              	add more spec diffing to the metadata comparison (#284)
        3	Bison Brandon                 	Signing-CLI: Add missing special case for immortal transactions (#62)
