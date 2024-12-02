@@ -15,7 +15,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.60.4-1-x",
+  "version": "0.61.1",
   "main": "index.js",
   "bin": {
     "polkadot-js-vanitygen": "./runcli.mjs"

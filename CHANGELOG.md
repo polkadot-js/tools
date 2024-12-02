@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.61.1 Dec 2, 2024
+
+Changes:
+
+- Bump yarn to 4.5.3 ([#581](https://github.com/polkadot-js/tools/pull/581))
+- Upgrade polkadot-js/api to 15.0.1 ([#580](https://github.com/polkadot-js/tools/pull/580))
+
+
 ## 0.60.3 Nov 11, 2024
 
 Changes:
