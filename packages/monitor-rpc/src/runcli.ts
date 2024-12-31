@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { BlockNumber, Header } from '@polkadot/types/interfaces';
+import type { AnyJson } from '@polkadot/types/types';
 
 import Koa from 'koa';
 import koaRoute from 'koa-route';
@@ -9,6 +10,8 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
+
+type Handler = (this: Koa.Context, ctx: Koa.Context, ...params: AnyJson[]) => AnyJson;
 
 interface ArgV {
   port: number;
@@ -71,7 +74,7 @@ function httpStatus (ctx: Koa.Context): void {
 async function main (): Promise<void> {
   const app = new Koa();
 
-  app.use(koaRoute.all('/', httpStatus));
+  app.use(koaRoute.all('/', httpStatus as Handler));
   app.listen(port);
 
   const provider = new WsProvider(ws);
