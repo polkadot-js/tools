@@ -39,15 +39,15 @@
     "test": "yarn run:api --help && yarn run:json --help && yarn run:metadata --help && yarn run:monitor --help && yarn run:signer --help && yarn run:vanity --help"
   },
   "devDependencies": {
-    "@polkadot/dev": "^0.82.1",
+    "@polkadot/dev": "^0.82.2",
     "@types/node": "^20.10.5",
     "@types/yargs": "^17.0.32"
   },
   "resolutions": {
-    "@polkadot/api": "^15.0.1",
-    "@polkadot/api-derive": "^15.0.1",
+    "@polkadot/api": "^15.1.1",
+    "@polkadot/api-derive": "^15.1.1",
     "@polkadot/keyring": "^13.2.3",
-    "@polkadot/types": "^15.0.1",
+    "@polkadot/types": "^15.1.1",
     "@polkadot/util": "^13.2.3",
     "@polkadot/util-crypto": "^13.2.3",
     "typescript": "^5.5.4"
