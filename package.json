@@ -40,8 +40,8 @@
   },
   "devDependencies": {
     "@polkadot/dev": "^0.82.2",
-    "@types/node": "^20.10.5",
-    "@types/yargs": "^17.0.32"
+    "@types/node": "^20.17.10",
+    "@types/yargs": "^17.0.33"
   },
   "resolutions": {
     "@polkadot/api": "^15.1.1",
