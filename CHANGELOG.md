@@ -6,6 +6,7 @@ Changes:
 
 - Bump yarn to 4.6.0 ([#583](https://github.com/polkadot-js/tools/pull/583))
 - Upgrade polkadot api, and dev ([#584](https://github.com/polkadot-js/tools/pull/584))
+- Update Headers to 2025 ([#587](https://github.com/polkadot-js/tools/pull/587))
 
 
 ## 0.61.1 Dec 2, 2024
