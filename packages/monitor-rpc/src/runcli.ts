@@ -1,4 +1,4 @@
-// Copyright 2018-2024 @polkadot/monitor-rpc authors & contributors
+// Copyright 2018-2025 @polkadot/monitor-rpc authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { BlockNumber, Header } from '@polkadot/types/interfaces';

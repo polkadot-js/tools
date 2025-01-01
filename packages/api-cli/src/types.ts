@@ -1,4 +1,4 @@
-// Copyright 2018-2024 @polkadot/api-cli authors & contributors
+// Copyright 2018-2025 @polkadot/api-cli authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 export interface ArgV {
