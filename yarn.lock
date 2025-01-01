@@ -485,8 +485,8 @@ __metadata:
     "@polkadot/types": "npm:^15.1.1"
     "@polkadot/util": "npm:^13.2.3"
     "@polkadot/util-crypto": "npm:^13.2.3"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^20.17.10"
+    "@types/yargs": "npm:^17.0.33"
     tslib: "npm:^2.8.1"
     yargs: "npm:^17.7.2"
   bin:
@@ -642,12 +642,12 @@ __metadata:
     "@polkadot/api-derive": "npm:^15.1.1"
     "@polkadot/types": "npm:^15.1.1"
     "@polkadot/util": "npm:^13.2.3"
-    "@types/koa": "npm:^2.13.12"
+    "@types/koa": "npm:^2.15.0"
     "@types/koa-route": "npm:^3.2.8"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
-    koa: "npm:^2.14.2"
-    koa-route: "npm:^3.2.0"
+    "@types/node": "npm:^20.17.10"
+    "@types/yargs": "npm:^17.0.33"
+    koa: "npm:^2.15.3"
+    koa-route: "npm:^4.0.1"
     tslib: "npm:^2.8.1"
     yargs: "npm:^17.7.2"
   bin:
@@ -677,8 +677,8 @@ __metadata:
     "@polkadot/keyring": "npm:^13.2.3"
     "@polkadot/types": "npm:^15.1.1"
     "@polkadot/util": "npm:^13.2.3"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^20.17.10"
+    "@types/yargs": "npm:^17.0.33"
     tslib: "npm:^2.8.1"
     yargs: "npm:^17.7.2"
   bin:
@@ -693,12 +693,12 @@ __metadata:
     "@polkadot/api": "npm:^15.1.1"
     "@polkadot/types": "npm:^15.1.1"
     "@polkadot/util": "npm:^13.2.3"
-    "@types/koa": "npm:^2.13.12"
+    "@types/koa": "npm:^2.15.0"
     "@types/koa-route": "npm:^3.2.8"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
-    koa: "npm:^2.14.2"
-    koa-route: "npm:^3.2.0"
+    "@types/node": "npm:^20.17.10"
+    "@types/yargs": "npm:^17.0.33"
+    koa: "npm:^2.15.3"
+    koa-route: "npm:^4.0.1"
     tslib: "npm:^2.8.1"
     yargs: "npm:^17.7.2"
   bin:
@@ -778,8 +778,8 @@ __metadata:
     "@polkadot/types": "npm:^15.1.1"
     "@polkadot/util": "npm:^13.2.3"
     "@polkadot/util-crypto": "npm:^13.2.3"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^20.17.10"
+    "@types/yargs": "npm:^17.0.33"
     tslib: "npm:^2.8.1"
     yargs: "npm:^17.7.2"
   bin:
@@ -902,8 +902,8 @@ __metadata:
   dependencies:
     "@polkadot/util": "npm:^13.2.3"
     "@polkadot/util-crypto": "npm:^13.2.3"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^20.17.10"
+    "@types/yargs": "npm:^17.0.33"
     tslib: "npm:^2.8.1"
     yargs: "npm:^17.7.2"
   bin:
@@ -1570,7 +1570,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/koa@npm:*, @types/koa@npm:^2.13.12":
+"@types/koa@npm:*":
   version: 2.13.12
   resolution: "@types/koa@npm:2.13.12"
   dependencies:
@@ -1586,6 +1586,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/koa@npm:^2.15.0":
+  version: 2.15.0
+  resolution: "@types/koa@npm:2.15.0"
+  dependencies:
+    "@types/accepts": "npm:*"
+    "@types/content-disposition": "npm:*"
+    "@types/cookies": "npm:*"
+    "@types/http-assert": "npm:*"
+    "@types/http-errors": "npm:*"
+    "@types/keygrip": "npm:*"
+    "@types/koa-compose": "npm:*"
+    "@types/node": "npm:*"
+  checksum: 10/2be9dff1ef66bf15b037386c188893761a8fb46390a5e1d2a2031d9e1ba4473e40ddfbd625980a504bd804d7148b3e230c18e240503f33eac3b6e5e830645d30
+  languageName: node
+  linkType: hard
+
 "@types/mime@npm:*":
   version: 2.0.3
   resolution: "@types/mime@npm:2.0.3"
@@ -1593,12 +1609,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.10.5":
+"@types/node@npm:*":
   version: 20.10.5
   resolution: "@types/node@npm:20.10.5"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10/4a378428d2c9f692b19801a5a3d20dc4c0ad5d4a3d103350f8b401af439941a9aa5efeadc8eb9db13c66c620318bc7f336abfc8934f82fd32c4a689d85068c6f
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.17.10":
+  version: 20.17.10
+  resolution: "@types/node@npm:20.17.10"
+  dependencies:
+    undici-types: "npm:~6.19.2"
+  checksum: 10/9a1bcb2f25ce1ad249497e5f10ed984bf0ec476439fad2e965c3d6cc4642abb23c5e8400f7e48e55ff121d2b80b14bdc1bd4eac7ff6848154033a2be25fffb17
   languageName: node
   linkType: hard
 
@@ -1690,12 +1715,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:^17.0.32":
-  version: 17.0.32
-  resolution: "@types/yargs@npm:17.0.32"
+"@types/yargs@npm:^17.0.33":
+  version: 17.0.33
+  resolution: "@types/yargs@npm:17.0.33"
   dependencies:
     "@types/yargs-parser": "npm:*"
-  checksum: 10/1e2b2673847011ce43607df690d392f137d95a2d6ea85aa319403eadda2ef4277365efd4982354d8843f2611ef3846c88599660aaeb537fa9ccddae83c2a89de
+  checksum: 10/16f6681bf4d99fb671bf56029141ed01db2862e3db9df7fc92d8bea494359ac96a1b4b1c35a836d1e95e665fb18ad753ab2015fc0db663454e8fd4e5d5e2ef91
   languageName: node
   linkType: hard
 
@@ -3206,13 +3231,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookies@npm:~0.8.0":
-  version: 0.8.0
-  resolution: "cookies@npm:0.8.0"
+"cookies@npm:~0.9.0":
+  version: 0.9.1
+  resolution: "cookies@npm:0.9.1"
   dependencies:
     depd: "npm:~2.0.0"
     keygrip: "npm:~1.1.0"
-  checksum: 10/5da4d72ba81c2740511751ac8ea9506e10e2366b9ad3360333581e4667fd8d063d02c5be0bef16177de3e366b8128ed2b72921e2952c79cbca084d177e529bba
+  checksum: 10/4816461a38d907b20f3fb7a2bc4741fe580e7a195f3e248ef7025cb3be56a07638a0f4e72553a5f535554ca30172c8a3245c63ac72c9737cec034e9a47773392
   languageName: node
   linkType: hard
 
@@ -6413,26 +6438,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa-route@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "koa-route@npm:3.2.0"
+"koa-route@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "koa-route@npm:4.0.1"
   dependencies:
     debug: "npm:*"
     methods: "npm:~1.1.0"
-    path-to-regexp: "npm:^1.2.0"
-  checksum: 10/251f257211be237aa287454940f7a43e4b1df7852700009756fe699000c7429d92e511729adf0aa382b248ba1c222d510f68d54e7ac32a7891303bdc5dd18335
+    path-to-regexp: "npm:^6.2.1"
+  checksum: 10/3143012c32342d62ec0a74e600e0860111b46bbf16b0f1b0ff1b043962d2dac8bf526dbf592e620f7b3cf32fb7f2ff57c35969f6067d7d2de7f7e3690c6ae071
   languageName: node
   linkType: hard
 
-"koa@npm:^2.14.2":
-  version: 2.14.2
-  resolution: "koa@npm:2.14.2"
+"koa@npm:^2.15.3":
+  version: 2.15.3
+  resolution: "koa@npm:2.15.3"
   dependencies:
     accepts: "npm:^1.3.5"
     cache-content-type: "npm:^1.0.0"
     content-disposition: "npm:~0.5.2"
     content-type: "npm:^1.0.4"
-    cookies: "npm:~0.8.0"
+    cookies: "npm:~0.9.0"
     debug: "npm:^4.3.2"
     delegates: "npm:^1.0.0"
     depd: "npm:^2.0.0"
@@ -6451,7 +6476,7 @@ __metadata:
     statuses: "npm:^1.5.0"
     type-is: "npm:^1.6.16"
     vary: "npm:^1.1.2"
-  checksum: 10/be3592ad2ed61068aaf19f4957de07602c4141cb33e049727d2453010d90cb9f4756c87103c9b44e24cf31f061116f4479b0a4ce7638c96fd64652f559ad5b7b
+  checksum: 10/b2c2771a4ee5268f9d039ce025b9c3798a0baba8c3cf3895a6fc2d286363e0cd2c98c02a5b87f14100baa2bc17d854eed6ed80f9bd41afda1d056f803b206514
   languageName: node
   linkType: hard
 
@@ -7505,12 +7530,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-to-regexp@npm:^1.2.0, path-to-regexp@npm:^1.7.0":
+"path-to-regexp@npm:^1.7.0":
   version: 1.8.0
   resolution: "path-to-regexp@npm:1.8.0"
   dependencies:
     isarray: "npm:0.0.1"
   checksum: 10/45a01690f72919163cf89714e31a285937b14ad54c53734c826363fcf7beba9d9d0f2de802b4986b1264374562d6a3398a2e5289753a764e3a256494f1e52add
+  languageName: node
+  linkType: hard
+
+"path-to-regexp@npm:^6.2.1":
+  version: 6.3.0
+  resolution: "path-to-regexp@npm:6.3.0"
+  checksum: 10/6822f686f01556d99538b350722ef761541ec0ce95ca40ce4c29e20a5b492fe8361961f57993c71b2418de12e604478dcf7c430de34b2c31a688363a7a944d9c
   languageName: node
   linkType: hard
 
@@ -8269,8 +8301,8 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@polkadot/dev": "npm:^0.82.2"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^20.17.10"
+    "@types/yargs": "npm:^17.0.33"
   languageName: unknown
   linkType: soft
 
@@ -9454,6 +9486,13 @@ __metadata:
   version: 5.26.5
   resolution: "undici-types@npm:5.26.5"
   checksum: 10/0097779d94bc0fd26f0418b3a05472410408877279141ded2bd449167be1aed7ea5b76f756562cb3586a07f251b90799bab22d9019ceba49c037c76445f7cddd
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.19.2":
+  version: 6.19.8
+  resolution: "undici-types@npm:6.19.8"
+  checksum: 10/cf0b48ed4fc99baf56584afa91aaffa5010c268b8842f62e02f752df209e3dea138b372a60a963b3b2576ed932f32329ce7ddb9cb5f27a6c83040d8cd74b7a70
   languageName: node
   linkType: hard
 
