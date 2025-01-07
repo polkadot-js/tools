@@ -44,12 +44,12 @@
     "@types/yargs": "^17.0.32"
   },
   "resolutions": {
-    "@polkadot/api": "^15.1.1",
-    "@polkadot/api-derive": "^15.1.1",
-    "@polkadot/keyring": "^13.2.3",
-    "@polkadot/types": "^15.1.1",
-    "@polkadot/util": "^13.2.3",
-    "@polkadot/util-crypto": "^13.2.3",
+    "@polkadot/api": "^15.2.1",
+    "@polkadot/api-derive": "^15.2.1",
+    "@polkadot/keyring": "^13.3.1",
+    "@polkadot/types": "^15.2.1",
+    "@polkadot/util": "^13.3.1",
+    "@polkadot/util-crypto": "^13.3.1",
     "typescript": "^5.5.4"
   }
 }
