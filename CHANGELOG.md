@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.62.1 Jan 7, 2025
+
+Changes:
+
+- Upgrade api to 15.2.1, and common to 13.3.1 ([#590](https://github.com/polkadot-js/tools/pull/590))
+    - Ensures compatibility with NodeJS v22.12
+- Bump dev w/ @types ([#591](https://github.com/polkadot-js/tools/pull/591))
+
+
 ## 0.61.2 Jan 1, 2025
 
 Changes:
