@@ -485,8 +485,8 @@ __metadata:
     "@polkadot/types": "npm:^15.2.1"
     "@polkadot/util": "npm:^13.3.1"
     "@polkadot/util-crypto": "npm:^13.3.1"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^22.10.5"
+    "@types/yargs": "npm:^17.0.33"
     tslib: "npm:^2.8.1"
     yargs: "npm:^17.7.2"
   bin:
@@ -537,40 +537,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/dev-test@npm:^0.82.2":
-  version: 0.82.2
-  resolution: "@polkadot/dev-test@npm:0.82.2"
+"@polkadot/dev-test@npm:^0.82.6":
+  version: 0.82.6
+  resolution: "@polkadot/dev-test@npm:0.82.6"
   dependencies:
     jsdom: "npm:^24.0.0"
     tslib: "npm:^2.7.0"
-  checksum: 10/44b3eaae10fee591e8869480a5793a772fd315e35099296ff6e48fee09ac8f0687fb6afeaae5c75c6d18e155667d08de5dc0ef6788b10102036c6fc484ab6797
+  checksum: 10/f88d0d3c2b367f5d55ed7b31e0fc25ac23e5aed854377dbde6e50feb2c8f223e8a0a7ea25d9ead0c0cfdc6521cd751c13c6a661d983b4474ca73a34e64651b69
   languageName: node
   linkType: hard
 
-"@polkadot/dev-ts@npm:^0.82.2":
-  version: 0.82.2
-  resolution: "@polkadot/dev-ts@npm:0.82.2"
+"@polkadot/dev-ts@npm:^0.82.6":
+  version: 0.82.6
+  resolution: "@polkadot/dev-ts@npm:0.82.6"
   dependencies:
     json5: "npm:^2.2.3"
     tslib: "npm:^2.7.0"
     typescript: "npm:^5.5.4"
-  checksum: 10/39dd2a0559a57e41d311aceec793e80ae2ec2507c05b2f4768fa984f58e45f7d808b0bb368f2d3a8e06e5d3e3d00a0872abe40212f8d4bb71e6bd4a61c5732e8
+  checksum: 10/f42e6b70067b7e628dd13e18502c6277fec8f8cdcdcda11b1ebd0bb8fa48680218f6944ca6dbe6254d5ad5833f4c7ca47a9972821a03e47c3f99d598a9c5bf21
   languageName: node
   linkType: hard
 
-"@polkadot/dev@npm:^0.82.2":
-  version: 0.82.2
-  resolution: "@polkadot/dev@npm:0.82.2"
+"@polkadot/dev@npm:^0.82.6":
+  version: 0.82.6
+  resolution: "@polkadot/dev@npm:0.82.6"
   dependencies:
     "@eslint/js": "npm:^8.56.0"
-    "@polkadot/dev-test": "npm:^0.82.2"
-    "@polkadot/dev-ts": "npm:^0.82.2"
-    "@rollup/plugin-alias": "npm:^5.1.0"
-    "@rollup/plugin-commonjs": "npm:^25.0.7"
-    "@rollup/plugin-dynamic-import-vars": "npm:^2.1.2"
+    "@polkadot/dev-test": "npm:^0.82.6"
+    "@polkadot/dev-ts": "npm:^0.82.6"
+    "@rollup/plugin-alias": "npm:^5.1.1"
+    "@rollup/plugin-commonjs": "npm:^25.0.8"
+    "@rollup/plugin-dynamic-import-vars": "npm:^2.1.5"
     "@rollup/plugin-inject": "npm:^5.0.5"
     "@rollup/plugin-json": "npm:^6.1.0"
-    "@rollup/plugin-node-resolve": "npm:^15.2.3"
+    "@rollup/plugin-node-resolve": "npm:^15.3.1"
     "@tsconfig/strictest": "npm:^2.0.2"
     "@typescript-eslint/eslint-plugin": "npm:^6.19.1"
     "@typescript-eslint/parser": "npm:^6.19.1"
@@ -629,7 +629,7 @@ __metadata:
     polkadot-exec-rollup: scripts/polkadot-exec-rollup.mjs
     polkadot-exec-tsc: scripts/polkadot-exec-tsc.mjs
     polkadot-exec-webpack: scripts/polkadot-exec-webpack.mjs
-  checksum: 10/a81072118556bce7c49657c66c8c1de3c7fef2c7af81f4818e56f45082ab4023cf1abfc53aa3b46b0203c49f1f26f06fa9525f8dcb907fe31fec1e005952b7c4
+  checksum: 10/3ee39c0dd472ecea40076553515d2c40a79dc4366c0b06943c62ff82d15450e244110b1a8cae4eb70b3a182ebaf26b0c962f9252e2a2cc126b07fa98ea56db02
   languageName: node
   linkType: hard
 
@@ -644,8 +644,8 @@ __metadata:
     "@polkadot/util": "npm:^13.3.1"
     "@types/koa": "npm:^2.13.12"
     "@types/koa-route": "npm:^3.2.8"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^22.10.5"
+    "@types/yargs": "npm:^17.0.33"
     koa: "npm:^2.14.2"
     koa-route: "npm:^3.2.0"
     tslib: "npm:^2.8.1"
@@ -677,8 +677,8 @@ __metadata:
     "@polkadot/keyring": "npm:^13.3.1"
     "@polkadot/types": "npm:^15.2.1"
     "@polkadot/util": "npm:^13.3.1"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^22.10.5"
+    "@types/yargs": "npm:^17.0.33"
     tslib: "npm:^2.8.1"
     yargs: "npm:^17.7.2"
   bin:
@@ -695,8 +695,8 @@ __metadata:
     "@polkadot/util": "npm:^13.3.1"
     "@types/koa": "npm:^2.13.12"
     "@types/koa-route": "npm:^3.2.8"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^22.10.5"
+    "@types/yargs": "npm:^17.0.33"
     koa: "npm:^2.14.2"
     koa-route: "npm:^3.2.0"
     tslib: "npm:^2.8.1"
@@ -778,8 +778,8 @@ __metadata:
     "@polkadot/types": "npm:^15.2.1"
     "@polkadot/util": "npm:^13.3.1"
     "@polkadot/util-crypto": "npm:^13.3.1"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^22.10.5"
+    "@types/yargs": "npm:^17.0.33"
     tslib: "npm:^2.8.1"
     yargs: "npm:^17.7.2"
   bin:
@@ -902,8 +902,8 @@ __metadata:
   dependencies:
     "@polkadot/util": "npm:^13.3.1"
     "@polkadot/util-crypto": "npm:^13.3.1"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@types/node": "npm:^22.10.5"
+    "@types/yargs": "npm:^17.0.33"
     tslib: "npm:^2.8.1"
     yargs: "npm:^17.7.2"
   bin:
@@ -1065,23 +1065,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-alias@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "@rollup/plugin-alias@npm:5.1.0"
-  dependencies:
-    slash: "npm:^4.0.0"
+"@rollup/plugin-alias@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "@rollup/plugin-alias@npm:5.1.1"
   peerDependencies:
     rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 10/2749f9563dba9274e4324fcd14ffe761fa66ee3baab307ba583d0348adfa2c1d2a164f59eac8c26a9ce7c713a99a991a831c072101e83697157ccf082c362310
+  checksum: 10/1f1ab178aa2726c81e2ae1709f73b3688491f14655b97c54d43bea35ac3f783f8855d701d1e5eac234e3ffe89fef56ce975726b036a97049fefa9b514686e55c
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:^25.0.7":
-  version: 25.0.7
-  resolution: "@rollup/plugin-commonjs@npm:25.0.7"
+"@rollup/plugin-commonjs@npm:^25.0.8":
+  version: 25.0.8
+  resolution: "@rollup/plugin-commonjs@npm:25.0.8"
   dependencies:
     "@rollup/pluginutils": "npm:^5.0.1"
     commondir: "npm:^1.0.1"
@@ -1094,13 +1092,13 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 10/89b108e245d1af6e7878ac949bfcd44e48f7d0c1eda0cb0b7e89c231ae73de455ffe2ac65eb03a398da4e8c300ce404f997fe66f8dde3d4d4794ffd2c1241fc3
+  checksum: 10/2d6190450bdf2ca2c4ab71a35eb5bf245349ad7dab6fc84a3a4e65147fd694be816e3c31b575c9e55a70a2f82132b79092d1ee04358e6e504beb31a8c82178bb
   languageName: node
   linkType: hard
 
-"@rollup/plugin-dynamic-import-vars@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "@rollup/plugin-dynamic-import-vars@npm:2.1.2"
+"@rollup/plugin-dynamic-import-vars@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@rollup/plugin-dynamic-import-vars@npm:2.1.5"
   dependencies:
     "@rollup/pluginutils": "npm:^5.0.1"
     astring: "npm:^1.8.5"
@@ -1112,7 +1110,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 10/f5d154d5517872b49c74bb96031f0f0b9fa6218c678eb6e1e5331e49d4bea0bdf78ef4c0457d896bb10167409775da3c2967cb6a238d63368a5cab01bd352df2
+  checksum: 10/55e0fe0adc79e5f208b11479175607cd512743573dbdfee00fccf894304349d2e5a99edc6d269bbbbfbcae2a8fb7d5b7718fe8e517f79ca93003089a5c94b806
   languageName: node
   linkType: hard
 
@@ -1146,14 +1144,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:^15.2.3":
-  version: 15.2.3
-  resolution: "@rollup/plugin-node-resolve@npm:15.2.3"
+"@rollup/plugin-node-resolve@npm:^15.3.1":
+  version: 15.3.1
+  resolution: "@rollup/plugin-node-resolve@npm:15.3.1"
   dependencies:
     "@rollup/pluginutils": "npm:^5.0.1"
     "@types/resolve": "npm:1.20.2"
     deepmerge: "npm:^4.2.2"
-    is-builtin-module: "npm:^3.2.1"
     is-module: "npm:^1.0.0"
     resolve: "npm:^1.22.1"
   peerDependencies:
@@ -1161,7 +1158,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 10/d36a6792fbe9d8673d3a7c7dc88920be669ac54fba02ac0093d3c00fc9463fce2e87da1906a2651016742709c3d202b367fb49a62acd0d98f18409343f27b8b4
+  checksum: 10/874494c0daca8fb0d633a237dd9df0d30609b374326e57508710f2b6d7ddaa93d203d8daa0257960b2b6723f56dfec1177573126f31ff9604700303b6f5fdbe3
   languageName: node
   linkType: hard
 
@@ -1593,12 +1590,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.10.5":
-  version: 20.10.5
-  resolution: "@types/node@npm:20.10.5"
+"@types/node@npm:*, @types/node@npm:^22.10.5":
+  version: 22.10.5
+  resolution: "@types/node@npm:22.10.5"
   dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 10/4a378428d2c9f692b19801a5a3d20dc4c0ad5d4a3d103350f8b401af439941a9aa5efeadc8eb9db13c66c620318bc7f336abfc8934f82fd32c4a689d85068c6f
+    undici-types: "npm:~6.20.0"
+  checksum: 10/a5366961ffa9921e8f15435bc18ea9f8b7a7bb6b3d92dd5e93ebcd25e8af65708872bd8e6fee274b4655bab9ca80fbff9f0e42b5b53857790f13cf68cf4cbbfc
   languageName: node
   linkType: hard
 
@@ -1690,12 +1687,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:^17.0.32":
-  version: 17.0.32
-  resolution: "@types/yargs@npm:17.0.32"
+"@types/yargs@npm:^17.0.33":
+  version: 17.0.33
+  resolution: "@types/yargs@npm:17.0.33"
   dependencies:
     "@types/yargs-parser": "npm:*"
-  checksum: 10/1e2b2673847011ce43607df690d392f137d95a2d6ea85aa319403eadda2ef4277365efd4982354d8843f2611ef3846c88599660aaeb537fa9ccddae83c2a89de
+  checksum: 10/16f6681bf4d99fb671bf56029141ed01db2862e3db9df7fc92d8bea494359ac96a1b4b1c35a836d1e95e665fb18ad753ab2015fc0db663454e8fd4e5d5e2ef91
   languageName: node
   linkType: hard
 
@@ -8268,9 +8265,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@polkadot/dev": "npm:^0.82.2"
-    "@types/node": "npm:^20.10.5"
-    "@types/yargs": "npm:^17.0.32"
+    "@polkadot/dev": "npm:^0.82.6"
+    "@types/node": "npm:^22.10.5"
+    "@types/yargs": "npm:^17.0.33"
   languageName: unknown
   linkType: soft
 
@@ -8652,13 +8649,6 @@ __metadata:
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
   checksum: 10/94a93fff615f25a999ad4b83c9d5e257a7280c90a32a7cb8b4a87996e4babf322e469c42b7f649fd5796edd8687652f3fb452a86dc97a816f01113183393f11c
-  languageName: node
-  linkType: hard
-
-"slash@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "slash@npm:4.0.0"
-  checksum: 10/da8e4af73712253acd21b7853b7e0dbba776b786e82b010a5bfc8b5051a1db38ed8aba8e1e8f400dd2c9f373be91eb1c42b66e91abb407ff42b10feece5e1d2d
   languageName: node
   linkType: hard
 
@@ -9450,10 +9440,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~5.26.4":
-  version: 5.26.5
-  resolution: "undici-types@npm:5.26.5"
-  checksum: 10/0097779d94bc0fd26f0418b3a05472410408877279141ded2bd449167be1aed7ea5b76f756562cb3586a07f251b90799bab22d9019ceba49c037c76445f7cddd
+"undici-types@npm:~6.20.0":
+  version: 6.20.0
+  resolution: "undici-types@npm:6.20.0"
+  checksum: 10/583ac7bbf4ff69931d3985f4762cde2690bb607844c16a5e2fbb92ed312fe4fa1b365e953032d469fa28ba8b224e88a595f0b10a449332f83fa77c695e567dbe
   languageName: node
   linkType: hard
 
