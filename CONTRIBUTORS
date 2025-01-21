@@ -1,5 +1,5 @@
      483	Jaco                          	2024 (#514)
-      74	Tarik Gul                     	Bump api to 15.4.1 (#594)
+      75	Tarik Gul                     	0.62.2 (#595)
        5	Peter Goodspeed-Niklaus       	Disable yargs behavior to optimistically parse number-seeming arguments (#108)
        3	Alexander Popiak              	add more spec diffing to the metadata comparison (#284)
        3	Bison Brandon                 	Signing-CLI: Add missing special case for immortal transactions (#62)
