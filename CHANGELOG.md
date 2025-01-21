@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.62.2 Jan 21, 2025
+
+Changes:
+
+- Bump api to 15.4.1 ([#594](https://github.com/polkadot-js/tools/pull/594))
+- Bump dev to 0.83.2 ([#593](https://github.com/polkadot-js/tools/pull/593))
+
+
 ## 0.62.1 Jan 7, 2025
 
 Changes:
