@@ -1,7 +1,8 @@
 // Copyright 2018-2025 @polkadot/metadata-cmp authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Metadata } from '@polkadot/types';
+import '@polkadot/api-augment';
+
 import type { RuntimeVersion, StorageEntryMetadataLatest } from '@polkadot/types/interfaces';
 import type { Registry } from '@polkadot/types/types';
 
@@ -9,16 +10,26 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { expandMetadata } from '@polkadot/types';
+import { expandMetadata, Metadata } from '@polkadot/types';
 import { getSiName } from '@polkadot/types/metadata/util';
 import { unwrapStorageType } from '@polkadot/types/util';
 import { assert, stringCamelCase } from '@polkadot/util';
 
 interface ArgV {
-  _: [string, string]
+  _: [string, string];
+  legacy: boolean;
 }
 
-const [ws1, ws2] = (yargs(hideBin(process.argv)).demandCommand(2).argv as unknown as ArgV)._;
+const argv = (yargs(hideBin(process.argv)).demandCommand(2).options({
+  legacy: {
+    default: false,
+    description: 'Using rpc.state.getMetadata to retrieve metadata. The highest supported metadata version will be 14.',
+    type: 'boolean'
+  }
+}).argv as unknown as ArgV);
+
+const [ws1, ws2] = argv._;
+const legacy = argv.legacy;
 
 // configure padding
 const lvlInc = 14;
@@ -76,24 +87,39 @@ function expandMapKey ({ lookup }: Registry, { type }: StorageEntryMetadataLates
   ];
 }
 
-async function getMetadata (url: string): Promise<[Registry, Metadata, RuntimeVersion]> {
+async function getMetadataLegacy (url: string, useLegacyRpc: boolean): Promise<[Registry, Metadata, RuntimeVersion]> {
   assert(url.startsWith('ws://') || url.startsWith('wss://'), `Invalid WebSocket endpoint ${url}, expected ws:// or wss://`);
 
   const provider = new WsProvider(url);
   const api = await ApiPromise.create({ provider });
 
+  await api.isReady;
+
   provider.on('error', () => process.exit());
 
-  return Promise.all([
-    Promise.resolve(api.registry),
-    api.rpc.state.getMetadata(),
-    api.rpc.state.getRuntimeVersion()
-  ]);
+  if (useLegacyRpc) {
+    return Promise.all([
+      Promise.resolve(api.registry),
+      api.rpc.state.getMetadata(),
+      api.rpc.state.getRuntimeVersion()
+    ]);
+  } else {
+    const versions = await api.call.metadata.metadataVersions();
+    // The versions should be sorted from least to greatest.
+    const version = versions.toArray()[versions.length - 1];
+    const meta = await api.call.metadata.metadataAtVersion(version);
+
+    return Promise.all([
+      Promise.resolve(api.registry),
+      Promise.resolve(new Metadata(api.registry, meta.unwrap())),
+      api.rpc.state.getRuntimeVersion()
+    ]);
+  }
 }
 
 // our main entry point - from here we call out
 async function main (): Promise<number> {
-  const [[regA, metaA, verA], [regB, metaB, verB]] = await Promise.all([getMetadata(ws1), getMetadata(ws2)]);
+  const [[regA, metaA, verA], [regB, metaB, verB]] = await Promise.all([getMetadataLegacy(ws1, legacy), getMetadataLegacy(ws2, legacy)]);
   const a = metaA.asLatest;
   const b = metaB.asLatest;
 
