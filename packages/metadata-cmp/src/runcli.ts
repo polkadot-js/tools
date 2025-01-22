@@ -1,6 +1,8 @@
 // Copyright 2018-2025 @polkadot/metadata-cmp authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import '@polkadot/api-augment';
+
 import type { RuntimeVersion, StorageEntryMetadataLatest } from '@polkadot/types/interfaces';
 import type { Registry } from '@polkadot/types/types';
 
@@ -91,6 +93,8 @@ async function getMetadataLegacy (url: string, useLegacyRpc: boolean): Promise<[
   const provider = new WsProvider(url);
   const api = await ApiPromise.create({ provider });
 
+  await api.isReady;
+
   provider.on('error', () => process.exit());
 
   if (useLegacyRpc) {
@@ -102,7 +106,7 @@ async function getMetadataLegacy (url: string, useLegacyRpc: boolean): Promise<[
   } else {
     const versions = await api.call.metadata.metadataVersions();
     // The versions should be sorted from least to greatest.
-    const version = versions[versions.length - 1];
+    const version = versions.toArray()[versions.length - 1];
     const meta = await api.call.metadata.metadataAtVersion(version);
 
     return Promise.all([

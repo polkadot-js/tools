@@ -674,6 +674,7 @@ __metadata:
   resolution: "@polkadot/metadata-cmp@workspace:packages/metadata-cmp"
   dependencies:
     "@polkadot/api": "npm:^15.4.1"
+    "@polkadot/api-augment": "npm:^15.4.1"
     "@polkadot/keyring": "npm:^13.3.1"
     "@polkadot/types": "npm:^15.4.1"
     "@polkadot/util": "npm:^13.3.1"
