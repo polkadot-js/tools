@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.63.1 Feb 4, 2025
+
+Breaking Changes:
+
+- Set metadata cli to use v15, and add --legacy flag ([#597](https://github.com/polkadot-js/tools/pull/597))
+
+  **NOTE**: This change adjusts the internal usage of RPC calls. If your chain does not support v15 you will have to use --legacy flag to have support for v14.
+
+Changes:
+- Bump polkadotJS deps to 15.4.5.2 ([#598](https://github.com/polkadot-js/tools/pull/598))
+
+
 ## 0.62.2 Jan 21, 2025
 
 Changes:
