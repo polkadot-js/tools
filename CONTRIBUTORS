@@ -20,3 +20,4 @@
        1	Serban Iorga                  	[api-cli] Avoid infinite wait on failed txs (#515)
        1	Stefanie Doll                 	Add support for v4 metadata (#23)
        1	Svyatoslav Nikolsky           	Added nonce argument to polkadot-js-api (#511)
+       1	Valentin Fernandez            	Upgrade polkadotJS deps (#598)
