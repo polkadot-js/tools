@@ -23,7 +23,7 @@
   "dependencies": {
     "@polkadot/api": "^15.6.1",
     "@polkadot/types": "^15.6.1",
-    "@polkadot/util": "^13.3.1",
+    "@polkadot/util": "^13.4.3",
     "koa": "^2.14.2",
     "koa-route": "^3.2.0",
     "tslib": "^2.8.1",
