@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.63.2 Feb 18, 2025
+
+Changes:
+- Bump polkadotJS deps([#600](https://github.com/polkadot-js/tools/pull/600)):
+  - api to 15.6.1
+  - common to 13.4.3
+
+
 ## 0.63.1 Feb 4, 2025
 
 Breaking Changes:
