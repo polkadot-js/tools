@@ -21,10 +21,10 @@
     "polkadot-js-json-serve": "./runcli.mjs"
   },
   "dependencies": {
-    "@polkadot/api": "^15.5.2",
-    "@polkadot/api-augment": "^15.5.2",
-    "@polkadot/api-derive": "^15.5.2",
-    "@polkadot/types": "^15.5.2",
+    "@polkadot/api": "^15.6.1",
+    "@polkadot/api-augment": "^15.6.1",
+    "@polkadot/api-derive": "^15.6.1",
+    "@polkadot/types": "^15.6.1",
     "@polkadot/util": "^13.3.1",
     "koa": "^2.14.2",
     "koa-route": "^3.2.0",
