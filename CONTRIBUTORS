@@ -13,6 +13,7 @@
        2	YJ                            	fix(#41): validate account seed before signing (#144)
        1	André Silva                   	api-cli: add option to skip waiting for tx inclusion (#224)
        1	Antoine Estienne              	Add ethereum to cli signer (#220)
+       1	Arjun Porwal                  	chore: upgraded deps (#604)
        1	cheme                         	hash long payload before display. (#158)
        1	Dmitry Selikhov               	Add RPC types (#271)
        1	Foy Savas                     	add support for sudoUncheckedWeight (#262)
