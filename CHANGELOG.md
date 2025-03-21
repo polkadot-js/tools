@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.63.4 Mar 21, 2025
+
+Changes:
+- Upgraded @polkadot deps([#604](https://github.com/polkadot-js/tools/pull/604)) 
+
 ## 0.63.3 Mar 4, 2025
 
 Changes:
