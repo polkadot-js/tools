@@ -44,10 +44,10 @@
     "@types/yargs": "^17.0.33"
   },
   "resolutions": {
-    "@polkadot/api": "^15.9.2",
-    "@polkadot/api-derive": "^15.9.2",
+    "@polkadot/api": "^15.10.2",
+    "@polkadot/api-derive": "^15.10.2",
     "@polkadot/keyring": "^13.4.4",
-    "@polkadot/types": "^15.9.2",
+    "@polkadot/types": "^15.10.2",
     "@polkadot/util": "^13.4.4",
     "@polkadot/util-crypto": "^13.4.4",
     "typescript": "^5.5.4"
