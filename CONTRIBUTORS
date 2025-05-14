@@ -1,6 +1,6 @@
      483	Jaco                          	2024 (#514)
       76	Tarik Gul                     	Set metadata cli to use v15, and add --legacy flag (#597)
-       7	Arjun Porwal                  	chore: upgraded deps (#610)
+       8	Arjun Porwal                  	0.63.7 (#611)
        6	Valentin Fernandez            	v0.63.3 (#603)
        5	Peter Goodspeed-Niklaus       	Disable yargs behavior to optimistically parse number-seeming arguments (#108)
        3	Alexander Popiak              	add more spec diffing to the metadata comparison (#284)
