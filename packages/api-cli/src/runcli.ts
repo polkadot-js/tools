@@ -174,6 +174,14 @@ const params = parseParams(paramsInline, paramsFile);
 
 const ALLOWED = ['consts', 'derive', 'query', 'rpc', 'tx'];
 
+async function initApi (): Promise<ApiPromise> {
+  const rpc = readFile<ApiOptions['rpc']>(argv.rpc);
+  const types = readFile<ApiOptions['types']>(argv.types);
+  const provider = new WsProvider(ws);
+
+  return await ApiPromise.create({ provider, rpc, types });
+}
+
 function readFile <T> (src: string): NonNullable<T> {
   if (!src) {
     return {} as NonNullable<T>;
@@ -188,10 +196,7 @@ function readFile <T> (src: string): NonNullable<T> {
 async function getCallInfo (): Promise<CallInfo> {
   assert(endpoint && endpoint.includes('.'), 'You need to specify the command to execute, e.g. query.system.account');
 
-  const rpc = readFile<ApiOptions['rpc']>(argv.rpc);
-  const types = readFile<ApiOptions['types']>(argv.types);
-  const provider = new WsProvider(ws);
-  const api = await ApiPromise.create({ provider, rpc, types });
+  const api = await initApi();
   const apiExt = (api as unknown) as ApiExt;
   const [type, section, method] = endpoint.split('.') as [keyof ApiExt, string, string];
 
@@ -304,10 +309,7 @@ async function makeCall ({ fn, log, method, type }: CallInfo): Promise<void> {
 }
 
 async function submitEncodedCall () {
-  const rpc = readFile<ApiOptions['rpc']>(argv.rpc);
-  const types = readFile<ApiOptions['types']>(argv.types);
-  const provider = new WsProvider(ws);
-  const api = await ApiPromise.create({ provider, rpc, types });
+  const api = await initApi();
   const call = api.createType('Call', argv.encodedCall);
   const { method, section } = api.registry.findMetaCall(call.callIndex);
 
