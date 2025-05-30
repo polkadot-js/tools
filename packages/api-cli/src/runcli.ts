@@ -8,6 +8,7 @@ import type { ApiOptions, SignerOptions } from '@polkadot/api/types';
 import type { KeyringPair } from '@polkadot/keyring/types';
 import type { Hash } from '@polkadot/types/interfaces';
 import type { CallFunction, Codec } from '@polkadot/types/types';
+import type { HexString } from '@polkadot/util/types';
 import type { KeypairType } from '@polkadot/util-crypto/types';
 
 import fs from 'node:fs';
@@ -80,6 +81,7 @@ interface Params {
   ws: string;
   assetId: number;
   tip: number;
+  encodedCall: HexString;
 }
 
 const CRYPTO = ['ed25519', 'sr25519', 'ethereum', 'ecdsa'];
@@ -103,6 +105,10 @@ Example: --seed "//Alice" --noWait --nonce -1 tx.balances.transfer F7Gh 10000`
     assetId: {
       description: 'The asset id to add to the transaction for payment',
       type: 'number'
+    },
+    encodedCall: {
+      description: 'Hex-encoded call to submit as a transaction',
+      type: 'string'
     },
     info: {
       description: 'Shows the meta information for the call',
@@ -251,7 +257,12 @@ async function makeTx ({ api, fn, log }: CallInfo): Promise<(() => void) | Hash>
   const signer = keyring.createFromUri(seed, {}, sign);
   let signable;
 
-  if (sudo || sudoUncheckedWeight) {
+  // Support hex-encoded call
+  if (argv.encodedCall) {
+    const call = api.createType('Call', argv.encodedCall);
+
+    signable = api.tx(call);
+  } else if (sudo || sudoUncheckedWeight) {
     const adminId = await api.query.sudo.key();
 
     assert(adminId.eq(signer.address), 'Supplied seed does not match on-chain sudo key');
@@ -292,8 +303,35 @@ async function makeCall ({ fn, log, method, type }: CallInfo): Promise<void> {
       });
 }
 
+async function submitEncodedCall () {
+  const rpc = readFile<ApiOptions['rpc']>(argv.rpc);
+  const types = readFile<ApiOptions['types']>(argv.types);
+  const provider = new WsProvider(ws);
+  const api = await ApiPromise.create({ provider, rpc, types });
+  const call = api.createType('Call', argv.encodedCall);
+  const { method, section } = api.registry.findMetaCall(call.callIndex);
+
+  return makeTx({
+    api,
+    fn: ((..._args: (string | LogFn)[]) => api.rpc.author.submitExtrinsic) as unknown as ApiCallFn, // dummy to satisfy type
+    log: (result: SubmittableResult | Codec | ApiCallFn): void =>
+      console.log(stringify({
+        [method]: isCodec(result)
+          ? result.toHuman()
+          : result
+      }, 2)),
+    method,
+    section,
+    type: 'tx'
+  });
+}
+
 // our main entry point - from here we call out
 async function main (): Promise<void | Hash | (() => void)> {
+  if (argv.encodedCall) {
+    return await submitEncodedCall();
+  }
+
   const callInfo = await getCallInfo();
 
   if (info) {
