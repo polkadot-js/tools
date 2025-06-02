@@ -55,6 +55,17 @@ yarn run:api --sudo --seed "//Alice" tx.system.setCode @test.wasm
 
 In all cases when sudoing, the seed provided should be that of the superuser. For most development nets, that is `"//Alice"`.
 
+### Encoded Call
+
+Transactions can now be submitted using an encoded hex call. This is useful for complex extrinsics that are difficult to craft manually via the CLI. Instead, build the transaction using the [Polkadot-JS Apps UI](https://polkadot.js.org/apps/#/extrinsics), copy the encoded call, and execute it via CLI.
+
+```
+yarn run:api --encodedCall <encoded_call> --seed "<seed>" --ws <ws_endpoint>
+```
+
+```
+yarn run:api --encodedCall 0x050300fe580ec5fe0e9569d645375acecf5aa19bc0b3188ddd2e2ffc68f6548590d61e0700e8764817 --seed "//Alice" --ws wss://paseo-rpc.dwellir.com
+```
 
 ## Global Installation
 
