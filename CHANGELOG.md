@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.63.10 June 18, 2025
+
+Changes:
+- Updated polkadot deps([#617](https://github.com/polkadot-js/tools/pull/617))
+- Rebuild yarn.lock ([#618](https://github.com/polkadot-js/tools/pull/618))
+
+
 ## 0.63.9 June 5, 2025
 
 Changes:
