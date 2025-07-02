@@ -1,6 +1,6 @@
 # @polkadot/tools
 
-This is a collection of cli tools to use on Polkadot and Substrate chains
+This is a collection of cli tools to use on Polkadot and Substrate chains.
 
 ## Overview
 
