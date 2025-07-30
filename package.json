@@ -16,8 +16,8 @@
   "type": "module",
   "version": "0.63.13",
   "versions": {
-    "git": "0.63.13-0-x",
-    "npm": "0.63.12"
+    "git": "0.63.13",
+    "npm": "0.63.13"
   },
   "workspaces": [
     "packages/*"
