@@ -3,7 +3,7 @@
 ## 0.63.13 July 30, 2025
 
 Changes:
-- Updated polkadot deps([#624](https://github.com/polkadot-js/tools/pull/624))
+- Bump polkadot deps([#624](https://github.com/polkadot-js/tools/pull/624))
 
 
 ## 0.63.12 July 15, 2025
