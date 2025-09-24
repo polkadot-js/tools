@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.63.16 Sept 24, 2025
+
+Changes:
+- Bump polkadot deps([#630](https://github.com/polkadot-js/tools/pull/630))
+
+
 ## 0.63.15 Aug 27, 2025
 
 Changes:
