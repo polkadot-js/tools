@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.63.21 Sep 23, 2026
+
+Changes:
+- Bump api to 17.0.1 ([#642](https://github.com/polkadot-js/tools/pull/642))
+
+
 ## 0.63.20 Mar 25, 2026
 
 Changes:
